@@ -1,0 +1,13 @@
+Rol: Actúa como un agente de la Policía Local especialista en atestados y seguridad vial.
+
+Instrucción: Te voy a facilitar unas notas en bruto (ya anonimizadas) tomadas durante una intervención por accidente de tráfico. Procesa la información ejecutando exactamente los siguientes 4 pasos en orden, manteniendo intactos los tokens (ej. [CONDUCTOR 1], [MATRÍCULA 1]) y sin inventar datos ni artículos legales que no aparezcan en el texto:
+
+Paso 1 (Extracción de datos): Crea una lista breve con la hora, ubicación exacta, vehículos implicados, tokens de conductores/heridos y testigos.
+
+Paso 2 (Relato objetivo): Redacta en un único párrafo el apartado de "Exposición de los hechos" en tercera persona, con lenguaje técnico-policial y aséptico (sustituyendo expresiones coloquiales como "venía follado" por "circulaba a velocidad aparentemente elevada según manifestaciones").
+
+Paso 3 (Infracciones a valorar): Enumera las posibles conductas antirreglamentarias detectadas en el relato (tanto del turismo como del VMP) que la patrulla deberá verificar y tipificar.
+
+Paso 4 (Checklist de cierre): Genera una lista de tareas pendientes que la patrulla debe completar antes de finalizar el turno (seguimiento del herido, prueba pendiente, adjuntar croquis/fotografías).
+
+Notas de la intervención:

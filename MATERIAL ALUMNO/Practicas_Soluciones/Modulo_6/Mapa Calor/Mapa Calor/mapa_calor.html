@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapa de calor delincuencial (práctica)</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+  :root{
+    --navy:#1d2940; --navy2:#2b3a57; --ink:#1f2328; --muted:#5d6672; --line:#d9dde3;
+    --bg:#f5f6f8; --card:#ffffff; --accent:#c2410c; --ok:#1a7f37; --warn:#9a6700;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0}
+  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);font-size:14px}
+  header{height:52px;background:var(--navy);color:#fff;display:flex;align-items:center;gap:14px;padding:0 16px}
+  header h1{font-size:16px;font-weight:600;margin:0;letter-spacing:.2px}
+  header .priv{margin-left:auto;font-size:12px;opacity:.85}
+  main{display:flex;height:calc(100% - 52px)}
+  aside{width:340px;min-width:300px;overflow-y:auto;background:var(--card);border-right:1px solid var(--line)}
+  #map{flex:1;background:#e8ebef}
+  section{padding:14px 16px;border-bottom:1px solid var(--line)}
+  section h2{font-size:12px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin:0 0 10px;font-weight:700}
+  .drop{border:2px dashed #b9c0ca;border-radius:6px;padding:14px;text-align:center;color:var(--muted);cursor:pointer;transition:.15s}
+  .drop.over{border-color:var(--accent);background:#fff4ec;color:var(--ink)}
+  .drop b{color:var(--ink)}
+  .note{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.4}
+  .status{margin-top:10px;font-size:13px;line-height:1.5}
+  .status .okc{color:var(--ok);font-weight:600}
+  .status .bad{color:var(--warn)}
+  .status ul{margin:4px 0 0;padding-left:18px}
+  .row{display:flex;align-items:center;gap:8px;margin:6px 0}
+  .row label{flex:1}
+  .tipos{max-height:230px;overflow-y:auto;border:1px solid var(--line);border-radius:4px;padding:4px 6px}
+  .tipo{display:flex;align-items:center;gap:6px;padding:3px 0;font-size:13px}
+  .tipo .sw{width:10px;height:10px;border-radius:50%;flex:none}
+  .tipo .n{margin-left:auto;color:var(--muted);font-variant-numeric:tabular-nums}
+  .links{font-size:12px;margin-bottom:6px}
+  .links a{color:var(--navy2);cursor:pointer;text-decoration:underline;margin-right:10px}
+  .chips{display:flex;flex-wrap:wrap;gap:4px}
+  .chip{border:1px solid var(--line);background:#fff;border-radius:3px;padding:3px 7px;font-size:12px;cursor:pointer;user-select:none}
+  .chip.on{background:var(--navy2);color:#fff;border-color:var(--navy2)}
+  select,input[type=range]{font:inherit}
+  select{padding:3px 4px;border:1px solid var(--line);border-radius:3px;background:#fff}
+  input[type=range]{width:120px}
+  .val{width:34px;text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+  .big{font-size:26px;font-weight:700;color:var(--navy)}
+  .big small{font-size:13px;font-weight:400;color:var(--muted)}
+  .chart{margin-top:10px}
+  .chart .t{font-size:12px;color:var(--muted);margin-bottom:2px}
+  table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:8px}
+  td,th{padding:3px 4px;border-bottom:1px solid #eef0f3;text-align:left}
+  th{color:var(--muted);font-weight:600}
+  td.n{text-align:right;font-variant-numeric:tabular-nums}
+  tr.click{cursor:pointer} tr.click:hover{background:#f3f5f8}
+  button{font:inherit;padding:6px 10px;border:1px solid var(--navy2);background:#fff;color:var(--navy2);border-radius:4px;cursor:pointer}
+  button:hover{background:#eef1f6}
+  .legend{background:#fff;padding:8px 10px;border-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,.25);font-size:12px;line-height:1.5}
+  .legend i{display:inline-block;width:14px;height:10px;margin-right:6px;vertical-align:-1px}
+  #err{display:none;padding:12px 16px;background:#fff1f0;color:#8a1c12;border-bottom:1px solid #f3c1bb;font-size:13px}
+  .disabled{opacity:.45;pointer-events:none}
+  .mun{display:block;width:100%;text-align:left;margin:3px 0;padding:5px 8px;font-size:13px}
+  .mun small{color:var(--muted)}
+  .geo{margin-top:8px;padding:8px;border:1px solid var(--line);border-radius:4px;background:#fafbfc}
+  .geo table{margin-top:4px} .geo td{padding:2px 4px}
+  .btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .btns button{font-size:12px;padding:4px 8px}
+  #tip{position:fixed;z-index:3000;max-width:300px;background:#1d2940;color:#fff;font-size:12px;line-height:1.4;padding:6px 9px;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.25);pointer-events:none;display:none}
+  [data-tip]{cursor:help}
+  button[data-tip],a[data-tip],.drop[data-tip]{cursor:pointer}
+  .archivo{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:13px}
+  .archivo span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+  .archivo button{font-size:12px;padding:4px 8px;white-space:nowrap}
+  #modalCols{position:fixed;inset:0;z-index:2000;background:rgba(15,23,42,.55);display:none;align-items:center;justify-content:center}
+  .mcaja{background:#fff;border-radius:8px;width:min(1200px,96vw);max-height:92vh;display:flex;flex-direction:column;box-shadow:0 10px 40px rgba(0,0,0,.35);font-size:13px}
+  .mcab{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--line)}
+  .mcab b{font-size:15px}
+  .mopc{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+  .mopc input{width:52px;padding:3px 4px;border:1px solid var(--line);border-radius:3px;font:inherit}
+  .mtabla{overflow:auto;flex:1 1 auto;min-height:160px;border-bottom:1px solid var(--line)}
+  .mtabla table{border-collapse:collapse;font-size:12px}
+  .mtabla th,.mtabla td{border:1px solid #e3e6ea;padding:4px 7px;white-space:nowrap;max-width:260px;overflow:hidden;text-overflow:ellipsis;text-align:left}
+  .mtabla thead th{position:sticky;top:0;z-index:1}
+  .mtabla thead tr.tit th{top:31px;font-weight:600;color:#334}
+  .mtabla select{font-size:12px;width:100%;min-width:150px;padding:3px;border:1px solid #b9c0ca;border-radius:3px;background:#fff}
+  .mtabla select.asig{border-color:var(--navy2);font-weight:600}
+  .mprev{padding:8px 16px;max-height:24vh;overflow:auto}
+  .mprev table{border-collapse:collapse;font-size:12px;margin-top:4px;width:100%}
+  .mprev th,.mprev td{border-bottom:1px solid #eef0f3;padding:3px 6px;text-align:left}
+  .mprev th{color:var(--muted);font-weight:600}
+  .mpie{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-top:1px solid var(--line)}
+  .mpie .prim{background:var(--navy2);color:#fff}
+  .mpie .prim:disabled{opacity:.4;cursor:default}
+  .mal{color:var(--warn);font-weight:600} .bien{color:var(--ok);font-weight:600} .gris{color:#9aa3ad}
+  section h2{display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none;margin:0}
+  section:not(.cerrada) h2{margin-bottom:10px}
+  section.cerrada > :not(h2){display:none !important}
+  section h2 .resu{flex:1;min-width:0;text-transform:none;letter-spacing:0;font-weight:600;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:right;font-size:12px}
+  section h2 .tog{flex:none;width:22px;height:22px;border-radius:50%;border:1px solid #b9c0ca;background:#fff;color:var(--navy2);padding:0;display:flex;align-items:center;justify-content:center;font-size:12px;line-height:1;transition:transform .2s;margin-left:auto}
+  section h2 .resu+.tog{margin-left:6px}
+  section.cerrada h2 .tog{transform:rotate(-90deg)}
+  .inf{display:grid;grid-template-columns:52px minmax(0,1fr);gap:6px 8px;align-items:center;font-size:13px}
+  .inf input,.inf select,.inf textarea{width:100%;box-sizing:border-box;font:inherit;padding:4px 6px;border:1px solid var(--line);border-radius:3px}
+  .inf textarea{resize:vertical}
+  button.prim{background:var(--navy2);color:#fff}
+  button:disabled{opacity:.5;cursor:default}
+</style>
+</head>
+<body>
+<header>
+  <h1>Mapa de calor delincuencial<span id="munTit"></span></h1>
+  <span class="priv" data-tip="Los archivos de datos no se envían a ningún servidor ni a ninguna IA. Solo se consulta en internet el límite y el callejero oficial del municipio, y el mapa de fondo.">🔒 Datos procesados solo en este equipo</span>
+</header>
+<main>
+<aside>
+  <div id="err"></div>
+
+  <section>
+    <h2>1 · Municipio<span class="resu" id="r1"></span></h2>
+    <div id="limForm">
+    <div class="row" style="margin-top:0">
+      <input id="munQ" type="text" placeholder="Tu municipio (p. ej. Mislata)" style="flex:1;min-width:0;padding:6px 8px;border:1px solid var(--line);border-radius:4px;font:inherit">
+      <button id="munBtn" style="white-space:nowrap" data-tip="Descarga el límite oficial del municipio del Instituto Geográfico Nacional. Solo se envía el nombre del municipio.">Buscar en el IGN</button>
+    </div>
+    <div id="munRes" class="note" style="margin-top:4px"></div>
+    <div id="limExtra">
+    <div class="drop" id="dropLim" style="margin-top:8px;padding:8px" data-tip="Si ya tienes el límite guardado en un archivo .geojson, arrástralo aquí o haz clic para elegirlo.">
+      Límite desde archivo (.geojson)
+      <input type="file" id="fileLim" accept=".geojson,.json,application/geo+json,application/json" hidden>
+    </div>
+    </div>
+    </div>
+    <div class="status" id="statusLim"></div>
+  </section>
+
+  <section>
+    <h2>2 · Datos<span class="resu" id="r2"></span></h2>
+    <div class="drop" id="drop" data-tip="Excel (.xlsx) o CSV, con las columnas en cualquier orden. Al cargarlo se abre una ventana para indicar qué columna es cada dato. Las direcciones se localizan en este equipo con el callejero oficial (CartoCiudad).">
+      <b>Archivo de datos (Excel o CSV)</b><br>arrastrar o hacer clic
+      <input type="file" id="file" accept=".xlsx,.xlsm,.csv,.txt,.tsv,text/csv,.geojson,.json,.xls" hidden>
+    </div>
+    <div id="mapeo"></div>
+    <div class="status" id="status"></div>
+  </section>
+
+  <div id="controls" class="disabled">
+  <section>
+    <h2>3 · Filtros<span class="resu" id="r3"></span></h2>
+    <div class="links"><b>Delito / intervención</b> &nbsp; <a id="tAll">todos</a><a id="tNone">ninguno</a></div>
+    <div class="tipos" id="tipos"></div>
+
+    <div class="links" style="margin-top:12px"><b>Día de la semana</b></div>
+    <div class="chips" id="dias"></div>
+
+    <div class="row" style="margin-top:12px">
+      <label data-tip="Si «de» es mayor que «a», la franja cruza la medianoche (p. ej. de 22 a 6)."><b>Franja horaria</b></label>
+      de <select id="hDesde"></select> a <select id="hHasta"></select>
+    </div>
+
+    <div class="links" style="margin-top:12px"><b>Mes</b></div>
+    <div class="chips" id="meses"></div>
+  </section>
+
+  <section>
+    <h2>4 · Representación</h2>
+    <div class="row"><label><input type="checkbox" id="lyHeat" checked> Mapa de calor</label></div>
+    <div class="row"><label style="padding-left:20px" data-tip="Tamaño de la mancha de cada hecho">Radio</label><input type="range" id="radius" min="8" max="45" value="22"><span class="val" id="radiusV"></span></div>
+    <div class="row"><label style="padding-left:20px" data-tip="Suavidad del borde de las manchas">Difuminado</label><input type="range" id="blur" min="5" max="40" value="18"><span class="val" id="blurV"></span></div>
+    <div class="row"><label style="padding-left:20px" data-tip="Cuántos hechos hacen falta para llegar al rojo. Más bajo: más zonas rojas.">Saturación</label><input type="range" id="maxI" min="1" max="40" value="8"><span class="val" id="maxIV"></span></div>
+    <div class="row"><label style="padding-left:20px" data-tip="Calcula la saturación según los datos filtrados"><input type="checkbox" id="autoMax" checked> Saturación automática</label></div>
+    <div class="row"><label style="padding-left:20px" data-tip="Hace visibles los lugares con pocos hechos (no los convierte en zonas calientes)">Ver zonas con pocos hechos</label><input type="range" id="minOp" min="0" max="50" value="5"><span class="val" id="minOpV"></span></div>
+    <div class="row"><label><input type="checkbox" id="lyPts"> Puntos (color por tipo)</label></div>
+    <div class="row"><label data-tip="Divide el municipio en celdas y muestra cuántos hechos hay en cada una"><input type="checkbox" id="lyGrid"> Cuadrícula de recuento</label><select id="cell"><option value="50">50 m</option><option value="100" selected>100 m</option><option value="200">200 m</option></select></div>
+    <div class="row"><label><input type="checkbox" id="lyLim" checked> Límite municipal</label></div>
+    <div class="row"><label>Mapa base</label><select id="base"><option value="gris">IGN gris</option><option value="ign">IGN callejero</option><option value="orto">Ortofoto PNOA</option><option value="none">Sin mapa</option></select></div>
+  </section>
+
+  <section>
+    <h2>5 · Resumen</h2>
+    <div class="big" id="nTot">0 <small>hechos</small></div>
+    <div class="chart"><div class="t">Por hora del día</div><svg id="chH" width="300" height="70"></svg></div>
+    <div class="chart"><div class="t">Por día de la semana</div><svg id="chD" width="300" height="70"></svg></div>
+    <div class="chart"><div class="t" data-tip="Clic en una fila para ir a esa zona del mapa">Celdas con más hechos</div>
+      <table id="topCells"><thead><tr><th>#</th><th>Celda</th><th>Tipo más frecuente</th><th class="n">Hechos</th></tr></thead><tbody></tbody></table>
+    </div>
+    <div style="margin-top:12px"><button id="dl" data-tip="Descarga solo los hechos que cumplen los filtros actuales">Descargar CSV filtrado</button></div>
+  </section>
+
+  <section>
+    <h2>6 · Exportar informe</h2>
+    <div class="inf">
+      <label>Título</label><input id="infTitulo" type="text" placeholder="Informe de hechos">
+      <label data-tip="«Vista actual»: la parte del mapa que se ve ahora (acerca o mueve el mapa para elegirla). «Todo el término»: se encuadra el municipio completo.">Zona</label>
+      <select id="infZona"><option value="vista">Vista actual del mapa</option><option value="termino">Todo el término municipal</option></select>
+      <label data-tip="Texto libre que se añade al principio del informe (opcional)">Notas</label><textarea id="infObs" rows="2" placeholder="Opcional"></textarea>
+    </div>
+    <div class="btns"><button id="infWord" class="prim" data-tip="Documento Word con la imagen del mapa, los filtros aplicados y el resumen de los hechos filtrados">Informe Word</button><button id="infPng" data-tip="Solo la imagen del mapa, tal y como se exportaría">Imagen del mapa</button></div>
+    <div class="status" id="infEstado"></div>
+  </section>
+  </div>
+</aside>
+<div id="map" style="position:relative"></div>
+</main>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+<script>
+(function(){
+"use strict";
+
+// ---------------------------------------------------------------------------
+// Límite municipal: se carga desde un GeoJSON oficial (no se dibuja a mano)
+// ---------------------------------------------------------------------------
+let LIM = null;   // {polys:[[anillo exterior, huecos...], ...], anillos:[...], nombre, areaKm2}
+
+const DIAS = ["lunes","martes","miércoles","jueves","viernes","sábado","domingo"];
+const DIAS_C = ["L","M","X","J","V","S","D"];
+const MESES = ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+const PALETA = ["#1f77b4","#d62728","#2ca02c","#9467bd","#ff7f0e","#8c564b","#e377c2","#17becf","#bcbd22","#7f7f7f","#393b79","#ad494a","#637939","#843c39"];
+const GRAD = {0.2:"#ffffb2",0.4:"#fecc5c",0.6:"#fd8d3c",0.8:"#f03b20",1.0:"#bd0026"};
+const GRID_COL = ["#ffffb2","#fecc5c","#fd8d3c","#f03b20","#bd0026"];
+
+const $ = id => document.getElementById(id);
+function showErr(msg){ const e=$("err"); e.innerHTML=msg; e.style.display="block"; }
+
+if (typeof L === "undefined") {
+  showErr("<b>No se ha podido cargar la librería del mapa.</b> Este ordenador necesita conexión a internet para descargar el mapa base y la librería Leaflet. Tus datos no se envían a ningún sitio.");
+  return;
+}
+
+// ---------------------------------------------------------------------------
+// Utilidades geográficas
+// ---------------------------------------------------------------------------
+function dentro(lat, lon){            // par-impar sobre todos los anillos (admite huecos y enclaves)
+  if (!LIM) return true;
+  let c=false;
+  for (const R of LIM.anillos){
+    for (let i=0,j=R.length-1;i<R.length;j=i++){
+      const [y1,x1]=R[i],[y2,x2]=R[j];
+      if ((y1>lat)!==(y2>lat) && lon < (x2-x1)*(lat-y1)/(y2-y1)+x1) c=!c;
+    }
+  }
+  return c;
+}
+let LAT0=0, LON0=0, MLAT=111130, MLON=85000;
+function fijarOrigen(lats, lons){
+  LAT0=Math.min(...lats); LON0=Math.min(...lons);
+  const latc=(Math.min(...lats)+Math.max(...lats))/2;
+  MLON=111320*Math.cos(latc*Math.PI/180);
+}
+function areaAnillo(R, latc){       // m², proyección local equirectangular
+  const kx=111320*Math.cos(latc*Math.PI/180), ky=111130; let a=0;
+  for (let i=0,j=R.length-1;i<R.length;j=i++) a += (R[j][1]*kx)*(R[i][0]*ky) - (R[i][1]*kx)*(R[j][0]*ky);
+  return Math.abs(a/2);
+}
+function leerGeoJSON(obj){
+  const geoms=[], nombres=[];
+  const props=p=>p&&(p.NAMEUNIT||p.nameunit||p.NOMBRE||p.nombre||p.name||p.NAME||p.municipio||p.MUNICIPIO||"");
+  (function rec(o,p){
+    if (!o) return;
+    if (o.type==="FeatureCollection") o.features.forEach(f=>rec(f));
+    else if (o.type==="Feature"){ if (o.geometry){ nombres.push(props(o.properties)); rec(o.geometry,o.properties);} }
+    else if (o.type==="GeometryCollection") o.geometries.forEach(g=>rec(g,p));
+    else if (o.type==="Polygon") geoms.push([o.coordinates]);
+    else if (o.type==="MultiPolygon") geoms.push(o.coordinates);
+  })(obj);
+  const nRecintos = nombres.length || geoms.length;
+  if (!geoms.length) throw "El archivo no contiene ningún polígono (Polygon o MultiPolygon).";
+  if (nRecintos>1 && new Set(nombres).size>1)
+    throw `El archivo contiene <b>${nRecintos.toLocaleString("es-ES")} recintos</b> (${[...new Set(nombres)].slice(0,4).join(", ")}…). Filtra y exporta solo tu municipio.`;
+  const polys=[], anillos=[];
+  for (const g of geoms) for (const poly of g){
+    const P=poly.map(ring=>ring.map(c=>{
+      if (Math.abs(c[0])>180 || Math.abs(c[1])>90) throw "Las coordenadas no están en grados (parecen UTM, en metros). Reproyecta a WGS84 / EPSG:4326 antes de exportar.";
+      return [c[1],c[0]];
+    }));
+    polys.push(P); P.forEach(r=>anillos.push(r));
+  }
+  const lats=anillos.flat().map(p=>p[0]), lons=anillos.flat().map(p=>p[1]);
+  const latc=(Math.min(...lats)+Math.max(...lats))/2;
+  let area=0; for (const P of polys){ area+=areaAnillo(P[0],latc); for (let k=1;k<P.length;k++) area-=areaAnillo(P[k],latc); }
+  return {polys, anillos, nombre:nombres.find(n=>n)||"", areaKm2:area/1e6, nPartes:polys.length, nHuecos:polys.reduce((s,P)=>s+P.length-1,0), lats, lons};
+}
+
+// ---------------------------------------------------------------------------
+// Lectura de archivos: CSV (coma, punto y coma, tabulador o barra; UTF-8 o ANSI)
+// y Excel .xlsx (se lee aquí mismo, sin enviar nada ni descargar librerías)
+// ---------------------------------------------------------------------------
+function parseCSV(text){
+  text = text.replace(/^\uFEFF/,"");
+  const lineas = text.split(/\r?\n/).filter(l=>l.trim()).slice(0,30);
+  let sep=",", mejor=-1;
+  for (const c of [";", ",", "\t", "|"]){          // el separador que más se repite y de forma más regular
+    const n = lineas.map(l=>l.split(c).length-1);
+    const moda = n.filter(x=>x>0).sort((a,b)=>n.filter(y=>y===b).length-n.filter(y=>y===a).length)[0]||0;
+    const punt = moda ? n.filter(x=>x===moda).length*10+moda : -1;
+    if (punt>mejor){ mejor=punt; sep=c; }
+  }
+  const rows=[]; let row=[], cur="", q=false;
+  for (let i=0;i<text.length;i++){
+    const ch=text[i];
+    if (q){
+      if (ch==='"'){ if (text[i+1]==='"'){cur+='"';i++;} else q=false; }
+      else cur+=ch;
+    } else if (ch==='"' && cur.trim()==="") { q=true; cur=""; }
+    else if (ch===sep){ row.push(cur); cur=""; }
+    else if (ch==="\n"){ row.push(cur); rows.push(row); row=[]; cur=""; }
+    else if (ch!=="\r") cur+=ch;
+  }
+  if (cur!=="" || row.length){ row.push(cur); rows.push(row); }
+  return rows;
+}
+
+const colNum = l => l.split("").reduce((a,c)=>a*26+c.charCodeAt(0)-64,0)-1;
+const letra = j => { let s=""; j++; while(j>0){ const m=(j-1)%26; s=String.fromCharCode(65+m)+s; j=Math.floor((j-1)/26); } return s; };
+const pad2 = n => String(n).padStart(2,"0");
+function serialATexto(v, k, d1904){               // nº de serie de Excel -> "AAAA-MM-DD HH:MM" / "HH:MM"
+  if (!isFinite(v)) return "";
+  let dias=Math.floor(v), mins=Math.round((v-dias)*1440);
+  if (mins===1440){ dias++; mins=0; }
+  const hm = pad2(Math.floor(mins/60))+":"+pad2(mins%60);
+  if (k==="h" || (dias===0 && k!=="f" && k!=="fh")) return hm;
+  const d = new Date((d1904?Date.UTC(1904,0,1):Date.UTC(1899,11,30)) + dias*864e5);
+  const f = `${d.getUTCFullYear()}-${pad2(d.getUTCMonth()+1)}-${pad2(d.getUTCDate())}`;
+  return (mins>0 || k==="fh") ? f+" "+hm : f;
+}
+async function leerXLSX(buf){
+  const dv=new DataView(buf), u8=new Uint8Array(buf), td=new TextDecoder();
+  let fin=-1;
+  for (let i=u8.length-22; i>=Math.max(0,u8.length-70000); i--) if (dv.getUint32(i,true)===0x06054b50){ fin=i; break; }
+  if (fin<0) throw new Error("no es un archivo .xlsx válido");
+  const ent={}; let p=dv.getUint32(fin+16,true);
+  for (let k=0, n=dv.getUint16(fin+10,true); k<n && dv.getUint32(p,true)===0x02014b50; k++){
+    const ln=dv.getUint16(p+28,true), le=dv.getUint16(p+30,true), lc=dv.getUint16(p+32,true);
+    ent[td.decode(u8.subarray(p+46,p+46+ln)).toLowerCase()] = {met:dv.getUint16(p+10,true), tam:dv.getUint32(p+20,true), off:dv.getUint32(p+42,true)};
+    p += 46+ln+le+lc;
+  }
+  async function leerEnt(nombre){
+    const e=ent[nombre.toLowerCase()]; if (!e) return null;
+    const ini = e.off+30+dv.getUint16(e.off+26,true)+dv.getUint16(e.off+28,true), dat=u8.subarray(ini, ini+e.tam);
+    if (e.met===0) return td.decode(dat);
+    if (e.met!==8) throw new Error("formato de compresión no admitido");
+    if (typeof DecompressionStream==="undefined") throw new Error("este navegador es antiguo: actualízalo o guarda el archivo como CSV");
+    return await new Response(new Blob([dat]).stream().pipeThrough(new DecompressionStream("deflate-raw"))).text();
+  }
+  const XML = t => new DOMParser().parseFromString(t||"<x/>","application/xml");
+  const T = (doc,tag) => Array.from(doc.getElementsByTagNameNS("*",tag));
+  const hijo = (el,tag) => Array.from(el.children).find(e=>e.localName===tag);
+  const wb = XML(await leerEnt("xl/workbook.xml"));
+  const d1904 = T(wb,"workbookPr").some(e=>/^(1|true)$/i.test(e.getAttribute("date1904")||""));
+  const rels={}; T(XML(await leerEnt("xl/_rels/workbook.xml.rels")),"Relationship").forEach(r=>rels[r.getAttribute("Id")]=r.getAttribute("Target"));
+  const ss=[]; const sst=await leerEnt("xl/sharedStrings.xml");
+  if (sst) T(XML(sst),"si").forEach(si=>ss.push(T(si,"t").filter(t=>t.parentNode.localName!=="rPh").map(t=>t.textContent).join("")));
+  // estilos: qué formatos de celda son fecha, hora o fecha y hora
+  const estilo=[]; const sty=await leerEnt("xl/styles.xml");
+  if (sty){
+    const sd=XML(sty), fmts={};
+    T(sd,"numFmt").forEach(f=>fmts[f.getAttribute("numFmtId")]=f.getAttribute("formatCode")||"");
+    const cx=T(sd,"cellXfs")[0];
+    if (cx) Array.from(cx.children).forEach(xf=>{
+      const id=+xf.getAttribute("numFmtId")||0; let k=null;
+      if (fmts[id]!==undefined){
+        const c=fmts[id].replace(/"[^"]*"|\[[^\]]*\]|\\./g,"").toLowerCase();
+        const f=/[dy]/.test(c)||/m{3,}/.test(c), h=/[hs]/.test(c);
+        k = f&&h ? "fh" : f ? "f" : h ? "h" : null;
+      } else if ((id>=14&&id<=17)||(id>=27&&id<=31)||(id>=34&&id<=36)||(id>=50&&id<=58)) k="f";
+      else if ((id>=18&&id<=21)||(id>=32&&id<=33)||(id>=45&&id<=47)) k="h";
+      else if (id===22) k="fh";
+      estilo.push(k);
+    });
+  }
+  const hojas=[];
+  for (const sh of T(wb,"sheet")){
+    const rid = sh.getAttribute("r:id") || sh.getAttributeNS("http://schemas.openxmlformats.org/officeDocument/2006/relationships","id");
+    let ruta = rels[rid]; if (!ruta) continue;
+    ruta = ruta.startsWith("/") ? ruta.slice(1) : "xl/"+ruta.replace(/^\.\//,"");
+    const doc = XML(await leerEnt(ruta)); const rows=[];
+    for (const fila of T(doc,"row")){
+      const arr=[]; let ci=0;
+      for (const c of Array.from(fila.children).filter(e=>e.localName==="c")){
+        const ref=c.getAttribute("r"); if (ref) ci=colNum(ref.match(/^[A-Z]+/)[0]);
+        const t=c.getAttribute("t")||"n", v=(hijo(c,"v")||{}).textContent||"";
+        let val;
+        if (t==="s") val = ss[+v] ?? "";
+        else if (t==="inlineStr") val = T(c,"t").map(x=>x.textContent).join("");
+        else if (t==="e") val = "";
+        else if (t==="b") val = v==="1" ? "VERDADERO" : "FALSO";
+        else if (t==="n" && v!=="" && estilo[+c.getAttribute("s")||0]) val = serialATexto(+v, estilo[+c.getAttribute("s")||0], d1904);
+        else val = v;
+        arr[ci++] = val;
+      }
+      rows.push(Array.from(arr, x=>x??""));
+    }
+    hojas.push({nombre: sh.getAttribute("name")||"", rows});
+  }
+  return hojas;
+}
+
+// ---------------------------------------------------------------------------
+// Interpretación de fechas, horas, coordenadas y direcciones
+// ---------------------------------------------------------------------------
+function num(s){ if (s==null) return NaN; s=String(s).trim().replace(",","."); return s===""?NaN:Number(s); }
+const MESES_TXT = {ene:1,enero:1,gen:1,gener:1,jan:1,feb:2,febrero:2,febrer:2,mar:3,marzo:3,marc:3,abr:4,abril:4,apr:4,may:5,mayo:5,maig:5,
+  jun:6,junio:6,juny:6,jul:7,julio:7,juliol:7,ago:8,agosto:8,agost:8,aug:8,sep:9,sept:9,set:9,septiembre:9,setiembre:9,setembre:9,
+  oct:10,octubre:10,nov:11,noviembre:11,novembre:11,dic:12,diciembre:12,des:12,desembre:12,dec:12,
+  january:1,february:2,march:3,april:4,june:6,july:7,august:8,september:9,october:10,november:11,december:12,
+  janvier:1,fevrier:2,mars:3,avril:4,mai:5,juin:6,juillet:7,aout:8,septembre:9,octobre:10,decembre:12};
+function parseFecha(s, orden){                         // orden: "dm" (día/mes, por defecto) o "md"
+  s = String(s||"").trim().replace(/^(?:lunes|martes|mi[eé]rcoles|jueves|viernes|s[aá]bado|domingo|dilluns|dimarts|dimecres|dijous|divendres|dissabte|diumenge|mon|tue|wed|thu|fri|sat|sun)[a-z]*\.?,?\s+/i,"");   // "martes, 12/03/2025" · "Wed, 12 Mar 2025"
+  let m;
+  const mk=(y,mo,d)=>{ const f=new Date(y,mo-1,d); return (y>1900 && f.getMonth()===mo-1 && f.getDate()===d) ? f : null; };
+  const anio=t=>{ let y=+t; if (t.length===2) y += y<70 ? 2000 : 1900; return y; };
+  if ((m=s.match(/^(\d{4})[-\/.](\d{1,2})[-\/.](\d{1,2})(?!\d)/))) return mk(+m[1],+m[2],+m[3]);
+  if ((m=s.match(/^(\d{1,2})[-\/.](\d{1,2})[-\/.](\d{4}|\d{2})(?!\d)/))) return orden==="md" ? mk(anio(m[3]),+m[1],+m[2]) : mk(anio(m[3]),+m[2],+m[1]);
+  if ((m=s.match(/^(\d{4})(\d{2})(\d{2})(?!\d)/))) return mk(+m[1],+m[2],+m[3]);
+  if ((m=sinTildes(s).match(/^(\d{1,2})(?:\s+de\s+|\s*[-\/ .]\s*)([a-z]+)\.?(?:\s+de\s+|\s*[-\/ .]\s*|\s+del?\s+)(\d{4}|\d{2})(?!\d)/))){
+    const mo=MESES_TXT[m[2]]; if (mo) return mk(anio(m[3]),mo,+m[1]);
+  }
+  if ((m=sinTildes(s).match(/^([a-z]+)\.?\s+(\d{1,2})(?:st|nd|rd|th)?,?\s+(\d{4})(?!\d)/))){   // "March 12, 2025"
+    const mo=MESES_TXT[m[1]]; if (mo) return mk(+m[3],mo,+m[2]);
+  }
+  if ((m=s.match(/^(\d{5})(?:[.,]\d+)?$/)) && +m[1]>20000 && +m[1]<80000){   // nº de serie de Excel guardado como texto
+    const d=new Date(Date.UTC(1899,11,30)+(+m[1])*864e5); return mk(d.getUTCFullYear(),d.getUTCMonth()+1,d.getUTCDate());
+  }
+  return null;
+}
+function parseHoraHM(s){                               // -> [h, min] | null
+  s = String(s||"").trim().toLowerCase(); if (!s) return null; let m, h, mi;
+  if (/^0?[.,]\d+$/.test(s)){ const t=Math.round(num(s)*1440)%1440; h=Math.floor(t/60); mi=t%60; }     // fracción de día de Excel
+  else if ((m=s.match(/^(\d{1,2})(\d{2})$/))){ h=+m[1]; mi=+m[2]; }                                   // 1435
+  else if ((m=s.match(/^(\d{1,2})(?:\s*[:.h']\s*(\d{2}))?(?:\s*:\s*\d{2}(?:[.,]\d+)?)?\s*(?:h\.?|hrs?\.?|horas?)?\s*(a\.?\s*m\.?|p\.?\s*m\.?)?$/))){
+    h=+m[1]; mi=m[2]?+m[2]:0;
+    if (m[3]){ const pm=m[3].startsWith("p"); if (pm && h<12) h+=12; if (!pm && h===12) h=0; }
+  } else return null;
+  return (h<24 && mi<60) ? [h,mi] : null;
+}
+function horaDeTexto(s){                               // hora dentro de una fecha: "12/03/2025 14:35"
+  const m=String(s||"").match(/(?:t|\s)(\d{1,2})[:h.](\d{2})(?::\d{2}(?:[.,]\d+)?)?\s*(a\.?\s*m\.?|p\.?\s*m\.?)?\s*(?:z|[+-]\d{2}:?\d{2}|utc|gmt)?\s*$/i);
+  return m ? parseHoraHM(m[1]+":"+m[2]+(m[3]?" "+m[3]:"")) : null;
+}
+function coordPar(s){                                  // "39.4712, -0.4123" · "(39,47 ; -0,41)" · "725100 4372300"
+  const N="(-?\\d{1,3}[.,]\\d{2,}|-?\\d{5,8}(?:[.,]\\d+)?)";
+  const m=String(s||"").trim().match(new RegExp("^\\(?\\s*"+N+"\\s*(?:[,;/|]\\s*|\\s+)"+N+"\\s*\\)?$"));
+  return m ? [num(m[1]), num(m[2])] : null;
+}
+function utmALatLon(E, N, huso){                       // ETRS89 / UTM hemisferio norte -> grados
+  const a=6378137, f=1/298.257222101, e2=f*(2-f), ep2=e2/(1-e2), k0=0.9996;
+  const x=E-500000, M=N/k0;
+  const mu=M/(a*(1-e2/4-3*e2*e2/64-5*e2**3/256)), e1=(1-Math.sqrt(1-e2))/(1+Math.sqrt(1-e2));
+  const p1=mu+(3*e1/2-27*e1**3/32)*Math.sin(2*mu)+(21*e1*e1/16-55*e1**4/32)*Math.sin(4*mu)+(151*e1**3/96)*Math.sin(6*mu)+(1097*e1**4/512)*Math.sin(8*mu);
+  const C1=ep2*Math.cos(p1)**2, T1=Math.tan(p1)**2, s=Math.sin(p1);
+  const N1=a/Math.sqrt(1-e2*s*s), R1=a*(1-e2)/Math.pow(1-e2*s*s,1.5), D=x/(N1*k0);
+  const lat=p1-(N1*Math.tan(p1)/R1)*(D*D/2-(5+3*T1+10*C1-4*C1*C1-9*ep2)*D**4/24+(61+90*T1+298*C1+45*T1*T1-252*ep2-3*C1*C1)*D**6/720);
+  const lon=(D-(1+2*T1+C1)*D**3/6+(5-2*C1+28*T1-3*C1*C1+8*ep2+24*T1*T1)*D**5/120)/Math.cos(p1);
+  return [lat*180/Math.PI, huso*6-183+lon*180/Math.PI];
+}
+function husoPorDefecto(){
+  if (LIM){ const p=LIM.anillos[0][0]; return Math.floor((p[1]+180)/6)+1; }
+  return 30;
+}
+// Nombre del municipio en sus variantes ("Montcada/Moncada" -> ["montcada","moncada"])
+function normMun(s){ return sinTildes(String(s||"")).replace(/\([^)]*\)/g," ").replace(/\b(l|el|la|les|los|las|els|lo)\b['’]?\s*/g," ").replace(/[^a-z0-9]+/g,""); }
+function variantesMun(){ return LIM && LIM.nombre ? LIM.nombre.split("/").map(normMun).filter(x=>x.length>=3) : []; }
+function esMismoMunicipio(txt){
+  const v=normMun(txt); if (!v) return true;
+  return variantesMun().some(x=> v===x || (v.length>=4 && x.includes(v)) || v.includes(x));
+}
+// Separa de una dirección lo que sobra al final: piso y puerta, código postal, provincia y localidad.
+// Devuelve {texto, loc} (loc = localidad que venía escrita en la dirección, si la había)
+const PALABRAS_NO_LOC = /\b(junto|frente|esquina|esq|cerca|altura|interior|exterior|parking|aparcamiento|bar|tienda|local|colegio|parque|jardin|mercado|portal|garaje|nave|solar|via|publica|calle|avenida|plaza|camino|carretera)\b/;
+const esLocalidad = q => /^[a-zà-ÿñç'’ .\-\/]+$/i.test(q) && q.trim().split(/\s+/).length<=4 && !PALABRAS_NO_LOC.test(sinTildes(q));
+function limpiarCola(txt){
+  let s=String(txt||"").replace(/\s+/g," ").trim(), loc="";
+  const prov=new Set(Object.values(PROVINCIAS).flatMap(p=>p.split("/")).map(normMun).concat(["espana","spain"]));
+  const piso=/^(?:\d+\s*[ºª°]|(?:piso|pta|puerta|pt|esc|escalera|bajo|bajos|bj|planta|pl|izq|izqda|izda|dcha|der|local|bloque|blq|entlo|entresuelo|atico)\b)/i;
+  s=s.replace(/\s*\(([^)]*)\)/g,(_,x)=>{ const q=x.trim().replace(/^\d{5}\s*/,""); if (q && !prov.has(normMun(q)) && esLocalidad(q)) loc=loc||q; return ""; }).trim();
+  const partes=s.split(/\s*[,;]\s*/);
+  while (partes.length>1){
+    const p=partes[partes.length-1].trim(), q=p.replace(/^(?:c\.?\s*p\.?\s*)?\d{5}\s*/i,"").replace(/\s*\d{5}$/,"");
+    if (!p || /^(?:c\.?\s*p\.?\s*)?\d{5}$/i.test(p) || prov.has(normMun(p)) || piso.test(p)){ partes.pop(); continue; }
+    const conNum = /\d|s\s*\/\s*n/i.test(partes[partes.length-2]);
+    if (esLocalidad(q) && (conNum || variantesMun().includes(normMun(q)))){ loc=q; partes.pop(); continue; }
+    if (conNum && PALABRAS_NO_LOC.test(sinTildes(p))){ partes.pop(); continue; }       // "…, 5, junto al bar"
+    break;
+  }
+  s=partes.join(", ").replace(/\s+\d{5}$/,"");
+  for (const v of variantesMun()){                     // "... 12 Mislata" (solo detrás de un número)
+    const m=s.match(/\d\s*[a-z]?\s+([^\s\d][^\s]*)$/i); if (m && normMun(m[1])===v){ s=s.slice(0,s.length-m[1].length); loc=loc||m[1]; }
+  }
+  // "Mayor 12 3º 2ª" / "Mayor 12 bajo": piso y puerta solo detrás de un número
+  s=s.replace(/(\d\s*[a-z]?)\s+(?:\d+\s*[ºª°]|(?:piso|pta|puerta|esc|escalera|bajo|bj|planta|izq|izda|dcha)\b).*$/i,"$1").replace(/[,\s]+$/,"");
+  return {texto:s, loc};
+}
+// Dirección a partir de las columnas que haya: tipo de vía, calle (o dirección completa) y número
+function separarDireccion(tvia, via, numTxt){
+  const c = limpiarCola((tvia ? tvia+" " : "") + (via||""));
+  const d = geoSepararDireccion(c.texto);
+  if (numTxt){
+    const n = String(numTxt).trim();
+    return {via: (d.numero && d.numero.replace(/\s/g,"").toLowerCase()===n.replace(/\s/g,"").toLowerCase()) ? d.via : c.texto, numero:n, loc:c.loc};
+  }
+  return {via:d.via, numero:d.numero, loc:c.loc};
+}
+// Grados en decimal o en grados, minutos y segundos (39°28'12"N)
+function parseGrado(s){
+  s=String(s||"").trim(); if (!s) return NaN;
+  const m=s.match(/^(-)?\s*(\d{1,3})\s*[°º]\s*(?:(\d{1,2}(?:[.,]\d+)?)\s*['′’]\s*)?(?:(\d{1,2}(?:[.,]\d+)?)\s*(?:["″”]|''))?\s*([NSEWO])?$/i);
+  if (m){ let v=+m[2]+(m[3]?num(m[3])/60:0)+(m[4]?num(m[4])/3600:0); if (m[1]||/[SWO]/i.test(m[5]||"")) v=-v; return v; }
+  return num(s);
+}
+function leerCoord(ct, la, lo, M){
+  let a, b;
+  if (M.coord>=0){
+    let p=coordPar(ct);
+    if (!p){ const m=String(ct||"").match(/^(.+?[NS])\s*[,;]?\s*(.+?[EWO])$/i); if (m) p=[parseGrado(m[1]),parseGrado(m[2])]; }
+    if (!p) return null; [a,b]=p;
+  } else { if (!la || !lo) return null; a=parseGrado(la); b=parseGrado(lo); }
+  if (!isFinite(a) || !isFinite(b)) return null;
+  const sis=M.sistema||"auto";
+  if (sis.startsWith("utm") || (sis!=="grados" && (Math.abs(a)>1000 || Math.abs(b)>1000)))
+    return utmALatLon(Math.min(a,b), Math.max(a,b), sis.startsWith("utm") ? +sis.slice(3) : husoPorDefecto());   // la Y (norte) es la mayor
+  return [a,b];
+}
+function ordenFechas(datos, M){                        // ¿día/mes o mes/día? Se decide mirando todo el archivo
+  let dm=0, md=0;
+  if (M.fecha>=0) for (const R of datos){ const m=String(R[M.fecha]??"").trim().match(/^(\d{1,2})[-\/.](\d{1,2})[-\/.]\d{2,4}/); if (m){ if (+m[1]>12) dm++; if (+m[2]>12) md++; } }
+  return md>0 && dm===0 ? "md" : "dm";
+}
+
+// ---------------------------------------------------------------------------
+// Asignación de columnas: qué columna del archivo es cada dato
+// ---------------------------------------------------------------------------
+const normCab = h => sinTildes(String(h||"")).replace(/[^a-z0-9]+/g,"_").replace(/^_+|_+$/g,"");
+const REGLAS = {
+  id:    [[/^(id|identificador|ref|referencia|registro|n_?registro|codigo|cod|n_?orden)$/,10],[/atestado|diligencia|expediente|denuncia_?n|n_?denuncia|num_?denuncia|n_?parte/,8],[/(^|_)id($|_)/,6]],
+  fecha: [[/^fecha_?(del_?|de_?los_?)?hechos?$/,12],[/^f_?hechos?$/,11],[/^fecha$/,10],[/^(date|fecha_?hora|fecha_?y_?hora|datetime|data|dia_?hechos?)$/,9],[/fecha|^data_/,5]],
+  hora:  [[/^hora_?(del_?|de_?los_?)?hechos?$/,12],[/^hora$/,10],[/^(time|h_?hechos?|hora_?inicio)$/,9],[/^hora/,6]],
+  tipo:  [[/^(tipo_?(de_?)?hecho|tipo_?(de_?)?delito|delito|delitos|tipologia|infraccion|tipo_?infraccion|calificacion|hecho|hechos|tipo_?penal|titulo|tipo|motivo|naturaleza)$/,10],[/delito|infracc|tipolog|calificac/,7]],
+  art:   [[/^(articulo|articulo_?cp|art|art_?cp|precepto|articulado)$/,10],[/articulo|precepto/,6]],
+  tvia:  [[/^(tipo_?(de_?)?via|tipovia|t_?via|sigla|sigla_?via|clase_?(de_?)?via)$/,10]],
+  via:   [[/^(via|calle|nombre_?(de_?la_?)?via|nombre_?calle|direccion|domicilio|lugar|lugar_?(de_?los_?)?hechos?|ubicacion|emplazamiento|direccion_?(de_?los_?)?hechos?|dir|localizacion|carrer|adreca)$/,10],[/calle|direcc|domicilio|lugar|(^|_)via($|_)/,5]],
+  numero:[[/^(numero|num|n|no|nro|n_?o|portal|numero_?(de_?)?via|num_?via|numero_?portal|n_?portal|numero_?calle|n_?calle)$/,10]],
+  loc:   [[/^(localidad|municipio|poblacion|ciudad|termino|termino_?municipal|nombre_?municipio|municipi|localitat)$/,10],[/localidad|municipio|poblacion/,6]],
+  lat:   [[/^(latitud|lat|latitude|y|coord_?y|coordenada_?y|utm_?y|y_?utm|northing|y_?etrs89)$/,10],[/latitud|(^|_)y($|_)/,5]],
+  lon:   [[/^(longitud|lon|lng|long|longitude|x|coord_?x|coordenada_?x|utm_?x|x_?utm|easting|x_?etrs89)$/,10],[/longitud|(^|_)x($|_)/,5]],
+  coord: [[/^(coordenadas|coords|coordenada|gps|latlon|lat_?lon|lat_?long|lat_?lng|geo|geolocalizacion|posicion|coordenadas_?gps)$/,10],[/coorden/,6]],
+};
+const reglaCoincide = h => Object.values(REGLAS).some(rs=>rs.some(([re,pt])=>pt>=9 && re.test(h)));   // solo títulos claros
+let ARCH = null;    // {nombre, hojas:[{nombre, rows}], hoja, M, orden}
+
+function nColumnas(rows, fila){ let n=0; for (let i=fila;i<Math.min(rows.length,fila+300);i++) n=Math.max(n,(rows[i]||[]).length); return n; }
+function adivinarFila(rows){
+  const lim=Math.min(rows.length,20); let mejor=-1, filaMejor=0, maxNe=0;
+  const ne=i=>(rows[i]||[]).filter(x=>String(x).trim()).length;
+  for (let i=0;i<lim;i++){
+    maxNe=Math.max(maxNe,ne(i));
+    const aciertos=(rows[i]||[]).filter(x=>reglaCoincide(normCab(x))).length;
+    if (aciertos>mejor){ mejor=aciertos; filaMejor=i; }
+  }
+  if (mejor>0) return filaMejor;
+  for (let i=0;i<lim;i++) if (ne(i)>=0.6*maxNe) return i;
+  return 0;
+}
+function adivinarMapa(rows, fila){
+  const H=rows[fila]||[], nc=nColumnas(rows,fila), cand=[];
+  for (const [k,reglas] of Object.entries(REGLAS)) for (let j=0;j<nc;j++){
+    const h=normCab(H[j]); if (!h) continue;
+    let s=0; for (const [re,pt] of reglas) if (re.test(h)) s=Math.max(s,pt);
+    if (s) cand.push([s,k,j]);
+  }
+  cand.sort((a,b)=>b[0]-a[0] || a[2]-b[2]);
+  const M={fila, id:-1, fecha:-1, hora:-1, tipo:-1, art:-1, tvia:-1, via:-1, numero:-1, loc:-1, lat:-1, lon:-1, coord:-1,
+           ubic:"dir", coordModo:"dos", sistema:"auto"};
+  const usada=new Set();
+  for (const [,k,j] of cand){ if (M[k]>=0 || usada.has(j)) continue; M[k]=j; usada.add(j); }
+  // Si los títulos no dicen nada, se mira el contenido
+  const muestra=rows.slice(fila+1, fila+201);
+  const prop=(j,fn)=>{ const v=muestra.map(r=>String((r||[])[j]??"").trim()).filter(Boolean); return v.length ? v.filter(fn).length/v.length : 0; };
+  const libre=fn=>{ for (let j=0;j<nc;j++) if (!usada.has(j) && fn(j)){ usada.add(j); return j; } return -1; };
+  if (M.fecha<0) M.fecha=libre(j=>prop(j,x=>parseFecha(x))>0.8);
+  if (M.hora<0 && !(M.fecha>=0 && prop(M.fecha,horaDeTexto)>0.5)) M.hora=libre(j=>prop(j,x=>/[:h]/i.test(x)&&parseHoraHM(x))>0.8);
+  if (M.coord<0 && !(M.lat>=0 && M.lon>=0)) M.coord=libre(j=>prop(j,coordPar)>0.8);
+  if (M.lat>=0 && M.lon>=0){ M.ubic="coord"; M.coordModo="dos"; }
+  else if (M.coord>=0){ M.ubic="coord"; M.coordModo="una"; }
+  return M;
+}
+const firma = row => (row||[]).map(normCab).join("|");
+function formatoGuardado(rows){
+  for (const x of (memLeer("formatos")||[])) if (rows[x.M.fila] && firma(rows[x.M.fila])===x.sig) return {...x.M};
+  return null;
+}
+function guardarFormato(rows, M){
+  const sig=firma(rows[M.fila]); const l=(memLeer("formatos")||[]).filter(x=>x.sig!==sig);
+  l.unshift({sig, M}); memGuardar("formatos", l.slice(0,15));
+}
+
+// Roles que puede tener una columna (cada rol solo en una columna)
+const ROLES = [
+  ["",      "— no usar —",                    "#ffffff"],
+  ["fecha", "Fecha (o fecha y hora)",          "#dbeafe"],
+  ["hora",  "Hora",                            "#e0e7ff"],
+  ["tipo",  "Delito / intervención",           "#fee2e2"],
+  ["art",   "Artículo CP",                     "#fce7f3"],
+  ["id",    "Nº atestado / id",                "#f3f4f6"],
+  ["tvia",  "Tipo de vía",                     "#dcfce7"],
+  ["via",   "Calle (o dirección completa)",    "#bbf7d0"],
+  ["numero","Número",                          "#d9f99d"],
+  ["loc",   "Localidad",                       "#fef9c3"],
+  ["lat",   "Latitud / Y",                     "#ffedd5"],
+  ["lon",   "Longitud / X",                    "#fed7aa"],
+  ["coord", "Coordenadas (las dos juntas)",    "#fdba74"],
+];
+const ROL_COLOR = Object.fromEntries(ROLES.map(r=>[r[0],r[2]]));
+const CLAVES_COL = ROLES.map(r=>r[0]).filter(Boolean);
+function ubicDe(M){ return (M.coord>=0 || M.lat>=0 || M.lon>=0) ? "coord" : "dir"; }
+function normalizarMapa(M){
+  M.ubic = ubicDe(M);
+  M.coordModo = M.coord>=0 ? "una" : "dos";
+  M.orden = M.orden || "auto"; M.sistema = M.sistema || "auto";
+  return M;
+}
+function faltanCampos(M){
+  const f=[];
+  if (M.fecha<0) f.push("Fecha");
+  if (M.tipo<0) f.push("Delito / intervención");
+  if (ubicDe(M)==="dir"){ if (M.via<0) f.push("Calle o coordenadas"); }
+  else if (M.coord<0 && (M.lat<0 || M.lon<0)) f.push(M.lat<0 ? "Latitud / Y" : "Longitud / X");
+  return f;
+}
+
+function abrirTabla(hojas, nombre, M, restaurando){
+  hojas = hojas.map(h=>({nombre:h.nombre, rows:h.rows.map(r=>r.map(x=>String(x??""))).filter(r=>r.some(c=>c.trim()!==""))}))
+               .filter(h=>h.rows.length);
+  if (!hojas.length){ showErr("El archivo está vacío."); return; }
+  $("err").style.display="none";
+  const hoja = Math.max(0, hojas.findIndex(h=>h.rows.length>1));
+  const cand = {nombre, hojas, hoja};
+  const rows = hojas[hoja].rows;
+  cand.M = normalizarMapa(M || formatoGuardado(rows) || adivinarMapa(rows, adivinarFila(rows)));
+  if (restaurando && !faltanCampos(cand.M).length){ ARCH=cand; pintarResumen(); procesar(); return; }
+  abrirModal(cand);
+}
+async function cargar(text, nombre, M, restaurando){ abrirTabla([{nombre:"", rows:parseCSV(text)}], nombre, M, restaurando); }
+
+function pintarResumen(){
+  const c=$("mapeo");
+  if (!ARCH){ c.innerHTML=""; return; }
+  c.innerHTML = `<div class="archivo"><span data-tip="${esc(ARCH.nombre)}">📄 ${esc(ARCH.nombre)}</span><button id="mEditar" data-tip="Elegir qué columna del archivo es la fecha, la hora, el delito, la dirección o las coordenadas">⚙ Columnas</button><button id="mQuitar" data-tip="Quita del mapa los datos de este archivo (el municipio se mantiene)">✕ Quitar datos</button></div>`;
+  $("mEditar").onclick=()=>abrirModal({...ARCH, M:{...ARCH.M}});
+  $("mQuitar").onclick=quitarDatos;
+}
+
+// Ventana para elegir las columnas, con el contenido del archivo a la vista
+function abrirModal(cand){
+  let fondo=$("modalCols");
+  if (!fondo){ fondo=document.createElement("div"); fondo.id="modalCols"; document.body.appendChild(fondo); }
+  fondo.style.display="flex";
+  const cerrar=()=>{ fondo.style.display="none"; fondo.innerHTML=""; document.removeEventListener("keydown",tecla); };
+  const tecla=e=>{ if (e.key==="Escape") cerrar(); };
+  document.addEventListener("keydown",tecla);
+
+  function pintar(){
+    const rows=cand.hojas[cand.hoja].rows, M=cand.M, H=rows[M.fila]||[], nc=nColumnas(rows,M.fila);
+    const datos=rows.slice(M.fila+1);
+    const rolDe = j => CLAVES_COL.find(k=>M[k]===j) || "";
+    const opts = j => ROLES.map(([k,et])=>`<option value="${k}"${rolDe(j)===k?" selected":""}>${et}</option>`).join("");
+    const MAXF=12;
+    let th1="", th2="";
+    for (let j=0;j<nc;j++){
+      const r=rolDe(j), bg=ROL_COLOR[r];
+      th1+=`<th style="background:${bg}"><select data-j="${j}" class="${r?"asig":""}">${opts(j)}</select></th>`;
+      th2+=`<th style="background:${bg}">${letra(j)} · ${esc(String(H[j]||"").trim()||"(sin título)")}</th>`;
+    }
+    const cuerpo = datos.slice(0,MAXF).map(R=>"<tr>"+Array.from({length:nc},(_,j)=>{ const r=rolDe(j);
+      return `<td style="${r?"background:"+ROL_COLOR[r]:"color:#9aa3ad"}">${esc(String(R[j]??"").slice(0,60))}</td>`; }).join("")+"</tr>").join("");
+
+    // Cómo se van a leer las primeras filas
+    const orden = M.orden==="auto" ? ordenFechas(datos, M) : M.orden;
+    const prev = datos.slice(0,5).map(R=>{
+      const g=j=>j>=0?String(R[j]??"").trim():"";
+      const f=parseFecha(g(M.fecha),orden);
+      const hm = (M.hora>=0 && g(M.hora)) ? (parseHoraHM(g(M.hora))||horaDeTexto(" "+g(M.hora))) : horaDeTexto(g(M.fecha));
+      let ub;
+      if (ubicDe(M)==="dir"){
+        if (M.via<0) ub="—";
+        else { const d=separarDireccion(g(M.tvia), g(M.via), g(M.numero)); const loc=g(M.loc)||d.loc;
+               ub = esc(`${d.via} ${d.numero}`.trim()) + (loc ? (LIM && !esMismoMunicipio(loc) ? ` <span class="mal">(${esc(loc)}: otra localidad, se descarta)</span>` : ` <span class="gris">(${esc(loc)})</span>`) : ""); }
+      } else {
+        const p=leerCoord(g(M.coord), g(M.lat), g(M.lon), M);
+        ub = p ? `${p[0].toFixed(5)}, ${p[1].toFixed(5)}` : (M.coord<0&&(M.lat<0||M.lon<0) ? "—" : `<span class="mal">no se entiende</span>`);
+      }
+      return `<tr><td>${M.fecha<0?"—":f?f.toLocaleDateString("es-ES"):`<span class="mal">no se entiende</span>`}</td>
+        <td>${hm?pad2(hm[0])+":"+pad2(hm[1]):'<span class="gris">sin hora</span>'}</td>
+        <td>${M.tipo<0?"—":esc(g(M.tipo).slice(0,50))}</td><td>${ub}</td></tr>`;
+    }).join("");
+    const falta=faltanCampos(M);
+    const hayCoord=ubicDe(M)==="coord";
+    fondo.innerHTML = `<div class="mcaja">
+      <div class="mcab"><b>Columnas de «${esc(cand.nombre)}»</b>
+        <span class="mopc">
+          ${cand.hojas.length>1?`<label>Hoja <select id="mHoja">${cand.hojas.map((h,i)=>`<option value="${i}"${i===cand.hoja?" selected":""}>${esc(h.nombre)}</option>`).join("")}</select></label>`:""}
+          <label data-tip="Fila del archivo donde están los nombres de las columnas">Fila de títulos <input id="mFila" type="number" min="1" max="${Math.min(rows.length-1,30)}" value="${M.fila+1}"></label>
+          <label data-tip="Orden del día y el mes en las fechas escritas con números (12/03/2025)">Fecha <select id="mOrden">
+            <option value="auto">orden automático</option><option value="dm">día/mes/año</option><option value="md">mes/día/año</option></select></label>
+          ${hayCoord?`<label data-tip="Grados (39.47, -0.41) o UTM en metros (725100, 4372300)">Coordenadas <select id="mSistema">
+            <option value="auto">automático</option><option value="grados">grados</option><option value="utm29">UTM huso 29</option><option value="utm30">UTM huso 30</option><option value="utm31">UTM huso 31</option></select></label>`:""}
+        </span></div>
+      <div class="mtabla"><table><thead><tr>${th1}</tr><tr class="tit">${th2}</tr></thead><tbody>${cuerpo}</tbody></table></div>
+      <div class="mprev"><b>Así se leerá</b>
+        <table><thead><tr><th>Fecha</th><th>Hora</th><th>Delito / intervención</th><th>Ubicación</th></tr></thead><tbody>${prev}</tbody></table></div>
+      <div class="mpie"><span id="mMsg" class="${falta.length?"mal":"bien"}">${falta.length?"Falta: "+falta.join(", "):"✔ Listo"}</span>
+        <span><button id="mCancelar">Cancelar</button> <button id="mAplicar" class="prim"${falta.length?" disabled":""}>Aplicar</button></span></div>
+    </div>`;
+    $("mOrden").value=M.orden;
+    if ($("mSistema")) $("mSistema").value=M.sistema;
+    fondo.querySelectorAll("select[data-j]").forEach(s=>s.onchange=()=>{
+      const j=+s.dataset.j, k=s.value;
+      CLAVES_COL.forEach(c=>{ if (M[c]===j) M[c]=-1; });        // la columna deja su rol anterior
+      if (k) M[k]=j;                                             // y el rol deja su columna anterior
+      normalizarMapa(M); pintar();
+    });
+    $("mOrden").onchange=()=>{ M.orden=$("mOrden").value; pintar(); };
+    if ($("mSistema")) $("mSistema").onchange=()=>{ M.sistema=$("mSistema").value; pintar(); };
+    $("mFila").onchange=()=>{ const f=Math.max(0,Math.min(rows.length-2,(+$("mFila").value||1)-1)); const o=M.orden; cand.M=normalizarMapa(adivinarMapa(rows,f)); cand.M.orden=o; pintar(); };
+    if ($("mHoja")) $("mHoja").onchange=()=>{ cand.hoja=+$("mHoja").value; const r=cand.hojas[cand.hoja].rows; cand.M=normalizarMapa(formatoGuardado(r)||adivinarMapa(r,adivinarFila(r))); pintar(); };
+    $("mCancelar").onclick=cerrar;
+    $("mAplicar").onclick=()=>{ if (faltanCampos(M).length) return;
+      ARCH=cand; guardarFormato(rows,M); cerrar(); pintarResumen(); procesar(); };
+  }
+  pintar();
+}
+
+// ---------------------------------------------------------------------------
+// Estado
+// ---------------------------------------------------------------------------
+let DATA=[], FILTRADOS=[], TIPOS=[], COLOR={}, ULTIMO=null;
+const sel = { tipos:new Set(), dias:new Set([0,1,2,3,4,5,6]), meses:new Set([0,1,2,3,4,5,6,7,8,9,10,11]) };
+
+let GEO_FILAS = null;      // resultados de geocodificación por fila (para descargar)
+async function procesar(){
+  const nombre=ARCH.nombre, rowsHoja=ARCH.hojas[ARCH.hoja].rows, M=ARCH.M;
+  const nc=nColumnas(rowsHoja,M.fila);
+  const H=Array.from({length:nc},(_,j)=>String((rowsHoja[M.fila]||[])[j]||"").trim()||"columna_"+letra(j));
+  const rows=rowsHoja.slice(M.fila+1).map(r=>Array.from({length:Math.max(nc,r.length)},(_,j)=>r[j]??""));
+  ULTIMO={nombre};
+  normalizarMapa(M);
+  const modoDir = M.ubic==="dir";
+  const orden = M.orden==="auto" ? ordenFechas(rows, M) : M.orden;
+
+  // --- Geocodificación local (solo si el archivo trae direcciones en vez de coordenadas)
+  let GI = null, fuenteCalles = "";
+  if (modoDir){
+    if (!LIM){ $("status").innerHTML = `<div class="bad">⚠ Carga primero el municipio (paso 1) para localizar las direcciones.</div>`; return; }
+    try {
+      $("status").innerHTML = `<div>Descargando el callejero de ${esc(LIM.nombre||"tu municipio")}…</div>`;
+      const pc = await obtenerPortales(n=>{ $("status").innerHTML = `<div>Descargando el callejero… ${n.toLocaleString("es-ES")} portales</div>`; });
+      GI = pc.I; fuenteCalles = pc.url;
+    } catch(e){
+      $("status").innerHTML = `<div class="bad">✖ No se ha podido descargar el callejero (CartoCiudad).</div>
+        <div class="note" style="margin-top:6px">Alternativa: abre <a href="${enlaceCallejero()}" target="_blank" rel="noopener">este enlace</a>, guárdalo (Ctrl+S) como <i>callejero.geojson</i> y arrástralo al recuadro de datos.</div>`; return;
+    }
+  }
+  const geoCuenta = {exacta:0, numero_aproximado:0, sin_numero:0, no_localizada:0, corregida:0};
+  const noLoc = []; GEO_FILAS = modoDir ? [] : null;
+
+  const motivos = {"Sin coordenadas":0,"Latitud y longitud intercambiadas":0,"Fuera del término municipal":0,
+                   "De otra localidad":0,"Registro duplicado":0,"Sin delito / intervención":0,"Fecha no válida":0,"Hora no válida":0};
+  let sinHora=0;
+  const vistos=new Set(); const out=[];
+  for (let r=0;r<rows.length;r++){
+    const R=rows[r]; const g=i=> i>=0 && i<R.length ? String(R[i]).trim() : "";
+    const ref = M.id>=0 && g(M.id) ? g(M.id) : "fila "+(M.fila+r+2);
+    const clave = M.id>=0 && g(M.id) ? "id:"+g(M.id) : R.join("|");
+    if (vistos.has(clave)){ motivos["Registro duplicado"]++; continue; }
+    vistos.add(clave);
+    let lat, lon, geoR = null, dirTxt = "";
+    if (modoDir){
+      const d = separarDireccion(g(M.tvia), g(M.via), g(M.numero));
+      const loc = g(M.loc) || d.loc;
+      if (loc && LIM && !esMismoMunicipio(loc)){ motivos["De otra localidad"]++; continue; }
+      dirTxt = `${d.via} ${d.numero}`.trim();
+      geoR = geocodificar(GI, d.via, d.numero);
+      GEO_FILAS.push({R, g:geoR});
+      geoCuenta[geoR.estado]++; if (geoR.corregida) geoCuenta.corregida++;
+      if (geoR.estado==="no_localizada"){ motivos["Dirección no localizada"]=(motivos["Dirección no localizada"]||0)+1; noLoc.push({id:ref, via:d.via, numero:d.numero, motivo:geoR.detalle}); continue; }
+      lat = geoR.lat; lon = geoR.lon;
+    } else {
+      if (M.coord>=0 ? !g(M.coord) : (!g(M.lat) || !g(M.lon))){ motivos["Sin coordenadas"]++; continue; }
+      const p = leerCoord(g(M.coord), g(M.lat), g(M.lon), M);
+      if (!p){ motivos["Coordenadas no válidas"]=(motivos["Coordenadas no válidas"]||0)+1; continue; }
+      [lat, lon] = p;
+    }
+    if (Math.abs(lat)>90 && Math.abs(lon)<=90){ motivos["Latitud y longitud intercambiadas"]++; continue; }
+    if (!dentro(lat,lon)){
+      if (LIM && dentro(lon,lat)) motivos["Latitud y longitud intercambiadas"]++;
+      else motivos["Fuera del término municipal"]++;
+      continue;
+    }
+    const tipo=g(M.tipo); if (!tipo){ motivos["Sin delito / intervención"]++; continue; }
+    const f=parseFecha(g(M.fecha), orden); if (!f){ motivos["Fecha no válida"]++; continue; }
+    let hm=null;
+    if (M.hora>=0 && g(M.hora)){ hm=parseHoraHM(g(M.hora)) || horaDeTexto(" "+g(M.hora)); if (!hm){ motivos["Hora no válida"]++; continue; } }
+    else hm=horaDeTexto(g(M.fecha));
+    if (!hm) sinHora++;
+    out.push({id:ref, tipo, lat, lon, f, h:hm?hm[0]:null, hs:hm?pad2(hm[0])+":"+pad2(hm[1]):"", art:g(M.art), dia:(f.getDay()+6)%7, mes:f.getMonth(), raw:R, geo:geoR,
+      dir: dirTxt});
+  }
+  DATA=out; window.__HEADER=H;
+  $("r2").textContent = `${out.length.toLocaleString("es-ES")} hechos`;
+  if (!memGuardar("datos", {rows:rowsHoja, nombre, M}))
+    console.warn("No se han podido guardar los datos en el navegador (demasiado grandes).");
+  if (!LIM && out.length) fijarOrigen(out.map(d=>d.lat), out.map(d=>d.lon));
+  const desc = Object.values(motivos).reduce((a,b)=>a+b,0);
+  let html = `<div class="okc">✔ ${out.length.toLocaleString("es-ES")} hechos en el mapa</div>`;
+  if (desc){
+    html += `<div class="bad">⚠ ${desc.toLocaleString("es-ES")} descartados:</div><ul>`;
+    for (const [k,v] of Object.entries(motivos)) if (v) html += `<li>${k}: ${v}</li>`;
+    html += "</ul>";
+  }
+  if (sinHora) html += `<div class="note" style="margin-top:2px" data-tip="Se pintan en el mapa, pero no entran en el gráfico por horas ni cuando se filtra por franja horaria.">ℹ ${sinHora.toLocaleString("es-ES")} sin hora</div>`;
+  if (!LIM) html += `<div class="bad" data-tip="No se comprueba si los hechos están dentro del término municipal.">⚠ Sin límite municipal</div>`;
+  if (modoDir){
+    const tot = geoCuenta.exacta+geoCuenta.numero_aproximado+geoCuenta.sin_numero+geoCuenta.no_localizada;
+    const loc = tot - geoCuenta.no_localizada, pct = tot ? 100*loc/tot : 0;
+    const f = v => v.toLocaleString("es-ES");
+    html += `<div class="geo"><b data-tip="Las direcciones se localizan en este equipo comparándolas con el callejero oficial de CartoCiudad (IGN/CNIG).">Localización de direcciones</b>
+      <table>
+        <tr><td>✔ Exacta</td><td class="n">${f(geoCuenta.exacta)}</td></tr>
+        <tr><td data-tip="El número no existe: se usa el más próximo de la misma acera">≈ Nº aproximado</td><td class="n">${f(geoCuenta.numero_aproximado)}</td></tr>
+        <tr><td data-tip="Sin número: se coloca en el centro de la calle">≈ Sin número</td><td class="n">${f(geoCuenta.sin_numero)}</td></tr>
+        <tr><td data-tip="No se pinta en el mapa">✖ No localizada</td><td class="n">${f(geoCuenta.no_localizada)}</td></tr>
+      </table>
+      <div style="margin-top:4px" class="${pct>=85?"okc":"bad"}" data-tip="Mínimo recomendado: 85 %. Por debajo, el mapa puede no ser fiable.${geoCuenta.corregida?` ${f(geoCuenta.corregida)} direcciones con el nombre de la vía interpretado (errata, abreviatura, sin título...).`:""}">Localizadas: ${pct.toLocaleString("es-ES",{maximumFractionDigits:1})} % ${pct>=85?"✔":"⚠"}</div>
+      <div class="btns"><button id="dlGeo" data-tip="El archivo original con latitud, longitud y cómo se ha localizado cada dirección">CSV con coordenadas</button>${noLoc.length?`<button id="dlNoLoc" data-tip="Las direcciones que no se han podido situar, con el motivo">No localizadas (${noLoc.length})</button>`:""}</div></div>`;
+  }
+  $("status").innerHTML = html;
+  if (modoDir){
+    const q=v=>/[",;\n]/.test(v)?'"'+String(v).replace(/"/g,'""')+'"':String(v);
+    const bajar=(nombreF, lineas)=>{ const a=document.createElement("a");
+      a.href=URL.createObjectURL(new Blob(["\uFEFF"+lineas.join("\r\n")],{type:"text/csv;charset=utf-8"}));
+      a.download=nombreF; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1000); };
+    $("dlGeo").onclick=()=>bajar("incidentes_geocodificados.csv",
+      [[...H,"latitud","longitud","geo_estado","geo_detalle"].map(q).join(","),
+       ...GEO_FILAS.map(x=>[...x.R.slice(0,H.length), x.g.lat!==undefined?x.g.lat.toFixed(6):"", x.g.lon!==undefined?x.g.lon.toFixed(6):"", x.g.estado, x.g.detalle].map(q).join(","))]);
+    if (noLoc.length) $("dlNoLoc").onclick=()=>bajar("direcciones_no_localizadas.csv",
+      [["id","via","numero","motivo"].join(","), ...noLoc.map(x=>[x.id,x.via,x.numero,x.motivo].map(q).join(","))]);
+  }
+
+  const cnt={}; out.forEach(d=>cnt[d.tipo]=(cnt[d.tipo]||0)+1);
+  TIPOS = Object.keys(cnt).sort((a,b)=>cnt[b]-cnt[a]);
+  COLOR={}; TIPOS.forEach((t,i)=>COLOR[t]=PALETA[i%PALETA.length]);
+  sel.tipos=new Set(TIPOS);
+  $("tipos").innerHTML = TIPOS.map((t,i)=>`<label class="tipo"><input type="checkbox" data-t="${i}" checked><span class="sw" style="background:${COLOR[t]}"></span>${esc(t)}<span class="n">${cnt[t]}</span></label>`).join("");
+  $("tipos").querySelectorAll("input").forEach(el=>el.onchange=()=>{ const t=TIPOS[+el.dataset.t]; el.checked?sel.tipos.add(t):sel.tipos.delete(t); actualizar(); });
+  $("controls").classList.remove("disabled");
+  if (!LIM && out.length) map.fitBounds(L.latLngBounds(out.map(d=>[d.lat,d.lon])), {padding:[20,20]});
+  actualizar();
+}
+function esc(s){ return String(s).replace(/[&<>"]/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch])); }
+
+// ---------------------------------------------------------------------------
+// Mapa
+// ---------------------------------------------------------------------------
+const map = L.map("map",{preferCanvas:true, zoomControl:true}).setView([40.2,-3.7],6);
+const IGN_ATTR = 'CC BY 4.0 <a href="https://www.scne.es">scne.es</a> · Sistema Geográfico Nacional <a href="https://www.ign.es">IGN</a>';
+const ign = (servicio, capa, fmt) => L.tileLayer(
+  `https://www.ign.es/wmts/${servicio}?service=WMTS&request=GetTile&version=1.0.0&Format=image/${fmt}&layer=${capa}&style=default&tilematrixset=GoogleMapsCompatible&TileMatrix={z}&TileRow={y}&TileCol={x}`,
+  {maxZoom:19, maxNativeZoom:17, attribution:IGN_ATTR, crossOrigin:"anonymous"});
+// Mapas base oficiales del IGN: gratuitos y sin clave (API key)
+const BASES = {
+  gris: ign("ign-base","IGNBase-gris","jpeg"),
+  ign:  ign("ign-base","IGNBaseTodo","jpeg"),
+  orto: ign("pnoa-ma","OI.OrthoimageCoverage","jpeg"),
+};
+let baseActual = BASES.gris.addTo(map);
+L.control.scale({imperial:false}).addTo(map);
+
+let capaLim = L.layerGroup().addTo(map);
+const heat = L.heatLayer([], {radius:22, blur:18, maxZoom:17, max:8, minOpacity:0.05, gradient:GRAD});
+const capaPts = L.layerGroup();
+const capaGrid = L.layerGroup();
+let leyenda=null;
+
+// ---------------------------------------------------------------------------
+// Filtros y representación
+// ---------------------------------------------------------------------------
+function pasaHora(h){
+  const a=+$("hDesde").value, b=+$("hHasta").value;
+  if (h===null) return a===0 && b===23;          // sin hora: solo cuando no se filtra por franja
+  return a<=b ? (h>=a && h<=b) : (h>=a || h<=b);
+}
+function cuadricula(datos, tam){
+  const m=new Map();
+  for (const d of datos){
+    const gx=Math.floor((d.lon-LON0)*MLON/tam), gy=Math.floor((d.lat-LAT0)*MLAT/tam);
+    const k=gx+","+gy; let c=m.get(k);
+    if (!c){ c={gx,gy,n:0,tipos:{}}; m.set(k,c); }
+    c.n++; c.tipos[d.tipo]=(c.tipos[d.tipo]||0)+1;
+  }
+  return [...m.values()];
+}
+function celdaBounds(c,tam){
+  const s=LAT0+c.gy*tam/MLAT, w=LON0+c.gx*tam/MLON;
+  return [[s,w],[s+tam/MLAT, w+tam/MLON]];
+}
+function cuantil(arr,q){ if(!arr.length) return 0; const s=[...arr].sort((a,b)=>a-b); return s[Math.min(s.length-1,Math.floor(q*(s.length-1)))]; }
+
+function actualizar(){
+  FILTRADOS = DATA.filter(d=>sel.tipos.has(d.tipo) && sel.dias.has(d.dia) && sel.meses.has(d.mes) && pasaHora(d.h));
+  const n=FILTRADOS.length;
+  $("nTot").innerHTML = `${n.toLocaleString("es-ES")} <small>hechos de ${DATA.length.toLocaleString("es-ES")}</small>`;
+  $("r3").textContent = DATA.length && n<DATA.length ? `${n.toLocaleString("es-ES")} de ${DATA.length.toLocaleString("es-ES")}` : "";
+
+  // Mapa de calor
+  const c100 = cuadricula(FILTRADOS,100).map(c=>c.n);
+  if ($("autoMax").checked){
+    const v=Math.max(1,Math.round(cuantil(c100,0.95)*0.4));
+    $("maxI").value=Math.min(40,v);
+  }
+  heat.setOptions({radius:+$("radius").value, blur:+$("blur").value, max:+$("maxI").value, minOpacity:+$("minOp").value/100});
+  heat.setLatLngs(FILTRADOS.map(d=>[d.lat,d.lon,1]));
+  toggle(heat,$("lyHeat").checked);
+
+  // Puntos
+  capaPts.clearLayers();
+  if ($("lyPts").checked){
+    for (const d of FILTRADOS){
+      L.circleMarker([d.lat,d.lon],{radius:3.5,weight:0.6,color:"#ffffff",fillColor:COLOR[d.tipo],fillOpacity:0.9})
+
+        .addTo(capaPts);
+    }
+  }
+  toggle(capaPts,$("lyPts").checked);
+
+  // Cuadrícula
+  const tam=+$("cell").value;
+  const celdas=cuadricula(FILTRADOS,tam).sort((a,b)=>b.n-a.n);
+  capaGrid.clearLayers();
+  const ns=celdas.map(c=>c.n);
+  const cortes=[0.2,0.4,0.6,0.8].map(q=>cuantil(ns,q));
+  const clase=v=>{ let k=0; while(k<4 && v>cortes[k]) k++; return k; };
+  if ($("lyGrid").checked){
+    for (const c of celdas){
+      const top=Object.entries(c.tipos).sort((a,b)=>b[1]-a[1])[0][0];
+      L.rectangle(celdaBounds(c,tam),{weight:0.5,color:"#7a2a14",fillColor:GRID_COL[clase(c.n)],fillOpacity:0.65})
+        .bindTooltip(`${c.n} hechos<br><small>Más frecuente: ${esc(top)}</small>`).addTo(capaGrid);
+    }
+  }
+  toggle(capaGrid,$("lyGrid").checked);
+  ponerLeyenda($("lyGrid").checked ? {cortes, max:ns[0]||0, tam} : null);
+
+  // Resumen
+  barras("chH", Array.from({length:24},(_,h)=>FILTRADOS.filter(d=>d.h===h).length), Array.from({length:24},(_,h)=>h%3===0?String(h):""));
+  barras("chD", DIAS.map((_,i)=>FILTRADOS.filter(d=>d.dia===i).length), DIAS_C);
+  const tb=$("topCells").querySelector("tbody");
+  tb.innerHTML = celdas.slice(0,8).map((c,i)=>{
+    const top=Object.entries(c.tipos).sort((a,b)=>b[1]-a[1])[0][0];
+    return `<tr class="click" data-i="${i}"><td>${i+1}</td><td>${tam} m</td><td>${esc(top)}</td><td class="n">${c.n}</td></tr>`;
+  }).join("") || `<tr><td colspan="4" style="color:#5d6672">Sin hechos con estos filtros</td></tr>`;
+  tb.querySelectorAll("tr.click").forEach(tr=>tr.onclick=()=>{
+    const b=celdaBounds(celdas[+tr.dataset.i],tam);
+    map.fitBounds(b,{maxZoom:18});
+    const r=L.rectangle(b,{color:"#000",weight:3,fill:false}).addTo(map); setTimeout(()=>map.removeLayer(r),2500);
+  });
+  ["radius","blur","maxI","minOp"].forEach(k=>$(k+"V").textContent=$(k).value);
+}
+// ---------------------------------------------------------------------------
+// Información del hecho al hacer clic en el mapa (sirve con puntos, calor o cuadrícula)
+// ---------------------------------------------------------------------------
+const ESTADO_GEO = {exacta:"✔ dirección exacta", numero_aproximado:"≈ número aproximado", sin_numero:"≈ sin número (centro de la calle)"};
+function fichaHecho(d){
+  const fecha = d.f.toLocaleDateString("es-ES",{day:"2-digit",month:"2-digit",year:"numeric"});
+  let s = `<div style="border-top:1px solid #e3e6ea;padding:6px 0 4px">
+    <div style="font-weight:600;color:${COLOR[d.tipo]||"#333"}">${esc(d.tipo)}${d.art?` <span style="font-weight:400;color:#5d6672">· art. ${esc(d.art)} CP</span>`:""}</div>
+    <div>${fecha} · ${DIAS[d.dia]} · ${d.hs?esc(d.hs)+" h":"hora desconocida"}</div>
+    <div style="color:#5d6672">Ref.: ${esc(d.id)}</div>`;
+  if (d.dir) s += `<div>📍 ${esc(d.dir)}</div>`;
+  if (d.geo) s += `<div style="color:#5d6672;font-size:11px">${ESTADO_GEO[d.geo.estado]||""}${d.geo.estado!=="exacta"||d.geo.corregida?": "+esc(d.geo.detalle):""}</div>`;
+  return s + `</div>`;
+}
+function mostrarHechos(latlng){
+  if (!FILTRADOS.length) return;
+  const p = map.latLngToContainerPoint(latlng), R = 12;
+  let cerca = FILTRADOS.map(d=>{ const q = map.latLngToContainerPoint([d.lat,d.lon]); return [Math.hypot(q.x-p.x,q.y-p.y), d]; })
+                       .filter(x=>x[0] <= R).sort((a,b)=>a[0]-b[0]);
+  if (!cerca.length) return;
+  const d0 = cerca[0][1];                        // se centran en la ubicación más cercana al clic
+  cerca = cerca.map(x=>x[1]).filter(d=>Math.hypot((d.lat-d0.lat)*MLAT,(d.lon-d0.lon)*MLON) < 3);
+  cerca.sort((a,b)=>b.f-a.f || (b.h??-1)-(a.h??-1));
+  const MAX = 15;
+  let html = `<div style="font-size:12.5px;max-height:320px;overflow-y:auto">
+    <div style="font-weight:700;margin-bottom:2px">${cerca.length===1?"1 hecho":cerca.length+" hechos"} en esta ubicación</div>
+    <div style="color:#5d6672;font-size:11px;margin-bottom:4px">${d0.lat.toFixed(6)}, ${d0.lon.toFixed(6)}</div>`;
+  html += cerca.slice(0,MAX).map(fichaHecho).join("");
+  if (cerca.length > MAX) html += `<div style="color:#5d6672;padding-top:4px">… y ${cerca.length-MAX} más (filtra por tipo o fecha para verlos).</div>`;
+  L.popup({maxWidth:330}).setLatLng([d0.lat,d0.lon]).setContent(html+"</div>").openOn(map);
+}
+map.on("click", e=>mostrarHechos(e.latlng));
+const ayudaClic = L.control({position:"bottomleft"});
+ayudaClic.onAdd = ()=>{ const d=L.DomUtil.create("div","legend"); d.innerHTML="ℹ️ Haz clic en un punto o zona del mapa para ver sus hechos"; return d; };
+ayudaClic.addTo(map);
+
+function toggle(layer,on){ if(on){ if(!map.hasLayer(layer)) layer.addTo(map); } else if(map.hasLayer(layer)) map.removeLayer(layer); }
+
+function ponerLeyenda(info){
+  if (leyenda){ map.removeControl(leyenda); leyenda=null; }
+  if (!info || !info.max) return;
+  leyenda=L.control({position:"bottomright"});
+  leyenda.onAdd=()=>{
+    const d=L.DomUtil.create("div","legend");
+    const lim=[...info.cortes, info.max];
+    let prev=1, h=`<b>Hechos por celda de ${info.tam} m</b><br>`;
+    lim.forEach((v,i)=>{ if (v>=prev){ h+=`<i style="background:${GRID_COL[i]}"></i>${prev===v?v:prev+"–"+v}<br>`; prev=v+1; } });
+    d.innerHTML=h; return d;
+  };
+  leyenda.addTo(map);
+}
+
+function barras(id, vals, etiquetas){
+  const svg=$(id), W=300, H=70, pad=14, n=vals.length, max=Math.max(1,...vals);
+  const bw=(W-4)/n;
+  let s="";
+  vals.forEach((v,i)=>{
+    const h=(H-pad-4)*v/max, x=2+i*bw, y=H-pad-h;
+    s+=`<rect x="${x+1}" y="${y}" width="${Math.max(1,bw-2)}" height="${h}" rx="1.5" fill="#2b3a57"><title>${etiquetas[i]||i}: ${v}</title></rect>`;
+    if (etiquetas[i]) s+=`<text x="${x+bw/2}" y="${H-2}" font-size="10" text-anchor="middle" fill="#5d6672">${etiquetas[i]}</text>`;
+  });
+  svg.innerHTML=s;
+}
+
+// ---------------------------------------------------------------------------
+// Controles
+// ---------------------------------------------------------------------------
+for (let h=0;h<24;h++){ $("hDesde").add(new Option(String(h).padStart(2,"0")+":00",h)); $("hHasta").add(new Option(String(h).padStart(2,"0")+":59",h)); }
+$("hDesde").value=0; $("hHasta").value=23;
+$("dias").innerHTML = DIAS.map((d,i)=>`<span class="chip on" data-i="${i}" title="${d}">${d.slice(0,3)}</span>`).join("");
+$("meses").innerHTML = MESES.map((m,i)=>`<span class="chip on" data-i="${i}">${m}</span>`).join("");
+function chips(cont,set){ $(cont).querySelectorAll(".chip").forEach(ch=>ch.onclick=()=>{ const i=+ch.dataset.i; ch.classList.toggle("on"); ch.classList.contains("on")?set.add(i):set.delete(i); actualizar(); }); }
+chips("dias",sel.dias); chips("meses",sel.meses);
+$("tAll").onclick=()=>{ sel.tipos=new Set(TIPOS); $("tipos").querySelectorAll("input").forEach(e=>e.checked=true); actualizar(); };
+$("tNone").onclick=()=>{ sel.tipos=new Set(); $("tipos").querySelectorAll("input").forEach(e=>e.checked=false); actualizar(); };
+["hDesde","hHasta","lyHeat","lyPts","lyGrid","cell","autoMax"].forEach(k=>$(k).onchange=actualizar);
+["radius","blur","minOp"].forEach(k=>$(k).oninput=actualizar);
+$("maxI").oninput=()=>{ $("autoMax").checked=false; actualizar(); };
+$("lyLim").onchange=()=>toggle(capaLim,$("lyLim").checked);
+
+
+// ---------------------------------------------------------------------------
+// Búsqueda del límite oficial en el IGN (API de líneas límite, OGC API-Features)
+// ---------------------------------------------------------------------------
+const IGN_API = "https://api-features.ign.es/collections/administrativeunit/items";
+const PROVINCIAS = {"01":"Araba/Álava","02":"Albacete","03":"Alicante/Alacant","04":"Almería","05":"Ávila","06":"Badajoz","07":"Illes Balears","08":"Barcelona","09":"Burgos","10":"Cáceres","11":"Cádiz","12":"Castellón/Castelló","13":"Ciudad Real","14":"Córdoba","15":"A Coruña","16":"Cuenca","17":"Girona","18":"Granada","19":"Guadalajara","20":"Gipuzkoa","21":"Huelva","22":"Huesca","23":"Jaén","24":"León","25":"Lleida","26":"La Rioja","27":"Lugo","28":"Madrid","29":"Málaga","30":"Murcia","31":"Navarra","32":"Ourense","33":"Asturias","34":"Palencia","35":"Las Palmas","36":"Pontevedra","37":"Salamanca","38":"Santa Cruz de Tenerife","39":"Cantabria","40":"Segovia","41":"Sevilla","42":"Soria","43":"Tarragona","44":"Teruel","45":"Toledo","46":"Valencia/València","47":"Valladolid","48":"Bizkaia","49":"Zamora","50":"Zaragoza","51":"Ceuta","52":"Melilla"};
+const sinTildes = s => s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+
+async function buscarMunicipio(){
+  const q = $("munQ").value.trim();
+  const res = $("munRes");
+  if (q.length < 3){ res.innerHTML = '<span class="bad">Escribe al menos 3 letras.</span>'; return; }
+  // Las vocales se sustituyen por "_" (cualquier carácter) para que no importen tildes ni mayúsculas
+  const patron = q.replace(/'/g,"''").replace(/[%_]/g,"").replace(/[aeiouáéíóúàèìòùäëïöü]/gi,"_");
+  // dos búsquedas: nombres que EMPIEZAN por lo escrito y nombres que lo CONTIENEN
+  // (así "lliria" encuentra Llíria y "moncada" encuentra "Montcada/Moncada")
+  const urlDe = filtro => `${IGN_API}?f=json&limit=60&skipGeometry=true&properties=nameunit,nationalcode&filter-lang=cql-text&filter=${encodeURIComponent(filtro)}`;
+  const fEmpieza = `(nameunit ILIKE '${patron}%' OR nameunit ILIKE '%/${patron}%') AND nationallevelname = 'Municipio'`;
+  const fContiene = `nameunit ILIKE '%${patron}%' AND nationallevelname = 'Municipio'`;
+  res.innerHTML = "Buscando en el IGN…";
+  try {
+    const resp = await Promise.all([urlDe(fEmpieza), urlDe(fContiene)].map(async u=>{
+      const r = await fetch(u); if (!r.ok) throw new Error("HTTP "+r.status); return r.json(); }));
+    const vistos = new Set(); let lista = [];
+    for (const j of resp) for (const f of (j.features||[])){
+      if (!vistos.has(f.properties.nationalcode)){ vistos.add(f.properties.nationalcode); lista.push(f.properties); } }
+    const nq = sinTildes(q);
+    const nota = n => { const partes = [n, ...n.split("/")].map(x=>sinTildes(x.trim()));
+      return partes.some(p=>p===nq) ? 0 : partes.some(p=>p.startsWith(nq)) ? 1 : partes.some(p=>p.includes(nq)) ? 2 : 3; };
+    lista.sort((a,b)=> nota(a.nameunit) - nota(b.nameunit) || sinTildes(a.nameunit).localeCompare(sinTildes(b.nameunit)));
+    if (lista.some(p=>nota(p.nameunit) < 3)) lista = lista.filter(p=>nota(p.nameunit) < 3);   // fuera coincidencias remotas
+    if (!lista.length){ res.innerHTML = '<span class="bad">No se ha encontrado ningún municipio con ese nombre.</span>'; return; }
+    res.innerHTML = (lista.length>1 ? "Elige tu municipio (fíjate en la provincia):" : "") +
+      lista.slice(0,15).map(p=>{ const cod=p.nationalcode, prov=PROVINCIAS[cod.slice(4,6)]||"";
+        return `<button class="mun" data-c="${cod}">${esc(p.nameunit)} <small>· ${esc(prov)} · INE ${cod.slice(-5)}</small></button>`; }).join("");
+    res.querySelectorAll(".mun").forEach(b=>b.onclick=()=>descargarLimite(b.dataset.c));
+  } catch(e){
+    res.innerHTML = '<span class="bad">No se ha podido conectar con el IGN. Comprueba la conexión a internet o carga el archivo a mano.</span>';
+  }
+}
+async function descargarLimite(codigo){
+  const res = $("munRes");
+  const url = `${IGN_API}?f=json&nationalcode=${codigo}`;
+  res.innerHTML = "Descargando el límite oficial…";
+  try {
+    const r = await fetch(url); if (!r.ok) throw new Error("HTTP "+r.status);
+    const texto = await r.text();
+    cargarLimite(texto, `Límite oficial del IGN (INE ${codigo.slice(-5)})`, url);
+  } catch(e){
+    res.innerHTML = '<span class="bad">No se ha podido descargar el límite del IGN. Inténtalo de nuevo.</span>';
+  }
+}
+$("munBtn").onclick=buscarMunicipio;
+$("munQ").addEventListener("keydown",e=>{ if(e.key==="Enter") buscarMunicipio(); });
+
+// ---------------------------------------------------------------------------
+// Geocodificación LOCAL de direcciones contra los portales oficiales (CartoCiudad)
+// ---------------------------------------------------------------------------
+const GEO_TIPOS = {c:"calle",cl:"calle",cll:"calle",calle:"calle",carrer:"calle",cr:"calle",
+  av:"avenida",avd:"avenida",avda:"avenida",avenida:"avenida",avinguda:"avenida",avgda:"avenida",
+  pl:"plaza",pza:"plaza",plz:"plaza",plaza:"plaza",placa:"plaza",
+  ps:"paseo",pso:"paseo",pg:"paseo",paseo:"paseo",passeig:"paseo",
+  cno:"camino",cm:"camino",camino:"camino",cami:"camino",
+  ctra:"carretera",carretera:"carretera",trav:"travesia",travesia:"travesia",tr:"travesia",
+  cuesta:"cuesta",partida:"partida",pasaje:"pasaje",pasadizo:"pasaje",pje:"pasaje",
+  ronda:"ronda",rda:"ronda",glorieta:"glorieta",urbanizacion:"urbanizacion",urb:"urbanizacion"};
+const GEO_STOP = new Set(["de","del","la","las","los","el","i","y","dels","en","na","les"]);
+
+function geoNorm(s){
+  return String(s||"").normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase()
+    .replace(/[º°ª]/g," ").replace(/[^a-z0-9]+/g," ").trim();
+}
+// Equivalencias valenciano/catalán -> castellano. Se aplican A LOS DOS LADOS (lo escrito en el
+// atestado y el callejero oficial), así "Carrer Major" y "Calle Mayor" acaban siendo lo mismo.
+const GEO_FRASES = [
+  [/\bmare de deu\b/g, "virgen"], [/\bnostra senyora\b/g, "nuestra senora"],
+  [/\bnou (de |d )?(octubre|gener|febrer|marc|abril|maig|juny|juliol|agost|setembre|novembre|desembre)\b/g, "nueve $2"],
+];
+const GEO_PALABRAS = {
+  actriu:"actriz", pare:"padre", mare:"madre", germa:"hermano", germans:"hermanos", sant:"san", sants:"santos",
+  verge:"virgen", desemparats:"desamparados", senyora:"senora", nostra:"nuestra", angels:"angeles",
+  mestre:"maestro", metge:"medico", escriptor:"escritor", music:"musico", professor:"profesor", professora:"profesora",
+  bisbe:"obispo", rei:"rey", princep:"principe", comte:"conde", creu:"cruz", font:"fuente", pont:"puente",
+  riu:"rio", sequia:"acequia", major:"mayor", vell:"viejo", vella:"vieja", nova:"nueva", horts:"huertos",
+  brac:"brazo", esglesia:"iglesia", estacio:"estacion", mercat:"mercado", port:"puerto", jardi:"jardin",
+  parc:"parque", pou:"pozo", forn:"horno", moli:"molino", raco:"rincon", sol:"sol",
+  antoni:"antonio", josep:"jose", vicent:"vicente", joan:"juan", miquel:"miguel", jaume:"jaime", pere:"pedro",
+  francesc:"francisco", lluis:"luis", jordi:"jorge", enric:"enrique", tomas:"tomas", marti:"martin",
+  gener:"enero", febrer:"febrero", marc:"marzo", maig:"mayo", juny:"junio", juliol:"julio", agost:"agosto",
+  setembre:"septiembre", novembre:"noviembre", desembre:"diciembre", dos:"dos", nou:"nou",
+};
+// Títulos y profesiones que la gente suele omitir ("C/ Empar Ferrer" = "C/ Actriz Empar Ferrer")
+const GEO_TITULOS = new Set(["actriz","actor","padre","madre","hermano","hermanos","san","santa","santo","santos",
+  "maestro","maestra","medico","doctor","doctora","escritor","escritora","musico","profesor","profesora","pintor",
+  "pintora","poeta","poetisa","escultor","escultora","literato","cardenal","obispo","rey","reina","principe","conde",
+  "marques","general","capitan","alcalde","arquitecto","ingeniero","pirotecnico","periodista","cantante","compositor",
+  "abogado","juez","sor","beato","beata","papa","presidente"]);
+
+function geoPartir(via){                       // -> {tipo, nucleo}
+  // artículos con apóstrofo (d'Albaida, l'Arbre, "L,ARC") se quitan ANTES de normalizar;
+  // así una "D" suelta ("CALLE 130 D") no se confunde con un artículo
+  let s = String(via||"").replace(/(^|[\s(,])[dlDL]\s*['’´`,]\s*(?=\p{L})/gu, "$1 ").replace(/[\s,][dlDL]\s*['’´`]\s*\)?\s*$/u, " ");
+  s = geoNorm(s);
+  for (const [re, rep] of GEO_FRASES) s = s.replace(re, rep);
+  const t = s.split(" ").filter(Boolean);
+  let tipo = "";
+  while (t.length > 1 && GEO_TIPOS[t[0]]){ tipo = tipo || GEO_TIPOS[t[0]]; t.shift(); }
+  const nucleo = t.filter(w=>!GEO_STOP.has(w)).map(w=>GEO_PALABRAS[w]||w).join(" ");
+  return {tipo, nucleo};
+}
+function geoSinTitulos(nucleo){              // quita títulos al principio o al final ("JESUS PLA GANDIA, BISBE")
+  const t = nucleo.split(" ");
+  while (t.length > 1 && GEO_TITULOS.has(t[0])) t.shift();
+  while (t.length > 1 && GEO_TITULOS.has(t[t.length-1])) t.pop();
+  return t.join(" ");
+}
+function geoNumero(txt){                       // -> {n, ext} | null
+  const s = String(txt||"").toLowerCase().replace(/n[º°o]\.?/g," ").trim();
+  if (!s || /^s\s*\/?\s*n$/.test(s)) return null;
+  const m = s.match(/(\d+)\s*-?\s*([a-z])?\b/);
+  return m ? {n:+m[1], ext:(m[2]||"").toUpperCase()} : null;
+}
+function geoLev(a,b){
+  if (a===b) return 0;
+  const m=a.length, n=b.length; if(!m) return n; if(!n) return m;
+  let prev=Array.from({length:n+1},(_,j)=>j), cur=new Array(n+1);
+  for (let i=1;i<=m;i++){ cur[0]=i;
+    for (let j=1;j<=n;j++) cur[j]=Math.min(prev[j]+1,cur[j-1]+1,prev[j-1]+(a[i-1]===b[j-1]?0:1));
+    [prev,cur]=[cur,prev]; }
+  return prev[n];
+}
+
+// portales: [{via, num, ext, lat, lon}]  ->  índice por núcleo del nombre
+function geoIndice(portales){
+  const idx = new Map();
+  for (const p of portales){
+    const {tipo, nucleo} = geoPartir(p.via);
+    if (!nucleo) continue;
+    if (!idx.has(nucleo)) idx.set(nucleo, new Map());
+    const porVia = idx.get(nucleo);
+    if (!porVia.has(p.via)) porVia.set(p.via, {via:p.via, tipo, portales:[]});
+    porVia.get(p.via).portales.push(p);
+  }
+  const reducidas = new Map();                 // núcleo sin títulos -> núcleos completos
+  for (const k of idx.keys()){ const r = geoSinTitulos(k); if (!reducidas.has(r)) reducidas.set(r, new Set()); reducidas.get(r).add(k); }
+  return {idx, claves:[...idx.keys()], reducidas, cache:new Map()};
+}
+
+function geoBuscarVia(I, viaTxt){
+  if (I.cache.has(viaTxt)) return I.cache.get(viaTxt);
+  const {tipo, nucleo} = geoPartir(viaTxt);
+  let res = null;
+  if (nucleo){
+    let clave = I.idx.has(nucleo) ? nucleo : null, corregida = false;
+    if (!clave){                               // mismo nombre sin el título o profesión ("Empar Ferrer")
+      const cand = I.reducidas.get(geoSinTitulos(nucleo));
+      if (cand && cand.size === 1){ clave = [...cand][0]; corregida = true; }
+    }
+    if (!clave){                               // nombre abreviado: todas sus palabras están en una sola calle
+      const pal = nucleo.split(" ").filter(w=>w.length>=3);
+      if (pal.length && pal.join("").length >= 6){
+        const cand = I.claves.filter(k=>{ const kw = new Set(k.split(" ")); return pal.every(w=>kw.has(w)); });
+        if (cand.length === 1){ clave = cand[0]; corregida = true; }
+      }
+    }
+    if (!clave){                               // tolerancia a erratas
+      let mejor=null, d1=1e9, d2=1e9;
+      for (const k of I.claves){
+        const d = geoLev(nucleo,k);
+        if (d < d1){ d2=d1; d1=d; mejor=k; } else if (d < d2) d2=d;
+      }
+      const sim = mejor ? 1 - d1/Math.max(nucleo.length, mejor.length) : 0;
+      const sim2 = mejor ? 1 - d2/Math.max(nucleo.length, mejor.length) : 0;
+      if (mejor && nucleo.length >= 6 && sim >= 0.8 && sim - sim2 >= 0.08){ clave=mejor; corregida=true; }
+    }
+    if (clave){
+      const vias = [...I.idx.get(clave).values()];
+      const v = vias.find(x=>x.tipo===tipo) || vias.find(x=>x.tipo==="calle") || vias[0];
+      res = {calle:v, corregida};
+    }
+  }
+  I.cache.set(viaTxt, res);
+  return res;
+}
+
+// Devuelve {lat, lon, estado, detalle} ; estado: exacta | numero_aproximado | sin_numero | no_localizada
+function geocodificar(I, viaTxt, numTxt){
+  if (!String(viaTxt||"").trim()) return {estado:"no_localizada", detalle:"Sin vía"};
+  const r = geoBuscarVia(I, viaTxt);
+  if (!r) return {estado:"no_localizada", detalle:"Vía no encontrada en el callejero oficial"};
+  const P = r.calle.portales, nota = r.corregida ? ` (vía interpretada como ${r.calle.via})` : "";
+  const num = geoNumero(numTxt);
+  if (!num){
+    const orden = [...P].sort((a,b)=>a.num-b.num), m = orden[Math.floor(orden.length/2)];
+    return {lat:m.lat, lon:m.lon, estado:"sin_numero", corregida:r.corregida,
+            detalle:`Sin número: centro de ${r.calle.via}${nota}`};
+  }
+  let p = P.find(x=>x.num===num.n && x.ext===num.ext)
+       || (!num.ext && P.find(x=>x.num===num.n))
+       || (num.ext && P.find(x=>x.num===num.n && !x.ext));
+  if (p) return {lat:p.lat, lon:p.lon, estado:"exacta", corregida:r.corregida,
+                 detalle:`${r.calle.via} ${p.num}${p.ext}${nota}`};
+  // número inexistente: el más próximo, preferiblemente de la misma acera (misma paridad)
+  const misma = P.filter(x=>x.num%2===num.n%2), base = misma.length ? misma : P;
+  p = base.reduce((a,b)=>Math.abs(b.num-num.n) < Math.abs(a.num-num.n) ? b : a);
+  return {lat:p.lat, lon:p.lon, estado:"numero_aproximado", corregida:r.corregida,
+          detalle:`Nº ${num.n}${num.ext} no existe: se usa el ${p.num}${p.ext} de ${r.calle.via}${nota}`};
+}
+
+// Si el CSV trae una sola columna con la dirección ("C/ Mayor, 12")
+function geoSepararDireccion(txt){
+  const s = String(txt||"").trim();
+  const m = s.match(/^(.*?)[,\s]+(?:n[º°o]?\.?\s*)?(\d+\s*-?\s*[a-zA-Z]?|s\s*\/\s*n)\s*$/i);
+  return m ? {via:m[1].trim(), numero:m[2]} : {via:s, numero:""};
+}
+
+const CARTO_API = "https://api-features.idee.es/collections/address/items";
+let PORT_CACHE = null;
+async function fetchReintentos(url, intentos=3){
+  for (let k=1;;k++){
+    try { const r = await fetch(url); if (!r.ok) throw new Error("HTTP "+r.status); return await r.json(); }
+    catch(e){ if (k>=intentos) throw e; await new Promise(res=>setTimeout(res, 1500*k)); }
+  }
+}
+function portalesDeGeoJSON(j){          // callejero guardado a mano desde el enlace de CartoCiudad
+  const port = [];
+  for (const f of (j.features||[])){
+    if (!f.geometry || !f.geometry.coordinates || !f.properties) continue;
+    const p = f.properties, [lon, lat] = f.geometry.coordinates;
+    const m = String(p.locator_designator_addressNumber||"").match(/^\d+/);
+    if (!m || !p.component_ThoroughfareName || (LIM && !dentro(lat, lon))) continue;
+    port.push({via:p.component_ThoroughfareName, num:+m[0], ext:String(p.locator_designator_addressNumberExtension||"").toUpperCase().trim(), lat, lon});
+  }
+  return port;
+}
+function enlaceCallejero(){
+  const nom = LIM && LIM.nombre ? LIM.nombre.split("/")[0].trim() : "NOMBRE_DEL_MUNICIPIO";
+  return `${CARTO_API}?f=json&limit=10000&component_AdminUnitName_4=${encodeURIComponent(nom)}`;
+}
+async function obtenerPortales(progreso){
+  const clave = (LIM.nombre||"") + "|" + LIM.areaKm2;
+  if (PORT_CACHE && PORT_CACHE.clave===clave) return PORT_CACHE;
+  const nombres = [LIM.nombre, ...String(LIM.nombre||"").split("/").map(s=>s.trim())].filter((v,i,a)=>v && a.indexOf(v)===i);
+  for (const nom of nombres){
+    let url = `${CARTO_API}?f=json&limit=1000&component_AdminUnitName_4=${encodeURIComponent(nom)}`, pag = 0;
+    const port = [];
+    while (url && pag++ < 400){
+      const j = await fetchReintentos(url), F = j.features || [];
+      port.push(...portalesDeGeoJSON(j));                       // solo portales dentro del término oficial
+      progreso(port.length);
+      const nx = (j.links||[]).find(l=>l.rel==="next");
+      url = (nx && F.length) ? nx.href : null;
+    }
+    if (port.length){
+      PORT_CACHE = {clave, I:geoIndice(port), n:port.length,
+                    url:`${CARTO_API}?f=html&component_AdminUnitName_4=${encodeURIComponent(nom)}`};
+      memPortales(port, PORT_CACHE.url);
+      return PORT_CACHE;
+    }
+  }
+  throw new Error("Sin portales");
+}
+
+// ---------------------------------------------------------------------------
+// Memoria: el último municipio (límite + callejero) y los últimos datos se
+// guardan en ESTE navegador (no se envían a ningún sitio) y se recuperan al abrir.
+// ---------------------------------------------------------------------------
+const MEM = "mapaCalor.v1.";
+function memGuardar(k, v){ try { localStorage.setItem(MEM+k, JSON.stringify(v)); return true; } catch(e){ return false; } }
+function memLeer(k){ try { const t = localStorage.getItem(MEM+k); return t ? JSON.parse(t) : null; } catch(e){ return null; } }
+function memBorrar(...ks){ try { ks.forEach(k=>localStorage.removeItem(MEM+k)); } catch(e){} }
+function memPortales(port, url){
+  if (!LIM) return;
+  memGuardar("portales", {mun:LIM.nombre||"", url, p:port.map(x=>[x.via,x.num,x.ext,+x.lat.toFixed(6),+x.lon.toFixed(6)])});
+}
+
+// Carga del límite municipal
+let LIM_TEXTO = null;
+function cargarLimite(text, nombreArchivo, urlFuente, restaurando){
+  let g;
+  try { g=leerGeoJSON(JSON.parse(text)); }
+  catch(e){ $("statusLim").innerHTML=`<div class="bad">✖ ${typeof e==="string"?e:"El archivo no es un GeoJSON válido."}</div>`; return; }
+  const cambia = !!LIM && ((LIM.nombre||"") !== (g.nombre||"") || Math.abs(LIM.areaKm2-g.areaKm2) > 1e-6);
+  LIM=g; LIM_TEXTO=text; PORT_CACHE=null; fijarOrigen(g.lats,g.lons);
+  if (!restaurando){
+    memGuardar("limite", {text, nombreArchivo, urlFuente:urlFuente||""});
+    if (cambia){                                   // municipio nuevo: se olvidan callejero y datos del anterior
+      memBorrar("portales","datos");
+      ULTIMO=null; ARCH=null; DATA=[]; FILTRADOS=[]; $("status").innerHTML=""; $("mapeo").innerHTML=""; $("r2").textContent=""; $("r3").textContent="";
+      $("controls").classList.add("disabled");
+    }
+  }
+  $("munQ").value = g.nombre || "";
+  capaLim.clearLayers();
+  L.polygon(g.polys,{color:"#1d2940",weight:2.5,dashArray:"6 4",fill:false,interactive:false}).addTo(capaLim);
+  map.fitBounds(L.latLngBounds(g.anillos.flat()),{padding:[20,20]});
+  $("munTit").textContent = g.nombre ? " · "+g.nombre : "";
+  $("r1").textContent = g.nombre || "";
+  $("infTitulo").placeholder = "Informe de hechos" + (g.nombre ? " · "+g.nombre : "");
+  if (!restaurando && !ARCH) abrirSeccion("s2", true);
+  $("limExtra").style.display = "none";           // municipio cargado: solo queda el campo con su nombre
+  $("munRes").innerHTML = "";
+  $("statusLim").innerHTML = `
+    <div class="okc" data-tip="Compara la superficie con la oficial (INE): debe ser parecida (±15 %). El contorno debe seguir calles, cauces y carreteras. Para cambiar de municipio, escribe otro nombre y pulsa «Buscar en el IGN».">✔ ${g.nombre?esc(g.nombre):"Límite cargado"} · ${g.nPartes} ${g.nPartes>1?"recintos":"recinto"}${g.nHuecos?` · ${g.nHuecos} hueco(s)`:""} · ${g.areaKm2.toLocaleString("es-ES",{maximumFractionDigits:2})} km²</div>
+    <div class="btns"><button id="otroArchivo">Desde archivo</button><button id="guardarLim" data-tip="Guarda el límite en un archivo .geojson para usarlo sin conexión">Guardar límite</button></div>`;
+  $("otroArchivo").onclick=()=>{ $("limExtra").style.display=""; };
+  $("guardarLim").onclick=()=>{
+    const a=document.createElement("a");
+    a.href=URL.createObjectURL(new Blob([LIM_TEXTO],{type:"application/geo+json"}));
+    a.download=`limite_${LIM.nombre?sinTildes(LIM.nombre).replace(/[^a-z0-9]+/g,"_"):"municipal"}.geojson`;
+    a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+  };
+  if (ARCH && !faltanCampos(ARCH.M).length) procesar(); else actualizar();
+}
+const dropL=$("dropLim"), inpL=$("fileLim");
+dropL.onclick=()=>inpL.click();
+inpL.onchange=()=>{ if (inpL.files[0]){ const f=inpL.files[0]; const r=new FileReader(); r.onload=()=>cargarLimite(r.result,f.name); r.readAsText(f,"UTF-8"); } };
+["dragenter","dragover"].forEach(e=>dropL.addEventListener(e,ev=>{ev.preventDefault();dropL.classList.add("over");}));
+["dragleave","drop"].forEach(e=>dropL.addEventListener(e,ev=>{ev.preventDefault();dropL.classList.remove("over");}));
+dropL.addEventListener("drop",ev=>{ const f=ev.dataTransfer.files[0]; if(f){ const r=new FileReader(); r.onload=()=>cargarLimite(r.result,f.name); r.readAsText(f,"UTF-8"); } });
+$("base").onchange=()=>{ if(baseActual) map.removeLayer(baseActual); baseActual=BASES[$("base").value]||null; if(baseActual) baseActual.addTo(map).bringToBack(); };
+["radius","blur","maxI","minOp"].forEach(k=>$(k+"V").textContent=$(k).value);
+
+// Carga de archivo
+const drop=$("drop"), inp=$("file");
+drop.onclick=()=>inp.click();
+inp.onchange=()=>{ if (inp.files[0]) leer(inp.files[0]); };
+["dragenter","dragover"].forEach(e=>drop.addEventListener(e,ev=>{ev.preventDefault();drop.classList.add("over");}));
+["dragleave","drop"].forEach(e=>drop.addEventListener(e,ev=>{ev.preventDefault();drop.classList.remove("over");}));
+drop.addEventListener("drop",ev=>{ const f=ev.dataTransfer.files[0]; if(f) leer(f); });
+async function leer(f){
+  let buf; try { buf = await f.arrayBuffer(); } catch(e){ showErr("No se ha podido leer el archivo."); return; }
+  const u8 = new Uint8Array(buf);
+  if (u8[0]===0x50 && u8[1]===0x4B){             // .xlsx (es un zip)
+    try { abrirTabla(await leerXLSX(buf), f.name); }
+    catch(e){ console.error(e); showErr("No se ha podido leer el Excel: "+esc(e.message||String(e))+". Ábrelo en Excel y guárdalo como «Libro de Excel (.xlsx)» o «CSV UTF-8»."); }
+    return;
+  }
+  if (u8[0]===0xD0 && u8[1]===0xCF){ showErr("Es un Excel antiguo (.xls). Ábrelo en Excel y usa «Guardar como» → «Libro de Excel (.xlsx)» o «CSV UTF-8»."); return; }
+  let t; try { t = new TextDecoder("utf-8",{fatal:true}).decode(buf); } catch(e){ t = new TextDecoder("windows-1252").decode(buf); }  // CSV de Excel en "ANSI"
+  t = t.replace(/^\uFEFF/,"");
+  if (t.trim().startsWith("{")){                 // ¿es un callejero de CartoCiudad guardado a mano?
+    try {
+      const port = portalesDeGeoJSON(JSON.parse(t));
+      if (!port.length) throw 0;
+      PORT_CACHE = {clave:(LIM?(LIM.nombre||"")+"|"+LIM.areaKm2:""), I:geoIndice(port), n:port.length, url:"#"};
+      memPortales(port, "#");
+      $("status").innerHTML = `<div class="okc">✔ Callejero cargado: ${port.length.toLocaleString("es-ES")} portales</div>`+
+        (ARCH ? "" : `<div class="note">Ahora carga el archivo con las direcciones.</div>`);
+      if (ARCH && !faltanCampos(ARCH.M).length) procesar();
+    } catch(e){ showErr("El archivo no es un Excel, un CSV ni un callejero de CartoCiudad válido."); }
+    return;
+  }
+  cargar(t, f.name);
+}
+
+// Descarga del CSV filtrado (se genera en el propio navegador)
+$("dl").onclick=()=>{
+  const H=window.__HEADER||[];
+  const q=v=>/[",;\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;
+  const txt="﻿"+[H.map(q).join(","), ...FILTRADOS.map(d=>d.raw.map(q).join(","))].join("\r\n");
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob([txt],{type:"text/csv;charset=utf-8"}));
+  a.download="incidentes_filtrados.csv"; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+};
+
+// ---------------------------------------------------------------------------
+// Exportar informe: foto del mapa + resumen de lo filtrado, en Word (.docx)
+// Todo se genera en este equipo (sin servidores ni librerías externas)
+// ---------------------------------------------------------------------------
+const esperar = ms => new Promise(r=>setTimeout(r,ms));
+function esperarMapa(){                               // fin del movimiento y de la carga del mapa de fondo
+  return new Promise(res=>{
+    let hecho=false; const fin=()=>{ if (!hecho){ hecho=true; res(); } };
+    setTimeout(fin, 6000);
+    const base = baseActual;
+    const listo = ()=> !base || !base._tiles || Object.values(base._tiles).every(t=>t.loaded);
+    const mirar = async ()=>{ for (let i=0;i<60;i++){ if (listo()) break; await esperar(100); } await esperar(400); fin(); };
+    mirar();
+  });
+}
+// Compone en una imagen lo que se ve en el mapa: fondo, calor, cuadrícula, puntos y límite
+async function capturarMapa(conFondo=true){
+  const cont=map.getContainer(), R=cont.getBoundingClientRect(), esc2=2;
+  const cv=document.createElement("canvas"); cv.width=Math.round(R.width*esc2); cv.height=Math.round(R.height*esc2);
+  const cx=cv.getContext("2d"); cx.scale(esc2,esc2);
+  cx.fillStyle="#ffffff"; cx.fillRect(0,0,R.width,R.height);
+  const opac = el => { let o=1; for (let e=el; e && e!==cont; e=e.parentElement){ const v=parseFloat(getComputedStyle(e).opacity); if (!isNaN(v)) o*=v; } return o; };
+  let fondo=false;
+  if (conFondo){
+    for (const img of cont.querySelectorAll(".leaflet-tile-pane img")){
+      if (!img.complete || !img.naturalWidth) continue;
+      const r=img.getBoundingClientRect(); if (r.right<R.left||r.left>R.right||r.bottom<R.top||r.top>R.bottom) continue;
+      cx.globalAlpha=opac(img); cx.drawImage(img, r.left-R.left, r.top-R.top, r.width, r.height); fondo=true;
+    }
+    cx.globalAlpha=1;
+    try { cx.getImageData(0,0,1,1); }                  // ¿el mapa de fondo permite copiarse?
+    catch(e){ return capturarMapa(false); }
+  }
+  for (const c of cont.querySelectorAll("canvas")){   // calor, cuadrícula, puntos y límite
+    const r=c.getBoundingClientRect(); if (!r.width || !r.height) continue;
+    cx.globalAlpha=opac(c); cx.drawImage(c, r.left-R.left, r.top-R.top, r.width, r.height);
+  }
+  for (const s of cont.querySelectorAll(".leaflet-overlay-pane svg")){   // por si alguna capa se dibuja en SVG
+    try { const r=s.getBoundingClientRect(); const im=new Image();
+      im.src="data:image/svg+xml;charset=utf-8,"+encodeURIComponent(new XMLSerializer().serializeToString(s));
+      await im.decode(); cx.globalAlpha=1; cx.drawImage(im, r.left-R.left, r.top-R.top, r.width, r.height); } catch(e){}
+  }
+  cx.globalAlpha=1;
+  // Escala gráfica y leyenda
+  const y0=R.height-14, mpp = 40075016.686*Math.cos(map.getCenter().lat*Math.PI/180)/Math.pow(2,map.getZoom()+8);
+  const objetivo=mpp*R.width/5, paso=[10,20,50,100,200,250,500,1000,2000,5000].find(v=>v>=objetivo*0.6)||5000, w=paso/mpp;
+  cx.fillStyle="rgba(255,255,255,.85)"; cx.fillRect(8,y0-22,w+16,28);
+  cx.strokeStyle="#222"; cx.lineWidth=2; cx.beginPath(); cx.moveTo(16,y0-6); cx.lineTo(16,y0); cx.lineTo(16+w,y0); cx.lineTo(16+w,y0-6); cx.stroke();
+  cx.fillStyle="#222"; cx.font="11px sans-serif"; cx.fillText(paso>=1000?paso/1000+" km":paso+" m", 18, y0-9);
+  if ($("lyHeat").checked){
+    const lx=R.width-150, ly=R.height-40;
+    cx.fillStyle="rgba(255,255,255,.88)"; cx.fillRect(lx-8,ly-16,150,46);
+    const g=cx.createLinearGradient(lx,0,lx+130,0); Object.entries(GRAD).forEach(([k,v])=>g.addColorStop(+k,v));
+    cx.fillStyle=g; cx.fillRect(lx,ly,130,10);
+    cx.fillStyle="#222"; cx.font="11px sans-serif"; cx.fillText("Concentración de hechos", lx, ly-4);
+    cx.font="10px sans-serif"; cx.fillText("menor", lx, ly+22); cx.fillText("mayor", lx+100, ly+22);
+  }
+  if (fondo || !conFondo){ cx.fillStyle="rgba(255,255,255,.8)"; cx.font="9px sans-serif";
+    const t=conFondo ? "© Instituto Geográfico Nacional (CC BY 4.0)" : "Mapa de fondo no incluido";
+    const tw=cx.measureText(t).width; cx.fillRect(R.width-tw-10,0,tw+10,14); cx.fillStyle="#333"; cx.fillText(t, R.width-tw-5, 10); }
+  return {canvas:cv, fondo:conFondo, ancho:R.width, alto:R.height};
+}
+const aPNG = cv => new Promise((r,rej)=>cv.toBlob(b=>{ if (!b) return rej(new Error("imagen vacía")); b.arrayBuffer().then(a=>r(new Uint8Array(a)),rej); },"image/png"));
+function grafico(vals, etiquetas, titulo){             // gráfico de barras como imagen
+  const W=1000, H=300, cv=document.createElement("canvas"); cv.width=W; cv.height=H;
+  const cx=cv.getContext("2d"); cx.fillStyle="#fff"; cx.fillRect(0,0,W,H);
+  const max=Math.max(1,...vals), n=vals.length, x0=50, y0=H-40, bw=(W-x0-10)/n;
+  cx.strokeStyle="#ccd"; cx.fillStyle="#667"; cx.font="18px sans-serif"; cx.textAlign="right";
+  for (let k=0;k<=4;k++){ const v=Math.round(max*k/4), y=y0-(y0-30)*k/4; cx.beginPath(); cx.moveTo(x0,y); cx.lineTo(W-10,y); cx.stroke(); cx.fillText(v,x0-6,y+6); }
+  cx.textAlign="center";
+  vals.forEach((v,i)=>{ const h=(y0-30)*v/max, x=x0+i*bw;
+    cx.fillStyle="#2b3a57"; cx.fillRect(x+bw*0.15, y0-h, bw*0.7, h);
+    cx.fillStyle="#445"; cx.fillText(etiquetas[i], x+bw/2, y0+24); });
+  cx.textAlign="left"; cx.fillStyle="#223"; cx.font="bold 20px sans-serif"; cx.fillText(titulo, x0, 22);
+  return cv;
+}
+
+// --- ZIP (sin compresión) y documento Word --------------------------------
+const CRC_T=(()=>{ const t=new Uint32Array(256); for (let n=0;n<256;n++){ let c=n; for (let k=0;k<8;k++) c = c&1 ? 0xEDB88320^(c>>>1) : c>>>1; t[n]=c>>>0; } return t; })();
+function crc32(u8){ let c=0xFFFFFFFF; for (let i=0;i<u8.length;i++) c=CRC_T[(c^u8[i])&255]^(c>>>8); return (c^0xFFFFFFFF)>>>0; }
+function zip(archivos, tipo){
+  const enc=new TextEncoder(), partes=[], central=[]; let off=0;
+  for (const f of archivos){
+    const nm=enc.encode(f.nombre), d = typeof f.datos==="string" ? enc.encode(f.datos) : f.datos, crc=crc32(d);
+    const lh=new Uint8Array(30+nm.length), v=new DataView(lh.buffer);
+    v.setUint32(0,0x04034b50,true); v.setUint16(4,20,true); v.setUint16(6,0x0800,true); v.setUint16(12,33,true);
+    v.setUint32(14,crc,true); v.setUint32(18,d.length,true); v.setUint32(22,d.length,true); v.setUint16(26,nm.length,true); lh.set(nm,30);
+    const ch=new Uint8Array(46+nm.length), w=new DataView(ch.buffer);
+    w.setUint32(0,0x02014b50,true); w.setUint16(4,20,true); w.setUint16(6,20,true); w.setUint16(8,0x0800,true); w.setUint16(14,33,true);
+    w.setUint32(16,crc,true); w.setUint32(20,d.length,true); w.setUint32(24,d.length,true); w.setUint16(28,nm.length,true); w.setUint32(42,off,true); ch.set(nm,46);
+    partes.push(lh,d); central.push(ch); off+=lh.length+d.length;
+  }
+  const tam=central.reduce((a,c)=>a+c.length,0), fin=new Uint8Array(22), e=new DataView(fin.buffer);
+  e.setUint32(0,0x06054b50,true); e.setUint16(8,archivos.length,true); e.setUint16(10,archivos.length,true); e.setUint32(12,tam,true); e.setUint32(16,off,true);
+  return new Blob([...partes,...central,fin],{type:tipo});
+}
+const xe = s => String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g,"");
+function docx(bloques, imagenes){
+  // bloques: {t:"titulo"|"h1"|"p"|"nota"|"img"|"tabla", ...}
+  const ANCHO=9638;                                    // 17 cm en twips
+  const run = (txt, o={}) => `<w:r><w:rPr>${o.b?"<w:b/>":""}${o.i?"<w:i/>":""}${o.color?`<w:color w:val="${o.color}"/>`:""}${o.sz?`<w:sz w:val="${o.sz}"/>`:""}</w:rPr><w:t xml:space="preserve">${xe(txt)}</w:t></w:r>`;
+  let cuerpo="", idImg=0;
+  for (const b of bloques){
+    if (b.t==="titulo") cuerpo+=`<w:p><w:pPr><w:pStyle w:val="Title"/></w:pPr>${run(b.txt)}</w:p>`;
+    else if (b.t==="h1") cuerpo+=`<w:p><w:pPr><w:pStyle w:val="Heading1"/></w:pPr>${run(b.txt)}</w:p>`;
+    else if (b.t==="p") cuerpo+=`<w:p>${(Array.isArray(b.txt)?b.txt:[[b.txt]]).map(([t,o])=>run(t,o)).join("")}</w:p>`;
+    else if (b.t==="nota") cuerpo+=`<w:p><w:pPr><w:spacing w:before="120"/></w:pPr>${run(b.txt,{i:true,color:"666666",sz:17})}</w:p>`;
+    else if (b.t==="img"){
+      idImg++; const cxE=Math.round(b.cm*360000), cyE=Math.round(cxE*b.alto/b.ancho);
+      cuerpo+=`<w:p><w:pPr><w:jc w:val="center"/><w:spacing w:after="60"/></w:pPr><w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0"><wp:extent cx="${cxE}" cy="${cyE}"/><wp:docPr id="${idImg}" name="Imagen ${idImg}"/><a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:nvPicPr><pic:cNvPr id="${idImg}" name="imagen${idImg}.png"/><pic:cNvPicPr/></pic:nvPicPr><pic:blipFill><a:blip r:embed="rImg${b.n}"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill><pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="${cxE}" cy="${cyE}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r></w:p>`;
+      if (b.pie) cuerpo+=`<w:p><w:pPr><w:jc w:val="center"/><w:spacing w:after="200"/></w:pPr>${run(b.pie,{i:true,color:"555555",sz:18})}</w:p>`;
+    }
+    else if (b.t==="tabla"){
+      const anchos=b.anchos.map(p=>Math.round(ANCHO*p/100));
+      const celda=(txt,i,cab,der)=>`<w:tc><w:tcPr><w:tcW w:w="${anchos[i]}" w:type="dxa"/>${cab?'<w:shd w:val="clear" w:color="auto" w:fill="1D2940"/>':""}</w:tcPr><w:p><w:pPr><w:spacing w:before="20" w:after="20"/>${der?'<w:jc w:val="right"/>':""}</w:pPr>${run(txt,cab?{b:true,color:"FFFFFF",sz:18}:{sz:18})}</w:p></w:tc>`;
+      cuerpo+=`<w:tbl><w:tblPr><w:tblW w:w="${ANCHO}" w:type="dxa"/><w:tblBorders>${["top","left","bottom","right","insideH","insideV"].map(k=>`<w:${k} w:val="single" w:sz="4" w:space="0" w:color="BFC5CE"/>`).join("")}</w:tblBorders><w:tblLayout w:type="fixed"/><w:tblCellMar><w:left w:w="80" w:type="dxa"/><w:right w:w="80" w:type="dxa"/></w:tblCellMar></w:tblPr>`+
+        `<w:tblGrid>${anchos.map(a=>`<w:gridCol w:w="${a}"/>`).join("")}</w:tblGrid>`+
+        `<w:tr><w:trPr><w:tblHeader/></w:trPr>${b.cab.map((c,i)=>celda(c,i,true,b.der&&b.der[i])).join("")}</w:tr>`+
+        b.filas.map(f=>`<w:tr>${f.map((c,i)=>celda(c,i,false,b.der&&b.der[i])).join("")}</w:tr>`).join("")+`</w:tbl><w:p/>`;
+    }
+  }
+  const doc=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"><w:body>${cuerpo}<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1134" w:header="567" w:footer="567" w:gutter="0"/></w:sectPr></w:body></w:document>`;
+  const estilos=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+<w:docDefaults><w:rPrDefault><w:rPr><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri" w:eastAsia="Calibri" w:cs="Calibri"/><w:sz w:val="21"/><w:szCs w:val="21"/><w:lang w:val="es-ES"/></w:rPr></w:rPrDefault><w:pPrDefault><w:pPr><w:spacing w:after="100" w:line="264" w:lineRule="auto"/></w:pPr></w:pPrDefault></w:docDefaults>
+<w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/></w:style>
+<w:style w:type="paragraph" w:styleId="Title"><w:name w:val="Title"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:pPr><w:spacing w:after="60"/></w:pPr><w:rPr><w:b/><w:color w:val="1D2940"/><w:sz w:val="40"/></w:rPr></w:style>
+<w:style w:type="paragraph" w:styleId="Heading1"><w:name w:val="heading 1"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:pPr><w:keepNext/><w:spacing w:before="280" w:after="100"/><w:outlineLvl w:val="0"/><w:pBdr><w:bottom w:val="single" w:sz="6" w:space="2" w:color="1D2940"/></w:pBdr></w:pPr><w:rPr><w:b/><w:color w:val="1D2940"/><w:sz w:val="26"/></w:rPr></w:style>
+</w:styles>`;
+  const archivos=[
+    {nombre:"[Content_Types].xml", datos:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Default Extension="png" ContentType="image/png"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/></Types>`},
+    {nombre:"_rels/.rels", datos:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>`},
+    {nombre:"word/_rels/document.xml.rels", datos:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rEst" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>${imagenes.map((_,i)=>`<Relationship Id="rImg${i}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/imagen${i}.png"/>`).join("")}</Relationships>`},
+    {nombre:"word/document.xml", datos:doc},
+    {nombre:"word/styles.xml", datos:estilos},
+    ...imagenes.map((im,i)=>({nombre:`word/media/imagen${i}.png`, datos:im})),
+  ];
+  return zip(archivos,"application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+}
+function descargar(blob, nombre){
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=nombre;
+  document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),2000);
+}
+const nombreArchivoInforme = ext => `informe_${sinTildes(LIM&&LIM.nombre?LIM.nombre.split("/").pop():"mapa").replace(/[^a-z0-9]+/g,"_")}_${new Date().toISOString().slice(0,10)}.${ext}`;
+
+async function prepararVista(){
+  if ($("infZona").value==="termino" && LIM){
+    map.fitBounds(L.latLngBounds(LIM.anillos.flat()),{padding:[20,20], animate:false});
+  }
+  await esperarMapa();
+}
+function calleProxima(lat, lon){
+  if (!PORT_CACHE || !PORT_CACHE.I) return "";
+  if (!PORT_CACHE.lista){ PORT_CACHE.lista=[]; for (const porVia of PORT_CACHE.I.idx.values()) for (const v of porVia.values()) for (const p of v.portales) PORT_CACHE.lista.push(p); }
+  let mejor=null, dm=Infinity;
+  for (const p of PORT_CACHE.lista){ const d=((p.lat-lat)*MLAT)**2+((p.lon-lon)*MLON)**2; if (d<dm){ dm=d; mejor=p; } }
+  return mejor ? `${mejor.via}, ${mejor.num}${mejor.ext||""}` : "";
+}
+function resumenFiltros(){
+  const todos=(set,total)=>set.size===total;
+  const tipos = sel.tipos.size===TIPOS.length ? "Todos" : (sel.tipos.size ? [...sel.tipos].join("; ") : "Ninguno");
+  const dias = todos(sel.dias,7) ? "Todos" : [...sel.dias].sort().map(i=>DIAS[i]).join(", ");
+  const a=+$("hDesde").value, b=+$("hHasta").value;
+  const franja = (a===0&&b===23) ? "Todo el día" : `De ${pad2(a)}:00 a ${pad2(b)}:59`;
+  const meses = todos(sel.meses,12) ? "Todos" : [...sel.meses].sort((x,y)=>x-y).map(i=>MESES[i]).join(", ");
+  return {tipos, dias, franja, meses};
+}
+
+async function exportarWord(){
+  const est=$("infEstado");
+  if (!FILTRADOS.length){ est.innerHTML='<span class="bad">No hay hechos con los filtros actuales.</span>'; return; }
+  $("infWord").disabled=true; est.textContent="Preparando el mapa…";
+  try {
+    await prepararVista();
+    const foto=await capturarMapa();
+    est.textContent="Generando el documento…";
+    const imgs=[await aPNG(foto.canvas)];
+    const n=FILTRADOS.length, pct=v=>(100*v/n).toLocaleString("es-ES",{maximumFractionDigits:1})+" %", f=v=>v.toLocaleString("es-ES");
+    const fechas=FILTRADOS.map(d=>d.f.getTime()), fmin=new Date(Math.min(...fechas)), fmax=new Date(Math.max(...fechas));
+    const F=resumenFiltros();
+    const titulo=$("infTitulo").value.trim() || $("infTitulo").placeholder;
+    const B=[];
+    B.push({t:"titulo", txt:titulo});
+    B.push({t:"p", txt:[[`${LIM&&LIM.nombre?LIM.nombre+" · ":""}Generado el ${new Date().toLocaleDateString("es-ES")} a las ${new Date().toLocaleTimeString("es-ES",{hour:"2-digit",minute:"2-digit"})}`,{color:"555555"}]]});
+    const obs=$("infObs").value.trim();
+    if (obs){ B.push({t:"h1", txt:"Observaciones"}); obs.split(/\n+/).forEach(l=>B.push({t:"p", txt:l})); }
+
+    B.push({t:"h1", txt:"Mapa"});
+    const capas=[$("lyHeat").checked?"mapa de calor":"", $("lyPts").checked?"puntos":"", $("lyGrid").checked?`cuadrícula de ${$("cell").value} m`:""].filter(Boolean).join(", ");
+    B.push({t:"img", n:0, cm:Math.min(17, 16*foto.ancho/foto.alto), ancho:foto.ancho, alto:foto.alto,
+      pie:`${$("infZona").value==="termino"?"Término municipal completo":"Zona seleccionada"} · ${capas||"sin capas"}${foto.fondo?"":" · mapa de fondo no incluido"}`});
+
+    B.push({t:"h1", txt:"Datos y filtros aplicados"});
+    B.push({t:"tabla", cab:["Concepto","Valor"], anchos:[28,72], filas:[
+      ["Hechos representados", `${f(n)} de ${f(DATA.length)} cargados`],
+      ["Periodo", `${fmin.toLocaleDateString("es-ES")} – ${fmax.toLocaleDateString("es-ES")}`],
+      ["Delito / intervención", F.tipos], ["Días de la semana", F.dias], ["Franja horaria", F.franja], ["Meses", F.meses],
+      ["Archivo de datos", ARCH ? ARCH.nombre : ""]]});
+
+    B.push({t:"h1", txt:"Resumen"});
+    const porTipo={}; FILTRADOS.forEach(d=>porTipo[d.tipo]=(porTipo[d.tipo]||0)+1);
+    B.push({t:"tabla", cab:["Delito / intervención","Hechos","%"], anchos:[70,15,15], der:[false,true,true],
+      filas:Object.entries(porTipo).sort((a,b)=>b[1]-a[1]).map(([t,v])=>[t,f(v),pct(v)])});
+    const porDia=DIAS.map((_,i)=>FILTRADOS.filter(d=>d.dia===i).length);
+    const porHora=Array.from({length:24},(_,h)=>FILTRADOS.filter(d=>d.h===h).length);
+    const conHora=porHora.reduce((a,b)=>a+b,0);
+    imgs.push(await aPNG(grafico(porDia, DIAS.map(d=>d.slice(0,3)), "Hechos por día de la semana")));
+    B.push({t:"img", n:1, cm:15, ancho:1000, alto:300});
+    if (conHora){
+      imgs.push(await aPNG(grafico(porHora, porHora.map((_,h)=>String(h)), "Hechos por hora del día")));
+      B.push({t:"img", n:2, cm:15, ancho:1000, alto:300});
+      const franjas=[["Madrugada (00–06 h)",0,5],["Mañana (06–14 h)",6,13],["Tarde (14–20 h)",14,19],["Noche (20–24 h)",20,23]];
+      B.push({t:"tabla", cab:["Franja horaria","Hechos","%"], anchos:[70,15,15], der:[false,true,true],
+        filas:[...franjas.map(([e,a,b])=>{ const v=porHora.slice(a,b+1).reduce((x,y)=>x+y,0); return [e,f(v),pct(v)]; }),
+               ...(n-conHora?[["Sin hora",f(n-conHora),pct(n-conHora)]]:[])]});
+    }
+    const tam=+$("cell").value, celdas=cuadricula(FILTRADOS,tam).sort((a,b)=>b.n-a.n).slice(0,10);
+    if (celdas.length){
+      B.push({t:"h1", txt:`Zonas con más hechos (celdas de ${tam} m)`});
+      B.push({t:"tabla", cab:["#","Ubicación aproximada","Delito / intervención más frecuente","Hechos"], anchos:[6,40,42,12], der:[false,false,false,true],
+        filas:celdas.map((c,i)=>{ const b=celdaBounds(c,tam), la=(b[0][0]+b[1][0])/2, lo=(b[0][1]+b[1][1])/2;
+          const top=Object.entries(c.tipos).sort((a,b)=>b[1]-a[1])[0];
+          return [String(i+1), calleProxima(la,lo)||`${la.toFixed(5)}, ${lo.toFixed(5)}`, `${top[0]} (${top[1]})`, f(c.n)]; })});
+    }
+    B.push({t:"nota", txt:"Informe generado con la herramienta de mapa de calor. Los datos se han procesado únicamente en este equipo. Cartografía: Instituto Geográfico Nacional / CartoCiudad."});
+    descargar(docx(B, imgs), nombreArchivoInforme("docx"));
+    est.innerHTML='<span class="okc">✔ Informe descargado</span>';
+  } catch(e){ console.error(e); est.innerHTML='<span class="bad">No se ha podido generar el informe.</span>'; }
+  finally { $("infWord").disabled=false; }
+}
+async function exportarPNG(){
+  const est=$("infEstado"); $("infPng").disabled=true; est.textContent="Preparando el mapa…";
+  try { await prepararVista(); const foto=await capturarMapa();
+    foto.canvas.toBlob(b=>descargar(b, nombreArchivoInforme("png")),"image/png");
+    est.innerHTML='<span class="okc">✔ Imagen descargada</span>'; }
+  catch(e){ console.error(e); est.innerHTML='<span class="bad">No se ha podido generar la imagen.</span>'; }
+  finally { $("infPng").disabled=false; }
+}
+$("infWord").onclick=exportarWord;
+$("infPng").onclick=exportarPNG;
+
+// Secciones plegables (se recuerda cuáles están abiertas)
+const SEC_DEF = {s1:true, s2:false, s3:false, s4:false, s5:false, s6:false};
+function abrirSeccion(id, abrir){
+  const sec=document.querySelector(`section[data-sec="${id}"]`); if (!sec) return;
+  sec.classList.toggle("cerrada", !abrir);
+  const est=memLeer("secciones")||{}; est[id]=abrir; memGuardar("secciones",est);
+}
+(function(){
+  const est={...SEC_DEF, ...(memLeer("secciones")||{})};
+  document.querySelectorAll("aside section").forEach((sec,i)=>{
+    const id="s"+(i+1); sec.dataset.sec=id;
+    const h=sec.querySelector("h2"); const b=document.createElement("button"); b.className="tog"; b.type="button"; b.textContent="▾";
+    b.setAttribute("aria-label","Desplegar o replegar"); h.appendChild(b);
+    h.onclick=e=>{ if (e.target.closest("a,input,select")) return; abrirSeccion(id, sec.classList.contains("cerrada")); };
+    sec.classList.toggle("cerrada", !est[id]);
+  });
+})();
+
+// Recuperar la última sesión guardada en este navegador
+(function restaurar(){
+  const lim = memLeer("limite");
+  if (!lim) return;
+  cargarLimite(lim.text, lim.nombreArchivo, lim.urlFuente, true);
+  const pt = memLeer("portales");
+  if (pt && LIM && pt.mun === (LIM.nombre||"")){
+    const port = pt.p.map(a=>({via:a[0], num:a[1], ext:a[2], lat:a[3], lon:a[4]}));
+    PORT_CACHE = {clave:(LIM.nombre||"")+"|"+LIM.areaKm2, I:geoIndice(port), n:port.length, url:pt.url};
+  }
+  const dt = memLeer("datos");
+  if (dt && dt.rows) abrirTabla([{nombre:"", rows:dt.rows}], dt.nombre, dt.M, true);
+  else if (dt && dt.text) cargar(dt.text, dt.nombre, null, true);
+})();
+function quitarDatos(){                              // quita el archivo de datos; el municipio se mantiene
+  memBorrar("datos");
+  ULTIMO=null; ARCH=null; DATA=[]; FILTRADOS=[]; GEO_FILAS=null; TIPOS=[]; sel.tipos=new Set();
+  $("status").innerHTML=""; $("mapeo").innerHTML=""; $("r2").textContent=""; $("r3").textContent=""; $("tipos").innerHTML="";
+  $("file").value=""; $("infEstado").innerHTML="";
+  $("controls").classList.add("disabled");
+  actualizar();
+}
+
+
+// Ayudas emergentes: aparecen al dejar el ratón un momento sobre el elemento
+(function(){
+  const tip=document.createElement("div"); tip.id="tip"; document.body.appendChild(tip);
+  let t=null, el=null, x=0, y=0;
+  const ocultar=()=>{ clearTimeout(t); t=null; el=null; tip.style.display="none"; };
+  document.addEventListener("mouseover",e=>{
+    const d=e.target.closest && e.target.closest("[data-tip]");
+    if (d===el) return; ocultar(); if (!d) return; el=d;
+    t=setTimeout(()=>{ tip.textContent=d.dataset.tip; tip.style.display="block";
+      const w=tip.offsetWidth, h=tip.offsetHeight;
+      tip.style.left=Math.max(4,Math.min(x+12, innerWidth-w-8))+"px"; tip.style.top=(y+18+h>innerHeight? y-h-10 : y+18)+"px"; }, 900);
+  });
+  document.addEventListener("mousemove",e=>{ x=e.clientX; y=e.clientY; });
+  document.addEventListener("mousedown",ocultar); document.addEventListener("scroll",ocultar,true);
+})();
+window.__app={capturarMapa, docx, grafico, aPNG, resumenFiltros, horaDeTexto, cargar, abrirTabla, parseGrado, separarDireccion, leerCoord, leerXLSX, parseFecha, parseHoraHM, coordPar, utmALatLon, limpiarCola, get arch(){return ARCH;}, cargarLimite, actualizar, get datos(){return DATA;}, get filtrados(){return FILTRADOS;}};
+})();
+</script>
+</body>
+</html>

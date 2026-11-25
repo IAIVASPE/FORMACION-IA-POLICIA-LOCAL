@@ -1,0 +1,63 @@
+PROMPT PARA QUE UNA IA DESARROLLE EL «TOKENIZADOR IA»
+(cópialo y pégalo en la IA)
+=====================================================
+
+Actúa como desarrollador web experto. Crea una aplicación en UN ÚNICO ARCHIVO HTML que funcione con doble clic,
+sin internet, sin servidor y sin librerías externas. Todo se procesa en el navegador: ningún dato sale del equipo.
+
+QUÉ HACE
+Sirve para usar una IA con documentos policiales sin entregarle datos personales. Tiene tres pasos:
+1. TOKENIZAR: sustituye los datos sensibles por marcas como [[PERSONA_01]], [[DOC_ID_01]] o [[DOMICILIO_01]].
+   El mismo dato lleva siempre el mismo token, aunque esté escrito de formas distintas.
+2. Copiar el texto tokenizado junto con un prompt y pegarlo en la IA.
+3. DESTOKENIZAR: pegar la respuesta de la IA y recuperar los datos reales, conservando el formato
+   (párrafos, listas, tablas, negritas).
+
+QUÉ DEBE DETECTAR
+- Datos personales:
+    · personas (tras D., Dña., denunciante, víctima, testigo…)
+    · DNI/NIE con letra de control
+    · teléfonos, emails, IBAN, tarjetas, matrículas, IP, perfiles @, fechas de nacimiento
+- Domicilios y calles, en castellano y valenciano («C/ Mayor 12» = «Carrer Major 12»).
+  · Tras una coma solo sigue el domicilio si viene piso, puerta, código postal o un municipio.
+  · Ejemplo: «Camino Viejo 9, ha caído al suelo» → el domicilio es solo «Camino Viejo 9».
+  · Incluye un listado de municipios valencianos en las dos lenguas.
+- Delitos del Código Penal en castellano y valenciano («hurto» = «furt») y artículos («art. 234 CP»).
+- Las palabras dudosas se marcan en amarillo para que el usuario decida.
+
+PANTALLA
+Dos pestañas: «Texto» y «CSV por columnas». Cada una con tres paneles de ancho ajustable.
+
+1. Izquierda — entrada
+   - Arrastrar o pegar el documento. Se leen en local Word (.docx), PDF con texto y Excel (.xlsx), además
+     de .txt y .csv.
+   - En la pestaña CSV, al cargar se abre una ventana con el propio archivo a la vista. Encima de cada
+     columna hay un desplegable para indicar qué contiene: no tocar, calle, número, dirección completa,
+     delito, texto libre, persona, teléfono…
+   - Esa ventana incluye una vista previa «Así quedará» y el botón «Aplicar y tokenizar».
+
+2. Centro — resultado tokenizado
+   - Verde = token (clic para revertirlo). Amarillo = dudoso (clic para elegir tipología o ignorarlo).
+   - Botones bajos: «Tokenizar selección», «Mapa de equivalencias» y «Exportar ▾» (.txt, .docx, .csv, .xlsx).
+   - Selector de plantilla de prompt y botón «Copiar prompt + texto». A su derecha, un triángulo ▲ que
+     despliega «Copiar solo texto» y «Copiar solo prompt».
+
+3. Derecha — destokenización, con dos cajones plegables
+   - Cada cajón tiene a la derecha de su título un botón redondo con flecha para plegarlo y desplegarlo.
+   - Arriba, «Respuesta de la IA»: abierto al empezar y ocupando todo el panel, con Pegar y Limpiar bajo
+     el título.
+   - Abajo, «Texto final destokenizado»: plegado al empezar, con los botones Copiar, 💾 .docx y 💾 .txt.
+   - Al pegar la respuesta, el cajón de arriba se pliega y el resultado se muestra entero.
+   - Los tokens que la IA haya inventado se marcan en rojo.
+
+PLANTILLAS DE PROMPT
+- Incluye varias: resumen cronológico, redacción de atestado, informe de Policía Local, comparecencia,
+  preparación de juicio y «Estadística del periodo» (datos, análisis, conclusiones y propuesta de actuación).
+- Todas añaden una regla que obliga a la IA a copiar los tokens tal cual y a no inventarlos.
+- Gestor para crear, editar y borrar plantillas (guardadas en el navegador).
+
+REQUISITOS
+- Rápido: un CSV de 20.000 filas en pocos segundos.
+- Interfaz en español, con estilo sobrio institucional en verde oscuro.
+- Datos de ejemplo ficticios.
+- Si el código es muy largo, entrégalo por partes y explica cómo unirlo.

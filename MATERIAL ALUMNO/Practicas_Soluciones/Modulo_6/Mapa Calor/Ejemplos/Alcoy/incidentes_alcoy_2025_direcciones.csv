@@ -1,0 +1,1001 @@
+﻿id,fecha,hora,dia_semana,franja_horaria,tipo_hecho,articulo_cp,via,numero
+ALC-2025-00001,2025-01-02,02:05,jueves,madrugada,Hurto o robo de uso de vehículo a motor,244,Carretera MOLINAR,59 C
+ALC-2025-00002,2025-01-02,10:05,jueves,mañana,Robo con fuerza en las cosas en casa habitada,241,calle Banyeres,294
+ALC-2025-00003,2025-01-03,16:10,viernes,tarde,Hurto,234,calle Isaac Peral,11
+ALC-2025-00004,2025-01-03,22:50,viernes,noche,Contra la salud pública (tráfico de drogas),368,C/ Forn del Vidre,10 B
+ALC-2025-00005,2025-01-03,23:45,viernes,noche,Lesiones,147,calle Doctor Guerau,28
+ALC-2025-00006,2025-01-04,03:25,sábado,madrugada,Hurto o robo de uso de vehículo a motor,244,Ctra. Molinar,71
+ALC-2025-00007,2025-01-04,18:30,sábado,tarde,Daños,263,CL Forn del Vidre,10B
+ALC-2025-00008,2025-01-04,19:20,sábado,tarde,Robo con violencia o intimidación en las personas,242,C/ murillo,35
+ALC-2025-00009,2025-01-05,03:15,domingo,madrugada,Hurto o robo de uso de vehículo a motor,244,calle ENCARO,14
+ALC-2025-00010,2025-01-06,14:10,lunes,tarde,Amenazas,169,CL Anselm Aracil,3
+ALC-2025-00011,2025-01-07,03:40,martes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Carretera Molinar,37 C
+ALC-2025-00012,2025-01-07,08:45,martes,mañana,Hurto,234,CL Cova Santa,228
+ALC-2025-00013,2025-01-08,02:20,miércoles,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,calle Na Saurina D'entenca,nº 105
+ALC-2025-00014,2025-01-08,05:35,miércoles,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Pza. Benissaido,1
+ALC-2025-00015,2025-01-08,23:50,miércoles,noche,Hurto o robo de uso de vehículo a motor,244,Ctra. FONT ROJA,10
+ALC-2025-00016,2025-01-10,01:20,viernes,noche,Desórdenes públicos,557,c/ DONA AMALIA,21
+ALC-2025-00017,2025-01-10,03:10,viernes,madrugada,Amenazas,169,C/ Cid,83
+ALC-2025-00018,2025-01-10,12:25,viernes,mañana,Hurto,234,c/ Peru,106
+ALC-2025-00019,2025-01-10,19:25,viernes,tarde,Contra la salud pública (tráfico de drogas),368,Calle Sang la,2
+ALC-2025-00020,2025-01-11,07:35,sábado,mañana,Robo con fuerza en las cosas en establecimiento abierto al público,241,Calle SOR ELENA PICURELLI,nº 13
+ALC-2025-00021,2025-01-11,13:40,sábado,mañana,Hurto,234,C/ pintor cabrera,nº 104
+ALC-2025-00022,2025-01-11,18:15,sábado,tarde,Hurto,234,Mercado municipal,
+ALC-2025-00023,2025-01-11,23:25,sábado,noche,Robo con violencia o intimidación en las personas,242,Cno. Murtera la,nº 97
+ALC-2025-00024,2025-01-12,20:10,domingo,tarde,Contra la salud pública (tráfico de drogas),368,calle Sant Nicolau,107
+ALC-2025-00025,2025-01-13,13:20,lunes,mañana,Hurto,234,Plaza cotes baies b,5-A
+ALC-2025-00026,2025-01-13,19:20,lunes,tarde,Hurto,234,C/ RECONQUESTA,nº 4A
+ALC-2025-00027,2025-01-13,20:15,lunes,tarde,Hurto,234,CL Doctor Sempere,37
+ALC-2025-00028,2025-01-13,20:25,lunes,tarde,Hurto,234,c/ Font de la Salud,12
+ALC-2025-00029,2025-01-14,21:30,martes,tarde,Robo con violencia o intimidación en las personas,242,Carretera Font Roja,23
+ALC-2025-00030,2025-01-15,00:25,miércoles,noche,Hurto o robo de uso de vehículo a motor,244,Carretera molinar,103 B
+ALC-2025-00031,2025-01-15,20:15,miércoles,tarde,Contra la salud pública (tráfico de drogas),368,Calle Sant Nicolau,67
+ALC-2025-00032,2025-01-16,03:55,jueves,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,c/ Pintor Cabrera,110
+ALC-2025-00033,2025-01-16,04:15,jueves,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Pl. Ciclista Blai Domingo Ll.,185
+ALC-2025-00034,2025-01-16,10:10,jueves,mañana,Robo con fuerza en las cosas en casa habitada,241,Calle MUNTANYA,10
+ALC-2025-00035,2025-01-16,17:45,jueves,tarde,Contra la salud pública (tráfico de drogas),368,Pasaje Caseta Pare Hiario,nº 13
+ALC-2025-00036,2025-01-16,18:45,jueves,tarde,Robo con fuerza en las cosas en casa habitada,241,CL pintor laporta,482
+ALC-2025-00037,2025-01-16,20:35,jueves,tarde,Hurto,234,C/ CASETA MASCARELLES,30
+ALC-2025-00038,2025-01-17,00:45,viernes,noche,Daños,263,Calle DONA AMALIA,nº 52
+ALC-2025-00039,2025-01-17,03:55,viernes,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Calle isaac peral,11
+ALC-2025-00040,2025-01-18,00:50,sábado,noche,Daños,263,C/ Cami el,78
+ALC-2025-00041,2025-01-18,01:15,sábado,noche,Daños,263,calle Alacant,s/n
+ALC-2025-00042,2025-01-18,03:55,sábado,madrugada,Hurto o robo de uso de vehículo a motor,244,c/ ENCARO,38
+ALC-2025-00043,2025-01-18,13:00,sábado,mañana,Robo con fuerza en las cosas en casa habitada,241,C/ CAMI EL,84
+ALC-2025-00044,2025-01-18,13:10,sábado,mañana,Hurto,234,Calle Sant Jaume,10
+ALC-2025-00045,2025-01-18,18:30,sábado,tarde,Hurto,234,Cno. antic la piscina,S/N
+ALC-2025-00046,2025-01-18,22:10,sábado,noche,Robo con violencia o intimidación en las personas,242,C/ Sant Nicolau,462
+ALC-2025-00047,2025-01-19,15:45,domingo,tarde,Robo con violencia o intimidación en las personas,242,C/ Maulets Els,nº 28
+ALC-2025-00048,2025-01-19,20:10,domingo,tarde,Daños,263,calle Dona Amalia,21
+ALC-2025-00049,2025-01-19,21:50,domingo,tarde,Hurto,234,C/ Isaac Peral,nº 3
+ALC-2025-00050,2025-01-20,02:50,lunes,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,calle Pintor Cabrea,126
+ALC-2025-00051,2025-01-20,05:20,lunes,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,CL Music Gonacl Blanes,nº 35
+ALC-2025-00052,2025-01-21,23:35,martes,noche,Hurto,234,c/ Francesc Perera,16
+ALC-2025-00053,2025-01-22,03:00,miércoles,madrugada,Robo con violencia o intimidación en las personas,242,c/ Ambaixador D'irles,s/n
+ALC-2025-00054,2025-01-22,20:10,miércoles,tarde,Daños,263,CL GREGORI CASASEMPERE JUAN,
+ALC-2025-00055,2025-01-23,03:25,jueves,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Calle peru,90
+ALC-2025-00056,2025-01-23,17:05,jueves,tarde,Hurto,234,C/ Isaac Peral,11
+ALC-2025-00057,2025-01-24,05:15,viernes,madrugada,Daños,263,c/ Alacant,nº 88
+ALC-2025-00058,2025-01-25,00:25,sábado,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,c/ Sor Elena Picurelli,
+ALC-2025-00059,2025-01-25,01:50,sábado,noche,Daños,263,Partida Rambla Baixa,3
+ALC-2025-00060,2025-01-25,04:25,sábado,madrugada,Lesiones,147,C/ CAMI EL,nº 84
+ALC-2025-00061,2025-01-25,19:20,sábado,tarde,Hurto,234,calle na saurina d'entenca,89
+ALC-2025-00062,2025-01-25,20:55,sábado,tarde,Robo con fuerza en las cosas en casa habitada,241,C/ peru,25
+ALC-2025-00063,2025-01-25,21:50,sábado,tarde,Lesiones,147,C/ Maulets Els,294
+ALC-2025-00064,2025-01-26,11:05,domingo,mañana,Hurto,234,C/ MESTRE J RIBERA MONTES,21
+ALC-2025-00065,2025-01-26,16:10,domingo,tarde,Hurto,234,Calle Sant Francesc,16
+ALC-2025-00066,2025-01-27,14:25,lunes,tarde,Hurto,234,CL Doctor Sempre,nº 48
+ALC-2025-00067,2025-01-28,10:35,martes,mañana,Robo con fuerza en las cosas en casa habitada,241,Urbanizacion Montesol,101
+ALC-2025-00068,2025-01-28,12:30,martes,mañana,Hurto,234,calle Poeta Joan Valls,289
+ALC-2025-00069,2025-01-28,23:35,martes,noche,Daños,263,C/ Sant Nicolau,107
+ALC-2025-00070,2025-01-31,00:25,viernes,noche,Desórdenes públicos,557,calle DONA AMALIA,nº 37
+ALC-2025-00071,2025-01-31,18:55,viernes,tarde,Daños,263,Calle Maulets Els,3
+ALC-2025-00072,2025-01-31,19:40,viernes,tarde,Contra la salud pública (tráfico de drogas),368,plaza COTES BAIXES C,5
+ALC-2025-00073,2025-01-31,20:30,viernes,tarde,Hurto,234,calle Sant Jaume,17
+ALC-2025-00074,2025-02-01,00:25,sábado,noche,Desórdenes públicos,557,Calle Sin Nombre,
+ALC-2025-00075,2025-02-01,00:35,sábado,noche,Lesiones,147,CL DONA AMALIA,21
+ALC-2025-00076,2025-02-01,19:45,sábado,tarde,Daños,263,Calle Maulets Els,s/n
+ALC-2025-00077,2025-02-01,22:30,sábado,noche,Daños,263,C/ Carrasca,17
+ALC-2025-00078,2025-02-02,02:45,domingo,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ MURILLO,52
+ALC-2025-00079,2025-02-03,12:00,lunes,mañana,Hurto,234,calle ISAAC PERAL,11
+ALC-2025-00080,2025-02-03,16:30,lunes,tarde,Hurto,234,C/ Sant Joan,nº 28
+ALC-2025-00081,2025-02-05,17:35,miércoles,tarde,Hurto,234,C/ Na Saurina D'entenca,105
+ALC-2025-00082,2025-02-05,21:55,miércoles,tarde,Hurto,234,CL Sant Jaume,17
+ALC-2025-00083,2025-02-05,21:55,miércoles,tarde,Daños,263,Callejon Sant Vicent Ferrer Calleja,nº 7
+ALC-2025-00084,2025-02-06,01:35,jueves,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Carretera Molinar,51
+ALC-2025-00085,2025-02-06,04:45,jueves,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,c/ Noguera,15
+ALC-2025-00086,2025-02-06,13:20,jueves,mañana,Hurto,234,c/ PERU,130
+ALC-2025-00087,2025-02-07,04:55,viernes,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ VICTOR ESPINOS,4
+ALC-2025-00088,2025-02-08,01:35,sábado,noche,Hurto o robo de uso de vehículo a motor,244,Pza. Jaume el Conqueridor,nº 5
+ALC-2025-00089,2025-02-08,19:50,sábado,tarde,Hurto,234,Calle Peru,nº 39
+ALC-2025-00090,2025-02-08,22:35,sábado,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ SANTA ROSA,16
+ALC-2025-00091,2025-02-09,01:45,domingo,noche,Daños,263,calle Verge Dels Lliris,nº 46
+ALC-2025-00092,2025-02-09,07:40,domingo,mañana,Daños,263,C/ SANT NICOLAU,121
+ALC-2025-00093,2025-02-10,19:35,lunes,tarde,Robo con fuerza en las cosas (interior de vehículo),237-238,CL xop,7
+ALC-2025-00094,2025-02-10,23:30,lunes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Urbanizacion Montesol,nº 76
+ALC-2025-00095,2025-02-11,05:25,martes,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,avda. L'alameda,403
+ALC-2025-00096,2025-02-11,10:55,martes,mañana,Hurto,234,C/ NA SAURINA D'ENTENCA,74
+ALC-2025-00097,2025-02-12,17:20,miércoles,tarde,Hurto,234,CL Sant Vicent Ferrer,18
+ALC-2025-00098,2025-02-12,18:25,miércoles,tarde,Contra la salud pública (tráfico de drogas),368,C/ cami el,nº 25
+ALC-2025-00099,2025-02-12,19:10,miércoles,tarde,Robo con violencia o intimidación en las personas,242,calle Enginyer Vilaplana,21
+ALC-2025-00100,2025-02-13,22:00,jueves,noche,Robo con violencia o intimidación en las personas,242,Calle Sin Nombre,
+ALC-2025-00101,2025-02-14,00:45,viernes,noche,Robo con violencia o intimidación en las personas,242,C/ Dona Amalia,nº 37
+ALC-2025-00102,2025-02-14,00:50,viernes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Calle Isabel la Catolica,56
+ALC-2025-00103,2025-02-14,04:35,viernes,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ NA SAURINA D'ENAENCA,117
+ALC-2025-00104,2025-02-14,17:05,viernes,tarde,Hurto,234,calle CASETA MASCARELLES,30
+ALC-2025-00105,2025-02-14,18:10,viernes,tarde,Hurto,234,Avenida L'alameda,16
+ALC-2025-00106,2025-02-14,19:35,viernes,tarde,Hurto,234,C/ Sant Nicolau,nº 177
+ALC-2025-00107,2025-02-14,23:30,viernes,noche,Daños,263,C/ Pintor Casanova,258
+ALC-2025-00108,2025-02-14,23:30,viernes,noche,Desórdenes públicos,557,CL Safor la,3 A
+ALC-2025-00109,2025-02-15,01:30,sábado,noche,Lesiones,147,CL Maulets Els,342
+ALC-2025-00110,2025-02-15,23:25,sábado,noche,Daños,263,Parque de la Canaleta,
+ALC-2025-00111,2025-02-16,00:15,domingo,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Carretera Molinar,nº 37C
+ALC-2025-00112,2025-02-16,00:35,domingo,noche,Daños,263,Calle Peru,379
+ALC-2025-00113,2025-02-16,02:20,domingo,madrugada,Desórdenes públicos,557,calle Sant Pancrac,320
+ALC-2025-00114,2025-02-16,11:30,domingo,mañana,Hurto,234,C/ Sant Vicent Ferrer,98
+ALC-2025-00115,2025-02-17,03:30,lunes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Carretera Molinar,488
+ALC-2025-00116,2025-02-17,03:30,lunes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,CL alberri,28
+ALC-2025-00117,2025-02-17,05:05,lunes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,plaza Font de L'horta,2
+ALC-2025-00118,2025-02-17,09:00,lunes,mañana,Robo con fuerza en las cosas en casa habitada,241,Lugar Font Roja,13
+ALC-2025-00119,2025-02-17,11:30,lunes,mañana,Hurto,234,C/ Na Saurina D'entenca,117
+ALC-2025-00120,2025-02-17,19:00,lunes,tarde,Daños,263,CL Bernia,nº 14
+ALC-2025-00121,2025-02-18,11:50,martes,mañana,Hurto,234,C/ Sant Jaume,10
+ALC-2025-00122,2025-02-18,12:45,martes,mañana,Hurto,234,C/ francesc perera,16
+ALC-2025-00123,2025-02-19,10:20,miércoles,mañana,Robo con fuerza en las cosas (interior de vehículo),237-238,Carretera Molinar,103B
+ALC-2025-00124,2025-02-19,14:25,miércoles,tarde,Robo con fuerza en las cosas en casa habitada,241,C/ Sant Blai,31
+ALC-2025-00125,2025-02-20,18:15,jueves,tarde,Hurto,234,calle Sant Jaume,10
+ALC-2025-00126,2025-02-21,17:55,viernes,tarde,Hurto,234,Calle Barranc del Sinc,34B
+ALC-2025-00127,2025-02-22,01:05,sábado,noche,Contra la salud pública (tráfico de drogas),368,Calle Sor Elena Picurelli,363
+ALC-2025-00128,2025-02-22,02:10,sábado,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ Sant Nicolau,113
+ALC-2025-00129,2025-02-22,11:05,sábado,mañana,Hurto,234,C/ Sant Isidre,s/n
+ALC-2025-00130,2025-02-22,18:10,sábado,tarde,Hurto,234,Calle Mossen Vicente Albors,2
+ALC-2025-00131,2025-02-22,21:30,sábado,tarde,Daños,263,C/ Anselm Aracil,39
+ALC-2025-00132,2025-02-23,00:05,domingo,noche,Daños,263,calle Sant Nicolau,nº 121
+ALC-2025-00133,2025-02-23,15:40,domingo,tarde,Hurto,234,C/ Verge D'agost,nº 3
+ALC-2025-00134,2025-02-23,16:10,domingo,tarde,Hurto,234,C/ Isaac Peral,s/n
+ALC-2025-00135,2025-02-25,04:35,martes,madrugada,Hurto o robo de uso de vehículo a motor,244,calle Carrasca,nº 2
+ALC-2025-00136,2025-02-25,04:55,martes,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Calle Sin Nombre,34
+ALC-2025-00137,2025-02-25,19:20,martes,tarde,Robo con fuerza en las cosas en casa habitada,241,Mercado municipal,
+ALC-2025-00138,2025-02-28,01:05,viernes,noche,Desórdenes públicos,557,Calle Alacant,nº 47 C
+ALC-2025-00139,2025-02-28,05:15,viernes,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,CL Alfafara,26
+ALC-2025-00140,2025-02-28,19:15,viernes,tarde,Hurto,234,Calle Sin Nombre,
+ALC-2025-00141,2025-03-01,01:20,sábado,noche,Amenazas,169,Carretera MOLINAR,81
+ALC-2025-00142,2025-03-01,02:30,sábado,madrugada,Daños,263,C/ Sant Mateu,19
+ALC-2025-00143,2025-03-01,05:05,sábado,madrugada,Lesiones,147,C/ Dona Amalia,45 B
+ALC-2025-00144,2025-03-01,19:25,sábado,tarde,Hurto,234,calle Enginyer Vilaolana,21
+ALC-2025-00145,2025-03-01,19:45,sábado,tarde,Daños,263,URBANIZACION L'ESTEPAR,483
+ALC-2025-00146,2025-03-01,23:10,sábado,noche,Lesiones,147,C/ Doctor Guerau,5
+ALC-2025-00147,2025-03-01,23:55,sábado,noche,Daños,263,c/ SANT PANCRAC,319
+ALC-2025-00148,2025-03-02,02:05,domingo,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Calle Peru,112
+ALC-2025-00149,2025-03-02,02:45,domingo,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,c/ Alfafara,418
+ALC-2025-00150,2025-03-02,21:20,domingo,tarde,Robo con fuerza en las cosas (interior de vehículo),237-238,Carretera molinar,59 C
+ALC-2025-00151,2025-03-02,23:15,domingo,noche,Robo con violencia o intimidación en las personas,242,CL Poeta Joan Valls,35
+ALC-2025-00152,2025-03-03,16:35,lunes,tarde,Hurto,234,C/ PERU,112
+ALC-2025-00153,2025-03-03,22:10,lunes,noche,Hurto,234,Calle Pintor Cabrera,104
+ALC-2025-00154,2025-03-04,23:25,martes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Descampado junto a la carretera,59
+ALC-2025-00155,2025-03-04,23:50,martes,noche,Robo con violencia o intimidación en las personas,242,CL Enginyer Vilaplana,nº 21
+ALC-2025-00156,2025-03-05,04:35,miércoles,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Ctra. Molinar,51
+ALC-2025-00157,2025-03-05,05:50,miércoles,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Ctra. MOLINAR,nº 51
+ALC-2025-00158,2025-03-05,12:15,miércoles,mañana,Hurto,234,CL RECONQUESTA,10
+ALC-2025-00159,2025-03-05,14:50,miércoles,tarde,Hurto,234,c/ SANT JAUME,17
+ALC-2025-00160,2025-03-06,00:00,jueves,noche,Desórdenes públicos,557,AVDA L'alameda,84B
+ALC-2025-00161,2025-03-06,00:35,jueves,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ alfafara,nº 7
+ALC-2025-00162,2025-03-06,21:50,jueves,tarde,Contra la salud pública (tráfico de drogas),368,Calle Sant Maure,nº 4
+ALC-2025-00163,2025-03-07,03:20,viernes,madrugada,Robo con violencia o intimidación en las personas,242,C/ Maulets Els,41
+ALC-2025-00164,2025-03-07,14:15,viernes,tarde,Robo con fuerza en las cosas en casa habitada,241,Partida Riquer Alt,374
+ALC-2025-00165,2025-03-07,19:05,viernes,tarde,Hurto,234,Camino Antic la Piscina,4
+ALC-2025-00166,2025-03-08,02:15,sábado,madrugada,Desórdenes públicos,557,calle Sant Eloi,19
+ALC-2025-00167,2025-03-08,04:50,sábado,madrugada,Lesiones,147,c/ MAULETS ELS,15
+ALC-2025-00168,2025-03-09,00:20,domingo,noche,Daños,263,C/ Dona Amalia,21
+ALC-2025-00169,2025-03-09,10:55,domingo,mañana,Robo con fuerza en las cosas en casa habitada,241,calle METGE MANUEL RODRIGUEZ,18
+ALC-2025-00170,2025-03-09,12:55,domingo,mañana,Hurto,234,Calle PINTOR CABRERA,118
+ALC-2025-00171,2025-03-09,18:25,domingo,tarde,Hurto,234,C/ Cid,311
+ALC-2025-00172,2025-03-09,22:30,domingo,noche,Daños,263,CL Doctor Guerau,nº 34
+ALC-2025-00173,2025-03-10,19:05,lunes,tarde,Robo con violencia o intimidación en las personas,242,c/ DONA AMALIA,37
+ALC-2025-00174,2025-03-10,20:05,lunes,tarde,Hurto,234,calle Juan Gil Albert,nº 2
+ALC-2025-00175,2025-03-11,02:05,martes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,CL Sant Vicent Ferrer,67
+ALC-2025-00176,2025-03-11,12:20,martes,mañana,Hurto,234,Calle Purissima,6
+ALC-2025-00177,2025-03-12,00:50,miércoles,noche,Hurto o robo de uso de vehículo a motor,244,C/ MUSIC JOSEP CARBONELL,27
+ALC-2025-00178,2025-03-12,07:15,miércoles,mañana,Robo con fuerza en las cosas (interior de vehículo),237-238,Ctra. Molinar,47
+ALC-2025-00179,2025-03-13,14:45,jueves,tarde,Hurto,234,CL SANT ISIDRE,33
+ALC-2025-00180,2025-03-13,15:30,jueves,tarde,Hurto,234,c/ Music Perez Laporta,395
+ALC-2025-00181,2025-03-13,17:40,jueves,tarde,Contra la salud pública (tráfico de drogas),368,C/ Isabel la Católica,nº 32
+ALC-2025-00182,2025-03-14,10:50,viernes,mañana,Robo con fuerza en las cosas en casa habitada,241,Partida Riquer Alt,2-A
+ALC-2025-00183,2025-03-14,19:30,viernes,tarde,Hurto,234,calle Pintor Cabrra,104
+ALC-2025-00184,2025-03-14,20:20,viernes,tarde,Hurto,234,Pl. Industrial Sur Fase 2,7 A
+ALC-2025-00185,2025-03-14,20:35,viernes,tarde,Hurto,234,c/ PURISSIMA,6
+ALC-2025-00186,2025-03-15,01:10,sábado,noche,Daños,263,C/ Torre de Les Macanes,7
+ALC-2025-00187,2025-03-15,01:40,sábado,noche,Hurto o robo de uso de vehículo a motor,244,Ctra. Molinar,103B
+ALC-2025-00188,2025-03-15,08:35,sábado,mañana,Hurto,234,avda. pais valencia,nº 52
+ALC-2025-00189,2025-03-15,13:00,sábado,mañana,Robo con fuerza en las cosas en casa habitada,241,c/ Pintor Casanova,20
+ALC-2025-00190,2025-03-15,18:30,sábado,tarde,Hurto,234,calle Isaac Peral,S/N
+ALC-2025-00191,2025-03-16,02:05,domingo,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,calle Alfafara,14
+ALC-2025-00192,2025-03-17,00:55,lunes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ BISCOI,11
+ALC-2025-00193,2025-03-17,02:15,lunes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Partida Mariola,68
+ALC-2025-00194,2025-03-17,19:20,lunes,tarde,Contra la salud pública (tráfico de drogas),368,Calle Cami el,S/N
+ALC-2025-00195,2025-03-19,15:30,miércoles,tarde,Hurto,234,Av. ELX,17-A
+ALC-2025-00196,2025-03-19,15:35,miércoles,tarde,Hurto,234,CL Isaac Peral,3
+ALC-2025-00197,2025-03-19,17:20,miércoles,tarde,Robo con fuerza en las cosas en casa habitada,241,Calle L'ESCOLA,8
+ALC-2025-00198,2025-03-19,20:30,miércoles,tarde,Hurto,234,C/ Purissima,nº 13
+ALC-2025-00199,2025-03-20,03:35,jueves,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Carretera MOLINAR,103-B
+ALC-2025-00200,2025-03-20,11:25,jueves,mañana,Hurto,234,calle Font de Serelles,6
+ALC-2025-00201,2025-03-20,20:55,jueves,tarde,Daños,263,C/ Sant Nicolau,nº 85
+ALC-2025-00202,2025-03-20,21:15,jueves,tarde,Daños,263,CL CRONISTE JORDAN,4
+ALC-2025-00203,2025-03-21,03:55,viernes,madrugada,Lesiones,147,CL PURISSIMA,20
+ALC-2025-00204,2025-03-21,18:35,viernes,tarde,Hurto,234,C/ NA SAURINA D'ENTENCA,100
+ALC-2025-00205,2025-03-21,23:05,viernes,noche,Hurto,234,Pl. Cotes Baixes C,3 C
+ALC-2025-00206,2025-03-22,03:10,sábado,madrugada,Desórdenes públicos,557,C/ verge dels llriis,34
+ALC-2025-00207,2025-03-22,14:30,sábado,tarde,Contra la salud pública (tráfico de drogas),368,C/ Sant Joan,41
+ALC-2025-00208,2025-03-22,18:40,sábado,tarde,Hurto,234,Pl. Benissaido,1
+ALC-2025-00209,2025-03-23,03:50,domingo,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ Dona Amalia,72
+ALC-2025-00210,2025-03-23,10:40,domingo,mañana,Hurto,234,Pza. LLOMETES,16
+ALC-2025-00211,2025-03-23,12:00,domingo,mañana,Hurto,234,c/ Sant Isidre,42
+ALC-2025-00212,2025-03-24,00:30,lunes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Calle Sin Nombre,9
+ALC-2025-00213,2025-03-24,12:30,lunes,mañana,Hurto,234,calle ISAAC PERAL,192
+ALC-2025-00214,2025-03-25,00:40,martes,noche,Daños,263,calle Maulets Els,nº 15
+ALC-2025-00215,2025-03-25,11:35,martes,mañana,Hurto,234,Pl. Benissaido,1
+ALC-2025-00216,2025-03-27,20:15,jueves,tarde,Daños,263,Calle ALBERRI,403
+ALC-2025-00217,2025-03-27,23:25,jueves,noche,Desórdenes públicos,557,CL Sant Pancrac,nº 2
+ALC-2025-00218,2025-03-28,03:25,viernes,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ Na Saurina D'entenca,nº 105
+ALC-2025-00219,2025-03-28,04:00,viernes,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ peru,90
+ALC-2025-00220,2025-03-28,10:55,viernes,mañana,Hurto,234,CL PERU,25
+ALC-2025-00221,2025-03-29,01:10,sábado,noche,Desórdenes públicos,557,CL Maulets Els,249
+ALC-2025-00222,2025-03-29,02:30,sábado,madrugada,Lesiones,147,CL Sant Pancrac,2
+ALC-2025-00223,2025-03-29,18:20,sábado,tarde,Robo con violencia o intimidación en las personas,242,c/ VERGE DELS LLIRIS,34
+ALC-2025-00224,2025-03-29,21:45,sábado,tarde,Daños,263,CL Vistabella,346
+ALC-2025-00225,2025-03-29,23:40,sábado,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,calle Miraculosa la,20A
+ALC-2025-00226,2025-03-30,19:20,domingo,tarde,Robo con fuerza en las cosas en casa habitada,241,calle Pintor Laporta,S/N
+ALC-2025-00227,2025-03-31,04:40,lunes,madrugada,Robo con violencia o intimidación en las personas,242,Calle Reconquesta,437
+ALC-2025-00228,2025-03-31,17:30,lunes,tarde,Hurto,234,CL Montgo,S/N
+ALC-2025-00229,2025-03-31,18:35,lunes,tarde,Robo con fuerza en las cosas en casa habitada,241,Calle OLIVER,S/N
+ALC-2025-00230,2025-04-01,15:35,martes,tarde,Hurto,234,calle Reconquesta,10
+ALC-2025-00231,2025-04-02,04:50,miércoles,madrugada,Lesiones,147,CL doctor guerau,28
+ALC-2025-00232,2025-04-02,05:05,miércoles,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,c/ Mossen Cirilo Tormo,S/N
+ALC-2025-00233,2025-04-02,12:40,miércoles,mañana,Robo con fuerza en las cosas en casa habitada,241,C/ Isabel Ii,7
+ALC-2025-00234,2025-04-03,02:10,jueves,madrugada,Lesiones,147,calle Pintor Cabrera,18
+ALC-2025-00235,2025-04-03,02:35,jueves,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,calle Collao,224
+ALC-2025-00236,2025-04-03,10:35,jueves,mañana,Robo con fuerza en las cosas en casa habitada,241,CL Oliver,47
+ALC-2025-00237,2025-04-03,15:05,jueves,tarde,Hurto,234,c/ CINE CAPITOL,6
+ALC-2025-00238,2025-04-03,19:35,jueves,tarde,Hurto,234,C/ Poeta Joan Valls,35
+ALC-2025-00239,2025-04-04,13:05,viernes,mañana,Hurto,234,Descampado junto a la carretera,
+ALC-2025-00240,2025-04-05,18:40,sábado,tarde,Hurto,234,CL Enginyer Vilaplana,21
+ALC-2025-00241,2025-04-05,22:05,sábado,noche,Daños,263,Calle SANT FRANCESC,260
+ALC-2025-00242,2025-04-05,23:00,sábado,noche,Daños,263,Estación de metro,
+ALC-2025-00243,2025-04-06,01:55,domingo,noche,Daños,263,Calle MAULETS ELS,345
+ALC-2025-00244,2025-04-06,03:30,domingo,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,c/ CAMI EL,19
+ALC-2025-00245,2025-04-06,09:20,domingo,mañana,Hurto,234,C/ Sant Pau,7
+ALC-2025-00246,2025-04-07,00:25,lunes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Carretera Molinar,59 C
+ALC-2025-00247,2025-04-07,01:05,lunes,noche,Daños,263,Calle Sant Nicolau,121
+ALC-2025-00248,2025-04-07,11:25,lunes,mañana,Hurto,234,calle Pintor Cabrera,nº 126
+ALC-2025-00249,2025-04-07,16:10,lunes,tarde,Hurto,234,CL Balmes,2
+ALC-2025-00250,2025-04-07,19:20,lunes,tarde,Robo con fuerza en las cosas en casa habitada,241,Partida Riquer Alt,nº 4
+ALC-2025-00251,2025-04-08,09:00,martes,mañana,Robo con fuerza en las cosas en casa habitada,241,Partida Riquer Alt,2A
+ALC-2025-00252,2025-04-09,16:40,miércoles,tarde,Daños,263,C/ Sor Elena Picurelli,254
+ALC-2025-00253,2025-04-10,00:00,jueves,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Avda. del Puerto,
+ALC-2025-00254,2025-04-10,20:30,jueves,tarde,Robo con violencia o intimidación en las personas,242,calle VERGE D'AGOST,294
+ALC-2025-00255,2025-04-11,02:35,viernes,madrugada,Daños,263,CL dona amalia,52
+ALC-2025-00256,2025-04-11,12:35,viernes,mañana,Hurto,234,c/ Enginyer Vilaplnaa,21
+ALC-2025-00257,2025-04-12,02:15,sábado,madrugada,Lesiones,147,Calle Barranc de Soler,nº 14B
+ALC-2025-00258,2025-04-12,13:25,sábado,mañana,Hurto,234,calle Enginyer Vilaplana,21
+ALC-2025-00259,2025-04-12,20:55,sábado,tarde,Hurto,234,c/ JUAN GIL ALBERT,2
+ALC-2025-00260,2025-04-12,22:55,sábado,noche,Daños,263,Calle Ibi,18
+ALC-2025-00261,2025-04-13,05:05,domingo,madrugada,Lesiones,147,C/ Pintor Cabrera,29
+ALC-2025-00262,2025-04-13,11:00,domingo,mañana,Hurto,234,C/ Sant Tomas,nº 4
+ALC-2025-00263,2025-04-13,13:35,domingo,mañana,Hurto,234,C/ OLIVAR,68
+ALC-2025-00264,2025-04-13,21:40,domingo,tarde,Hurto,234,c/ Sant Isidre,33
+ALC-2025-00265,2025-04-14,11:25,lunes,mañana,Hurto,234,CL Alfafara,14
+ALC-2025-00266,2025-04-14,16:10,lunes,tarde,Hurto,234,plaza benissaido,nº 1
+ALC-2025-00267,2025-04-14,23:55,lunes,noche,Daños,263,C/ SOR ELENA PICURELLI,13
+ALC-2025-00268,2025-04-15,07:15,martes,mañana,Hurto,234,CL Purissima,s/n
+ALC-2025-00269,2025-04-15,11:35,martes,mañana,Hurto,234,C/ Reconquesta,16
+ALC-2025-00270,2025-04-15,11:40,martes,mañana,Hurto,234,C/ PERU,nº 130
+ALC-2025-00271,2025-04-15,14:50,martes,tarde,Hurto,234,C/ Aranyo,25
+ALC-2025-00272,2025-04-15,23:50,martes,noche,Lesiones,147,calle Doctor Guerau,346
+ALC-2025-00273,2025-04-17,03:55,jueves,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Calle DOCTOR GUERAU,34
+ALC-2025-00274,2025-04-17,08:05,jueves,mañana,Hurto,234,C/ Azorín,nº 1
+ALC-2025-00275,2025-04-17,18:10,jueves,tarde,Hurto,234,Calle SANT ROC,nº 6
+ALC-2025-00276,2025-04-18,13:35,viernes,mañana,Hurto,234,C/ Pintor Cabrera,118
+ALC-2025-00277,2025-04-19,00:20,sábado,noche,Hurto,234,c/ PINTOR CABRERA,nº 104
+ALC-2025-00278,2025-04-19,01:15,sábado,noche,Daños,263,c/ Alacant,47-C
+ALC-2025-00279,2025-04-19,08:55,sábado,mañana,Hurto,234,Parque de la Canaleta,
+ALC-2025-00280,2025-04-19,20:25,sábado,tarde,Hurto,234,Calle NA SAURINA D'ENTENCA,105
+ALC-2025-00281,2025-04-20,01:15,domingo,noche,Lesiones,147,Partida Mariola,17
+ALC-2025-00282,2025-04-20,01:20,domingo,noche,Lesiones,147,c/ Maulets Els,28
+ALC-2025-00283,2025-04-20,02:20,domingo,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ Sant Vicent Ferrer,nº 67
+ALC-2025-00284,2025-04-20,03:40,domingo,madrugada,Daños,263,C/ Sant Nicolau,113
+ALC-2025-00285,2025-04-20,20:35,domingo,tarde,Daños,263,C/ Jordi Sant Jordi,4
+ALC-2025-00286,2025-04-20,21:15,domingo,tarde,Robo con violencia o intimidación en las personas,242,Polígono industrial,
+ALC-2025-00287,2025-04-21,04:30,lunes,madrugada,Daños,263,calle AITANA,323
+ALC-2025-00288,2025-04-23,00:35,miércoles,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Pasaje PARTERRE EL,nº 1
+ALC-2025-00289,2025-04-23,05:15,miércoles,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,calle CASETA MASCARELLES,S/N
+ALC-2025-00290,2025-04-23,23:25,miércoles,noche,Hurto,234,C/ hispanitat,367
+ALC-2025-00291,2025-04-24,02:20,jueves,madrugada,Hurto o robo de uso de vehículo a motor,244,Partida Pagos,25
+ALC-2025-00292,2025-04-25,02:45,viernes,madrugada,Daños,263,C/ SOR ELENA PICURELLI,13
+ALC-2025-00293,2025-04-25,17:50,viernes,tarde,Robo con fuerza en las cosas en casa habitada,241,Partida RIQUER ALT,2A
+ALC-2025-00294,2025-04-26,02:10,sábado,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Partida PAGOS,5
+ALC-2025-00295,2025-04-26,04:25,sábado,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ Isaac Peral,s/n
+ALC-2025-00296,2025-04-26,08:20,sábado,mañana,Hurto,234,CL PERU,19
+ALC-2025-00297,2025-04-26,11:40,sábado,mañana,Robo con fuerza en las cosas en casa habitada,241,C/ Clots Els,9
+ALC-2025-00298,2025-04-26,12:15,sábado,mañana,Hurto,234,CL Enginyer Vilaplana,26
+ALC-2025-00299,2025-04-26,13:25,sábado,mañana,Hurto,234,c/ Na Saurina D'entenca,nº 105
+ALC-2025-00300,2025-04-26,19:05,sábado,tarde,Hurto,234,Partida Rambla Alta,nº 24
+ALC-2025-00301,2025-04-26,21:30,sábado,tarde,Hurto,234,c/ PERU,s/n
+ALC-2025-00302,2025-04-26,21:40,sábado,tarde,Lesiones,147,C/ DOCTOR GUERAU,34
+ALC-2025-00303,2025-04-27,18:10,domingo,tarde,Contra la salud pública (tráfico de drogas),368,C/ Barranc del Sinc,16
+ALC-2025-00304,2025-04-29,11:25,martes,mañana,Amenazas,169,Camino Talecons Els,nº 14
+ALC-2025-00305,2025-04-30,08:00,miércoles,mañana,Robo con fuerza en las cosas (interior de vehículo),237-238,Partida Rambla Baixa,13
+ALC-2025-00306,2025-05-01,01:50,jueves,noche,Robo con violencia o intimidación en las personas,242,Pasaje Sabadell,2
+ALC-2025-00307,2025-05-01,04:40,jueves,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,calle rafael laliga perez,21
+ALC-2025-00308,2025-05-01,06:40,jueves,mañana,Hurto o robo de uso de vehículo a motor,244,c/ ENCARO,14
+ALC-2025-00309,2025-05-01,19:15,jueves,tarde,Hurto,234,calle MOSSEN CIRILO TORMO,299
+ALC-2025-00310,2025-05-02,03:50,viernes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ Music Goncal Blanes,35
+ALC-2025-00311,2025-05-02,19:50,viernes,tarde,Hurto,234,C/ Cid,37
+ALC-2025-00312,2025-05-02,22:10,viernes,noche,Hurto,234,Urbanizacion Montesol,463
+ALC-2025-00313,2025-05-03,01:00,sábado,noche,Lesiones,147,C/ Ruzafa,
+ALC-2025-00314,2025-05-03,03:45,sábado,madrugada,Daños,263,c/ oliver,47
+ALC-2025-00315,2025-05-03,17:45,sábado,tarde,Amenazas,169,calle Verge D'aost,42
+ALC-2025-00316,2025-05-04,03:30,domingo,madrugada,Lesiones,147,Partida SENTBENET ALT,nº 3
+ALC-2025-00317,2025-05-04,04:50,domingo,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Ctra. Molinar,51
+ALC-2025-00318,2025-05-04,05:15,domingo,madrugada,Lesiones,147,calle MAULETS ELS,28
+ALC-2025-00319,2025-05-04,11:55,domingo,mañana,Robo con fuerza en las cosas en casa habitada,241,C/ Oliver,nº 52
+ALC-2025-00320,2025-05-05,01:35,lunes,noche,Daños,263,Calle Tossal,38
+ALC-2025-00321,2025-05-05,04:30,lunes,madrugada,Lesiones,147,Calle Pintor Laporta,2
+ALC-2025-00322,2025-05-05,12:25,lunes,mañana,Hurto,234,CL alfafara,26
+ALC-2025-00323,2025-05-05,17:40,lunes,tarde,Hurto,234,Partida mariola,61
+ALC-2025-00324,2025-05-05,23:25,lunes,noche,Hurto o robo de uso de vehículo a motor,244,Ctra. MOLINAR,37-C
+ALC-2025-00325,2025-05-06,10:50,martes,mañana,Hurto,234,c/ SANT JAUME,
+ALC-2025-00326,2025-05-06,20:45,martes,tarde,Robo con violencia o intimidación en las personas,242,Calle Ibi,226
+ALC-2025-00327,2025-05-08,02:50,jueves,madrugada,Daños,263,c/ Sant Rafel,323
+ALC-2025-00328,2025-05-09,00:05,viernes,noche,Daños,263,Calle Cami el,54
+ALC-2025-00329,2025-05-09,04:50,viernes,madrugada,Lesiones,147,C/ Dona Amalia,nº 52
+ALC-2025-00330,2025-05-10,06:10,sábado,mañana,Desórdenes públicos,557,AVDA l'alameda,329
+ALC-2025-00331,2025-05-10,12:20,sábado,mañana,Hurto,234,c/ Barranc de Na Lloba,13
+ALC-2025-00332,2025-05-10,19:50,sábado,tarde,Hurto,234,Zona de ocio,
+ALC-2025-00333,2025-05-11,00:15,domingo,noche,Robo con violencia o intimidación en las personas,242,C/ JAUME ROIG,
+ALC-2025-00334,2025-05-11,02:15,domingo,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Calle Maulets Els,9
+ALC-2025-00335,2025-05-11,12:00,domingo,mañana,Hurto,234,C/ OLIVER,s/n
+ALC-2025-00336,2025-05-11,19:50,domingo,tarde,Hurto,234,Pl. Al Azraq,2
+ALC-2025-00337,2025-05-13,00:55,martes,noche,Daños,263,C/ Music Serrano,S/N
+ALC-2025-00338,2025-05-13,02:35,martes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Carretera MOLINAR,51
+ALC-2025-00339,2025-05-13,11:40,martes,mañana,Amenazas,169,CL Fontanella,5
+ALC-2025-00340,2025-05-14,19:30,miércoles,tarde,Hurto,234,Mercado el Sargento,2
+ALC-2025-00341,2025-05-15,00:30,jueves,noche,Daños,263,C/ Benicadell,9
+ALC-2025-00342,2025-05-16,04:30,viernes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,CL Rafeal Laliga Perez,nº 21
+ALC-2025-00343,2025-05-16,10:45,viernes,mañana,Hurto,234,GRUPO FONT DOLCA,11
+ALC-2025-00344,2025-05-16,19:20,viernes,tarde,Hurto,234,Pl. Espanya,nº 13
+ALC-2025-00345,2025-05-17,14:55,sábado,tarde,Hurto,234,CALLEJON BENICADELL CALLEJA,2
+ALC-2025-00346,2025-05-17,19:25,sábado,tarde,Hurto,234,C/ Alfafara,14
+ALC-2025-00347,2025-05-18,02:35,domingo,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,calle Na Saurina D'entena,34-A
+ALC-2025-00348,2025-05-18,04:10,domingo,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,CL filadors els,14
+ALC-2025-00349,2025-05-18,04:45,domingo,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ SANT ISIDRE,346
+ALC-2025-00350,2025-05-18,13:40,domingo,mañana,Hurto,234,urbanizacion montesol,50 B
+ALC-2025-00351,2025-05-19,00:55,lunes,noche,Daños,263,c/ PERIODIO CIUDAD,53
+ALC-2025-00352,2025-05-20,01:00,martes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Ctra. Molinar,373
+ALC-2025-00353,2025-05-21,05:00,miércoles,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ verge maria,91
+ALC-2025-00354,2025-05-22,02:15,jueves,madrugada,Daños,263,CL Sant Bonaventura,11
+ALC-2025-00355,2025-05-22,09:25,jueves,mañana,Robo con fuerza en las cosas (interior de vehículo),237-238,calle ENCARO,6
+ALC-2025-00356,2025-05-23,00:15,viernes,noche,Daños,263,C/ FERRAN EL CATOLIC,1
+ALC-2025-00357,2025-05-24,04:45,sábado,madrugada,Lesiones,147,CL Ibi,38
+ALC-2025-00358,2025-05-24,16:35,sábado,tarde,Hurto,234,C/ Verge D'aogst,12
+ALC-2025-00359,2025-05-25,02:35,domingo,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Ctra. Molinar,nº 103 B
+ALC-2025-00360,2025-05-25,02:55,domingo,madrugada,Desórdenes públicos,557,C/ Xàtiva,
+ALC-2025-00361,2025-05-25,03:20,domingo,madrugada,Hurto o robo de uso de vehículo a motor,244,Calle mitja volta,13
+ALC-2025-00362,2025-05-25,14:05,domingo,tarde,Hurto,234,calle PERU,353
+ALC-2025-00363,2025-05-26,00:25,lunes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ Encaro,14
+ALC-2025-00364,2025-05-26,19:00,lunes,tarde,Hurto,234,C/ Reconquesta,4A
+ALC-2025-00365,2025-05-27,00:35,martes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ SOR ELENA PICURELLI,13
+ALC-2025-00366,2025-05-27,01:00,martes,noche,Hurto o robo de uso de vehículo a motor,244,callejon caseta corbi calleja,6
+ALC-2025-00367,2025-05-27,14:40,martes,tarde,Robo con fuerza en las cosas en casa habitada,241,C/ Llibertat la,3
+ALC-2025-00368,2025-05-27,18:35,martes,tarde,Hurto,234,CL POETA JOAN VALLS,35
+ALC-2025-00369,2025-05-27,19:25,martes,tarde,Hurto,234,CL cami el,4
+ALC-2025-00370,2025-05-27,19:45,martes,tarde,Hurto,234,calle Francesc Perera,16
+ALC-2025-00371,2025-05-29,04:10,jueves,madrugada,Hurto o robo de uso de vehículo a motor,244,C/ Sant Isidre,33
+ALC-2025-00372,2025-05-30,02:30,viernes,madrugada,Daños,263,Partida POLOP ALT,28
+ALC-2025-00373,2025-05-30,18:10,viernes,tarde,Hurto,234,CL Barbacana,11
+ALC-2025-00374,2025-05-31,14:15,sábado,tarde,Hurto,234,CL Sant Nicolau,15
+ALC-2025-00375,2025-05-31,15:55,sábado,tarde,Hurto,234,C/ Isaac Peral,11
+ALC-2025-00376,2025-06-01,00:50,domingo,noche,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ Pintor Cabrera,126
+ALC-2025-00377,2025-06-01,21:55,domingo,tarde,Contra la salud pública (tráfico de drogas),368,CL Xorrador,35
+ALC-2025-00378,2025-06-01,23:20,domingo,noche,Robo con violencia o intimidación en las personas,242,Calle Cine Monterrey,14
+ALC-2025-00379,2025-06-02,18:55,lunes,tarde,Contra la salud pública (tráfico de drogas),368,C/ CAVALER MERITA,nº 12
+ALC-2025-00380,2025-06-02,19:35,lunes,tarde,Daños,263,c/ Assegador,42
+ALC-2025-00381,2025-06-02,20:45,lunes,tarde,Hurto,234,C/ ALFAFARA,20
+ALC-2025-00382,2025-06-03,03:00,martes,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Cno. ANTIC LA PISCINA,4
+ALC-2025-00383,2025-06-03,09:00,martes,mañana,Hurto,234,C/ PLANES DE LA BARONIA,6
+ALC-2025-00384,2025-06-03,20:00,martes,tarde,Hurto,234,Partida Pagos,5
+ALC-2025-00385,2025-06-03,22:55,martes,noche,Desórdenes públicos,557,Avda. L'alameda,35
+ALC-2025-00386,2025-06-04,09:55,miércoles,mañana,Hurto,234,Plaza BENOSSAIDO,1
+ALC-2025-00387,2025-06-04,10:45,miércoles,mañana,Hurto,234,c/ Sant Maure,35
+ALC-2025-00388,2025-06-04,12:10,miércoles,mañana,Hurto,234,Calle Enginyer Vilaplana,14
+ALC-2025-00389,2025-06-04,16:00,miércoles,tarde,Hurto,234,Partida Polop Baix,22
+ALC-2025-00390,2025-06-04,16:35,miércoles,tarde,Amenazas,169,c/ Sant Pancrac,7
+ALC-2025-00391,2025-06-04,17:45,miércoles,tarde,Hurto,234,c/ Verge D'agost,12
+ALC-2025-00392,2025-06-04,20:30,miércoles,tarde,Contra la salud pública (tráfico de drogas),368,CL Sant Nicolau,113
+ALC-2025-00393,2025-06-05,04:10,jueves,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ Na Saurina D'entenca,105
+ALC-2025-00394,2025-06-05,04:25,jueves,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,CL CASETA MASCARELLES,42
+ALC-2025-00395,2025-06-05,11:30,jueves,mañana,Hurto,234,C/ Olivar de la Bassa,390
+ALC-2025-00396,2025-06-05,19:15,jueves,tarde,Robo con fuerza en las cosas en casa habitada,241,Cno. MURTERA LA,12
+ALC-2025-00397,2025-06-06,00:55,viernes,noche,Lesiones,147,C/ Verge Dels Lliris,s/n
+ALC-2025-00398,2025-06-06,00:55,viernes,noche,Desórdenes públicos,557,c/ Olivar,74
+ALC-2025-00399,2025-06-06,04:35,viernes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Ctra. Molinar,81
+ALC-2025-00400,2025-06-06,21:10,viernes,tarde,Robo con violencia o intimidación en las personas,242,c/ sant isidne,42
+ALC-2025-00401,2025-06-07,01:50,sábado,noche,Lesiones,147,calle Dona Amalia,nº 21
+ALC-2025-00402,2025-06-07,03:10,sábado,madrugada,Lesiones,147,c/ FILA JUDIOS,9
+ALC-2025-00403,2025-06-07,19:40,sábado,tarde,Hurto,234,C/ Sang la,2
+ALC-2025-00404,2025-06-07,21:55,sábado,tarde,Robo con fuerza en las cosas en casa habitada,241,calle Balmes,2
+ALC-2025-00405,2025-06-07,22:05,sábado,noche,Robo con violencia o intimidación en las personas,242,C/ Escola L',nº 13
+ALC-2025-00406,2025-06-07,23:25,sábado,noche,Robo con violencia o intimidación en las personas,242,c/ sant pancrac,2
+ALC-2025-00407,2025-06-08,03:15,domingo,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Partida Mariola,nº 46
+ALC-2025-00408,2025-06-09,05:25,lunes,madrugada,Hurto o robo de uso de vehículo a motor,244,C/ Cronista Rogelio Sanchis,nº 28
+ALC-2025-00409,2025-06-09,10:40,lunes,mañana,Hurto,234,C/ Pintor Cabrera,118
+ALC-2025-00410,2025-06-09,23:40,lunes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,CL Sant Viecnt Ferrer,47
+ALC-2025-00411,2025-06-10,00:55,martes,noche,Desórdenes públicos,557,C/ Verge Dels Lliris,nº 46
+ALC-2025-00412,2025-06-11,08:40,miércoles,mañana,Hurto,234,CL BENICADELL,38
+ALC-2025-00413,2025-06-11,12:40,miércoles,mañana,Robo con fuerza en las cosas en casa habitada,241,C/ Sotarroni,38
+ALC-2025-00414,2025-06-11,16:35,miércoles,tarde,Hurto,234,C/ Purissima,367
+ALC-2025-00415,2025-06-12,01:25,jueves,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,c/ Sant Pere,9
+ALC-2025-00416,2025-06-12,04:05,jueves,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ BALMES,17
+ALC-2025-00417,2025-06-12,11:30,jueves,mañana,Hurto,234,C/ Pintor Cabrera,
+ALC-2025-00418,2025-06-12,19:45,jueves,tarde,Daños,263,c/ SOR ELENA PICURELLI,13
+ALC-2025-00419,2025-06-12,22:55,jueves,noche,Robo con violencia o intimidación en las personas,242,C/ Maulnts Els,33
+ALC-2025-00420,2025-06-14,02:20,sábado,madrugada,Lesiones,147,C/ MAULETS ELS,41
+ALC-2025-00421,2025-06-14,02:50,sábado,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Carretera molinar,nº 93
+ALC-2025-00422,2025-06-14,02:55,sábado,madrugada,Daños,263,calle DONA AMALIA,37
+ALC-2025-00423,2025-06-14,11:00,sábado,mañana,Hurto,234,Calle Alfafara,14
+ALC-2025-00424,2025-06-15,02:55,domingo,madrugada,Lesiones,147,c/ Mauleas Els,3
+ALC-2025-00425,2025-06-15,10:05,domingo,mañana,Hurto,234,CL Forn del Vidre,nº 10B
+ALC-2025-00426,2025-06-15,15:50,domingo,tarde,Amenazas,169,calle SANT VICENT FERRER,40-A
+ALC-2025-00427,2025-06-15,19:00,domingo,tarde,Amenazas,169,C/ Torre de Les Macanes,7
+ALC-2025-00428,2025-06-16,11:25,lunes,mañana,Amenazas,169,c/ Murillo,21
+ALC-2025-00429,2025-06-16,11:50,lunes,mañana,Robo con fuerza en las cosas en casa habitada,241,Camino Vell de Batoi,10
+ALC-2025-00430,2025-06-16,16:15,lunes,tarde,Hurto,234,calle Verge D'agost,42
+ALC-2025-00431,2025-06-16,17:20,lunes,tarde,Contra la salud pública (tráfico de drogas),368,CL SEVERINO ALBARRACIN,284
+ALC-2025-00432,2025-06-17,03:10,martes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,CL Perioico Ciudad,nº 415
+ALC-2025-00433,2025-06-17,13:25,martes,mañana,Hurto,234,C/ RECONQUESTA,
+ALC-2025-00434,2025-06-18,01:15,miércoles,noche,Daños,263,calle Croniste Jordan,375
+ALC-2025-00435,2025-06-18,13:35,miércoles,mañana,Hurto,234,Ctra. molinar,S/N
+ALC-2025-00436,2025-06-19,05:20,jueves,madrugada,Robo con violencia o intimidación en las personas,242,calle SANT ROC,nº 14
+ALC-2025-00437,2025-06-19,05:30,jueves,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Calle Music Josep Carbonell,349
+ALC-2025-00438,2025-06-19,08:10,jueves,mañana,Robo con fuerza en las cosas (interior de vehículo),237-238,CL encaro,S/N
+ALC-2025-00439,2025-06-20,08:40,viernes,mañana,Robo con fuerza en las cosas en casa habitada,241,c/ CAMI EL,84
+ALC-2025-00440,2025-06-20,09:45,viernes,mañana,Hurto,234,CL Pintor Cabrera,374
+ALC-2025-00441,2025-06-20,16:55,viernes,tarde,Hurto,234,Plaza Dins,4
+ALC-2025-00442,2025-06-20,23:10,viernes,noche,Desórdenes públicos,557,calle SANT PANCRAC,290
+ALC-2025-00443,2025-06-21,04:35,sábado,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,CL MOSSEN ARNAUDA,1
+ALC-2025-00444,2025-06-21,11:20,sábado,mañana,Hurto,234,C/ peru,106
+ALC-2025-00445,2025-06-21,16:00,sábado,tarde,Hurto,234,CL SEVERINO ALBARRAICN,24
+ALC-2025-00446,2025-06-22,04:00,domingo,madrugada,Daños,263,Calle MESTRE LAPORTA,259
+ALC-2025-00447,2025-06-22,12:05,domingo,mañana,Amenazas,169,C/ FRANCESC PERERA,3
+ALC-2025-00448,2025-06-22,12:30,domingo,mañana,Amenazas,169,Camino Talecons Els,14
+ALC-2025-00449,2025-06-23,01:30,lunes,noche,Daños,263,calle Maulets Els,28
+ALC-2025-00450,2025-06-23,06:20,lunes,mañana,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ Sant Pere,nº 19
+ALC-2025-00451,2025-06-23,10:15,lunes,mañana,Hurto,234,calle Mestre Laporta,nº 7
+ALC-2025-00452,2025-06-24,10:55,martes,mañana,Hurto,234,c/ Verge D'agost,12
+ALC-2025-00453,2025-06-24,11:40,martes,mañana,Hurto,234,C/ Caramanxel,S/N
+ALC-2025-00454,2025-06-24,12:05,martes,mañana,Robo con fuerza en las cosas en casa habitada,241,plaza Cotes Baixes A,17
+ALC-2025-00455,2025-06-24,15:35,martes,tarde,Hurto,234,calle CASETA MASCARELLES,42
+ALC-2025-00456,2025-06-25,00:30,miércoles,noche,Robo con violencia o intimidación en las personas,242,calle SANT JOSEP,30
+ALC-2025-00457,2025-06-25,02:15,miércoles,madrugada,Lesiones,147,C/ Maulets Els,nº 20
+ALC-2025-00458,2025-06-25,07:00,miércoles,mañana,Amenazas,169,Calle Olivar,nº 36
+ALC-2025-00459,2025-06-26,03:30,jueves,madrugada,Hurto o robo de uso de vehículo a motor,244,Pl. Cotes Baixes H,34
+ALC-2025-00460,2025-06-26,12:35,jueves,mañana,Hurto,234,C/ Pintor Cabrera,349
+ALC-2025-00461,2025-06-26,18:05,jueves,tarde,Hurto,234,calle CASETA MASCARELLES,385
+ALC-2025-00462,2025-06-27,03:15,viernes,madrugada,Hurto o robo de uso de vehículo a motor,244,grupo font dolca,6
+ALC-2025-00463,2025-06-27,04:20,viernes,madrugada,Lesiones,147,Calle Dona Amalia,45-B
+ALC-2025-00464,2025-06-27,05:20,viernes,madrugada,Lesiones,147,calle casimiro barello morello,6
+ALC-2025-00465,2025-06-27,22:35,viernes,noche,Robo con violencia o intimidación en las personas,242,C/ Sant Isidre,nº 27
+ALC-2025-00466,2025-06-28,03:00,sábado,madrugada,Daños,263,Zona de ocio,
+ALC-2025-00467,2025-06-28,04:25,sábado,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Zona de ocio,44
+ALC-2025-00468,2025-06-30,01:05,lunes,noche,Lesiones,147,C/ Doctor Guerau,14
+ALC-2025-00469,2025-06-30,02:10,lunes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Ctra. Molinar,nº 59-C
+ALC-2025-00470,2025-06-30,12:40,lunes,mañana,Hurto,234,CL Caseta Mascarelles,2
+ALC-2025-00471,2025-07-01,07:00,martes,mañana,Robo con fuerza en las cosas en casa habitada,241,c/ Quevedo,6
+ALC-2025-00472,2025-07-01,18:40,martes,tarde,Hurto,234,C/ Isaac Peral,3
+ALC-2025-00473,2025-07-01,22:50,martes,noche,Contra la salud pública (tráfico de drogas),368,Partida Dubots,6
+ALC-2025-00474,2025-07-02,09:20,miércoles,mañana,Hurto,234,C/ Isaac Peral,11
+ALC-2025-00475,2025-07-02,14:20,miércoles,tarde,Hurto,234,calle Cid,93
+ALC-2025-00476,2025-07-02,18:55,miércoles,tarde,Hurto,234,C/ PERU,106
+ALC-2025-00477,2025-07-03,01:00,jueves,noche,Daños,263,Calle Sant Bonaventura,s/n
+ALC-2025-00478,2025-07-03,22:20,jueves,noche,Daños,263,Calle Sang la,2
+ALC-2025-00479,2025-07-04,01:25,viernes,noche,Daños,263,c/ Sant Bonaventura,17
+ALC-2025-00480,2025-07-04,01:35,viernes,noche,Robo con violencia o intimidación en las personas,242,c/ Reconquesta,16
+ALC-2025-00481,2025-07-04,10:00,viernes,mañana,Robo con fuerza en las cosas en casa habitada,241,C/ Clots Els,9
+ALC-2025-00482,2025-07-04,11:35,viernes,mañana,Amenazas,169,Mercado municipal,
+ALC-2025-00483,2025-07-04,16:15,viernes,tarde,Hurto,234,c/ Alfafara,26
+ALC-2025-00484,2025-07-04,19:25,viernes,tarde,Robo con fuerza en las cosas en casa habitada,241,Ctra. Molinar,81
+ALC-2025-00485,2025-07-04,21:15,viernes,tarde,Robo con fuerza en las cosas en casa habitada,241,calle Barranc del Sinc,371
+ALC-2025-00486,2025-07-05,02:35,sábado,madrugada,Lesiones,147,c/ PI,7
+ALC-2025-00487,2025-07-05,13:00,sábado,mañana,Robo con fuerza en las cosas en casa habitada,241,C/ Oliver,38
+ALC-2025-00488,2025-07-05,13:40,sábado,mañana,Hurto,234,C/ Casa Blanca,33
+ALC-2025-00489,2025-07-05,18:10,sábado,tarde,Amenazas,169,Calle SANTA TERESA JORNET,10
+ALC-2025-00490,2025-07-05,20:55,sábado,tarde,Hurto,234,C/ Isaac Peral,11
+ALC-2025-00491,2025-07-05,21:30,sábado,tarde,Robo con fuerza en las cosas (interior de vehículo),237-238,Carretera molinar,s/n
+ALC-2025-00492,2025-07-05,21:55,sábado,tarde,Hurto,234,c/ PERU,471
+ALC-2025-00493,2025-07-05,21:55,sábado,tarde,Hurto,234,C/ CALDERON,4
+ALC-2025-00494,2025-07-06,00:50,domingo,noche,Robo con violencia o intimidación en las personas,242,C/ SANT ROC,6
+ALC-2025-00495,2025-07-06,02:05,domingo,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Plaza Cotes Baixes F,8
+ALC-2025-00496,2025-07-06,02:55,domingo,madrugada,Desórdenes públicos,557,calle Verge Dels Lliris,14
+ALC-2025-00497,2025-07-06,12:05,domingo,mañana,Robo con fuerza en las cosas en casa habitada,241,CL Pintor Laporta,80
+ALC-2025-00498,2025-07-06,23:10,domingo,noche,Lesiones,147,Partida Sentbenet Baix,17
+ALC-2025-00499,2025-07-07,10:10,lunes,mañana,Robo con fuerza en las cosas en casa habitada,241,c/ METGE MANUEL RODRIGUEZ,18
+ALC-2025-00500,2025-07-07,18:10,lunes,tarde,Hurto,234,CL SANT PAU,1
+ALC-2025-00501,2025-07-08,12:35,martes,mañana,Hurto,234,CL Reconquesta,414
+ALC-2025-00502,2025-07-08,14:25,martes,tarde,Hurto,234,calle Pintor Cabrera,136
+ALC-2025-00503,2025-07-09,02:45,miércoles,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ Caseta Corbi,6
+ALC-2025-00504,2025-07-09,23:45,miércoles,noche,Desórdenes públicos,557,C/ ISAAC PERAL,11
+ALC-2025-00505,2025-07-11,00:15,viernes,noche,Lesiones,147,CL SANT MAURE,35
+ALC-2025-00506,2025-07-11,01:15,viernes,noche,Daños,263,C/ SANT NICOLAU,113
+ALC-2025-00507,2025-07-11,16:45,viernes,tarde,Hurto,234,C/ SANT PANCRAC,21
+ALC-2025-00508,2025-07-11,18:10,viernes,tarde,Hurto,234,calle pintor cabrera,118
+ALC-2025-00509,2025-07-11,23:25,viernes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Ctra. Molinar,22
+ALC-2025-00510,2025-07-11,23:30,viernes,noche,Lesiones,147,c/ Enginyer Vilaplana,26
+ALC-2025-00511,2025-07-12,02:25,sábado,madrugada,Daños,263,calle Alacant,47C
+ALC-2025-00512,2025-07-12,03:25,sábado,madrugada,Lesiones,147,Calle DONA AMALIA,394
+ALC-2025-00513,2025-07-12,03:40,sábado,madrugada,Daños,263,C/ Verge Dels Lliris,46
+ALC-2025-00514,2025-07-12,05:45,sábado,madrugada,Lesiones,147,Calle Dona Amalia,45-B
+ALC-2025-00515,2025-07-12,11:35,sábado,mañana,Hurto,234,C/ PERU,7
+ALC-2025-00516,2025-07-12,22:55,sábado,noche,Daños,263,Plaza Mossen Josep,1
+ALC-2025-00517,2025-07-13,00:15,domingo,noche,Daños,263,C/ SANT BONIVENTURA,nº 11
+ALC-2025-00518,2025-07-13,00:20,domingo,noche,Daños,263,Avda. del Puerto,
+ALC-2025-00519,2025-07-13,00:55,domingo,noche,Daños,263,CL Mestre Espi,32
+ALC-2025-00520,2025-07-13,16:40,domingo,tarde,Hurto,234,Calle BARBACANA,11
+ALC-2025-00521,2025-07-14,00:50,lunes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,plaza Cotes Baixes F,210
+ALC-2025-00522,2025-07-14,18:35,lunes,tarde,Hurto,234,C/ Periodico Ciudad,
+ALC-2025-00523,2025-07-14,19:50,lunes,tarde,Hurto,234,C/ Na Saurina D'ntenca,117
+ALC-2025-00524,2025-07-15,10:45,martes,mañana,Robo con fuerza en las cosas en casa habitada,241,Camino Murtera la,376
+ALC-2025-00525,2025-07-15,17:35,martes,tarde,Hurto,234,Calle NA SAURINA D'ENTENCA,117
+ALC-2025-00526,2025-07-17,05:15,jueves,madrugada,Lesiones,147,CL Roger de Lluria,6
+ALC-2025-00527,2025-07-18,12:20,viernes,mañana,Amenazas,169,C/ CASA BLANCA,nº 9
+ALC-2025-00528,2025-07-18,16:40,viernes,tarde,Robo con fuerza en las cosas en casa habitada,241,c/ Sant Pere,9
+ALC-2025-00529,2025-07-18,18:05,viernes,tarde,Hurto,234,C/ Isaac Peral,nº 11
+ALC-2025-00530,2025-07-18,19:05,viernes,tarde,Hurto,234,C/ Sabadell,nº 41
+ALC-2025-00531,2025-07-19,00:00,sábado,noche,Daños,263,Partida Riquer Alt,32
+ALC-2025-00532,2025-07-19,12:15,sábado,mañana,Amenazas,169,Calle Carrasca,240
+ALC-2025-00533,2025-07-19,15:55,sábado,tarde,Hurto,234,C/ Pintor Cabrera,86
+ALC-2025-00534,2025-07-19,16:15,sábado,tarde,Robo con fuerza en las cosas en casa habitada,241,calle Mossen Arnauda,1
+ALC-2025-00535,2025-07-20,00:55,domingo,noche,Hurto o robo de uso de vehículo a motor,244,Carretera Molinar,nº 47
+ALC-2025-00536,2025-07-20,01:00,domingo,noche,Daños,263,C/ beniarres,303
+ALC-2025-00537,2025-07-20,03:00,domingo,madrugada,Lesiones,147,Mercado municipal,
+ALC-2025-00538,2025-07-22,00:55,martes,noche,Robo con violencia o intimidación en las personas,242,calle Pintor Cabrera,136
+ALC-2025-00539,2025-07-22,12:45,martes,mañana,Hurto,234,c/ Reconquesta,nº 10
+ALC-2025-00540,2025-07-23,03:35,miércoles,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Calle pi,7
+ALC-2025-00541,2025-07-23,10:30,miércoles,mañana,Hurto,234,c/ PINTOR CNBRERA,104
+ALC-2025-00542,2025-07-23,12:20,miércoles,mañana,Amenazas,169,c/ Terrassa,8
+ALC-2025-00543,2025-07-23,13:35,miércoles,mañana,Hurto,234,Calle Fila Verds,nº 20
+ALC-2025-00544,2025-07-24,09:50,jueves,mañana,Hurto,234,calle Barranc de Na Lloba,4
+ALC-2025-00545,2025-07-24,22:40,jueves,noche,Lesiones,147,c/ Doctor Guerau,34
+ALC-2025-00546,2025-07-25,00:35,viernes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Carretera Molinar,51
+ALC-2025-00547,2025-07-25,00:55,viernes,noche,Daños,263,Partida la riba,6
+ALC-2025-00548,2025-07-25,04:25,viernes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,CL Sor Elena Picurelli,13
+ALC-2025-00549,2025-07-25,09:25,viernes,mañana,Robo con fuerza en las cosas en casa habitada,241,calle casimiro barello morello,6
+ALC-2025-00550,2025-07-25,11:45,viernes,mañana,Hurto,234,CL PERIOIDCO CIUDAD,43A
+ALC-2025-00551,2025-07-25,19:35,viernes,tarde,Hurto,234,C/ PINTOR CABRERA,104
+ALC-2025-00552,2025-07-26,02:40,sábado,madrugada,Lesiones,147,Calle Carrasqueta,21
+ALC-2025-00553,2025-07-26,05:00,sábado,madrugada,Lesiones,147,C/ Cid,S/N
+ALC-2025-00554,2025-07-26,09:15,sábado,mañana,Hurto,234,CL periodista juli puig,11
+ALC-2025-00555,2025-07-26,18:45,sábado,tarde,Robo con fuerza en las cosas en casa habitada,241,Cno. MURTERA LA,297
+ALC-2025-00556,2025-07-26,22:15,sábado,noche,Daños,263,calle Pintor Cbrera,11
+ALC-2025-00557,2025-07-27,01:25,domingo,noche,Desórdenes públicos,557,calle Fila Verds,366
+ALC-2025-00558,2025-07-27,01:40,domingo,noche,Desórdenes públicos,557,calle barbacana,424
+ALC-2025-00559,2025-07-27,01:45,domingo,noche,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ alfafara,20
+ALC-2025-00560,2025-07-27,03:00,domingo,madrugada,Robo con violencia o intimidación en las personas,242,CL Alacant,nº 42 D
+ALC-2025-00561,2025-07-27,18:15,domingo,tarde,Daños,263,C/ Maulets Els,298
+ALC-2025-00562,2025-07-27,18:20,domingo,tarde,Robo con fuerza en las cosas en casa habitada,241,C/ Verge Dels Lliris,1
+ALC-2025-00563,2025-07-27,23:40,domingo,noche,Daños,263,Pl. Ramon y Cajal,8
+ALC-2025-00564,2025-07-28,04:45,lunes,madrugada,Hurto o robo de uso de vehículo a motor,244,Calle ASSEGADOR,nº 70
+ALC-2025-00565,2025-07-28,19:20,lunes,tarde,Hurto,234,c/ Isaac Peral,25
+ALC-2025-00566,2025-07-29,12:55,martes,mañana,Hurto,234,CL Verge D'agost,353
+ALC-2025-00567,2025-07-29,19:55,martes,tarde,Hurto,234,CL Collao,360
+ALC-2025-00568,2025-07-29,21:25,martes,tarde,Daños,263,Centro comercial,32
+ALC-2025-00569,2025-07-30,02:50,miércoles,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ ENCARO,14
+ALC-2025-00570,2025-07-30,02:50,miércoles,madrugada,Daños,263,c/ Sang la,2
+ALC-2025-00571,2025-07-30,09:35,miércoles,mañana,Robo con fuerza en las cosas en casa habitada,241,Cno. Murtera la,2
+ALC-2025-00572,2025-07-30,20:20,miércoles,tarde,Hurto,234,calle Na Saurina D'entenca,80
+ALC-2025-00573,2025-07-31,04:55,jueves,madrugada,Lesiones,147,C/ Maulets Els,41
+ALC-2025-00574,2025-07-31,09:40,jueves,mañana,Robo con fuerza en las cosas en casa habitada,241,Camino Murtera la,97
+ALC-2025-00575,2025-07-31,17:35,jueves,tarde,Hurto,234,Calle Peru,25
+ALC-2025-00576,2025-07-31,17:50,jueves,tarde,Hurto,234,c/ Isaac Peral,s/n
+ALC-2025-00577,2025-07-31,22:15,jueves,noche,Robo con violencia o intimidación en las personas,242,CL ENGINYER VILAPLANA,nº 21
+ALC-2025-00578,2025-08-01,01:15,viernes,noche,Lesiones,147,CL Sant Vicent Ferrer,428
+ALC-2025-00579,2025-08-01,03:40,viernes,madrugada,Lesiones,147,calle Maulets Els,nº 20
+ALC-2025-00580,2025-08-01,07:50,viernes,mañana,Robo con fuerza en las cosas (interior de vehículo),237-238,calle Encaro,14
+ALC-2025-00581,2025-08-01,09:55,viernes,mañana,Hurto,234,calle Isaac Peral,nº 3
+ALC-2025-00582,2025-08-02,00:10,sábado,noche,Desórdenes públicos,557,C/ CAMI EL,84
+ALC-2025-00583,2025-08-02,16:05,sábado,tarde,Hurto,234,C/ Na Saurina D'entenca,S/N
+ALC-2025-00584,2025-08-03,06:35,domingo,mañana,Robo con fuerza en las cosas en establecimiento abierto al público,241,AVDA pais valencia,s/n
+ALC-2025-00585,2025-08-03,10:20,domingo,mañana,Robo con fuerza en las cosas en casa habitada,241,C/ Peru,106
+ALC-2025-00586,2025-08-03,17:15,domingo,tarde,Robo con fuerza en las cosas en casa habitada,241,Partida Barxell,67
+ALC-2025-00587,2025-08-03,18:55,domingo,tarde,Hurto,234,CL Na Saurina D'entenca,100
+ALC-2025-00588,2025-08-04,01:50,lunes,noche,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ Sant Miquel,17
+ALC-2025-00589,2025-08-04,23:30,lunes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Calle Oliver,38
+ALC-2025-00590,2025-08-05,14:50,martes,tarde,Robo con fuerza en las cosas en casa habitada,241,c/ Anselm Aracil,27
+ALC-2025-00591,2025-08-06,02:20,miércoles,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ Xàtiva,11
+ALC-2025-00592,2025-08-06,14:55,miércoles,tarde,Hurto,234,C/ Ambaixador D'irles,29
+ALC-2025-00593,2025-08-07,17:40,jueves,tarde,Hurto,234,CL Sardina la,453
+ALC-2025-00594,2025-08-07,23:25,jueves,noche,Desórdenes públicos,557,C/ Peru,556
+ALC-2025-00595,2025-08-08,04:05,viernes,madrugada,Lesiones,147,C/ GONCAL BARRACHINA,10
+ALC-2025-00596,2025-08-08,18:30,viernes,tarde,Robo con fuerza en las cosas en casa habitada,241,C/ Oliver,280
+ALC-2025-00597,2025-08-08,18:35,viernes,tarde,Hurto,234,c/ Alfafara,20
+ALC-2025-00598,2025-08-09,01:15,sábado,noche,Daños,263,C/ Nofre Jorda,9
+ALC-2025-00599,2025-08-09,01:40,sábado,noche,Lesiones,147,CL Doctor Guerau,S/N
+ALC-2025-00600,2025-08-09,03:00,sábado,madrugada,Desórdenes públicos,557,calle OLIVER,72
+ALC-2025-00601,2025-08-09,14:10,sábado,tarde,Hurto,234,CL Sant Isidre,210
+ALC-2025-00602,2025-08-09,18:55,sábado,tarde,Hurto,234,c/ PINTOR CABRERA,S/N
+ALC-2025-00603,2025-08-09,20:25,sábado,tarde,Hurto,234,URBANIZACION L'ESTEPAR,20
+ALC-2025-00604,2025-08-10,00:55,domingo,noche,Desórdenes públicos,557,C/ MIRACULOSA LA,nº 18A
+ALC-2025-00605,2025-08-10,03:00,domingo,madrugada,Amenazas,169,C/ Sant Antoni,42
+ALC-2025-00606,2025-08-10,18:30,domingo,tarde,Robo con violencia o intimidación en las personas,242,Calle Verge Dels Lliris,nº 46
+ALC-2025-00607,2025-08-10,23:50,domingo,noche,Desórdenes públicos,557,Partida MARIOLA,46
+ALC-2025-00608,2025-08-11,17:00,lunes,tarde,Hurto,234,C/ BARBACANA,386
+ALC-2025-00609,2025-08-11,23:40,lunes,noche,Lesiones,147,calle Alacant,42D
+ALC-2025-00610,2025-08-12,00:25,martes,noche,Desórdenes públicos,557,C/ DOCTOR GUERAU,14
+ALC-2025-00611,2025-08-13,03:50,miércoles,madrugada,Daños,263,Partida RAMBLA BAIXA,25
+ALC-2025-00612,2025-08-13,11:40,miércoles,mañana,Hurto,234,calle Mosson Rafel L'ave Maria,18
+ALC-2025-00613,2025-08-13,19:25,miércoles,tarde,Robo con fuerza en las cosas en casa habitada,241,calle DOCTOR SEMPERE,20
+ALC-2025-00614,2025-08-13,20:50,miércoles,tarde,Hurto,234,c/ Sant Tomás,4
+ALC-2025-00615,2025-08-14,01:45,jueves,noche,Desórdenes públicos,557,CL SOR ELENA PICURELLI,7
+ALC-2025-00616,2025-08-14,09:00,jueves,mañana,Hurto,234,calle TOSSAL I MOLINS,79
+ALC-2025-00617,2025-08-14,15:35,jueves,tarde,Hurto,234,C/ Peru,112
+ALC-2025-00618,2025-08-14,15:40,jueves,tarde,Hurto,234,C/ Na Saurina D'entenca,nº 117
+ALC-2025-00619,2025-08-15,01:00,viernes,noche,Daños,263,C/ sant joan de ribera,S/N
+ALC-2025-00620,2025-08-15,04:15,viernes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,CL Sor Elena Picurelli,13
+ALC-2025-00621,2025-08-15,06:35,viernes,mañana,Robo con fuerza en las cosas en establecimiento abierto al público,241,CL Pintor Cabrera,s/n
+ALC-2025-00622,2025-08-15,23:05,viernes,noche,Daños,263,C/ AUSIAS MARCH,nº 5
+ALC-2025-00623,2025-08-16,00:10,sábado,noche,Lesiones,147,calle Sant Nicolau,343
+ALC-2025-00624,2025-08-16,07:55,sábado,mañana,Robo con fuerza en las cosas en casa habitada,241,C/ Mariola,16
+ALC-2025-00625,2025-08-16,10:40,sábado,mañana,Hurto,234,C/ Olivar,nº 82
+ALC-2025-00626,2025-08-17,19:55,domingo,tarde,Robo con fuerza en las cosas en casa habitada,241,C/ SANTA ROSA,359
+ALC-2025-00627,2025-08-17,23:20,domingo,noche,Robo con violencia o intimidación en las personas,242,CL JOAQUIM SOROLLA,nº 17
+ALC-2025-00628,2025-08-18,14:30,lunes,tarde,Hurto,234,C/ Na Saurina D'entenca,299
+ALC-2025-00629,2025-08-18,15:15,lunes,tarde,Hurto,234,CL Carrascar,nº 32
+ALC-2025-00630,2025-08-19,00:00,martes,noche,Hurto o robo de uso de vehículo a motor,244,Polígono industrial,
+ALC-2025-00631,2025-08-19,17:00,martes,tarde,Hurto,234,Calle Encaro,14
+ALC-2025-00632,2025-08-19,19:05,martes,tarde,Hurto,234,calle Peru,505
+ALC-2025-00633,2025-08-21,02:50,jueves,madrugada,Daños,263,Calle Doctor Guerau,247
+ALC-2025-00634,2025-08-21,16:15,jueves,tarde,Robo con fuerza en las cosas en casa habitada,241,C/ sant nicolau,155
+ALC-2025-00635,2025-08-22,09:15,viernes,mañana,Robo con fuerza en las cosas en casa habitada,241,c/ sant francesc,61
+ALC-2025-00636,2025-08-22,16:30,viernes,tarde,Robo con fuerza en las cosas en casa habitada,241,Camino Murtera la,97
+ALC-2025-00637,2025-08-22,18:20,viernes,tarde,Daños,263,Calle Sant Llorenc,376
+ALC-2025-00638,2025-08-23,02:50,sábado,madrugada,Daños,263,c/ Sant Nicolau,107
+ALC-2025-00639,2025-08-23,03:10,sábado,madrugada,Lesiones,147,calle Maulets Els,28
+ALC-2025-00640,2025-08-23,23:35,sábado,noche,Lesiones,147,CL Bedoll,1
+ALC-2025-00641,2025-08-24,04:55,domingo,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,CL Llidoner,24
+ALC-2025-00642,2025-08-26,10:25,martes,mañana,Robo con fuerza en las cosas en casa habitada,241,Partida Riquer Alt,nº 2-A
+ALC-2025-00643,2025-08-26,23:25,martes,noche,Lesiones,147,c/ ISAAC PERAL,334
+ALC-2025-00644,2025-08-27,03:35,miércoles,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ Fila Navarros,15
+ALC-2025-00645,2025-08-27,04:00,miércoles,madrugada,Daños,263,C/ Sor Elena Picurelli,13
+ALC-2025-00646,2025-08-27,18:15,miércoles,tarde,Robo con fuerza en las cosas en casa habitada,241,C/ Mestre Espi,8
+ALC-2025-00647,2025-08-28,00:35,jueves,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ Sant Nicolau,s/n
+ALC-2025-00648,2025-08-28,04:20,jueves,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Partida POLOP BAIX,28
+ALC-2025-00649,2025-08-28,06:35,jueves,mañana,Robo con fuerza en las cosas (interior de vehículo),237-238,Carretera Molinar,37C
+ALC-2025-00650,2025-08-28,19:40,jueves,tarde,Hurto,234,calle CANTAGALLET,nº 5
+ALC-2025-00651,2025-08-28,21:25,jueves,tarde,Daños,263,CL Maulets Els,33
+ALC-2025-00652,2025-08-29,12:20,viernes,mañana,Robo con fuerza en las cosas en casa habitada,241,plaza Pintor Gisbert,S/N
+ALC-2025-00653,2025-08-30,00:15,sábado,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Carretera Molinar,16
+ALC-2025-00654,2025-08-30,01:35,sábado,noche,Desórdenes públicos,557,C/ Font del Moreno,322
+ALC-2025-00655,2025-08-30,01:55,sábado,noche,Daños,263,calle Safor la,3A
+ALC-2025-00656,2025-08-30,02:35,sábado,madrugada,Lesiones,147,C/ Dona Amalia,nº 21
+ALC-2025-00657,2025-08-30,09:20,sábado,mañana,Hurto,234,Pasaje Caseta Pare Hilraio,30
+ALC-2025-00658,2025-08-31,02:30,domingo,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Camino ANTIC LA PISCINA,15
+ALC-2025-00659,2025-08-31,20:35,domingo,tarde,Daños,263,C/ Maulets Els,240
+ALC-2025-00660,2025-09-01,07:40,lunes,mañana,Amenazas,169,CL meste j ribera montes,45
+ALC-2025-00661,2025-09-01,16:30,lunes,tarde,Contra la salud pública (tráfico de drogas),368,C/ Sant Nicolu,121
+ALC-2025-00662,2025-09-01,16:30,lunes,tarde,Amenazas,169,c/ llidoner,7
+ALC-2025-00663,2025-09-02,05:35,martes,madrugada,Daños,263,Urbanizacion L'estepar,6
+ALC-2025-00664,2025-09-02,19:55,martes,tarde,Contra la salud pública (tráfico de drogas),368,C/ SANT NICOLAU,79
+ALC-2025-00665,2025-09-02,20:50,martes,tarde,Hurto,234,calle Juan Gil Albert,46
+ALC-2025-00666,2025-09-04,16:35,jueves,tarde,Robo con fuerza en las cosas en casa habitada,241,Cno. Murtera la,288
+ALC-2025-00667,2025-09-05,00:50,viernes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,CL Encaro,38
+ALC-2025-00668,2025-09-05,15:00,viernes,tarde,Hurto,234,Partida Rambla Alta,24
+ALC-2025-00669,2025-09-06,22:00,sábado,noche,Daños,263,calle joanot martoell,10
+ALC-2025-00670,2025-09-06,22:15,sábado,noche,Robo con violencia o intimidación en las personas,242,Partida MARIOLA,61
+ALC-2025-00671,2025-09-07,02:05,domingo,madrugada,Hurto o robo de uso de vehículo a motor,244,c/ Gregori Casasempere Juan,24
+ALC-2025-00672,2025-09-07,12:20,domingo,mañana,Hurto,234,C/ RECONQUESTA,16
+ALC-2025-00673,2025-09-07,18:00,domingo,tarde,Daños,263,C/ Xàtiva,25
+ALC-2025-00674,2025-09-07,19:45,domingo,tarde,Daños,263,CL Esultor Peresejo,5
+ALC-2025-00675,2025-09-08,09:55,lunes,mañana,Hurto,234,C/ PINTOR CABRERA,nº 98
+ALC-2025-00676,2025-09-08,14:00,lunes,tarde,Amenazas,169,C/ Reconquesta,10
+ALC-2025-00677,2025-09-08,23:55,lunes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,CL Pont Sant Roc,6
+ALC-2025-00678,2025-09-09,18:05,martes,tarde,Robo con fuerza en las cosas en casa habitada,241,c/ Pintor Laporta,31
+ALC-2025-00679,2025-09-10,02:00,miércoles,madrugada,Robo con violencia o intimidación en las personas,242,c/ Reconquesta,10
+ALC-2025-00680,2025-09-11,19:20,jueves,tarde,Hurto,234,C/ Sant Jaume,4
+ALC-2025-00681,2025-09-12,01:30,viernes,noche,Hurto o robo de uso de vehículo a motor,244,Ctra. MOLINAR,51
+ALC-2025-00682,2025-09-12,13:55,viernes,mañana,Hurto,234,c/ Pintor Cabrera,349
+ALC-2025-00683,2025-09-12,16:30,viernes,tarde,Robo con fuerza en las cosas en casa habitada,241,Calle ENGINYER VILAPLANA,1
+ALC-2025-00684,2025-09-12,18:05,viernes,tarde,Hurto,234,calle caramanxel,8
+ALC-2025-00685,2025-09-13,03:10,sábado,madrugada,Daños,263,c/ Verge Maria,81
+ALC-2025-00686,2025-09-15,01:40,lunes,noche,Lesiones,147,calle Collao,1
+ALC-2025-00687,2025-09-15,23:35,lunes,noche,Daños,263,Urbanizacion L'estepar,291
+ALC-2025-00688,2025-09-16,01:00,martes,noche,Daños,263,C/ sant mateu,s/n
+ALC-2025-00689,2025-09-16,08:40,martes,mañana,Hurto,234,CL CAPELLA BELLOCH,9
+ALC-2025-00690,2025-09-16,11:10,martes,mañana,Hurto,234,c/ PINTOR CABRERA,118
+ALC-2025-00691,2025-09-16,21:15,martes,tarde,Robo con violencia o intimidación en las personas,242,calle Francesc Perera,348
+ALC-2025-00692,2025-09-17,00:40,miércoles,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Partida Polop Alt,23
+ALC-2025-00693,2025-09-17,00:45,miércoles,noche,Lesiones,147,C/ Serrella,6
+ALC-2025-00694,2025-09-17,12:05,miércoles,mañana,Hurto,234,LUGAR FONT ROJA,19
+ALC-2025-00695,2025-09-17,12:20,miércoles,mañana,Hurto,234,calle Font de Moya,2-A
+ALC-2025-00696,2025-09-17,14:20,miércoles,tarde,Hurto,234,Calle Filadors Els,2
+ALC-2025-00697,2025-09-18,01:00,jueves,noche,Robo con fuerza en las cosas en establecimiento abierto al público,241,c/ Cid,93
+ALC-2025-00698,2025-09-18,02:50,jueves,madrugada,Robo con violencia o intimidación en las personas,242,CL Purissima,nº 6
+ALC-2025-00699,2025-09-18,18:40,jueves,tarde,Contra la salud pública (tráfico de drogas),368,calle Sant Nicolau,85
+ALC-2025-00700,2025-09-18,19:55,jueves,tarde,Daños,263,Urbanizacion L'estepar,476
+ALC-2025-00701,2025-09-19,00:30,viernes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ Music Goncal Blanes,35
+ALC-2025-00702,2025-09-19,03:45,viernes,madrugada,Amenazas,169,Partida Barxell,94
+ALC-2025-00703,2025-09-19,04:10,viernes,madrugada,Lesiones,147,CL Dona Amalia,21
+ALC-2025-00704,2025-09-20,11:40,sábado,mañana,Hurto,234,avda. L'alameda,nº 80
+ALC-2025-00705,2025-09-20,13:35,sábado,mañana,Hurto,234,C/ Isaac Peral,11
+ALC-2025-00706,2025-09-20,21:55,sábado,tarde,Daños,263,AVDA L'alameda,s/n
+ALC-2025-00707,2025-09-21,04:20,domingo,madrugada,Daños,263,Calle Sant Nicoalu,107
+ALC-2025-00708,2025-09-21,20:25,domingo,tarde,Hurto,234,C/ Na Saurina D'entenca,117
+ALC-2025-00709,2025-09-22,12:30,lunes,mañana,Hurto,234,C/ Cid,93
+ALC-2025-00710,2025-09-22,17:00,lunes,tarde,Hurto,234,Descampado junto a la carretera,
+ALC-2025-00711,2025-09-23,17:10,martes,tarde,Hurto,234,c/ Mossen Rafel L'ave María,18
+ALC-2025-00712,2025-09-23,19:40,martes,tarde,Hurto,234,Zona de ocio,
+ALC-2025-00713,2025-09-24,10:40,miércoles,mañana,Amenazas,169,calle Sardina la,
+ALC-2025-00714,2025-09-24,11:45,miércoles,mañana,Hurto,234,C/ Peru,7
+ALC-2025-00715,2025-09-24,21:15,miércoles,tarde,Hurto,234,c/ Alfafara,26
+ALC-2025-00716,2025-09-25,08:15,jueves,mañana,Hurto,234,c/ Xop,7
+ALC-2025-00717,2025-09-26,12:25,viernes,mañana,Hurto,234,CL Peru,118
+ALC-2025-00718,2025-09-26,14:30,viernes,tarde,Hurto,234,calle Mossen Rafel L'ave María,10
+ALC-2025-00719,2025-09-26,23:20,viernes,noche,Daños,263,Zona de ocio,
+ALC-2025-00720,2025-09-27,01:45,sábado,noche,Desórdenes públicos,557,C/ Isaac Peral,11
+ALC-2025-00721,2025-09-27,04:10,sábado,madrugada,Hurto o robo de uso de vehículo a motor,244,Carretera MOLINAR,71
+ALC-2025-00722,2025-09-27,11:45,sábado,mañana,Hurto,234,Calle Na Saurina D'entenca,105
+ALC-2025-00723,2025-09-27,20:05,sábado,tarde,Contra la salud pública (tráfico de drogas),368,Urbanizacion Montesol,nº 50-B
+ALC-2025-00724,2025-09-28,01:50,domingo,noche,Robo con violencia o intimidación en las personas,242,Plaza COTES BIXES G,1-D
+ALC-2025-00725,2025-09-28,03:50,domingo,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Calle PINTOR CABRERA,362
+ALC-2025-00726,2025-09-28,05:00,domingo,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Parque de la Canaleta,
+ALC-2025-00727,2025-09-28,21:25,domingo,tarde,Hurto,234,Calle POETA JOAN VALLS,nº 41
+ALC-2025-00728,2025-09-28,23:55,domingo,noche,Robo con violencia o intimidación en las personas,242,CL verge dels lliris,34
+ALC-2025-00729,2025-09-30,05:05,martes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,c/ ALT,18
+ALC-2025-00730,2025-09-30,17:25,martes,tarde,Hurto,234,Calle Purissima,20
+ALC-2025-00731,2025-09-30,20:45,martes,tarde,Hurto,234,C/ Vistabella,213
+ALC-2025-00732,2025-10-01,00:00,miércoles,noche,Daños,263,C/ Sor Elena Picurelli,13
+ALC-2025-00733,2025-10-01,00:55,miércoles,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,c/ CASETA CORBI,399
+ALC-2025-00734,2025-10-01,04:10,miércoles,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ Santa Rosa,s/n
+ALC-2025-00735,2025-10-01,11:45,miércoles,mañana,Hurto,234,C/ Alfafara,nº 7
+ALC-2025-00736,2025-10-01,14:40,miércoles,tarde,Hurto,234,CL Peru,25
+ALC-2025-00737,2025-10-01,21:45,miércoles,tarde,Desórdenes públicos,557,CL Verge Dels Lliris,240
+ALC-2025-00738,2025-10-02,10:50,jueves,mañana,Hurto,234,C/ Na Saurina D'entenca,105
+ALC-2025-00739,2025-10-02,20:40,jueves,tarde,Hurto,234,Av. L'ALAMEDA,
+ALC-2025-00740,2025-10-02,23:00,jueves,noche,Hurto,234,C/ Cid,460
+ALC-2025-00741,2025-10-03,02:10,viernes,madrugada,Hurto o robo de uso de vehículo a motor,244,Carretera Molinar,59C
+ALC-2025-00742,2025-10-03,02:10,viernes,madrugada,Robo con violencia o intimidación en las personas,242,C/ Enginyer Vilaplana,21
+ALC-2025-00743,2025-10-03,17:55,viernes,tarde,Hurto,234,CL PINTOR CARERA,110
+ALC-2025-00744,2025-10-04,00:20,sábado,noche,Daños,263,Centro comercial,
+ALC-2025-00745,2025-10-04,04:35,sábado,madrugada,Lesiones,147,C/ Sant Joan,15
+ALC-2025-00746,2025-10-05,03:55,domingo,madrugada,Robo con violencia o intimidación en las personas,242,c/ Peru,25
+ALC-2025-00747,2025-10-06,02:55,lunes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Ctra. Molinar,37-C
+ALC-2025-00748,2025-10-06,18:00,lunes,tarde,Hurto,234,Calle Farncesc Perera,nº 16
+ALC-2025-00749,2025-10-06,19:50,lunes,tarde,Hurto,234,CL Peru,19
+ALC-2025-00750,2025-10-06,19:55,lunes,tarde,Hurto,234,C/ Sant Jaume,4
+ALC-2025-00751,2025-10-06,23:10,lunes,noche,Contra la salud pública (tráfico de drogas),368,c/ Goncal Barracnina,10
+ALC-2025-00752,2025-10-07,12:35,martes,mañana,Robo con fuerza en las cosas en casa habitada,241,Partida RIQUER ALT,4
+ALC-2025-00753,2025-10-08,16:40,miércoles,tarde,Hurto,234,c/ CLOTS ELS,4
+ALC-2025-00754,2025-10-08,18:15,miércoles,tarde,Daños,263,Calle dona amalia,21
+ALC-2025-00755,2025-10-08,19:15,miércoles,tarde,Hurto,234,calle Peru,156A
+ALC-2025-00756,2025-10-10,02:40,viernes,madrugada,Daños,263,CL miraculosa la,18A
+ALC-2025-00757,2025-10-10,08:55,viernes,mañana,Hurto,234,C/ Tibi,nº 3
+ALC-2025-00758,2025-10-10,12:20,viernes,mañana,Hurto,234,Calle Bartolome J. Gallardo,2
+ALC-2025-00759,2025-10-10,13:05,viernes,mañana,Hurto,234,C/ reconquesta,36
+ALC-2025-00760,2025-10-10,21:55,viernes,tarde,Lesiones,147,c/ Verge Dels Lliris,s/n
+ALC-2025-00761,2025-10-11,00:05,sábado,noche,Lesiones,147,calle verge dels lliris,46
+ALC-2025-00762,2025-10-11,00:20,sábado,noche,Lesiones,147,Calle DONA AMALIA,s/n
+ALC-2025-00763,2025-10-11,19:25,sábado,tarde,Contra la salud pública (tráfico de drogas),368,Calle torre de les macanes,7
+ALC-2025-00764,2025-10-12,02:20,domingo,madrugada,Daños,263,c/ Sant Bonaventura,11
+ALC-2025-00765,2025-10-12,04:30,domingo,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ Pintor Cabrera,110
+ALC-2025-00766,2025-10-12,21:40,domingo,tarde,Desórdenes públicos,557,calle VERGE DELS LLIRIS,46
+ALC-2025-00767,2025-10-14,11:25,martes,mañana,Robo con fuerza en las cosas en casa habitada,241,plaza Industrial Sentbenet,23
+ALC-2025-00768,2025-10-14,21:05,martes,tarde,Daños,263,C/ verge dels lliris,438
+ALC-2025-00769,2025-10-15,12:10,miércoles,mañana,Hurto,234,C/ Caramanxel,30
+ALC-2025-00770,2025-10-15,19:15,miércoles,tarde,Hurto,234,Partida Rambla Alta,nº 90
+ALC-2025-00771,2025-10-17,00:30,viernes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,c/ SANT MIQUEL,35
+ALC-2025-00772,2025-10-17,05:50,viernes,madrugada,Lesiones,147,C/ VERGE DELS LLIRIS,34
+ALC-2025-00773,2025-10-17,09:45,viernes,mañana,Robo con fuerza en las cosas (interior de vehículo),237-238,calle SANT NICOLAU,446
+ALC-2025-00774,2025-10-17,12:30,viernes,mañana,Robo con fuerza en las cosas en casa habitada,241,CL PINTOR LAPORTA,80
+ALC-2025-00775,2025-10-17,19:05,viernes,tarde,Hurto,234,C/ Maulets Els,20
+ALC-2025-00776,2025-10-18,01:15,sábado,noche,Daños,263,c/ sant pancrac,18
+ALC-2025-00777,2025-10-18,18:20,sábado,tarde,Hurto,234,C/ Sant Isidre,27
+ALC-2025-00778,2025-10-18,21:55,sábado,tarde,Daños,263,C/ Maulets Els,nº 20
+ALC-2025-00779,2025-10-19,17:35,domingo,tarde,Robo con fuerza en las cosas en casa habitada,241,CL Pintor Laporta,390
+ALC-2025-00780,2025-10-20,20:10,lunes,tarde,Lesiones,147,C/ Doctor Guerau,22
+ALC-2025-00781,2025-10-20,22:15,lunes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,calle Olivar,6
+ALC-2025-00782,2025-10-22,02:10,miércoles,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Partida Canal Alta,2
+ALC-2025-00783,2025-10-22,09:45,miércoles,mañana,Hurto,234,C/ calderon,4
+ALC-2025-00784,2025-10-23,00:55,jueves,noche,Daños,263,calle ALACANT,49
+ALC-2025-00785,2025-10-23,13:15,jueves,mañana,Hurto,234,C/ Sant Jaume,292
+ALC-2025-00786,2025-10-23,23:40,jueves,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Partida Barxell,67
+ALC-2025-00787,2025-10-24,18:35,viernes,tarde,Hurto,234,calle TAP EL,9
+ALC-2025-00788,2025-10-24,19:25,viernes,tarde,Hurto,234,C/ LLIDONER,7
+ALC-2025-00789,2025-10-24,22:05,viernes,noche,Hurto,234,C/ alacant,20
+ALC-2025-00790,2025-10-25,05:30,sábado,madrugada,Lesiones,147,Partida Canal Alta,2
+ALC-2025-00791,2025-10-25,17:55,sábado,tarde,Contra la salud pública (tráfico de drogas),368,CL Sant Mateu,74
+ALC-2025-00792,2025-10-25,20:00,sábado,tarde,Amenazas,169,c/ Tossal i Molins,68
+ALC-2025-00793,2025-10-26,02:10,domingo,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Calle Pintor Cabrera,s/n
+ALC-2025-00794,2025-10-26,20:20,domingo,tarde,Contra la salud pública (tráfico de drogas),368,Avda. del Puerto,11
+ALC-2025-00795,2025-10-26,21:45,domingo,tarde,Daños,263,C/ Cami el,nº 19
+ALC-2025-00796,2025-10-27,13:25,lunes,mañana,Hurto,234,C/ Pintor Cabrera,104
+ALC-2025-00797,2025-10-28,04:35,martes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Calle Sin Nombre,
+ALC-2025-00798,2025-10-28,12:25,martes,mañana,Hurto,234,CL Juan Gil Albert,8
+ALC-2025-00799,2025-10-28,19:45,martes,tarde,Robo con violencia o intimidación en las personas,242,CL ENGINYER VILAPLANA,26
+ALC-2025-00800,2025-10-28,21:20,martes,tarde,Contra la salud pública (tráfico de drogas),368,calle Sant Isidre,27
+ALC-2025-00801,2025-10-29,11:40,miércoles,mañana,Hurto,234,CL SANT VICENT FERRER,56
+ALC-2025-00802,2025-10-29,19:15,miércoles,tarde,Robo con fuerza en las cosas en casa habitada,241,Avda. L'alameda,nº 64
+ALC-2025-00803,2025-10-29,19:15,miércoles,tarde,Contra la salud pública (tráfico de drogas),368,c/ Cova Santa,3
+ALC-2025-00804,2025-10-29,22:00,miércoles,noche,Daños,263,CL Sor Elena Picurelli,13
+ALC-2025-00805,2025-10-29,22:40,miércoles,noche,Daños,263,C/ Sant Domenec,3
+ALC-2025-00806,2025-10-29,22:50,miércoles,noche,Lesiones,147,Calle Doctor Guerau,22
+ALC-2025-00807,2025-10-30,02:50,jueves,madrugada,Hurto o robo de uso de vehículo a motor,244,CL Encaro,6
+ALC-2025-00808,2025-10-30,11:55,jueves,mañana,Hurto,234,Calle ferran el catolic,nº 11
+ALC-2025-00809,2025-11-01,03:25,sábado,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ NA SAURINA D'ENTENCA,nº 117
+ALC-2025-00810,2025-11-01,17:20,sábado,tarde,Hurto,234,Avda. del Puerto,48
+ALC-2025-00811,2025-11-01,18:05,sábado,tarde,Hurto,234,C/ Castellar,nº 4
+ALC-2025-00812,2025-11-01,22:00,sábado,noche,Daños,263,Calle Doctor Guerau,34
+ALC-2025-00813,2025-11-02,11:00,domingo,mañana,Hurto,234,CL NA SAURINA D'ENTENCA,117
+ALC-2025-00814,2025-11-02,21:20,domingo,tarde,Lesiones,147,Calle Dona Amalia,37
+ALC-2025-00815,2025-11-03,16:45,lunes,tarde,Hurto,234,C/ Pare Vitoria,S/N
+ALC-2025-00816,2025-11-03,21:25,lunes,tarde,Hurto,234,c/ font del moreno,28
+ALC-2025-00817,2025-11-04,10:20,martes,mañana,Hurto,234,C/ Enginyer Vilaplana,26
+ALC-2025-00818,2025-11-05,12:45,miércoles,mañana,Hurto,234,C/ Isaac Peral,235
+ALC-2025-00819,2025-11-05,14:15,miércoles,tarde,Hurto,234,calle Isaac Peral,nº 11
+ALC-2025-00820,2025-11-05,15:10,miércoles,tarde,Robo con fuerza en las cosas en casa habitada,241,URBANIZACION MONTESOL,101
+ALC-2025-00821,2025-11-05,20:55,miércoles,tarde,Hurto,234,c/ cid,278
+ALC-2025-00822,2025-11-06,01:35,jueves,noche,Robo con violencia o intimidación en las personas,242,Pl. Cotes Baixes B,5 A
+ALC-2025-00823,2025-11-06,18:50,jueves,tarde,Hurto,234,Camino Antic la Piscina,15
+ALC-2025-00824,2025-11-06,19:20,jueves,tarde,Hurto,234,Calle Sor Elena Picurelli,nº 7
+ALC-2025-00825,2025-11-07,11:40,viernes,mañana,Hurto,234,CL Sotarroni,48
+ALC-2025-00826,2025-11-07,23:00,viernes,noche,Daños,263,C/ SANT NICOLAU,121
+ALC-2025-00827,2025-11-08,00:35,sábado,noche,Desórdenes públicos,557,calle Maulets Els,41
+ALC-2025-00828,2025-11-08,01:55,sábado,noche,Robo con violencia o intimidación en las personas,242,C/ Sant Francesc,272
+ALC-2025-00829,2025-11-09,01:00,domingo,noche,Desórdenes públicos,557,Calle Juan Gil Albert,73
+ALC-2025-00830,2025-11-09,10:20,domingo,mañana,Amenazas,169,Estación de metro,50
+ALC-2025-00831,2025-11-10,07:10,lunes,mañana,Robo con fuerza en las cosas en casa habitada,241,Calle SANT JOSEP,280
+ALC-2025-00832,2025-11-10,12:30,lunes,mañana,Robo con fuerza en las cosas en casa habitada,241,C/ Llibertat la,nº 3
+ALC-2025-00833,2025-11-11,20:20,martes,tarde,Hurto,234,Pza. Emili Sala,8
+ALC-2025-00834,2025-11-11,23:35,martes,noche,Robo con violencia o intimidación en las personas,242,Plaza Cotes Baixes A,17
+ALC-2025-00835,2025-11-12,14:40,miércoles,tarde,Hurto,234,c/ VERGE DELS LLIRIS,22
+ALC-2025-00836,2025-11-13,01:05,jueves,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Partida Llacunes,22
+ALC-2025-00837,2025-11-13,02:30,jueves,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Calle Alt,10
+ALC-2025-00838,2025-11-14,01:15,viernes,noche,Desórdenes públicos,557,Calle Maulets Els,20
+ALC-2025-00839,2025-11-14,05:20,viernes,madrugada,Daños,263,Calle Sant Bonaventura,11
+ALC-2025-00840,2025-11-14,12:00,viernes,mañana,Hurto,234,CL Francesc Perera,16
+ALC-2025-00841,2025-11-14,12:45,viernes,mañana,Hurto,234,C/ NA SAURINA D'ENTENCA,80
+ALC-2025-00842,2025-11-15,02:40,sábado,madrugada,Lesiones,147,CL escultor peresejo,nº 9 B
+ALC-2025-00843,2025-11-15,12:10,sábado,mañana,Hurto,234,Calle Isaac Peral,11
+ALC-2025-00844,2025-11-16,16:30,domingo,tarde,Hurto,234,c/ Alfafara,26
+ALC-2025-00845,2025-11-16,20:10,domingo,tarde,Daños,263,CL Maigmo,12
+ALC-2025-00846,2025-11-17,10:35,lunes,mañana,Hurto,234,C/ Pintor Cabrera,294
+ALC-2025-00847,2025-11-17,11:50,lunes,mañana,Robo con fuerza en las cosas en casa habitada,241,Partida RAMBLA ALTA,14
+ALC-2025-00848,2025-11-17,20:10,lunes,tarde,Hurto,234,Estación de metro,
+ALC-2025-00849,2025-11-17,21:05,lunes,tarde,Amenazas,169,Plaza GONCAL CANTO,5
+ALC-2025-00850,2025-11-18,23:25,martes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Descampado junto a la carretera,10
+ALC-2025-00851,2025-11-19,01:25,miércoles,noche,Robo con fuerza en las cosas en establecimiento abierto al público,241,Plaza Llometes,16
+ALC-2025-00852,2025-11-19,12:05,miércoles,mañana,Hurto,234,calle Francesc Perera,
+ALC-2025-00853,2025-11-20,00:15,jueves,noche,Robo con violencia o intimidación en las personas,242,calle Reconquesta,nº 10
+ALC-2025-00854,2025-11-20,08:50,jueves,mañana,Hurto,234,Calle Sin Nombre,
+ALC-2025-00855,2025-11-20,09:15,jueves,mañana,Hurto,234,calle Noguera,2
+ALC-2025-00856,2025-11-20,13:30,jueves,mañana,Robo con fuerza en las cosas en casa habitada,241,Calle Llibertat la,nº 10
+ALC-2025-00857,2025-11-20,17:50,jueves,tarde,Hurto,234,calle Sant Isidre,nº 27
+ALC-2025-00858,2025-11-21,00:10,viernes,noche,Desórdenes públicos,557,C/ Casimiro Barello Morello,nº 6
+ALC-2025-00859,2025-11-21,00:50,viernes,noche,Desórdenes públicos,557,C/ Ruzafa,22
+ALC-2025-00860,2025-11-21,01:30,viernes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ PRIMER DE MAIG,7
+ALC-2025-00861,2025-11-21,02:00,viernes,madrugada,Daños,263,Partida Rambla Baixa,389
+ALC-2025-00862,2025-11-21,03:55,viernes,madrugada,Daños,263,c/ Pintor Cabrera,nº 93
+ALC-2025-00863,2025-11-21,04:05,viernes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ Encaro,14
+ALC-2025-00864,2025-11-21,05:10,viernes,madrugada,Daños,263,Pasaje CASETA PARE HILARIO,S/N
+ALC-2025-00865,2025-11-21,19:40,viernes,tarde,Hurto,234,Estación de metro,
+ALC-2025-00866,2025-11-21,21:05,viernes,tarde,Daños,263,c/ Forn del Vidre,nº 10-B
+ALC-2025-00867,2025-11-21,22:05,viernes,noche,Daños,263,c/ Pare Vitoria,45
+ALC-2025-00868,2025-11-22,04:55,sábado,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,c/ PERU,58
+ALC-2025-00869,2025-11-22,16:55,sábado,tarde,Hurto,234,Gran Vía Marqués del Turia,
+ALC-2025-00870,2025-11-22,19:15,sábado,tarde,Daños,263,plaza Cotes Baixes G,292
+ALC-2025-00871,2025-11-22,19:35,sábado,tarde,Hurto,234,C/ Gal.ler,1
+ALC-2025-00872,2025-11-23,00:35,domingo,noche,Desórdenes públicos,557,c/ Dona Amalia,45-B
+ALC-2025-00873,2025-11-23,19:40,domingo,tarde,Hurto,234,calle Mare Rafols,12
+ALC-2025-00874,2025-11-23,20:40,domingo,tarde,Robo con violencia o intimidación en las personas,242,c/ Reconquesta,56
+ALC-2025-00875,2025-11-23,23:10,domingo,noche,Lesiones,147,calle Dona Amalia,nº 21
+ALC-2025-00876,2025-11-24,01:15,lunes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,calle Fila Muntanyesos,16
+ALC-2025-00877,2025-11-24,16:15,lunes,tarde,Hurto,234,Camino Antic la Piscina,15
+ALC-2025-00878,2025-11-24,19:10,lunes,tarde,Hurto,234,Calle Pintor Cabrera,86
+ALC-2025-00879,2025-11-24,21:50,lunes,tarde,Daños,263,C/ Barbacana,32
+ALC-2025-00880,2025-11-25,03:30,martes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,CL Assegador,54
+ALC-2025-00881,2025-11-25,11:35,martes,mañana,Hurto,234,C/ Na Saurina D'entenca,100
+ALC-2025-00882,2025-11-25,16:40,martes,tarde,Hurto,234,C/ Verge D'agost,nº 42
+ALC-2025-00883,2025-11-26,04:25,miércoles,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Carretera molinar,33
+ALC-2025-00884,2025-11-27,03:40,jueves,madrugada,Daños,263,Calle Alacant,54
+ALC-2025-00885,2025-11-27,12:10,jueves,mañana,Hurto,234,CL Francesc Perera,404
+ALC-2025-00886,2025-11-27,15:00,jueves,tarde,Hurto,234,Partida Sentbenet Alt,254
+ALC-2025-00887,2025-11-27,18:40,jueves,tarde,Hurto,234,C/ Sant Joan de Ribera,40
+ALC-2025-00888,2025-11-27,22:30,jueves,noche,Daños,263,C/ Sant Mateu,74
+ALC-2025-00889,2025-11-28,01:40,viernes,noche,Lesiones,147,CL Verge Dels Lliris,nº 34
+ALC-2025-00890,2025-11-28,12:30,viernes,mañana,Hurto,234,calle Casa Blanca,nº 22
+ALC-2025-00891,2025-11-28,21:00,viernes,tarde,Hurto,234,Gran Vía Marqués del Turia,
+ALC-2025-00892,2025-11-28,22:40,viernes,noche,Lesiones,147,Descampado junto a la carretera,
+ALC-2025-00893,2025-11-28,22:40,viernes,noche,Daños,263,calle Cid,37
+ALC-2025-00894,2025-11-29,02:45,sábado,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ NA SAURINA D'ENTENCA,94
+ALC-2025-00895,2025-11-30,14:50,domingo,tarde,Hurto,234,c/ L'escola,2
+ALC-2025-00896,2025-11-30,19:50,domingo,tarde,Contra la salud pública (tráfico de drogas),368,C/ Sant Nicolau,85
+ALC-2025-00897,2025-12-01,19:00,lunes,tarde,Hurto,234,Pl. Bnissaido,1
+ALC-2025-00898,2025-12-02,05:40,martes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,c/ ENCARO,6
+ALC-2025-00899,2025-12-02,15:05,martes,tarde,Hurto,234,CL Na Saurina D'entenca,105
+ALC-2025-00900,2025-12-02,21:00,martes,tarde,Hurto,234,Calle Alfafara,14
+ALC-2025-00901,2025-12-03,00:55,miércoles,noche,Desórdenes públicos,557,C/ Cid,37
+ALC-2025-00902,2025-12-04,01:20,jueves,noche,Daños,263,Calle Carrasca,8
+ALC-2025-00903,2025-12-04,17:50,jueves,tarde,Hurto,234,c/ jordi sant jordi,325
+ALC-2025-00904,2025-12-04,21:35,jueves,tarde,Contra la salud pública (tráfico de drogas),368,Calle Sant Nicolau,85
+ALC-2025-00905,2025-12-05,04:25,viernes,madrugada,Amenazas,169,C/ Salt,10
+ALC-2025-00906,2025-12-05,16:55,viernes,tarde,Robo con fuerza en las cosas en casa habitada,241,Camino Murtera la,12
+ALC-2025-00907,2025-12-05,19:05,viernes,tarde,Hurto,234,Cno. Antic la Piscina,15
+ALC-2025-00908,2025-12-05,23:00,viernes,noche,Lesiones,147,calle Doctor Guerau,nº 28
+ALC-2025-00909,2025-12-06,09:40,sábado,mañana,Hurto,234,C/ enginyer vilaplana,21
+ALC-2025-00910,2025-12-06,23:10,sábado,noche,Daños,263,Urbanizacion L'estepar,34
+ALC-2025-00911,2025-12-07,17:35,domingo,tarde,Robo con fuerza en las cosas en casa habitada,241,C/ Llibertat la,16
+ALC-2025-00912,2025-12-07,23:25,domingo,noche,Daños,263,calle Sant Mateu,nº 2
+ALC-2025-00913,2025-12-08,09:35,lunes,mañana,Hurto,234,C/ Reconquesta,4 A
+ALC-2025-00914,2025-12-08,09:50,lunes,mañana,Hurto,234,C/ PERU,112
+ALC-2025-00915,2025-12-08,10:45,lunes,mañana,Hurto,234,C/ POETA JOAN VALLS,249
+ALC-2025-00916,2025-12-08,11:50,lunes,mañana,Hurto,234,C/ Purissima,nº 1 A
+ALC-2025-00917,2025-12-08,19:45,lunes,tarde,Hurto,234,C/ Sant Jaume,10
+ALC-2025-00918,2025-12-08,23:00,lunes,noche,Hurto o robo de uso de vehículo a motor,244,Ctra. MOLINAR,nº 103-B
+ALC-2025-00919,2025-12-09,04:15,martes,madrugada,Daños,263,C/ Cantagallet,nº 5
+ALC-2025-00920,2025-12-09,09:40,martes,mañana,Robo con fuerza en las cosas en casa habitada,241,Calle Sant Pancrac,nº 39
+ALC-2025-00921,2025-12-09,23:15,martes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,c/ Forn del Vidre,278
+ALC-2025-00922,2025-12-10,06:20,miércoles,mañana,Robo con fuerza en las cosas en establecimiento abierto al público,241,Zona de ocio,
+ALC-2025-00923,2025-12-10,17:30,miércoles,tarde,Robo con fuerza en las cosas en casa habitada,241,Partida riquer alt,S/N
+ALC-2025-00924,2025-12-10,21:05,miércoles,tarde,Lesiones,147,CL MAGNOLIA,nº 4
+ALC-2025-00925,2025-12-11,00:15,jueves,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ SANT NICOLAU,3
+ALC-2025-00926,2025-12-11,01:05,jueves,noche,Robo con violencia o intimidación en las personas,242,c/ SANT PANCRAC,301
+ALC-2025-00927,2025-12-11,09:40,jueves,mañana,Hurto,234,Calle ALACANT,49
+ALC-2025-00928,2025-12-11,10:35,jueves,mañana,Robo con fuerza en las cosas en casa habitada,241,Avda. del Puerto,
+ALC-2025-00929,2025-12-11,12:55,jueves,mañana,Amenazas,169,Urbanizacion L'estepar,29B
+ALC-2025-00930,2025-12-11,17:00,jueves,tarde,Hurto,234,Partida Cotes Altes,s/n
+ALC-2025-00931,2025-12-11,19:35,jueves,tarde,Hurto,234,c/ Alberri,22
+ALC-2025-00932,2025-12-11,19:50,jueves,tarde,Hurto,234,CL Caseta Mascarelles,341
+ALC-2025-00933,2025-12-12,10:25,viernes,mañana,Amenazas,169,Ctra. riba la,14
+ALC-2025-00934,2025-12-12,22:25,viernes,noche,Daños,263,CL Forn del Vidre,S/N
+ALC-2025-00935,2025-12-12,22:35,viernes,noche,Lesiones,147,calle Peru,nº 82
+ALC-2025-00936,2025-12-13,03:15,sábado,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Calle FORN DEL VIDRE,10 B
+ALC-2025-00937,2025-12-13,22:15,sábado,noche,Lesiones,147,C/ Maulets Els,41
+ALC-2025-00938,2025-12-14,03:30,domingo,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Ctra. molinar,40
+ALC-2025-00939,2025-12-14,04:55,domingo,madrugada,Lesiones,147,CL Dona Amalia,253
+ALC-2025-00940,2025-12-14,18:40,domingo,tarde,Hurto,234,C/ Na Saurina D'entenca,94
+ALC-2025-00941,2025-12-14,20:00,domingo,tarde,Hurto,234,CL Peru,118
+ALC-2025-00942,2025-12-15,10:55,lunes,mañana,Hurto,234,Descampado junto a la carretera,
+ALC-2025-00943,2025-12-15,20:00,lunes,tarde,Hurto,234,Calle PURISSIMA,13
+ALC-2025-00944,2025-12-15,21:55,lunes,tarde,Hurto,234,C/ Poeta Joan Valls,35
+ALC-2025-00945,2025-12-15,23:25,lunes,noche,Daños,263,Calle SOR ELENA PICURELLI,281
+ALC-2025-00946,2025-12-16,09:15,martes,mañana,Robo con fuerza en las cosas en casa habitada,241,Centro comercial,34
+ALC-2025-00947,2025-12-16,10:45,martes,mañana,Robo con fuerza en las cosas en casa habitada,241,Pza. Sant Francesc,9
+ALC-2025-00948,2025-12-16,13:25,martes,mañana,Amenazas,169,calle Isabel la Católica,256
+ALC-2025-00949,2025-12-16,20:10,martes,tarde,Hurto,234,c/ VERGE D'ASOST,12
+ALC-2025-00950,2025-12-16,20:25,martes,tarde,Hurto,234,c/ Enginyer Vilaplana,21
+ALC-2025-00951,2025-12-17,04:15,miércoles,madrugada,Daños,263,c/ Cami el,84
+ALC-2025-00952,2025-12-18,02:00,jueves,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,CL Font del Moreno,7
+ALC-2025-00953,2025-12-18,03:10,jueves,madrugada,Lesiones,147,C/ PERU,164
+ALC-2025-00954,2025-12-18,11:10,jueves,mañana,Amenazas,169,CL Carrasca,34
+ALC-2025-00955,2025-12-18,21:45,jueves,tarde,Contra la salud pública (tráfico de drogas),368,c/ SANT NICOLAU,475
+ALC-2025-00956,2025-12-18,23:55,jueves,noche,Robo con violencia o intimidación en las personas,242,CL Sant Isidre,401
+ALC-2025-00957,2025-12-19,15:30,viernes,tarde,Robo con fuerza en las cosas en casa habitada,241,Estación de metro,
+ALC-2025-00958,2025-12-19,23:50,viernes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Ctra. MOLINAR,59C
+ALC-2025-00959,2025-12-20,00:15,sábado,noche,Daños,263,c/ Doctor Guerau,28
+ALC-2025-00960,2025-12-20,00:45,sábado,noche,Robo con violencia o intimidación en las personas,242,CL Peru,400
+ALC-2025-00961,2025-12-20,00:45,sábado,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Carretera MOLINAR,33
+ALC-2025-00962,2025-12-20,03:25,sábado,madrugada,Daños,263,Zona de ocio,
+ALC-2025-00963,2025-12-20,10:45,sábado,mañana,Hurto,234,CL Isaac Peral,3
+ALC-2025-00964,2025-12-20,12:00,sábado,mañana,Hurto,234,calle TIO CARAM,
+ALC-2025-00965,2025-12-20,13:10,sábado,mañana,Hurto,234,C/ Peru,561
+ALC-2025-00966,2025-12-20,20:45,sábado,tarde,Hurto,234,C/ Pintor Cabrera,24
+ALC-2025-00967,2025-12-20,21:40,sábado,tarde,Desórdenes públicos,557,C/ PINTOR LAPORTA,
+ALC-2025-00968,2025-12-21,19:25,domingo,tarde,Amenazas,169,CL Sant Mateu,2
+ALC-2025-00969,2025-12-23,04:15,martes,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Plaza Benissaido,nº 1
+ALC-2025-00970,2025-12-23,09:45,martes,mañana,Robo con fuerza en las cosas en casa habitada,241,Calle salze,1
+ALC-2025-00971,2025-12-23,10:55,martes,mañana,Robo con fuerza en las cosas en casa habitada,241,Descampado junto a la carretera,9
+ALC-2025-00972,2025-12-23,22:45,martes,noche,Daños,263,Calle verge dels lliris,34
+ALC-2025-00973,2025-12-24,01:25,miércoles,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,CL Alt,S/N
+ALC-2025-00974,2025-12-24,09:55,miércoles,mañana,Hurto,234,C/ Cid,93
+ALC-2025-00975,2025-12-24,16:40,miércoles,tarde,Hurto,234,Calle SANT ANTONI,51
+ALC-2025-00976,2025-12-25,01:45,jueves,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,c/ Fila Benimerines,nº 43
+ALC-2025-00977,2025-12-26,03:45,viernes,madrugada,Hurto o robo de uso de vehículo a motor,244,callejon sant vicent ferrer calleja,nº 24
+ALC-2025-00978,2025-12-26,04:45,viernes,madrugada,Lesiones,147,calle ALFONS MAGNSNIM,11
+ALC-2025-00979,2025-12-26,18:25,viernes,tarde,Hurto,234,CL CID,93
+ALC-2025-00980,2025-12-26,19:40,viernes,tarde,Hurto,234,c/ SANT JOAN DE RIBREA,37-B
+ALC-2025-00981,2025-12-27,00:05,sábado,noche,Lesiones,147,CL Dona Amlaia,52
+ALC-2025-00982,2025-12-27,00:25,sábado,noche,Robo con violencia o intimidación en las personas,242,C/ Assegador,289
+ALC-2025-00983,2025-12-27,03:35,sábado,madrugada,Lesiones,147,Partida Llacunes,4
+ALC-2025-00984,2025-12-27,15:40,sábado,tarde,Hurto,234,CL na saurina d'ertenca,nº 117
+ALC-2025-00985,2025-12-27,16:15,sábado,tarde,Hurto,234,Calle Peru,106
+ALC-2025-00986,2025-12-27,16:40,sábado,tarde,Hurto,234,Calle Verge D'agost,12
+ALC-2025-00987,2025-12-27,18:20,sábado,tarde,Hurto,234,C/ Sant Isidre,nº 27
+ALC-2025-00988,2025-12-27,19:50,sábado,tarde,Hurto,234,C/ Font de Moya,2A
+ALC-2025-00989,2025-12-27,20:50,sábado,tarde,Hurto,234,c/ Carme el,208
+ALC-2025-00990,2025-12-27,22:45,sábado,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,c/ Sant Nicolau,107
+ALC-2025-00991,2025-12-27,23:20,sábado,noche,Desórdenes públicos,557,c/ Cami el,369
+ALC-2025-00992,2025-12-28,13:45,domingo,mañana,Hurto,234,Partida POLOP BAIX,397
+ALC-2025-00993,2025-12-29,04:10,lunes,madrugada,Lesiones,147,Plaza Pintor Gisbert,373
+ALC-2025-00994,2025-12-29,09:55,lunes,mañana,Robo con fuerza en las cosas en casa habitada,241,C/ Oliver,38
+ALC-2025-00995,2025-12-29,13:15,lunes,mañana,Hurto,234,calle Caseta Mascarelles,nº 30
+ALC-2025-00996,2025-12-29,23:45,lunes,noche,Daños,263,C/ Sant Nicolau,121
+ALC-2025-00997,2025-12-29,23:55,lunes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Carretera Molinar,
+ALC-2025-00998,2025-12-31,03:45,miércoles,madrugada,Daños,263,C/ Sant Nicolau,133
+ALC-2025-00999,2025-12-31,10:45,miércoles,mañana,Robo con fuerza en las cosas en casa habitada,241,calle PINTOR LAPORTA,s/n
+ALC-2025-01000,2025-12-31,12:50,miércoles,mañana,Amenazas,169,Calle MAGNOLIA,4

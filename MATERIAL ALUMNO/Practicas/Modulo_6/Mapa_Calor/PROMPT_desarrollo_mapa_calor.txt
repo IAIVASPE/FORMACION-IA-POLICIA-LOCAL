@@ -1,0 +1,37 @@
+Actúa como desarrollador web experto en cartografía. Crea una herramienta de MAPA DE CALOR DELINCUENCIAL para una policía local, en UN SOLO ARCHIVO HTML (HTML + CSS + JavaScript), en español, que funcione con doble clic (file://) en Chrome, Edge o Firefox, sin servidor, sin instalar nada y sin claves de API.
+
+REQUISITO PRINCIPAL: PRIVACIDAD
+Los archivos de datos se leen y procesan SOLO en el navegador. Nunca se envían a ningún servidor ni IA. A internet solo puede salir: el nombre/código del municipio (límite y callejero oficiales) y las peticiones de teselas del mapa de fondo. No uses librerías de terceros salvo Leaflet 1.9.4 y leaflet.heat 0.2.0 desde unpkg. El Excel y el Word se leen y generan con código propio.
+
+DISEÑO
+Panel izquierdo con 6 secciones numeradas, cada una plegable con un botón redondo con flecha a la derecha del título (se recuerda cuáles están abiertas). Replegadas muestran un dato breve a la derecha (municipio, nº de hechos, «filtrados de total»). Sin textos de instrucciones en el panel: las explicaciones van en ayudas emergentes que aparecen tras ~1 s con el ratón encima. Mapa a la derecha. Secciones 3-6 desactivadas hasta que haya datos.
+
+1 · MUNICIPIO
+- Campo + botón «Buscar en el IGN»: API https://api-features.ign.es/collections/administrativeunit/items (nameunit, nationalcode). Búsqueda tolerante a tildes y a castellano/valenciano (p. ej. "Moncada" encuentra "Montcada/Moncada"); lista de resultados con provincia.
+- Alternativa: cargar el límite desde un .geojson. Botón para guardar el límite.
+- Dibujar el límite (línea discontinua), mostrar superficie en km² y nº de recintos. Cambiar de municipio quita los datos cargados.
+
+2 · DATOS
+- Cargar Excel .xlsx (lector propio: descomprimir el zip con DecompressionStream, leer sharedStrings, estilos de fecha y hojas) o CSV (separador , ; tab |; codificación UTF-8 o Windows-1252). Admitir filas de título encima de la tabla y columnas sobrantes. Avisar si es .xls antiguo.
+- Al cargar, abrir una VENTANA EMERGENTE con las primeras 12 filas del archivo en tabla. Encima de cada columna, un desplegable para indicar qué es: Fecha (o fecha y hora), Hora, Delito / intervención, Artículo CP, Nº atestado / id, Tipo de vía, Calle (o dirección completa), Número, Localidad, Latitud / Y, Longitud / X, Coordenadas (las dos juntas), o «no usar». Cada dato en una sola columna; columnas asignadas coloreadas. Propuesta automática por título y contenido. Opciones: hoja, fila de títulos, orden de fecha (auto / día-mes-año / mes-día-año), sistema de coordenadas (auto / grados / UTM 29, 30, 31). Vista previa «Así se leerá» de las primeras filas (fecha, hora, delito, ubicación) marcando en rojo lo que no se entiende. Obligatorio: fecha, delito/intervención y ubicación. Recordar la asignación por formato de columnas.
+- Tras aplicar: nombre del archivo, botón «⚙ Columnas» (reabre la ventana) y «✕ Quitar datos» (quita solo los datos, no el municipio). Resumen: hechos en el mapa y descartados por motivo (dirección no localizada, sin coordenadas, coordenadas no válidas, lat/lon intercambiadas, fuera del término, de otra localidad, duplicado, sin delito, fecha u hora no válida) y nº de hechos sin hora.
+- Fechas/horas: juntas o separadas; dd/mm/aaaa, dd-mm-aa, aaaa-mm-dd, ISO con T y Z, «12 de marzo de 2025», «12-mar-2025», «March 12, 2025», fechas de Excel; horas 14:35, 14.35, 14h, 1435, 2:35 PM, 2:35 p. m. Día de la semana y franja se calculan. Hechos sin hora se pintan pero no entran en gráfico ni filtro horario.
+- Direcciones en cualquier combinación (todo en una celda; calle+número y localidad aparte; todo separado; tipo de vía aparte). Quitar piso/puerta, código postal y provincia. Si la localidad es otro municipio, descartar.
+- Coordenadas en una o dos columnas; grados (punto o coma), grados-minutos-segundos o UTM ETRS89 (convertir a lat/lon).
+
+GEOCODIFICACIÓN LOCAL
+Descargar los portales del municipio de CartoCiudad: https://api-features.idee.es/collections/address/items?component_AdminUnitName_4=<municipio> (paginar con links rel=next, reintentos) y compararlos en el navegador con cada dirección: normalizar mayúsculas, tildes, artículos y tipos de vía (C/, Cl., Avda., Carrer, Plaça...), diccionario valenciano-castellano, quitar títulos (Actriz, Doctor, Padre...), coincidencia aproximada (Levenshtein ≥ 0,8). Si el número no existe, usar el más próximo de la misma acera; sin número, centro de la calle. Estados: exacta / nº aproximado / sin número / no localizada, con % de localizadas (aviso si < 85 %). Botones: descargar CSV con coordenadas y descargar no localizadas. Si CartoCiudad falla, permitir cargar el callejero guardado a mano (.geojson).
+
+3 · FILTROS: delito/intervención (casillas con color y nº, «todos»/«ninguno»), días de la semana, franja horaria (de-a, cruzando medianoche si de > a) y meses.
+
+4 · REPRESENTACIÓN: mapa de calor (radio, difuminado, saturación, saturación automática según los datos, «ver zonas con pocos hechos» = opacidad mínima), puntos coloreados por tipo, cuadrícula de recuento de 50/100/200 m con leyenda, límite municipal. Mapa base: IGN gris, IGN callejero, ortofoto PNOA (WMTS de www.ign.es, GoogleMapsCompatible, crossOrigin anónimo) y OpenStreetMap.
+
+5 · RESUMEN: nº de hechos filtrados, gráfico por hora y por día de la semana, celdas con más hechos (clic para ir) y descarga del CSV filtrado.
+
+6 · EXPORTAR INFORME: título, zona (vista actual del mapa o todo el término), notas. Botón «Informe Word» que genera un .docx propio (zip sin compresión con document.xml, estilos e imágenes) con: título y fecha, notas, FOTO DEL MAPA (componer en un canvas las teselas, el canvas del calor y el de los vectores, añadiendo escala y leyenda), filtros aplicados y periodo, tabla por delito (nº y %), gráficos por día y por hora, tabla por franjas (madrugada, mañana, tarde, noche) y las 10 celdas con más hechos con la calle más próxima. Botón para descargar solo la imagen del mapa (.png).
+
+MAPA: clic en un punto o zona muestra una ficha con los hechos de ese lugar (delito, artículo, fecha, día, hora, nº de atestado, dirección escrita y cómo se localizó).
+
+MEMORIA: guardar en localStorage el último municipio y su callejero, los últimos datos, las asignaciones de columnas y el estado de las secciones, para recuperarlos al abrir.
+
+Entrega el archivo HTML completo y funcional, con el código comentado en español.

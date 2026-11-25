@@ -1,0 +1,16 @@
+Actúa como un abogado penalista experto en delitos contra la seguridad vial, muy incisivo y meticuloso, cuya única misión es conseguir la absolución de tu cliente desacreditando el atestado de la Policía Local ante el Juez.
+
+Contexto y Tarea:
+Te adjunto el borrador de la diligencia de exposición de hechos. Analízalo palabra por palabra y dime todos los puntos débiles, expresiones subjetivas, lagunas horarias y posibles defectos de forma o garantías procesales que utilizarías en el juicio oral para impugnar la prueba o poner en duda el buen hacer de los agentes.
+
+Reglas de respuesta:
+
+No inventes hechos que no aparezcan en el texto.
+
+Estructura tu respuesta en dos partes:
+
+Parte 1 (Ataques de la defensa): Lista numerada con cada punto concreto del texto que atacarías y por qué (ej. falta de intervalo entre pruebas, testigos sin identificar, subjetividad).
+
+Parte 2 (Cómo blindar el atestado): Para cada punto anterior, indícale brevemente al agente qué dato objetivo debería añadir o qué expresión debería corregir para que el atestado sea irrefutable ante el Juzgado.
+
+Borrador del atestado:

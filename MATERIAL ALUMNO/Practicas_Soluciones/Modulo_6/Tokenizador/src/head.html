@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tokenizador IA</title>
+<style>
+:root{--g1:#013d17;--g2:#02703f;--g3:#01522c;--bg:#F1F5F9;--bd:#E2E8F0;--tx:#0F172A;--mut:#64748B}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;background:var(--bg);color:var(--tx);display:flex;flex-direction:column;font-size:14px}
+header{background:var(--g1);color:#fff;height:46px;display:flex;align-items:center;gap:12px;padding:0 14px;flex:none}
+header h1{font-size:15px;margin:0;letter-spacing:.5px}
+.chip{background:var(--g2);border-radius:14px;padding:4px 12px;font-size:12px}
+.sp{flex:1}
+header button{background:transparent;color:#fff;border:1px solid #ffffff55;border-radius:6px;padding:5px 10px;cursor:pointer;font-size:13px}
+header button:hover{background:#ffffff22}
+main{flex:1;display:grid;grid-template-columns:var(--cols,minmax(0,1fr) 8px minmax(0,1.35fr) 8px minmax(0,1.15fr));gap:0;min-height:0;min-width:0;padding:4px}
+.panel{background:#fff;border:1px solid var(--bd);border-radius:8px;margin:6px;display:flex;flex-direction:column;min-height:0;box-shadow:0 1px 3px #0001;padding:12px}
+.panel h2{font-size:14px;margin:0 0 8px;display:flex;align-items:center;gap:8px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.chips{display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap}
+.c-ok{background:#DCFCE7;color:#065F46;border-radius:12px;padding:3px 10px;font-size:12px}
+.c-warn{background:#FEF3C7;color:#92400E;border-radius:12px;padding:3px 10px;font-size:12px}
+.c-bad{background:#FEE2E2;color:#991B1B;border-radius:12px;padding:3px 10px;font-size:12px}
+button.b{border:1px solid var(--g2);color:var(--g2);background:#fff;border-radius:6px;padding:7px 12px;cursor:pointer;font-size:13px;font-weight:600}
+button.b:hover{background:#ECFDF5}
+button.f{background:var(--g1);color:#fff;border-color:var(--g1)}
+button.f:hover{background:var(--g3)}
+button.r{border-color:#EF4444;color:#EF4444}
+button.sm{padding:3px 8px;font-size:12px}
+.drop{background:#F8FAFC;border:2px dashed #94A3B8;border-radius:8px;padding:12px;text-align:center;cursor:pointer;margin-bottom:8px;transition:.15s}
+.drop.over{background:#DCFCE7;border-color:var(--g2)}
+.drop small{color:var(--mut);display:block;margin-top:4px}
+textarea,.out{width:100%;border:1px solid var(--bd);border-radius:6px;padding:8px;font-family:Consolas,"Courier New",monospace;font-size:12.5px;line-height:1.7}
+textarea{resize:none}
+#in{flex:1;min-height:120px}
+.out{flex:1;overflow:auto;white-space:pre-wrap;word-wrap:break-word;background:#fff;min-height:100px}
+.ph{color:#94A3B8;font-style:italic}
+.tok{background:#DCFCE7;color:#065F46;font-weight:700;border-radius:3px;padding:1px 4px;cursor:pointer}
+.cand{background:#FEF3C7;color:#92400E;font-weight:600;text-decoration:underline;border-radius:3px;padding:0 2px;cursor:pointer}
+.rest{background:#D1FAE5;color:#065F46;font-weight:700;border-radius:3px;padding:0 3px}
+.unres{background:#FEE2E2;color:#991B1B;font-weight:700;border-radius:3px;padding:0 3px}
+.bar{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.bar>*{flex:1;min-width:110px}
+.bar.compacta>*{min-width:62px;padding-left:6px;padding-right:6px}
+select{border:1px solid var(--bd);border-radius:6px;padding:7px;font-size:13px;background:#fff;max-width:100%}
+footer{background:#fff;border-top:1px solid var(--bd);padding:6px 14px;font-size:12px;color:#475569;flex:none}
+#ctx{position:fixed;background:#fff;border:1px solid #CBD5E1;border-radius:8px;box-shadow:0 6px 24px #0003;padding:4px;z-index:50;max-height:70vh;overflow:auto;display:none;min-width:240px}
+#ctx div{padding:6px 12px;cursor:pointer;border-radius:5px;font-size:13px}
+#ctx div:hover{background:#ECFDF5}
+#ctx div.h{font-weight:700;cursor:default;color:var(--g1)}
+#ctx div.h:hover{background:none}
+#ctx div.d{color:#94A3B8;cursor:default}
+#ctx hr{border:0;border-top:1px solid var(--bd);margin:3px 0}
+dialog{border:0;border-radius:10px;padding:0;box-shadow:0 10px 40px #0005;width:min(1000px,94vw);max-height:90vh}
+dialog::backdrop{background:#0006}
+.dh{background:var(--g1);color:#fff;padding:12px 16px;font-weight:700;letter-spacing:.4px}
+.db{padding:14px;overflow:auto;max-height:68vh}
+.df{padding:10px 14px;border-top:1px solid var(--bd);display:flex;gap:8px;align-items:center}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;background:#F8FAFC;padding:6px;border-bottom:1px solid var(--bd)}
+td{padding:4px 6px;border-bottom:1px solid #F1F5F9;vertical-align:middle}
+td input[type=text]{width:100%;border:1px solid var(--bd);border-radius:4px;padding:4px}
+.mono{font-family:Consolas,monospace;font-weight:700;color:var(--g2)}
+.plist{display:grid;grid-template-columns:240px 1fr;gap:12px}
+.plist ul{list-style:none;margin:0;padding:0;border:1px solid var(--bd);border-radius:6px;max-height:360px;overflow:auto}
+.plist li{padding:8px;cursor:pointer;border-bottom:1px solid #F1F5F9;font-size:13px}
+.plist li.sel{background:var(--g1);color:#fff}
+.plist input,.plist textarea{width:100%;margin-bottom:8px;border:1px solid var(--bd);border-radius:6px;padding:6px;font-family:inherit}
+
+@media(max-width:700px),(pointer:coarse) and (max-width:900px){
+  header{height:auto;min-height:46px;flex-wrap:wrap;padding:6px 10px;gap:8px}
+  header .chip{order:3;flex:1 0 100%;font-size:11px;text-align:center;padding:3px 8px}
+  header .sp{display:none} header h1{flex:1}
+  header button{min-height:40px;padding:6px 12px}
+  html,body{height:auto;min-height:100%}
+  body{display:block}
+  main{display:block;flex:none;overflow:visible;padding:0}
+  .panel{display:flex;margin:6px 6px 10px;padding:10px;height:auto;min-height:0}
+  footer{position:sticky;bottom:0}
+  button.b,button.sm,select{min-height:44px;font-size:14px}
+  button.b.sm{padding:8px 12px}
+  .bar>*{min-width:130px}
+  .drop b.dd,.drop .dd-only{display:none}
+  .drop .mob{display:inline}
+  #in{min-height:200px;flex:none;font-size:14px}
+  .out{min-height:260px;flex:none;max-height:60vh;font-size:14px}
+  #ai{height:140px!important;font-size:14px}
+  textarea{font-size:14px}
+  .tok,.cand{padding:3px 5px}
+  dialog{width:100vw;max-width:100vw;max-height:100vh;height:100vh;border-radius:0}
+  .db{max-height:calc(100vh - 150px)}
+  .plist{grid-template-columns:1fr}
+  #mapBody td input[type=text]{min-width:130px}
+  .db table{display:block;overflow-x:auto}
+  #ctx div{padding:12px 14px;font-size:15px}
+  .df{flex-wrap:wrap}
+}
+.mob{display:none}
+@media(max-width:1000px){main{grid-template-columns:1fr;overflow:auto}.panel{min-height:480px}body{overflow:auto}}
+@media(max-width:700px){.panel{min-height:0}}
+/* ---- pestañas, exportación, formato rico y modo CSV ---- */
+header .tab{border-color:#ffffff40;color:#D1FAE5;font-weight:600}
+header .tab.on{background:#fff;color:var(--g1);border-color:#fff}
+.exp{display:flex;gap:4px;align-items:center;flex:1.6!important}
+.exp>span{font-size:12px;color:var(--mut);white-space:nowrap}
+.exp button{flex:1;min-width:0}
+.chk{font-size:12px;color:#475569;display:inline-flex;gap:5px;align-items:center;cursor:pointer}
+.rich{font-family:"Segoe UI",system-ui,Arial,sans-serif;font-size:13.5px;line-height:1.55;white-space:normal;overflow:auto;outline:none}
+.rich:empty:before{content:attr(data-ph);color:#94A3B8;font-style:italic}
+.rich p{margin:0 0 .6em}.rich h1,.rich h2,.rich h3,.rich h4,.rich h5,.rich h6{margin:.6em 0 .35em;line-height:1.25}
+.rich h1{font-size:1.35em}.rich h2{font-size:1.2em}.rich h3{font-size:1.08em}.rich h4,.rich h5,.rich h6{font-size:1em}
+.rich ul,.rich ol{margin:.2em 0 .6em;padding-left:1.6em}.rich li{margin:.1em 0}
+.rich blockquote{margin:.4em 0 .6em;padding-left:.9em;border-left:3px solid #CBD5E1;color:#334155}
+.rich table{border-collapse:collapse;margin:.4em 0}.rich td,.rich th{border:1px solid #CBD5E1;padding:3px 6px;vertical-align:top}
+.rich pre{background:#F8FAFC;border:1px solid var(--bd);border-radius:4px;padding:6px;white-space:pre-wrap;font-family:Consolas,monospace;font-size:12px}
+.rich code{font-family:Consolas,monospace;background:#F1F5F9;border-radius:3px;padding:0 3px}
+main.csv{grid-template-columns:var(--cols,minmax(0,1fr) 8px minmax(0,1.5fr) 8px minmax(0,1fr))}
+.panel{min-width:0}
+.gut{cursor:col-resize;position:relative;touch-action:none}
+.gut:after{content:'';position:absolute;top:42%;bottom:42%;left:3px;right:3px;border-radius:3px;background:#CBD5E1}
+.gut:hover:after,.gut.drag:after{top:8px;bottom:8px;background:var(--g2)}
+.hgut{flex:none;height:12px;cursor:row-resize;position:relative;touch-action:none}
+/* panel derecho: dos cajones plegables (respuesta de la IA arriba, resultado abajo) */
+.acordeon{gap:8px}
+.cajon{display:flex;flex-direction:column;min-height:0;flex:none;border:1px solid var(--bd);border-radius:8px;overflow:hidden;background:#fff}
+.cajon.abierto{flex:1}
+.cajon[data-k="rest"]{margin-top:auto}
+.cajon .cab{display:flex;align-items:center;gap:8px;padding:6px 8px 6px 10px;background:#F8FAFC;cursor:pointer;user-select:none;flex:none}
+.cajon.abierto .cab{border-bottom:1px solid var(--bd)}
+.cajon .cab:hover{background:#F1F5F9}
+.cajon .cab h2{margin:0;font-size:13.5px}
+.cajon .cuerpo{display:flex;flex-direction:column;flex:1;min-height:0;padding:8px}
+.cajon:not(.abierto) .cuerpo{display:none}
+.cajon .acc{margin-bottom:6px}
+.cajon .out{flex:1;min-height:60px}
+.fl{flex:none;width:28px;height:28px;border-radius:50%;border:1px solid #CBD5E1;background:#fff;color:var(--g2);display:grid;place-items:center;cursor:pointer;padding:0;box-shadow:0 1px 2px #0001;transition:background .15s,border-color .15s}
+.fl:hover{background:#ECFDF5;border-color:var(--g2)}
+.fl svg{transition:transform .2s}
+.cajon[data-k="ai"]:not(.abierto) .fl svg,.cajon[data-k="rest"].abierto .fl svg{transform:rotate(180deg)}
+.bar.baja>*{padding-top:4px;padding-bottom:4px;font-size:12.5px;white-space:nowrap}
+.hgut:after{content:'';position:absolute;left:42%;right:42%;top:5px;height:3px;border-radius:3px;background:#CBD5E1}
+.hgut:hover:after,.hgut.drag:after{left:8px;right:8px;background:var(--g2)}
+body.arrastrando{cursor:col-resize;user-select:none}body.arrastrando-v{cursor:row-resize;user-select:none}
+.split{display:flex;gap:0;min-width:150px}
+.split>.b:first-child{flex:1;border-radius:6px 0 0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.split>.caret{flex:none;width:32px;padding:0;border-radius:0 6px 6px 0;border-left:1px solid #ffffff66;display:grid;place-items:center}
+.split>.caret svg{transition:transform .15s}.split>.caret:hover svg{transform:translateY(-1px)}
+.menu{position:fixed;display:none;z-index:60;background:#fff;border:1px solid #CBD5E1;border-radius:8px;box-shadow:0 6px 24px #0003;padding:4px}
+.menu.open{display:block}
+.menu button{display:block;width:100%;text-align:left;background:none;border:0;padding:8px 12px;border-radius:5px;font-size:13px;cursor:pointer;color:var(--tx);white-space:nowrap}
+.menu button:hover{background:#ECFDF5}
+.pags .b.f{color:#fff}
+@media(max-width:1000px){main,main.csv{grid-template-columns:minmax(0,1fr)}.gut{display:none}}
+.opt{display:flex;flex-direction:column;gap:5px;margin:2px 0 6px;font-size:12.5px}
+.opt select{padding:5px;font-size:12.5px}
+.cfg{flex:1;overflow:auto;border:1px solid var(--bd);border-radius:6px;min-height:140px;margin-bottom:6px}
+.cfg table{font-size:12.5px;table-layout:fixed}.cfg td{overflow:hidden}#cRestOut td{white-space:nowrap}.cfg td select{width:100%;font-size:12px;padding:4px}
+.cfg .ej{display:block;font-size:11px;color:#64748B;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cfg tr.aviso td{background:#FFFBEB}.cfg small{color:#B45309;display:block;white-space:normal}
+.ptbl{flex:1;overflow:auto;border:1px solid var(--bd);border-radius:6px;min-height:140px}
+.ptbl table{font-size:12px}.ptbl th{position:sticky;top:0;background:#F1F5F9;z-index:1;white-space:nowrap}
+.ptbl td{white-space:nowrap;max-width:340px;overflow:hidden;text-overflow:ellipsis}
+.ptbl .tok{cursor:help;padding:0 3px}.ptbl .rest{padding:0 3px}
+.mut{color:var(--mut);font-size:12px}
+#cmBody td input[type=text]{min-width:220px}
+/* ventana de columnas (mismo modelo que el mapa de calor) */
+#modalCols{position:fixed;inset:0;z-index:60;background:rgba(15,23,42,.55);display:none;align-items:center;justify-content:center}
+.mcaja{background:#fff;border-radius:10px;width:min(1200px,96vw);max-height:92vh;display:flex;flex-direction:column;box-shadow:0 10px 40px rgba(0,0,0,.35);font-size:13px}
+.mcab{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--bd)}
+.mcab b{font-size:15px;color:var(--g1)}
+.mopc{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.mopc input{width:56px;padding:4px;border:1px solid var(--bd);border-radius:4px;font:inherit}
+.mopc select{padding:4px}
+.mtabla{overflow:auto;flex:1 1 auto;min-height:160px;border-bottom:1px solid var(--bd)}
+.mtabla table{border-collapse:collapse;font-size:12px;width:auto}
+.mtabla th,.mtabla td{border:1px solid #e3e6ea;padding:4px 7px;white-space:nowrap;max-width:240px;overflow:hidden;text-overflow:ellipsis;text-align:left}
+.mtabla thead th{position:sticky;top:0;z-index:1}
+.mtabla thead tr.tit th{top:33px;font-weight:600;color:#334}
+.mtabla select{font-size:12px;width:100%;min-width:170px;padding:4px;border:1px solid #b9c0ca;border-radius:4px;background:#fff}
+.mtabla select.asig{border-color:var(--g2);font-weight:600}
+.mprev{padding:8px 16px;max-height:26vh;overflow:auto}
+.mprev table{border-collapse:collapse;font-size:12px;margin-top:6px;width:auto}
+.mprev th,.mprev td{border-bottom:1px solid #eef0f3;padding:3px 8px;text-align:left;white-space:nowrap;max-width:320px;overflow:hidden;text-overflow:ellipsis}
+.mprev th{color:var(--mut);font-weight:600}
+.mpie{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 16px;border-top:1px solid var(--bd)}
+.mpie button:disabled{opacity:.4;cursor:default}
+.mal{color:#B45309;font-weight:600}.bien{color:#047857;font-weight:600}.mut{color:var(--mut)}
+</style>
+</head>
+<body>
+<div id="fatal" style="display:none;position:fixed;inset:0;z-index:999;background:#fff;color:#7f1d1d;padding:28px;font:15px/1.6 Segoe UI,Arial,sans-serif;overflow:auto"></div>
+<script>
+(function(){
+  function show(msg){var d=document.getElementById('fatal');if(!d)return;d.style.display='block';
+    d.innerHTML='<h2 style="margin-top:0">⚠️ La aplicación no ha podido arrancar</h2><p>'+msg+'</p><p><b>Qué hacer:</b> abre el archivo <code>TokenizadorIA.html</code> directamente (doble clic) con una versión reciente de <b>Google Chrome, Microsoft Edge o Firefox</b>. No funciona desde la vista previa de un correo, de WhatsApp o de un visor de archivos, ni en navegadores muy antiguos (Safari anterior a 16.4, Internet Explorer).</p><p style="color:#64748B;font-size:13px">Navegador detectado: '+navigator.userAgent+'</p>';}
+  window.__fatal=show;
+  try{ new RegExp('(?<=a)b','u'); new RegExp('\\p{L}','u'); new RegExp('(?<n>a)','u'); if(!window.HTMLDialogElement||!Array.prototype.flat) throw new Error('API no soportada'); }
+  catch(e){ show('Este navegador es demasiado antiguo para el motor de tokenización ('+e.message+').'); window.__noRun=true; }
+  window.addEventListener('error',function(ev){ if(!window.__started) show('Error al cargar: '+(ev.message||'desconocido')+(ev.lineno?' (línea '+ev.lineno+')':'')); });
+})();
+</script>
+<header>
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A7F3D0" stroke-width="2"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/><rect x="9" y="10" width="6" height="5" rx="1"/><path d="M10 10V8a2 2 0 014 0v2"/></svg>
+  <h1>TOKENIZADOR</h1>
+  <button class="tab on" id="tabTxt" title="Tokenizar un texto o documento">📝 Texto</button>
+  <button class="tab" id="tabCsv" title="Tokenizar un CSV columna a columna: direcciones, delitos y datos personales">📊 CSV por columnas</button>
+  <span class="chip" title="Todo se procesa en tu navegador. Nada se envía a ningún servidor ni se guarda en disco: al cerrar o recargar la pestaña el diccionario desaparece.">🔓 Modo local · nada sale de tu dispositivo</span>
+  <span class="sp"></span>
+  <button id="bHelp" title="Cómo se usa">❓ Ayuda</button>
+  <button id="bPrompts" title="Gestionar plantillas de prompt">⚙ Prompts</button>
+</header>
+<main id="vTxt">
+  <!-- PANEL 1 -->
+  <section class="panel" id="p1">
+    <h2>📄 Documento o texto a tokenizar</h2>
+    <div class="drop" id="drop">
+      <b class="dd">Arrastra aquí un documento</b><b class="mob">Toca para elegir un documento</b> (Word, PDF, Excel, .txt…)
+      <small id="dropInfo">o pega el texto abajo</small>
+      <input type="file" id="file" multiple hidden accept=".docx,.docm,.odt,.pdf,.xlsx,.xlsm,.ods,.xls,.txt,.md,.csv,.tsv,.log,.json,.xml,.html,.htm,.eml,text/*">
+    </div>
+    <div class="row" style="margin-bottom:8px">
+      <button class="b sm" id="bSample">✨ Cargar ejemplo</button>
+      <button class="b sm" id="bPasteIn">📋 Pegar</button>
+      <label class="chk" title="Para texto copiado de un PDF: une las líneas cortadas en párrafos. Desmarcado, se conservan tal cual los saltos de línea, párrafos y sangrías."><input type="checkbox" id="optJoin"> Unir líneas cortadas (PDF)</label>
+      <span class="sp"></span>
+      <button class="b sm r" id="bClearIn">🧹 Limpiar</button>
+    </div>
+    <textarea id="in" placeholder="Pega aquí el texto con datos personales. Se tokeniza automáticamente mientras escribes."></textarea>
+  </section>
+  <div class="gut" title="Arrastra para cambiar el ancho de los paneles (doble clic: restablecer)"></div>
+  <!-- PANEL 2 -->
+  <section class="panel" id="p2">
+    <h2>🛡️ Texto tokenizado</h2>
+    <div class="chips"><span class="c-ok" id="cOk">🔒 0 Protegidos (Clic para revertir)</span><span class="c-warn" id="cWarn">⚠️ 0 Dudosos (Clic para tokenizar)</span></div>
+    <div class="out" id="tokOut"></div>
+    <div class="bar baja">
+      <button class="b" id="bSel" title="Selecciona en el texto un dato que falte por tokenizar">🖍 Tokenizar selección</button>
+      <button class="b f" id="bMap">🗝 Mapa de equivalencias</button>
+      <button class="b" id="bExp" data-menu="mExp" title="Guardar el texto tokenizado (no contiene datos reales)" style="flex:.7">⬇ Exportar ▾</button>
+    </div>
+    <div class="bar">
+      <select id="tpl" style="flex:1.3"></select>
+      <span class="split" style="flex:1.7"><button class="b f" id="bCopyAll" title="Prompt blindado + texto tokenizado">📑 Copiar prompt + texto</button><button class="b f caret" data-menu="mCopy" title="Más opciones de copia"><svg viewBox="0 0 12 12" width="11" height="11"><path d="M6 2.5L11 9.5H1z" fill="currentColor"/></svg></button></span>
+    </div>
+  </section>
+  <div class="gut" title="Arrastra para cambiar el ancho de los paneles (doble clic: restablecer)"></div>
+  <!-- PANEL 3 -->
+  <section class="panel acordeon" id="p3">
+    <div class="cajon abierto" data-k="ai">
+      <div class="cab"><h2>♻️ Destokenización · respuesta de la IA</h2><span class="sp"></span><button class="fl" type="button" title="Plegar / desplegar"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M6 15l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+      <div class="cuerpo">
+        <div class="row acc"><button class="b sm" id="bPasteAi">📋 Pegar</button><button class="b sm r" id="bClearAi">🧹 Limpiar</button></div>
+        <div id="ai" class="out rich" contenteditable="true" data-ph="Pega la respuesta de la IA con los tokens [[PERSONA_01]]… Se conservan párrafos, sangrías, listas, tablas y negritas."></div>
+      </div>
+    </div>
+    <div class="cajon" data-k="rest">
+      <div class="cab"><h2>📤 Texto final destokenizado</h2><span class="c-bad" id="cUnres" style="display:none">❌ 0 No reconocidos</span><span class="sp"></span><button class="fl" type="button" title="Plegar / desplegar"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M6 15l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+      <div class="cuerpo">
+        <div class="out rich" id="restOut" contenteditable="true"></div>
+        <div class="bar baja">
+          <button class="b" id="bCopyRest">📋 Copiar</button>
+          <button class="b f" id="bDocx">💾 .docx</button>
+          <button class="b" id="bTxt">💾 .txt</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<main id="vCsv" class="csv" style="display:none">
+  <section class="panel">
+    <h2>📊 CSV: archivo y columnas</h2>
+    <div class="drop" id="cDrop"><b class="dd">Arrastra aquí un CSV o un Excel</b><b class="mob">Toca para elegir un CSV o un Excel</b> (.csv .xlsx .ods; tablas de Word)
+      <small id="cInfo">Se detectan solos el separador y lo que contiene cada columna</small>
+      <input type="file" id="cFile" hidden accept=".csv,.tsv,.txt,.xlsx,.xlsm,.ods,.xls,.docx,.odt,.pdf,text/csv"></div>
+    <div class="opt" id="cHojaBox" style="display:none"><label>Hoja: <select id="cHoja" style="max-width:100%"></select></label></div>
+    <div class="opt">
+      <label>Direcciones: <select id="cModo"><option value="portal">Un token por dirección (vía + número)</option><option value="via">Un token por vía (el número queda visible)</option></select></label>
+      <label class="chk"><input type="checkbox" id="cFuzzy" checked> Agrupar variantes de la misma vía (C/ · Calle · Carrer, erratas, títulos omitidos)</label>
+      <label class="chk"><input type="checkbox" id="cDelTxt" checked> Detectar delitos también dentro de las columnas de texto libre</label>
+    </div>
+    <div class="cfg"><table><thead><tr><th>Columna y ejemplos</th><th style="width:52%">Qué contiene</th></tr></thead><tbody id="cCols"><tr><td colspan="2" class="ph">Carga un CSV para ver sus columnas.</td></tr></tbody></table></div>
+    <div class="bar baja"><button class="b" id="cColsBtn" title="Abrir la ventana para elegir, sobre el propio archivo, qué contiene cada columna">⚙ Columnas</button><button class="b f" id="cRun">🛡️ Tokenizar CSV</button><button class="b r" id="cReset">🧹 Nuevo</button></div>
+  </section>
+  <div class="gut" title="Arrastra para cambiar el ancho de los paneles (doble clic: restablecer)"></div>
+  <section class="panel">
+    <h2>🛡️ CSV tokenizado</h2>
+    <div class="chips" id="cChips"><span class="c-ok">🔒 0 celdas protegidas</span></div>
+    <div class="ptbl" id="cPrev"><div class="ph" style="padding:10px">La tabla tokenizada aparecerá aquí.</div></div>
+    <div class="bar baja"><button class="b" id="cSel" title="Selecciona en la tabla un dato que falte por tokenizar: se tokeniza en todas las celdas">🖍 Tokenizar selección</button><button class="b f" id="cMapBtn">🗝 Mapa de equivalencias</button><button class="b" id="cExp" data-menu="mCExp" title="Guardar el CSV tokenizado (no contiene datos reales)" style="flex:.7">⬇ Exportar ▾</button></div>
+    <div class="bar"><select id="cTpl" style="flex:1.3"></select><span class="split" style="flex:1.7"><button class="b f" id="cCopyAll" title="Prompt blindado + CSV tokenizado">📑 Copiar prompt + CSV</button><button class="b f caret" data-menu="mCCopy" title="Más opciones de copia"><svg viewBox="0 0 12 12" width="11" height="11"><path d="M6 2.5L11 9.5H1z" fill="currentColor"/></svg></button></span></div>
+  </section>
+  <div class="gut" title="Arrastra para cambiar el ancho de los paneles (doble clic: restablecer)"></div>
+  <section class="panel acordeon" id="cp3">
+    <div class="cajon abierto" data-k="ai">
+      <div class="cab"><h2>♻️ Destokenización · respuesta de la IA</h2><span class="sp"></span><button class="fl" type="button" title="Plegar / desplegar"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M6 15l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+      <div class="cuerpo">
+        <div class="row acc"><button class="b sm" id="cPasteAi">📋 Pegar</button><button class="b sm r" id="cClearAi">🧹 Limpiar</button></div>
+        <div id="cAi" class="out rich" contenteditable="true" data-ph="Pega aquí la respuesta de la IA (se conserva el formato) o arrastra el CSV / Excel tokenizado…"></div>
+      </div>
+    </div>
+    <div class="cajon" data-k="rest">
+      <div class="cab"><h2>📤 Resultado destokenizado</h2><span class="c-bad" id="cUnresN" style="display:none">❌ 0 No reconocidos</span><span class="sp"></span><button class="fl" type="button" title="Plegar / desplegar"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M6 15l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+      <div class="cuerpo">
+        <div class="out rich" id="cRestOut" contenteditable="true"></div>
+        <div class="bar baja compacta"><button class="b" id="cCopyRest">📋 Copiar</button><button class="b" id="cRestCsv">💾 .csv</button><button class="b" id="cRestXlsx">💾 .xlsx</button><button class="b" id="cRestTxt">💾 .txt</button><button class="b f" id="cRestDocx">💾 .docx</button></div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer id="status">Listo para analizar y tokenizar documentación.</footer>
+<div id="ctx"></div>
+<div class="menu" id="mCopy"><button id="bCopyTxt">📄 Copiar solo texto tokenizado</button><button id="bCopyPrompt">💬 Copiar solo prompt</button></div>
+<div class="menu" id="mExp"><button id="bExpTxt">📄 Texto (.txt)</button><button id="bExpDocx">📝 Word (.docx)</button><button id="bExpCsv">📊 Tabla (.csv)</button><button id="bExpXlsx">📗 Excel (.xlsx)</button></div>
+<div class="menu" id="mCCopy"><button id="cCopy">📊 Copiar solo CSV tokenizado</button><button id="cCopyPrompt">💬 Copiar solo prompt</button></div>
+<div class="menu" id="mCExp"><button id="cExpCsv">📊 CSV (.csv)</button><button id="cExpXlsx">📗 Excel (.xlsx)</button><button id="cExpTxt">📄 Texto (.txt)</button><button id="cExpDocx">📝 Word (.docx)</button></div>
+
+<dialog id="dMap">
+  <div class="dh">🗝 MAPA DE EQUIVALENCIAS Y DICCIONARIO DE TOKENS <span class="chip" id="mapTotal" style="float:right"></span></div>
+  <div class="db"><table><thead><tr><th>Activo</th><th>Token</th><th>Valor real original (editable)</th><th>Categoría</th><th>Origen / Capa</th><th></th></tr></thead><tbody id="mapBody"></tbody></table></div>
+  <div class="df"><select id="mapCat"></select><input type="text" id="mapVal" placeholder="Nuevo dato sensible…" style="flex:1;border:1px solid var(--bd);border-radius:6px;padding:7px"><button class="b f" id="mapAdd">➕ Añadir token</button></div>
+  <div class="df"><span style="font-size:12px;color:var(--mut);flex:1">💡 Desmarcar «Activo» mantiene el término en el texto sin sustituirlo por corchetes [[...]].</span><button class="b f" id="mapClose">Aceptar y cerrar</button></div>
+</dialog>
+
+<dialog id="dPrompts">
+  <div class="dh">⚙ PLANTILLAS DE PROMPT</div>
+  <div class="db"><div class="plist">
+    <ul id="pList"></ul>
+    <div><input id="pTitle" placeholder="Título"><input id="pDesc" placeholder="Descripción"><textarea id="pText" rows="13" style="font-family:Consolas,monospace" placeholder="Texto del prompt"></textarea></div>
+  </div></div>
+  <div class="df"><button class="b" id="pNew">Nuevo</button><button class="b f" id="pSave">Guardar</button><button class="b r" id="pDel">Eliminar</button><button class="b" id="pFijar" title="Las plantillas que hay ahora pasan a ser las que se recuperan al restablecer">📌 Fijar como predeterminadas</button><button class="b" id="pReset">Restablecer predeterminadas</button><span class="sp"></span><button class="b f" id="pClose">Cerrar</button></div>
+</dialog>
+
+<dialog id="dCMap">
+  <div class="dh">🗝 MAPA DE EQUIVALENCIAS DEL CSV <span class="chip" id="cmTotal" style="float:right"></span></div>
+  <div class="df pags" style="border-top:0;border-bottom:1px solid var(--bd);flex-wrap:wrap">
+    <button class="b sm f" id="cmTabTok">🗝 Tokens</button><button class="b sm" id="cmTabRev">🔎 Agrupaciones de vías</button>
+    <span id="cmFiltros" style="display:flex;gap:8px;flex:1;min-width:240px"><input type="text" id="cmQ" placeholder="Buscar token o valor…" style="flex:1;border:1px solid var(--bd);border-radius:6px;padding:7px"><select id="cmCat"></select></span>
+  </div>
+  <div class="db" id="cmPagTok"><table><thead><tr><th>Activo</th><th>Token</th><th>Valor real (editable)</th><th>Categoría</th><th>Usos</th><th>Variantes</th></tr></thead><tbody id="cmBody"></tbody></table><div id="cmMore" class="mut" style="padding:6px"></div></div>
+  <div class="db" id="cmPagRev" style="display:none"><p class="mut" style="margin-top:0">Cada fila es una forma de escribir una vía que se ha unido a otra por parecido (errata, título omitido o nombre abreviado). Si <b>no</b> es la misma vía, pulsa <b>✂ Separar</b> y tendrá su propio token.</p>
+    <table><thead><tr><th>Escrito en el CSV</th><th>Veces</th><th>Unido a</th><th>Motivo</th><th></th></tr></thead><tbody id="revBody"></tbody></table>
+    <p><label class="chk"><input type="checkbox" id="revSinTipo"> Mostrar también las que solo omiten el tipo de vía (C/, Calle…)</label></p></div>
+  <div class="df"><span class="mut" style="flex:1">💡 Desmarcar «Activo» deja ese dato sin tokenizar en el CSV. Los cambios se aplican al cerrar.</span><button class="b f" id="cmClose">Aceptar y cerrar</button></div>
+</dialog>
+
+<dialog id="dHelp">
+  <div class="dh">❓ CÓMO SE USA</div>
+  <div class="db" style="line-height:1.6">
+    <ol>
+      <li><b>Pega un texto</b> o arrastra un documento (<b>Word, PDF, Excel</b>, LibreOffice, .txt…) en el panel izquierdo, o pulsa «Cargar ejemplo». Los datos personales se sustituyen solos por tokens como <code>[[PERSONA_01]]</code>.</li>
+      <li>En el panel central, <b>verde = protegido</b> (clic para revertir) y <b>amarillo = dudoso</b> (clic para abrir el menú y elegir la tipología o ignorarlo). También puedes seleccionar cualquier texto y pulsar «Tokenizar selección».</li>
+      <li>Elige una plantilla y pulsa <b>Copiar prompt + texto</b>; con el botón <b>▲</b> de su derecha puedes copiar solo el prompt o solo el texto. Pega eso en la IA que quieras (ChatGPT, Claude, Gemini…).</li>
+      <li>Copia la respuesta de la IA y <b>pégala en el panel derecho</b>: los tokens se sustituyen por los valores reales <b>conservando el formato</b> (párrafos, sangrías, listas, tablas, negritas). Puedes editar el resultado, copiarlo o guardarlo como .txt o Word (.docx).</li>
+      <li>El texto tokenizado (sin datos reales) se puede guardar con <b>⬇ Exportar</b> como .txt, .docx, .csv o Excel (.xlsx).</li>
+      <li>Arrastra la separación entre paneles para cambiar su ancho (doble clic: restablecer). En el panel derecho, la respuesta de la IA y el texto final son dos cajones que se pliegan con su botón redondo; al pegar la respuesta, se pliega la entrada y se abre el resultado.</li>
+    </ol>
+    <p><b>📊 CSV por columnas:</b> arrastra un CSV o un Excel (también sirven las tablas de un Word): se abre una ventana con el archivo a la vista para elegir en cada columna qué contiene (con su hoja y su fila de títulos) y ver cómo quedará; «⚙ Columnas» la vuelve a abrir. Revisa qué contiene cada columna (se detecta solo). Las <b>direcciones</b> se normalizan en castellano y valenciano («C/ Mayor», «Carrer Major», «CALLE MAYOR» → mismo token) y se agrupan las variantes con erratas o sin el título («Empar Ferrer» = «Actriu Empar Ferrer»); revísalas en «🗝 Mapa de equivalencias» › «🔎 Agrupaciones de vías». Los <b>delitos</b> se reconocen con un catálogo del Código Penal en castellano y valenciano («furt» = «hurto»). Si queda algún dato sin tokenizar, selecciónalo en la tabla central y pulsa «🖍 Tokenizar selección» (o clic derecho): se tokeniza en todas las celdas en las que aparezca. El diccionario solo vive mientras la pestaña esté abierta: destokeniza antes de cerrarla.</p>
+    <p><b>Privacidad:</b> todo ocurre en tu navegador, sin conexión a internet y sin guardar nada en disco. Si cierras o recargas la pestaña, el diccionario token↔dato se borra (por eso conviene destokenizar antes de cerrar).</p>
+    <p><b>Límites:</b> es un motor de reglas (expresiones regulares, dígitos de control y diccionarios), no una IA: puede dejarse datos o marcar de más. <b>Revisa siempre</b> el resultado antes de enviarlo a una IA externa. Los documentos se leen en tu equipo, sin enviarlos a ningún sitio. Los PDF escaneados (solo imagen) no tienen texto: necesitan OCR antes. Los Word y Excel antiguos (.doc, .xls de 1997-2003) hay que guardarlos antes como .docx o .xlsx.</p>
+  </div>
+  <div class="df"><span class="sp"></span><button class="b f" id="hClose">Entendido</button></div>
+</dialog>

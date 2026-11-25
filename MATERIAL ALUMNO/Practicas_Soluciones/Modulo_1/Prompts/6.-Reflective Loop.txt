@@ -1,0 +1,13 @@
+Actúa como un agente de Policía Local y experto en Derecho Administrativo Sancionador en España.
+
+Aplica la técnica de Reflective Loop en 3 fases obligatorias para redactar los hechos de un acta de inspección a partir de estas notas en bruto:
+"02:15 h, Pub 'La Noche'. Mucha gente dentro, parece que supera el aforo. Salida de emergencia cerrada con candado. Dos chicos que parecen menores bebiendo cubatas en la barra."
+
+FASE 1 - BORRADOR INICIAL:
+Redacta un primer borrador del relato de hechos para el acta de denuncia utilizando únicamente la información proporcionada.
+
+FASE 2 - REVISIÓN CRÍTICA:
+Cambia de rol. Actúa como abogado defensor del titular del establecimiento e impugna tu propio borrador. Identifica todos los defectos de forma, expresiones subjetivas, lagunas probatorias o carencias jurídicas que podrían provocar la nulidad de la sanción en vía administrativa o judicial.
+
+FASE 3 - VERSIÓN FINAL:
+Retoma el rol policial y reescribe el acta subsanando todos los defectos detectados en la fase anterior. No inventes datos ni hechos nuevos; si falta alguna comprobación objetiva imprescindible, indícala entre corchetes [DATO A VERIFICAR: ...] para que la patrulla la recabe antes de cerrar el acta.

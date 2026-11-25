@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Croquis básico de accidente</title>
+<!--
+  CROQUIS BÁSICO DE ACCIDENTE DE TRÁFICO
+  - Se abre con doble clic en Chrome, Edge o Firefox (necesita Internet para el mapa).
+  - Usa la librería de mapas Leaflet (https://leafletjs.com).
+  - Para añadir elementos nuevos, mira la sección 2 (CATÁLOGO) del código.
+-->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; font-family: "Segoe UI", Arial, sans-serif; font-size: 14px; }
+  body { display: flex; flex-direction: column; }
+
+  /* Barra superior */
+  header { display: flex; gap: 6px; align-items: center; padding: 6px 10px; background: #1f3b63; color: #fff; flex-wrap: wrap; }
+  header b { font-size: 16px; margin-right: 10px; }
+  header input { padding: 5px 8px; border: 0; border-radius: 4px; width: 260px; }
+  header button { padding: 5px 10px; border: 0; border-radius: 4px; background: #ffffff22; color: #fff; cursor: pointer; }
+  header button:hover { background: #ffffff44; }
+
+  /* Barra de elementos */
+  #barra { display: flex; gap: 4px; padding: 6px 10px; background: #eef2f7; border-bottom: 1px solid #ccd; flex-wrap: wrap; }
+  #barra button { padding: 6px 10px; border: 1px solid #bcc6d4; border-radius: 6px; background: #fff; cursor: pointer; font-size: 13px; }
+  #barra button:hover { border-color: #1f6fd1; }
+  #barra button.activo { background: #1f6fd1; color: #fff; border-color: #1f6fd1; }
+
+  #mapa { flex: 1; }
+
+  /* Mensajes de ayuda */
+  #ayuda { position: absolute; top: 100px; left: 50%; transform: translateX(-50%); z-index: 1000;
+           background: #1f3b63; color: #fff; padding: 6px 14px; border-radius: 16px; display: none; }
+
+  /* Panel del elemento seleccionado */
+  #panel { position: absolute; right: 10px; top: 100px; z-index: 1000; width: 220px; background: #fff;
+           border: 1px solid #ccd; border-radius: 8px; padding: 10px; box-shadow: 0 2px 8px #0003; display: none; }
+  #panel h3 { margin: 0 0 8px; font-size: 15px; color: #1f3b63; }
+  #panel label { display: block; margin: 6px 0 2px; font-size: 12px; color: #555; }
+  #panel input[type=range] { width: 100%; }
+  #panel button { margin-top: 8px; padding: 5px 10px; border-radius: 4px; border: 1px solid #ccd; background: #f5f5f5; cursor: pointer; }
+  #panel .borrar { color: #c00; }
+
+  /* Elementos sobre el mapa */
+  .elemento { background: none; border: none; }
+  .elemento .giro { width: 100%; height: 100%; }
+  .elemento svg { width: 100%; height: 100%; display: block; overflow: visible; }
+  .elemento .etiqueta { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+                        font-weight: bold; font-size: 12px; background: #fff; border: 1px solid #333;
+                        border-radius: 50%; width: 20px; height: 20px; line-height: 18px; text-align: center; pointer-events: none; }
+  .elemento.seleccionado .giro { outline: 2px dashed #1f6fd1; outline-offset: 3px; }
+  .texto { background: none; border: none; font-weight: bold; color: #111; white-space: nowrap;
+           text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff; font-size: 14px; }
+  .flecha { background: none; border: none; }
+
+  /* Al imprimir sólo sale el mapa */
+  @media print { header, #barra, #panel, #ayuda, .leaflet-control-zoom, .leaflet-control-layers { display: none !important; } }
+</style>
+</head>
+<body>
+
+<header>
+  <b>Croquis básico de accidente</b>
+  <input id="buscar" placeholder="Dirección o lugar del accidente…">
+  <button id="btnBuscar">Buscar</button>
+  <span style="flex:1"></span>
+  <button id="btnGuardar">Guardar</button>
+  <button id="btnAbrir">Abrir</button>
+  <button id="btnImprimir">Imprimir</button>
+  <button id="btnBorrarTodo">Borrar todo</button>
+  <input type="file" id="archivo" accept=".json" hidden>
+</header>
+<nav id="barra"></nav>
+<div id="mapa"></div>
+<div id="ayuda"></div>
+<div id="panel"></div>
+
+<script>
+/* =====================================================================
+   1. EL MAPA
+   Vistas del Instituto Geográfico Nacional (IGN) y satélite de Esri.
+   ===================================================================== */
+const mapa = L.map('mapa', { maxZoom: 21 }).setView([40.4168, -3.7038], 20);
+
+// Dirección de las teselas (trozos de mapa) del IGN
+const IGN = (servicio, capa, formato) =>
+  `https://www.ign.es/wmts/${servicio}?request=GetTile&service=WMTS&version=1.0.0&layer=${capa}` +
+  `&style=default&tilematrixset=GoogleMapsCompatible&tilematrix={z}&tilerow={y}&tilecol={x}&format=${formato}`;
+
+const opciones = { maxNativeZoom: 19, maxZoom: 21 };
+const vistas = {
+  'Foto aérea (PNOA)': L.tileLayer(IGN('pnoa-ma', 'OI.OrthoimageCoverage', 'image/jpeg'), { ...opciones, attribution: 'PNOA © IGN' }),
+  'Satélite':          L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { ...opciones, attribution: '© Esri' }),
+  'Mapa IGN':          L.tileLayer(IGN('ign-base', 'IGNBaseTodo', 'image/jpeg'), { ...opciones, attribution: '© IGN' })
+};
+const nombresCalles = L.tileLayer(IGN('ign-base', 'IGNBaseOrto', 'image/png'), { ...opciones, attribution: 'Calles © IGN' });
+
+vistas['Foto aérea (PNOA)'].addTo(mapa);
+nombresCalles.addTo(mapa);
+L.control.layers(vistas, { 'Nombres de calles': nombresCalles }).addTo(mapa);
+L.control.scale({ imperial: false }).addTo(mapa);   // escala gráfica en metros
+
+
+/* =====================================================================
+   2. CATÁLOGO DE ELEMENTOS
+   Para añadir uno nuevo: copia una línea, cambia el nombre, el tamaño
+   real en metros (largo x ancho) y elige un dibujo de la sección 3.
+   ===================================================================== */
+const CATALOGO = {
+  coche:   { nombre: '🚗 Coche',           largo: 4.5, ancho: 1.8, dibujo: 'coche',   letra: true },
+  moto:    { nombre: '🏍️ Moto',            largo: 2.1, ancho: 0.8, dibujo: 'moto',    letra: true },
+  camion:  { nombre: '🚚 Camión',          largo: 10,  ancho: 2.5, dibujo: 'camion',  letra: true },
+  bici:    { nombre: '🚲 Bicicleta',       largo: 1.8, ancho: 0.6, dibujo: 'moto',    letra: true },
+  persona: { nombre: '🚶 Persona',         largo: 0.6, ancho: 0.6, dibujo: 'persona', color: '#2563eb' },
+  herido:  { nombre: '🤕 Persona tendida', largo: 1.8, ancho: 0.7, dibujo: 'tendida', color: '#2563eb' },
+  arbol:   { nombre: '🌳 Árbol',           largo: 4,   ancho: 4,   dibujo: 'arbol',   sinColor: true },
+  choque:  { nombre: '💥 Punto de choque', largo: 2,   ancho: 2,   dibujo: 'choque',  sinColor: true }
+};
+// letra: lleva A, B, C… · color: color inicial · sinColor: su dibujo no usa color
+const COLORES = ['#d62828', '#1d4ed8', '#16a34a', '#f59e0b', '#7c3aed', '#0891b2'];
+
+
+/* =====================================================================
+   3. DIBUJOS (vistos desde arriba, con el frente hacia la derecha)
+   Cada dibujo recibe un color y devuelve un SVG.
+   ===================================================================== */
+const DIBUJOS = {
+  coche: c => `<svg viewBox="0 0 100 40" preserveAspectRatio="none">
+      <rect x="1" y="1" width="98" height="38" rx="9" fill="${c}" stroke="#222" stroke-width="2"/>
+      <rect x="60" y="6" width="13" height="28" rx="3" fill="#cfe3f3"/>
+      <rect x="15" y="7" width="9" height="26" rx="3" fill="#cfe3f3"/></svg>`,
+  camion: c => `<svg viewBox="0 0 100 40" preserveAspectRatio="none">
+      <rect x="1" y="1" width="74" height="38" fill="#eee" stroke="#222" stroke-width="2"/>
+      <rect x="77" y="2" width="22" height="36" rx="4" fill="${c}" stroke="#222" stroke-width="2"/>
+      <rect x="90" y="6" width="6" height="28" fill="#cfe3f3"/></svg>`,
+  moto: c => `<svg viewBox="0 0 100 40" preserveAspectRatio="none">
+      <rect x="2" y="15" width="25" height="10" rx="4" fill="#222"/>
+      <rect x="75" y="15" width="23" height="10" rx="4" fill="#222"/>
+      <ellipse cx="50" cy="20" rx="30" ry="9" fill="${c}" stroke="#222" stroke-width="2"/>
+      <rect x="70" y="2" width="4" height="36" fill="#333"/></svg>`,
+  persona: c => `<svg viewBox="0 0 100 100">
+      <ellipse cx="45" cy="50" rx="22" ry="42" fill="${c}" stroke="#222" stroke-width="3"/>
+      <circle cx="52" cy="50" r="20" fill="#f1c27d" stroke="#222" stroke-width="3"/></svg>`,
+  tendida: c => `<svg viewBox="0 0 100 40" preserveAspectRatio="none">
+      <line x1="10" y1="12" x2="45" y2="14" stroke="${c}" stroke-width="7" stroke-linecap="round"/>
+      <line x1="10" y1="28" x2="45" y2="26" stroke="${c}" stroke-width="7" stroke-linecap="round"/>
+      <rect x="42" y="8" width="38" height="24" rx="8" fill="${c}" stroke="#222" stroke-width="2"/>
+      <line x1="75" y1="10" x2="60" y2="1" stroke="${c}" stroke-width="5" stroke-linecap="round"/>
+      <line x1="75" y1="30" x2="60" y2="39" stroke="${c}" stroke-width="5" stroke-linecap="round"/>
+      <ellipse cx="90" cy="20" rx="8" ry="9" fill="#f1c27d" stroke="#222" stroke-width="2"/></svg>`,
+  arbol: () => `<svg viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="46" fill="#3a9d3a" fill-opacity=".75" stroke="#1d5e1d" stroke-width="3"/>
+      <circle cx="50" cy="50" r="6" fill="#6b4226"/></svg>`,
+  choque: () => `<svg viewBox="0 0 100 100">
+      <polygon points="50,2 61,35 96,30 70,55 85,92 50,72 15,92 30,55 4,30 39,35"
+               fill="#ffe14d" stroke="#d00" stroke-width="4"/>
+      <text x="50" y="60" font-size="26" text-anchor="middle" font-weight="bold" fill="#d00">X</text></svg>`
+};
+
+
+/* =====================================================================
+   4. DATOS DEL CROQUIS
+   Todo lo dibujado se guarda en la lista "elementos".
+   ===================================================================== */
+let elementos = [];       // { id, tipo, lat, lng, angulo, color, etiqueta, puntos, texto }
+let seleccionado = null;  // elemento seleccionado
+let modo = null;          // herramienta activa: 'coche', 'trayectoria', 'medir', 'texto'…
+let puntosTemporales = [];
+let lineaTemporal = null;
+let contador = 0;
+
+// Píxeles que ocupa un metro con el zoom actual (para dibujar a escala real)
+function pixelesPorMetro() {
+  const lat = mapa.getCenter().lat * Math.PI / 180;
+  return Math.pow(2, mapa.getZoom()) * 256 / (40075016.686 * Math.cos(lat));
+}
+function siguienteLetra() {
+  const usadas = elementos.map(e => e.etiqueta);
+  for (const l of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') if (!usadas.includes(l)) return l;
+  return '?';
+}
+
+
+/* =====================================================================
+   5. DIBUJAR CADA ELEMENTO EN EL MAPA
+   ===================================================================== */
+function iconoDe(el) {
+  const tipo = CATALOGO[el.tipo];
+  const escala = Math.max(pixelesPorMetro(), 14 / tipo.largo);   // tamaño real, pero nunca menor de 14 px
+  const ancho = tipo.largo * escala, alto = tipo.ancho * escala;
+  const etiqueta = el.etiqueta ? `<span class="etiqueta">${el.etiqueta}</span>` : '';
+  return L.divIcon({
+    className: 'elemento' + (el === seleccionado ? ' seleccionado' : ''),
+    iconSize: [ancho, alto],
+    html: `<div class="giro" style="transform: rotate(${el.angulo}deg)">${DIBUJOS[tipo.dibujo](el.color)}</div>${etiqueta}`
+  });
+}
+
+function dibujar(el) {
+  if (el.capa) el.capa.remove();
+  if (CATALOGO[el.tipo]) {                                   // vehículos, personas, objetos
+    el.capa = L.marker([el.lat, el.lng], { icon: iconoDe(el), draggable: true }).addTo(mapa);
+    el.capa.on('dragend', e => { const p = e.target.getLatLng(); el.lat = p.lat; el.lng = p.lng; guardarEnNavegador(); });
+  } else if (el.tipo === 'texto') {
+    el.capa = L.marker([el.lat, el.lng], { draggable: true, icon: L.divIcon({ className: 'texto', html: el.texto, iconSize: null }) }).addTo(mapa);
+    el.capa.on('dragend', e => { const p = e.target.getLatLng(); el.lat = p.lat; el.lng = p.lng; guardarEnNavegador(); });
+  } else if (el.tipo === 'trayectoria') {
+    el.capa = L.featureGroup([
+      L.polyline(el.puntos, { color: el.color, weight: 4, dashArray: '10 8' }),
+      flecha(el.puntos, el.color)
+    ]).addTo(mapa);
+  } else if (el.tipo === 'medida') {
+    const metros = longitud(el.puntos);
+    el.capa = L.polyline(el.puntos, { color: '#e11d48', weight: 3 }).addTo(mapa)
+      .bindTooltip(metros.toFixed(2).replace('.', ',') + ' m', { permanent: true, direction: 'center', className: 'texto' });
+  }
+  el.capa.on('click', e => { L.DomEvent.stopPropagation(e); seleccionar(el); });
+}
+
+// Punta de flecha al final de una trayectoria
+function flecha(puntos, color) {
+  const a = mapa.project(puntos[puntos.length - 2]), b = mapa.project(puntos[puntos.length - 1]);
+  const grados = Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI;
+  return L.marker(puntos[puntos.length - 1], { interactive: false, icon: L.divIcon({
+    className: 'flecha', iconSize: [20, 20],
+    html: `<svg viewBox="0 0 20 20" style="transform: rotate(${grados}deg)"><polygon points="20,10 2,2 6,10 2,18" fill="${color}"/></svg>`
+  }) });
+}
+function longitud(puntos) {
+  let total = 0;
+  for (let i = 1; i < puntos.length; i++) total += mapa.distance(puntos[i - 1], puntos[i]);
+  return total;
+}
+// Al hacer zoom se redibujan los elementos para mantener su tamaño real
+mapa.on('zoomend', () => elementos.forEach(dibujar));
+
+
+/* =====================================================================
+   6. BARRA DE HERRAMIENTAS Y COLOCACIÓN DE ELEMENTOS
+   ===================================================================== */
+const HERRAMIENTAS = { trayectoria: '➡️ Trayectoria', medir: '📏 Medir', texto: '🔤 Texto' };
+const barra = document.getElementById('barra');
+for (const [clave, tipo] of Object.entries(CATALOGO)) crearBoton(clave, tipo.nombre);
+for (const [clave, nombre] of Object.entries(HERRAMIENTAS)) crearBoton(clave, nombre);
+
+function crearBoton(clave, texto) {
+  const b = document.createElement('button');
+  b.textContent = texto; b.dataset.modo = clave;
+  b.onclick = () => activarModo(modo === clave ? null : clave);
+  barra.appendChild(b);
+}
+function activarModo(nuevo) {
+  modo = nuevo; puntosTemporales = [];
+  if (lineaTemporal) { lineaTemporal.remove(); lineaTemporal = null; }
+  document.querySelectorAll('#barra button').forEach(b => b.classList.toggle('activo', b.dataset.modo === modo));
+  const mensajes = {
+    trayectoria: 'Haz clic en varios puntos. Doble clic para terminar.',
+    medir: 'Haz clic en el punto inicial y en el final.',
+    texto: 'Haz clic donde quieras escribir.'
+  };
+  mostrarAyuda(modo ? (mensajes[modo] || 'Haz clic en el mapa para colocar el elemento.') : '');
+  if (modo) mapa.doubleClickZoom.disable(); else mapa.doubleClickZoom.enable();
+}
+function mostrarAyuda(texto) {
+  const a = document.getElementById('ayuda');
+  a.textContent = texto; a.style.display = texto ? 'block' : 'none';
+}
+
+mapa.on('click', e => {
+  if (!modo) { seleccionar(null); return; }
+  const p = e.latlng;
+  if (CATALOGO[modo]) {
+    const tipo = CATALOGO[modo];
+    const el = { id: ++contador, tipo: modo, lat: p.lat, lng: p.lng, angulo: 0 };
+    if (!tipo.sinColor) el.color = tipo.color || '#d62828';
+    if (tipo.letra) { el.etiqueta = siguienteLetra(); el.color = COLORES[(el.etiqueta.charCodeAt(0) - 65) % COLORES.length]; }
+    anadir(el); activarModo(null); seleccionar(el);
+  } else if (modo === 'texto') {
+    const texto = prompt('Escribe el texto:');
+    if (texto) anadir({ id: ++contador, tipo: 'texto', lat: p.lat, lng: p.lng, texto: texto.replace(/</g, '&lt;') });
+    activarModo(null);
+  } else if (modo === 'trayectoria' || modo === 'medir') {
+    puntosTemporales.push([p.lat, p.lng]);
+    if (lineaTemporal) lineaTemporal.remove();
+    lineaTemporal = L.polyline(puntosTemporales, { color: '#555', dashArray: '4 4' }).addTo(mapa);
+    if (modo === 'medir' && puntosTemporales.length === 2) terminarLinea();
+  }
+});
+mapa.on('dblclick', () => { if (modo === 'trayectoria') terminarLinea(); });
+
+function terminarLinea() {
+  const puntos = puntosTemporales.filter((p, i, a) => i === 0 || p[0] !== a[i - 1][0] || p[1] !== a[i - 1][1]);
+  if (puntos.length >= 2) {
+    if (modo === 'trayectoria') anadir({ id: ++contador, tipo: 'trayectoria', puntos, color: '#1d4ed8' });
+    else anadir({ id: ++contador, tipo: 'medida', puntos });
+  }
+  activarModo(null);
+}
+function anadir(el) { elementos.push(el); dibujar(el); guardarEnNavegador(); }
+
+
+/* =====================================================================
+   7. SELECCIONAR, GIRAR, CAMBIAR COLOR Y BORRAR
+   ===================================================================== */
+const panel = document.getElementById('panel');
+function seleccionar(el) {
+  const anterior = seleccionado; seleccionado = el;
+  if (anterior && anterior.capa) dibujar(anterior);
+  if (!el) { panel.style.display = 'none'; return; }
+  if (CATALOGO[el.tipo]) dibujar(el);
+  const nombre = CATALOGO[el.tipo] ? CATALOGO[el.tipo].nombre : { texto: '🔤 Texto', trayectoria: '➡️ Trayectoria', medida: '📏 Medida' }[el.tipo];
+  let html = `<h3>${nombre} ${el.etiqueta || ''}</h3>`;
+  if (CATALOGO[el.tipo]) html += `<label>Giro: <b id="grados">${el.angulo}°</b></label><input type="range" id="giro" min="0" max="359" value="${el.angulo}">`;
+  if (el.color) html += `<label>Color</label><input type="color" id="color" value="${el.color}">`;
+  if (el.tipo === 'medida') html += `<p>Distancia: <b>${longitud(el.puntos).toFixed(2).replace('.', ',')} m</b></p>`;
+  html += `<br><button class="borrar" id="btnBorrar">🗑 Borrar</button>`;
+  panel.innerHTML = html; panel.style.display = 'block';
+
+  const giro = document.getElementById('giro');
+  if (giro) giro.oninput = () => { el.angulo = +giro.value; document.getElementById('grados').textContent = el.angulo + '°'; dibujar(el); guardarEnNavegador(); };
+  const color = document.getElementById('color');
+  if (color) color.oninput = () => { el.color = color.value; dibujar(el); guardarEnNavegador(); };
+  document.getElementById('btnBorrar').onclick = () => borrar(el);
+}
+function borrar(el) {
+  el.capa.remove();
+  elementos = elementos.filter(x => x !== el);
+  seleccionar(null); guardarEnNavegador();
+}
+// Teclado: Supr borra, R gira 15°, Esc cancela
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT') return;
+  if (e.key === 'Escape') { activarModo(null); seleccionar(null); }
+  if (e.key === 'Delete' && seleccionado) borrar(seleccionado);
+  if (e.key.toLowerCase() === 'r' && seleccionado && CATALOGO[seleccionado.tipo]) {
+    seleccionado.angulo = (seleccionado.angulo + 15) % 360; seleccionar(seleccionado); guardarEnNavegador();
+  }
+});
+
+
+/* =====================================================================
+   8. BUSCAR, GUARDAR, ABRIR E IMPRIMIR
+   ===================================================================== */
+async function buscar() {
+  const texto = document.getElementById('buscar').value.trim();
+  if (!texto) return;
+  try {
+    const url = 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&maxLocations=1&SingleLine=' + encodeURIComponent(texto);
+    const datos = await (await fetch(url)).json();
+    if (!datos.candidates.length) { alert('No se ha encontrado esa dirección'); return; }
+    const sitio = datos.candidates[0].location;
+    mapa.setView([sitio.y, sitio.x], 20);
+  } catch (error) { alert('No se pudo buscar. ¿Hay conexión a Internet?'); }
+}
+document.getElementById('btnBuscar').onclick = buscar;
+document.getElementById('buscar').onkeydown = e => { if (e.key === 'Enter') buscar(); };
+
+// Convierte el croquis en texto (sin las capas del mapa) para guardarlo
+function datosCroquis() {
+  return JSON.stringify({ centro: mapa.getCenter(), zoom: mapa.getZoom(), elementos: elementos.map(({ capa, ...resto }) => resto) });
+}
+function cargarCroquis(texto) {
+  const datos = JSON.parse(texto);
+  elementos.forEach(e => e.capa && e.capa.remove());
+  elementos = datos.elementos || [];
+  contador = elementos.reduce((m, e) => Math.max(m, e.id), 0);
+  if (datos.centro) mapa.setView(datos.centro, datos.zoom);
+  elementos.forEach(dibujar);
+}
+function guardarEnNavegador() { try { localStorage.setItem('croquisBasico', datosCroquis()); } catch (e) { } }
+
+document.getElementById('btnGuardar').onclick = () => {
+  const enlace = document.createElement('a');
+  enlace.href = URL.createObjectURL(new Blob([datosCroquis()], { type: 'application/json' }));
+  enlace.download = 'croquis.json'; enlace.click();
+};
+document.getElementById('btnAbrir').onclick = () => document.getElementById('archivo').click();
+document.getElementById('archivo').onchange = e => {
+  const archivo = e.target.files[0]; if (!archivo) return;
+  archivo.text().then(t => { try { cargarCroquis(t); guardarEnNavegador(); } catch (err) { alert('El archivo no es un croquis válido'); } });
+  e.target.value = '';
+};
+document.getElementById('btnImprimir').onclick = () => { seleccionar(null); window.print(); };
+document.getElementById('btnBorrarTodo').onclick = () => {
+  if (!confirm('¿Borrar todo el croquis?')) return;
+  elementos.forEach(e => e.capa.remove()); elementos = []; seleccionar(null); guardarEnNavegador();
+};
+
+// Al abrir, se recupera el último croquis guardado en este navegador
+try { const previo = localStorage.getItem('croquisBasico'); if (previo) cargarCroquis(previo); } catch (e) { }
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+[ROL]
+Actúa como un agente de la Policía Local experto en redacción de informes técnico-policiales.
+
+[CONTEXTO]
+Esta Jefatura ha recibido una instancia ciudadana procedente del Registro General del Ayuntamiento denunciando una problemática vecinal en la calle San Isidro nº 12. Necesito procesar este escrito para redactar el apartado de "Antecedentes del hecho" del informe policial previo a la intervención.
+
+[TAREA]
+Analiza el texto de la denuncia que te adjunto y redáctame un resumen fundamentado siguiendo estas reglas estrictas:
+
+Extrae únicamente los datos de identificación, ubicación y los hechos de interés policial o administrativo (insalubridad, plagas, tenencia de animales de corral, ruidos en horario nocturno, posible corte de suministro de agua, indicio de riesgo de incendio y posible situación de vulnerabilidad).
+
+Descarta todo el ruido informativo: reproches al Ayuntamiento, anécdotas familiares o médicas de terceros, opiniones personales, rumores y amenazas de acudir a la prensa.
+
+No inventes datos ni números de artículos de leyes u ordenanzas.
+
+No des por confirmados diagnósticos médicos (como el Síndrome de Diógenes); refléjalos siempre como indicios o manifestaciones de la denunciante pendientes de comprobación in situ.
+
+[FORMATO]
+Redacta el resultado en un único párrafo continuo de prosa corrida (sin títulos, sin viñetas, sin guiones y sin dividir por secciones), listo para copiar y pegar directamente en el apartado de Antecedentes de un informe oficial.
+
+[TONO]
+Técnico-policial, objetivo, aséptico y en tercera persona, utilizando fórmulas de atribución como "la requirente manifiesta", "según el escrito presentado" o "refiere la posible existencia de...".
+
+Texto de la instancia ciudadana:

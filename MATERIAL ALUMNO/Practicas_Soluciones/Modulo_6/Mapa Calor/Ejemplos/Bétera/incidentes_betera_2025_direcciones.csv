@@ -1,0 +1,201 @@
+﻿id,fecha,hora,dia_semana,franja_horaria,tipo_hecho,articulo_cp,via,numero
+BET-2025-00001,2025-01-01,17:20,miércoles,tarde,Robo con fuerza en las cosas en casa habitada,241,C/ Gerrtudis Anglesola,17
+BET-2025-00002,2025-01-03,23:35,viernes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,plaza Poligono N-56.r,675
+BET-2025-00003,2025-01-06,01:10,lunes,noche,Robo con violencia o intimidación en las personas,242,calle DOCTOR FLNMING,20
+BET-2025-00004,2025-01-10,01:35,viernes,noche,Desórdenes públicos,557,Plaza Poligono N-26.r,144
+BET-2025-00005,2025-01-10,20:50,viernes,tarde,Robo con violencia o intimidación en las personas,242,Avenida MAR BALEAR,4
+BET-2025-00006,2025-01-11,17:45,sábado,tarde,Hurto,234,c/ Vazquez Mella,308
+BET-2025-00007,2025-01-16,03:45,jueves,madrugada,Daños,263,c/ Creu de la,291
+BET-2025-00008,2025-01-16,05:45,jueves,madrugada,Hurto o robo de uso de vehículo a motor,244,plaza Poligono N-56.r,nº 129
+BET-2025-00009,2025-01-16,18:40,jueves,tarde,Robo con fuerza en las cosas en casa habitada,241,C/ Santo Espiritu,170
+BET-2025-00010,2025-01-18,10:20,sábado,mañana,Hurto,234,calle Xoriguer,245
+BET-2025-00011,2025-01-20,14:35,lunes,tarde,Hurto,234,C/ Mayor,199
+BET-2025-00012,2025-01-28,20:00,martes,tarde,Robo con violencia o intimidación en las personas,242,Plaza poligono n-70.r,356
+BET-2025-00013,2025-02-09,09:55,domingo,mañana,Hurto,234,Urbanizacion Camino de Paterna,540
+BET-2025-00014,2025-02-10,04:55,lunes,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,calle Merla,375
+BET-2025-00015,2025-02-10,18:45,lunes,tarde,Hurto,234,calle Morvedre,19
+BET-2025-00016,2025-02-14,11:45,viernes,mañana,Robo con fuerza en las cosas en casa habitada,241,calle isabel de vileena,21
+BET-2025-00017,2025-02-15,01:30,sábado,noche,Lesiones,147,Avda. Mila Reial,430
+BET-2025-00018,2025-02-19,22:10,miércoles,noche,Daños,263,URBANIZACION LLOMA DEL MAS,518
+BET-2025-00019,2025-02-20,03:20,jueves,madrugada,Hurto o robo de uso de vehículo a motor,244,Pza. Poligono N-90.r,518
+BET-2025-00020,2025-02-21,04:15,viernes,madrugada,Lesiones,147,CL Benaguacil,236
+BET-2025-00021,2025-02-23,00:35,domingo,noche,Contra la salud pública (tráfico de drogas),368,URBANIZACION LLOMA DEL MAS,530
+BET-2025-00022,2025-02-23,20:10,domingo,tarde,Hurto,234,GRAN VIA NORTE,397
+BET-2025-00023,2025-02-26,18:40,miércoles,tarde,Hurto,234,c/ PALLETER,423
+BET-2025-00024,2025-03-07,09:55,viernes,mañana,Hurto,234,CL MUERDAGO,11
+BET-2025-00025,2025-03-08,02:00,sábado,madrugada,Daños,263,c/ Asuias March,14
+BET-2025-00026,2025-03-08,22:30,sábado,noche,Lesiones,147,C/ hierro,2
+BET-2025-00027,2025-03-09,20:10,domingo,tarde,Robo con violencia o intimidación en las personas,242,Calle Creu de la,431
+BET-2025-00028,2025-03-11,20:00,martes,tarde,Robo con violencia o intimidación en las personas,242,c/ Suiza,382
+BET-2025-00029,2025-03-14,10:10,viernes,mañana,Robo con fuerza en las cosas en casa habitada,241,C/ JOSEFA NEBOT Y COSCOLLA,354
+BET-2025-00030,2025-03-15,08:50,sábado,mañana,Amenazas,169,C/ Miguel Delibes,248
+BET-2025-00031,2025-03-15,10:00,sábado,mañana,Hurto,234,c/ trinquet,214
+BET-2025-00032,2025-03-15,19:45,sábado,tarde,Hurto,234,Pza. Poligono N-71.r,464
+BET-2025-00033,2025-03-22,23:20,sábado,noche,Desórdenes públicos,557,Plaza poligono n-90.r,415
+BET-2025-00034,2025-03-25,14:40,martes,tarde,Hurto,234,Urbanizacion Vall Flors Ii,47
+BET-2025-00035,2025-03-29,20:20,sábado,tarde,Contra la salud pública (tráfico de drogas),368,calle ROSSINYOL,252
+BET-2025-00036,2025-04-02,15:30,miércoles,tarde,Amenazas,169,plaza Poligono N-30.r,530
+BET-2025-00037,2025-04-04,03:15,viernes,madrugada,Hurto o robo de uso de vehículo a motor,244,Pl. Poligono N-90.r,7
+BET-2025-00038,2025-04-07,11:30,lunes,mañana,Hurto,234,CL Andres Campos,285
+BET-2025-00039,2025-04-08,13:50,martes,mañana,Hurto,234,c/ LLUIS VIVES,257
+BET-2025-00040,2025-04-11,04:00,viernes,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,calle Músico Fuentes,229
+BET-2025-00041,2025-04-14,11:55,lunes,mañana,Hurto,234,CL Mig (del),265
+BET-2025-00042,2025-04-14,17:45,lunes,tarde,Hurto,234,C/ Coeters,32
+BET-2025-00043,2025-04-14,18:05,lunes,tarde,Hurto,234,c/ morvedre,451
+BET-2025-00044,2025-04-14,20:15,lunes,tarde,Daños,263,C/ Castellon,313
+BET-2025-00045,2025-04-15,05:25,martes,madrugada,Hurto o robo de uso de vehículo a motor,244,Calle Lledoner,10
+BET-2025-00046,2025-04-17,01:35,jueves,noche,Desórdenes públicos,557,C/ Mestral,9
+BET-2025-00047,2025-04-17,19:10,jueves,tarde,Amenazas,169,C/ Albers,248
+BET-2025-00048,2025-04-19,06:10,sábado,mañana,Daños,263,Urbanizacion Lloma del Mas,24
+BET-2025-00049,2025-04-21,20:40,lunes,tarde,Robo con fuerza en las cosas (interior de vehículo),237-238,Pl. Poligono N-95.r,264
+BET-2025-00050,2025-04-22,11:05,martes,mañana,Hurto,234,calle Lluis Vives,386
+BET-2025-00051,2025-04-25,02:30,viernes,madrugada,Lesiones,147,c/ BENAGUACIL,451
+BET-2025-00052,2025-04-28,20:30,lunes,tarde,Hurto,234,C/ Rossinyol,17
+BET-2025-00053,2025-04-29,11:55,martes,mañana,Hurto,234,Pza. Poligono N-40.r,188
+BET-2025-00054,2025-04-29,12:50,martes,mañana,Hurto,234,plaza poligono n-43.r,10
+BET-2025-00055,2025-05-04,02:50,domingo,madrugada,Daños,263,c/ Larga,55
+BET-2025-00056,2025-05-09,20:00,viernes,tarde,Contra la salud pública (tráfico de drogas),368,Av. Mediterrànea,209
+BET-2025-00057,2025-05-10,07:00,sábado,mañana,Hurto,234,Pza. Poligono N-88.i,57
+BET-2025-00058,2025-05-10,11:05,sábado,mañana,Hurto,234,avda. VICENTE CREMADES,265
+BET-2025-00059,2025-05-14,12:05,miércoles,mañana,Robo con fuerza en las cosas en casa habitada,241,calle SAN LUIS,2
+BET-2025-00060,2025-05-18,00:20,domingo,noche,Hurto o robo de uso de vehículo a motor,244,Plaza Poligono N-90.r,562
+BET-2025-00061,2025-05-22,16:40,jueves,tarde,Contra la salud pública (tráfico de drogas),368,Urbanizacion Lloma del Mas,nº 140
+BET-2025-00062,2025-05-23,01:35,viernes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Urbanizacion Lloma del Mas,474
+BET-2025-00063,2025-05-24,16:45,sábado,tarde,Robo con fuerza en las cosas en casa habitada,241,plaza POLIGONO N-39.R,631
+BET-2025-00064,2025-05-24,17:55,sábado,tarde,Hurto,234,C/ Hierro,310
+BET-2025-00065,2025-05-24,17:55,sábado,tarde,Hurto,234,Calle DEL PI,337
+BET-2025-00066,2025-05-25,00:45,domingo,noche,Desórdenes públicos,557,Avda. Azahar,438
+BET-2025-00067,2025-05-25,23:55,domingo,noche,Daños,263,Urbanizacion Lloma del Mas,nº 24
+BET-2025-00068,2025-05-30,02:25,viernes,madrugada,Hurto o robo de uso de vehículo a motor,244,Pl. Poligono N-56.r,54
+BET-2025-00069,2025-05-30,13:40,viernes,mañana,Robo con fuerza en las cosas en casa habitada,241,Pza. Poligono N-40.r,628
+BET-2025-00070,2025-05-31,23:00,sábado,noche,Daños,263,Plaza Antic Regne de Valencia,209
+BET-2025-00071,2025-06-04,02:45,miércoles,madrugada,Hurto o robo de uso de vehículo a motor,244,Pl. Poligono N-56.r,137
+BET-2025-00072,2025-06-04,04:25,miércoles,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ Astor,289
+BET-2025-00073,2025-06-04,23:05,miércoles,noche,Desórdenes públicos,557,Ctra. Cv-336,164
+BET-2025-00074,2025-06-06,21:25,viernes,tarde,Lesiones,147,Calle Lapislatzuli,275
+BET-2025-00075,2025-06-07,19:20,sábado,tarde,Hurto,234,calle Trinquet,nº 16
+BET-2025-00076,2025-06-08,05:30,domingo,madrugada,Hurto o robo de uso de vehículo a motor,244,AVDA Frrodriguez de la Fuente,40
+BET-2025-00077,2025-06-09,20:45,lunes,tarde,Robo con fuerza en las cosas (interior de vehículo),237-238,Pl. Poligono N-90.r,548
+BET-2025-00078,2025-06-10,10:25,martes,mañana,Hurto,234,C/ Lluis Vives,11
+BET-2025-00079,2025-06-14,03:40,sábado,madrugada,Desórdenes públicos,557,Calle Benaguacil,295
+BET-2025-00080,2025-06-18,19:55,miércoles,tarde,Hurto,234,avda. VICENTE CREAMDES,9
+BET-2025-00081,2025-06-20,21:55,viernes,tarde,Daños,263,C/ alta de valencia,417
+BET-2025-00082,2025-06-21,02:00,sábado,madrugada,Lesiones,147,c/ PATERNA,279
+BET-2025-00083,2025-06-27,19:15,viernes,tarde,Hurto,234,GRAN VIA NORTE,204
+BET-2025-00084,2025-06-27,20:10,viernes,tarde,Hurto,234,C/ Andres Campos,284
+BET-2025-00085,2025-06-29,02:15,domingo,madrugada,Desórdenes públicos,557,CL PATERNA,233
+BET-2025-00086,2025-06-29,19:20,domingo,tarde,Hurto,234,calle Salvia,320
+BET-2025-00087,2025-07-01,18:35,martes,tarde,Robo con fuerza en las cosas en casa habitada,241,calle las Verodlagas,14
+BET-2025-00088,2025-07-05,23:45,sábado,noche,Daños,263,Urbanizacion Lloma del Mas,484
+BET-2025-00089,2025-07-06,01:40,domingo,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Av. MEDITERRÀNEA,321
+BET-2025-00090,2025-07-12,20:40,sábado,tarde,Lesiones,147,c/ XATIVA,6
+BET-2025-00091,2025-07-13,06:20,domingo,mañana,Robo con fuerza en las cosas en establecimiento abierto al público,241,Alamea Ramon Ingles Aldea,1
+BET-2025-00092,2025-07-16,20:10,miércoles,tarde,Hurto,234,Pza. Iglesia,2
+BET-2025-00093,2025-07-18,01:45,viernes,noche,Robo con violencia o intimidación en las personas,242,C/ Palleter,6
+BET-2025-00094,2025-07-18,01:50,viernes,noche,Hurto o robo de uso de vehículo a motor,244,plaza Poligono N-56.r,826
+BET-2025-00095,2025-07-18,11:10,viernes,mañana,Hurto,234,Calle Mirat la Mar,8
+BET-2025-00096,2025-07-18,23:40,viernes,noche,Daños,263,CL Nenufares,4
+BET-2025-00097,2025-07-19,00:50,sábado,noche,Desórdenes públicos,557,calle Bensguacil,43
+BET-2025-00098,2025-07-20,04:20,domingo,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,plaza POLIGONO N-90.R,556
+BET-2025-00099,2025-07-20,17:35,domingo,tarde,Robo con fuerza en las cosas en casa habitada,241,plaza Poligono N-58.r,357
+BET-2025-00100,2025-07-25,03:15,viernes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ L'alt Aplancia,7
+BET-2025-00101,2025-07-25,15:45,viernes,tarde,Hurto,234,calle Alfabegues,203
+BET-2025-00102,2025-07-25,20:00,viernes,tarde,Hurto,234,C/ Palleter,263
+BET-2025-00103,2025-07-28,09:00,lunes,mañana,Amenazas,169,c/ Vazquez Mella,225
+BET-2025-00104,2025-07-28,18:10,lunes,tarde,Robo con fuerza en las cosas en casa habitada,241,c/ Castielfabib,182
+BET-2025-00105,2025-07-31,02:10,jueves,madrugada,Hurto o robo de uso de vehículo a motor,244,plaza Poligono N-90.r,416
+BET-2025-00106,2025-08-05,20:00,martes,tarde,Hurto,234,Avenida Vicente Crnmades,9
+BET-2025-00107,2025-08-09,00:55,sábado,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Pl. Poligono N-56.s,nº 9
+BET-2025-00108,2025-08-10,01:40,domingo,noche,Hurto o robo de uso de vehículo a motor,244,Plaza POLIGONO N-90.R,368
+BET-2025-00109,2025-08-10,05:25,domingo,madrugada,Amenazas,169,C/ Trebol,267
+BET-2025-00110,2025-08-10,13:15,domingo,mañana,Hurto,234,C/ Morvedre,343
+BET-2025-00111,2025-08-11,13:00,lunes,mañana,Hurto,234,c/ Trinquet,16
+BET-2025-00112,2025-08-14,05:25,jueves,madrugada,Daños,263,Pl. poligono n-06.r,1139
+BET-2025-00113,2025-08-14,20:15,jueves,tarde,Hurto,234,Plaza Poligono N-88.i,57
+BET-2025-00114,2025-08-15,01:35,viernes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Plaza Poligono N-56.r,137
+BET-2025-00115,2025-08-16,20:45,sábado,tarde,Hurto,234,C/ Palleter,196
+BET-2025-00116,2025-08-19,18:25,martes,tarde,Hurto,234,CL Cucut,180
+BET-2025-00117,2025-08-19,23:40,martes,noche,Hurto,234,Plaza Poligono N-88.i,332
+BET-2025-00118,2025-08-20,13:40,miércoles,mañana,Amenazas,169,C/ Vicent Andres Estelles,344
+BET-2025-00119,2025-08-21,12:25,jueves,mañana,Hurto,234,URBANIZACION CAMINO DE PATERNA,21
+BET-2025-00120,2025-08-24,11:35,domingo,mañana,Hurto,234,c/ del Rajrlar,nº 1
+BET-2025-00121,2025-08-29,11:05,viernes,mañana,Hurto,234,calle Morvedre,nº 5
+BET-2025-00122,2025-08-30,01:45,sábado,noche,Robo con violencia o intimidación en las personas,242,Calle Beanguacil,43
+BET-2025-00123,2025-08-30,02:35,sábado,madrugada,Robo con violencia o intimidación en las personas,242,Plaza Poligono N-90.r,57
+BET-2025-00124,2025-08-30,11:10,sábado,mañana,Hurto,234,C/ Morvedre,19
+BET-2025-00125,2025-09-02,00:35,martes,noche,Daños,263,URBANIZACION LLOMA DEL MAS,615
+BET-2025-00126,2025-09-02,18:20,martes,tarde,Daños,263,Pza. Poligono N-06.r,18
+BET-2025-00127,2025-09-02,23:15,martes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Pza. Camp de Turia,291
+BET-2025-00128,2025-09-05,19:50,viernes,tarde,Hurto,234,Avenida Pont-saint-martin,501
+BET-2025-00129,2025-09-09,16:50,martes,tarde,Hurto,234,C/ CERVANTES,14
+BET-2025-00130,2025-09-13,10:20,sábado,mañana,Robo con fuerza en las cosas en casa habitada,241,Urbanizacion Cerrao el,257
+BET-2025-00131,2025-09-13,23:45,sábado,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ ORDUÑA,198
+BET-2025-00132,2025-09-14,18:55,domingo,tarde,Contra la salud pública (tráfico de drogas),368,Plaza POLIGONO N-11.R,357
+BET-2025-00133,2025-09-17,20:00,miércoles,tarde,Hurto,234,C/ Trinquet,nº 10B
+BET-2025-00134,2025-09-17,20:10,miércoles,tarde,Hurto,234,c/ Juan B Martinoz,18
+BET-2025-00135,2025-09-18,00:30,jueves,noche,Desórdenes públicos,557,Calle eeisabet benavent,6
+BET-2025-00136,2025-09-18,18:30,jueves,tarde,Hurto,234,Pl. poligono n-88.r,nº 135
+BET-2025-00137,2025-09-19,19:05,viernes,tarde,Hurto,234,Pza. mercat,394
+BET-2025-00138,2025-09-20,19:30,sábado,tarde,Hurto,234,Ctra. CV-336,277
+BET-2025-00139,2025-09-22,23:15,lunes,noche,Daños,263,C/ Doctor Flemiug,12
+BET-2025-00140,2025-09-27,18:45,sábado,tarde,Hurto,234,C/ ISABEL DE VILLENA,263
+BET-2025-00141,2025-09-29,03:10,lunes,madrugada,Desórdenes públicos,557,C/ San Salvador,215
+BET-2025-00142,2025-09-30,06:40,martes,mañana,Hurto o robo de uso de vehículo a motor,244,Pza. Poligono N-56.r,137
+BET-2025-00143,2025-10-03,02:55,viernes,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Calle TRINQUET,16
+BET-2025-00144,2025-10-04,15:55,sábado,tarde,Hurto,234,C/ Daniel Gozavlo,5
+BET-2025-00145,2025-10-05,22:20,domingo,noche,Hurto,234,Plaza iglesia,2
+BET-2025-00146,2025-10-07,18:35,martes,tarde,Robo con violencia o intimidación en las personas,242,Calle del pi,2
+BET-2025-00147,2025-10-08,01:50,miércoles,noche,Robo con violencia o intimidación en las personas,242,CL Lluis Vives,11
+BET-2025-00148,2025-10-08,23:05,miércoles,noche,Daños,263,Urbanizacion Vall Flors Ii,260
+BET-2025-00149,2025-10-13,17:20,lunes,tarde,Hurto,234,Calle palleter,265
+BET-2025-00150,2025-10-17,08:35,viernes,mañana,Hurto,234,C/ Palleter,nº 21
+BET-2025-00151,2025-10-17,20:35,viernes,tarde,Hurto,234,calle Entrada Bayarri,200
+BET-2025-00152,2025-10-19,02:05,domingo,madrugada,Desórdenes públicos,557,CL Vazquez Mella,221
+BET-2025-00153,2025-10-19,12:55,domingo,mañana,Amenazas,169,calle Purisima,441
+BET-2025-00154,2025-10-20,16:15,lunes,tarde,Hurto,234,Ctra. Cv-336,404
+BET-2025-00155,2025-10-23,10:55,jueves,mañana,Hurto,234,Pza. POLIGONO N-88.I,407
+BET-2025-00156,2025-10-23,23:50,jueves,noche,Daños,263,Calle DOCTOR FLEMING,388
+BET-2025-00157,2025-10-24,00:10,viernes,noche,Hurto o robo de uso de vehículo a motor,244,Calle Passerell,21
+BET-2025-00158,2025-10-25,03:40,sábado,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,calle trinquet,nº 16
+BET-2025-00159,2025-10-25,11:25,sábado,mañana,Hurto,234,calle Alfabegues,369
+BET-2025-00160,2025-10-25,19:15,sábado,tarde,Contra la salud pública (tráfico de drogas),368,calle CIUDAD CIENCIAS 2 PTA,nº 12
+BET-2025-00161,2025-11-02,15:30,domingo,tarde,Hurto,234,Pza. Poligono N-88.r,311
+BET-2025-00162,2025-11-03,20:45,lunes,tarde,Daños,263,Plaza POLIGONO N-91.R,532
+BET-2025-00163,2025-11-07,23:10,viernes,noche,Robo con violencia o intimidación en las personas,242,C/ Palleter,224
+BET-2025-00164,2025-11-08,08:40,sábado,mañana,Hurto,234,Plaza Poligono N-88.i,297
+BET-2025-00165,2025-11-09,23:25,domingo,noche,Contra la salud pública (tráfico de drogas),368,c/ TUEJAR,238
+BET-2025-00166,2025-11-10,03:15,lunes,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Pza. Poligono N-22.r,359
+BET-2025-00167,2025-11-13,03:25,jueves,madrugada,Hurto o robo de uso de vehículo a motor,244,Pza. Poligono N-56.s,311
+BET-2025-00168,2025-11-13,21:10,jueves,tarde,Hurto,234,c/ Palleter,383
+BET-2025-00169,2025-11-13,23:10,jueves,noche,Daños,263,Calle Viecnte Pia,5
+BET-2025-00170,2025-11-17,23:15,lunes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ L'ALT PALANCIA,324
+BET-2025-00171,2025-11-19,01:45,miércoles,noche,Lesiones,147,plaza Poligono N-11.r,351
+BET-2025-00172,2025-11-20,08:15,jueves,mañana,Robo con fuerza en las cosas en casa habitada,241,Calle Foia de Buñol,2
+BET-2025-00173,2025-11-20,13:20,jueves,mañana,Robo con fuerza en las cosas en casa habitada,241,c/ Oriol,352
+BET-2025-00174,2025-11-20,13:45,jueves,mañana,Hurto,234,Alameda Ramon Ingles Aldea,225
+BET-2025-00175,2025-11-21,04:00,viernes,madrugada,Lesiones,147,calle Benaguacil,362
+BET-2025-00176,2025-11-21,14:05,viernes,tarde,Amenazas,169,calle Riu Millars,338
+BET-2025-00177,2025-11-23,03:25,domingo,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Plaza Poligono N-06.s,892
+BET-2025-00178,2025-11-23,20:20,domingo,tarde,Hurto,234,C/ Trinquet,428
+BET-2025-00179,2025-11-27,12:10,jueves,mañana,Hurto,234,alameda ramon ingles aldea,220
+BET-2025-00180,2025-11-28,20:15,viernes,tarde,Hurto,234,C/ Salvaor Giner,32
+BET-2025-00181,2025-12-01,02:00,lunes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Urbanizacion Vall Flors Ii,4
+BET-2025-00182,2025-12-04,17:15,jueves,tarde,Hurto,234,Calle DEL PI,344
+BET-2025-00183,2025-12-06,02:25,sábado,madrugada,Desórdenes públicos,557,Avda. Vicente Cremades,345
+BET-2025-00184,2025-12-06,20:35,sábado,tarde,Desórdenes públicos,557,C/ Conde Ebrbedel,93
+BET-2025-00185,2025-12-07,02:40,domingo,madrugada,Lesiones,147,plaza Camp de Turia,283
+BET-2025-00186,2025-12-07,05:55,domingo,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,URBANIZACION LLOMA DEL MAS,622
+BET-2025-00187,2025-12-08,09:40,lunes,mañana,Hurto,234,c/ Trinquet,16
+BET-2025-00188,2025-12-19,10:35,viernes,mañana,Hurto,234,Calle Pitnor Fco Lozano,nº 5
+BET-2025-00189,2025-12-19,16:45,viernes,tarde,Robo con fuerza en las cosas en casa habitada,241,C/ GERTRUDIS ANGLESOLA,191
+BET-2025-00190,2025-12-19,17:15,viernes,tarde,Robo con fuerza en las cosas en casa habitada,241,CL Passerell,21
+BET-2025-00191,2025-12-20,14:25,sábado,tarde,Hurto,234,CL Trinquet,299
+BET-2025-00192,2025-12-23,01:50,martes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Pl. Poligono N-90.r,7
+BET-2025-00193,2025-12-24,11:25,miércoles,mañana,Hurto,234,C/ BOIL,9
+BET-2025-00194,2025-12-25,19:15,jueves,tarde,Hurto,234,Pza. Poligono N-26.r,407
+BET-2025-00195,2025-12-25,22:15,jueves,noche,Contra la salud pública (tráfico de drogas),368,c/ L'alt Palancia,212
+BET-2025-00196,2025-12-26,18:30,viernes,tarde,Hurto,234,Plaza POLIGONO N-65.R,12
+BET-2025-00197,2025-12-26,20:10,viernes,tarde,Contra la salud pública (tráfico de drogas),368,Gran Via Norte,387
+BET-2025-00198,2025-12-28,13:30,domingo,mañana,Robo con fuerza en las cosas en casa habitada,241,CL Isabel de Villena,197
+BET-2025-00199,2025-12-31,01:25,miércoles,noche,Desórdenes públicos,557,C/ Alfabegues,400
+BET-2025-00200,2025-12-31,04:50,miércoles,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Calle Purisima,1

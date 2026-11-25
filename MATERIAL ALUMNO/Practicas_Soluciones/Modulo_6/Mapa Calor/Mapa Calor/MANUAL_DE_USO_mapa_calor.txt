@@ -1,0 +1,351 @@
+=====================================================================
+             MAPA DE CALOR DELINCUENCIAL · MANUAL DE USO
+=====================================================================
+
+ÍNDICE
+  1. Qué es y qué necesita
+  2. Primeros pasos (resumen rápido)
+  3. La pantalla
+  4. Sección 1 · Municipio
+  5. Sección 2 · Datos
+  6. La ventana de columnas
+  7. Localización de direcciones
+  8. Sección 3 · Filtros
+  9. Sección 4 · Representación
+ 10. Sección 5 · Resumen
+ 11. Sección 6 · Exportar informe
+ 12. Consultar los hechos en el mapa
+ 13. Qué se guarda en el navegador
+ 14. Privacidad
+ 15. Problemas frecuentes
+
+
+---------------------------------------------------------------------
+1. QUÉ ES Y QUÉ NECESITA
+---------------------------------------------------------------------
+  Herramienta que se abre en el navegador y dibuja sobre la
+  cartografía oficial del municipio dónde y cuándo se concentran los
+  hechos de un archivo Excel o CSV (delitos, intervenciones...).
+
+  Necesita:
+    - Chrome, Edge o Firefox actualizados.
+    - Conexión a internet (para el mapa de fondo, el límite del
+      municipio y el callejero).
+  No hace falta instalar nada, registrarse ni ninguna clave.
+
+  Para abrirla: doble clic en mapa_calor.html.
+
+
+---------------------------------------------------------------------
+2. PRIMEROS PASOS (RESUMEN RÁPIDO)
+---------------------------------------------------------------------
+  1. Sección 1: escribe el municipio, pulsa «Buscar en el IGN» y elige
+     el correcto en la lista.
+  2. Sección 2: arrastra el Excel o el CSV al recuadro.
+  3. En la ventana que se abre, comprueba qué columna es la fecha, la
+     hora, el delito / intervención y la dirección o las coordenadas.
+     Pulsa «Aplicar».
+  4. Sección 3: filtra por delito, día, franja horaria o mes.
+  5. Sección 4: ajusta cómo se ve el mapa.
+  6. Sección 6: descarga el informe en Word.
+
+
+---------------------------------------------------------------------
+3. LA PANTALLA
+---------------------------------------------------------------------
+  - A la izquierda, el panel con 6 secciones numeradas. Cada una se
+    despliega o se repliega con el botón redondo de la flecha (o
+    pulsando en su título). Replegadas, algunas muestran a la derecha
+    un dato: el municipio, el nº de hechos cargados o cuántos quedan
+    con los filtros (p. ej. «1.367 de 2.949»).
+  - A la derecha, el mapa. Se mueve arrastrando y se acerca o aleja
+    con la rueda del ratón o los botones + / -.
+  - Si dejas el ratón un momento sobre un botón o un dato, aparece una
+    breve explicación.
+  - Las secciones 3 a 6 se activan cuando hay datos cargados.
+
+
+---------------------------------------------------------------------
+4. SECCIÓN 1 · MUNICIPIO
+---------------------------------------------------------------------
+  Buscar el municipio (recomendado)
+    1. Escribe el nombre y pulsa «Buscar en el IGN» (o Intro).
+       Sirve en castellano o en valenciano, con o sin tildes
+       (Moncada / Montcada, Llíria / Lliria).
+    2. Elige el municipio en la lista (indica la provincia).
+    3. Se dibuja su límite oficial (Instituto Geográfico Nacional) con
+       una línea discontinua y el mapa se centra en él.
+
+  Cargar el límite desde un archivo
+    - Si aún no hay municipio: arrastra el .geojson al recuadro
+      «Límite desde archivo».
+    - Si ya hay uno: pulsa «Desde archivo» y arrástralo.
+
+  Con el municipio cargado
+    - Se muestra el nombre, el nº de recintos y la superficie en km².
+      Compárala con la oficial del INE: debe ser parecida (±15 %).
+    - «Guardar límite»: descarga el límite (.geojson) para usarlo sin
+      conexión o en otro equipo.
+    - Para cambiar de municipio, escribe otro nombre y pulsa «Buscar en
+      el IGN». Al cambiar de municipio se quitan los datos cargados.
+
+  Para qué sirve el límite: los hechos que caen fuera del término se
+  descartan y se cuentan aparte. Además, sin municipio no se pueden
+  localizar direcciones.
+
+
+---------------------------------------------------------------------
+5. SECCIÓN 2 · DATOS
+---------------------------------------------------------------------
+  Cargar un archivo
+    Arrastra el archivo al recuadro «Archivo de datos» o haz clic en él
+    para elegirlo. Sirven:
+      - Excel .xlsx (si tiene varias hojas, se elige cuál).
+        Los Excel antiguos (.xls) hay que guardarlos antes como .xlsx.
+      - CSV separado por comas, punto y coma o tabuladores, en UTF-8 o
+        en el formato normal de Excel (acentos y ñ se leen bien).
+    El archivo puede tener filas de título encima de la tabla, columnas
+    en cualquier orden y columnas que no se usan (agente,
+    observaciones...).
+
+    Al cargarlo se abre la ventana de columnas (apartado 6 de este
+    manual).
+
+  Con el archivo cargado
+    - Se muestra su nombre y dos botones:
+        «⚙ Columnas»: vuelve a abrir la ventana de columnas.
+        «✕ Quitar datos»: quita los datos del mapa. El municipio se
+        mantiene (se cambia desde la sección 1).
+    - Debajo, cuántos hechos hay en el mapa y cuántos se han
+      descartado y por qué:
+        · dirección no localizada;
+        · sin coordenadas o coordenadas no válidas;
+        · latitud y longitud intercambiadas;
+        · fuera del término municipal;
+        · de otra localidad;
+        · registro duplicado (mismo nº de atestado o fila idéntica);
+        · sin delito / intervención, fecha no válida u hora no válida.
+    - «ℹ N sin hora»: hechos sin hora. Se pintan en el mapa, pero no
+      entran en el gráfico por horas ni en el filtro de franja horaria.
+
+
+---------------------------------------------------------------------
+6. LA VENTANA DE COLUMNAS
+---------------------------------------------------------------------
+  Muestra las primeras filas del archivo, columna por columna. Encima
+  de cada columna hay un desplegable para indicar qué contiene:
+
+    Fecha (o fecha y hora)       Tipo de vía
+    Hora                         Calle (o dirección completa)
+    Delito / intervención        Número
+    Artículo CP                  Localidad
+    Nº atestado / id             Latitud / Y
+    — no usar —                  Longitud / X
+                                 Coordenadas (las dos juntas)
+
+  - La ventana llega con una propuesta hecha; solo hay que corregir lo
+    que no esté bien. Las columnas elegidas se colorean.
+  - Cada dato va en una sola columna: si eliges un dato que ya tenía
+    otra columna, esa otra queda en «— no usar —».
+  - «Así se leerá» (debajo) muestra cómo se van a interpretar las
+    primeras filas. Si algo sale «no se entiende», revisa la columna o
+    las opciones.
+  - Abajo a la izquierda se indica lo que falta. «Aplicar» se activa
+    cuando está todo lo obligatorio. «Cancelar» (o Esc) cierra sin
+    cambios.
+
+  Obligatorio: Fecha, Delito / intervención y la ubicación (calle o
+  coordenadas). Lo demás es opcional. El día de la semana y la franja
+  horaria no hacen falta: se calculan solos.
+
+  Opciones de la parte superior
+    - Hoja: si el Excel tiene varias.
+    - Fila de títulos: la fila donde están los nombres de las columnas.
+    - Fecha: orden automático, día/mes/año o mes/día/año (formato
+      estadounidense). En automático se deduce del propio archivo.
+    - Coordenadas (solo si las hay): automático, grados o UTM huso 29,
+      30 o 31.
+
+  Fechas y horas que entiende
+    - Juntas en una celda o en columnas separadas.
+    - Fechas: 12/03/2025 · 12-03-25 · 12.03.2025 · 2025-03-12 ·
+      2025-03-12T14:35:00Z · 12 de marzo de 2025 · 12-mar-2025 ·
+      March 12, 2025 · Wed, 12 Mar 2025 · fechas de Excel.
+    - Horas: 14:35 · 14.35 · 14h · 1435 · 14:35:00 · 2:35 PM ·
+      2:35 p. m. · horas de Excel.
+
+  Direcciones: cualquier combinación
+    - Todo en una celda: "C/ Mayor, 12, 2º 1ª, Mislata (Valencia)".
+    - Calle y número juntos, y localidad en otra columna.
+    - Calle, número y localidad en columnas separadas.
+    - Tipo de vía (CL, AV, PZ...) en otra columna.
+    Se quitan solos el piso y la puerta, el código postal y la
+    provincia. Si la localidad (en su columna o dentro de la dirección)
+    es otro municipio, el hecho se descarta como «De otra localidad»; en
+    «Así se leerá» aparece en rojo.
+
+  Coordenadas
+    - En dos columnas (latitud y longitud, o X e Y) o en una sola
+      ("39.4712, -0.4123").
+    - Grados con punto o coma decimal, grados-minutos-segundos
+      (39°28'12"N) o UTM ETRS89 en metros.
+
+  La elección se recuerda: un archivo con las mismas columnas se abre
+  con la misma propuesta.
+
+
+---------------------------------------------------------------------
+7. LOCALIZACIÓN DE DIRECCIONES
+---------------------------------------------------------------------
+  Cuando los hechos vienen con dirección, la herramienta descarga el
+  callejero oficial del municipio (CartoCiudad) y compara con él cada
+  dirección EN ESTE EQUIPO. Entiende abreviaturas (C/, Cl., Avda.,
+  Pza., Carrer, Avinguda, Plaça...), mayúsculas y tildes, nombres en
+  valenciano o castellano (Carrer Major = Calle Mayor) y pequeñas
+  erratas.
+
+  Resultado (recuadro «Localización de direcciones»):
+    ✔ Exacta          dirección encontrada.
+    ≈ Nº aproximado   el número no existe: se usa el más próximo de la
+                      misma acera (pares con pares, impares con impares).
+    ≈ Sin número      se coloca en el centro de la calle.
+    ✖ No localizada   no se pinta.
+  «Localizadas»: porcentaje situado en el mapa. Se recomienda al menos
+  un 85 %; por debajo el mapa puede no ser fiable.
+
+  Botones:
+    «CSV con coordenadas»: el archivo original con latitud, longitud y
+      cómo se ha localizado cada dirección.
+    «No localizadas»: las direcciones que no se han podido situar, con
+      el motivo, para revisarlas.
+
+  Si CartoCiudad no responde, aparece un enlace: ábrelo, guarda la
+  página (Ctrl+S) como callejero.geojson y arrástrala al recuadro de
+  datos. Las direcciones se localizan automáticamente.
+
+
+---------------------------------------------------------------------
+8. SECCIÓN 3 · FILTROS
+---------------------------------------------------------------------
+  Los filtros se combinan y actualizan al momento el mapa, el resumen
+  y el informe.
+    - Delito / intervención: marca o desmarca cada tipo (cada uno con
+      su color y nº de hechos). «todos» / «ninguno».
+    - Día de la semana: pulsa los días para activarlos o quitarlos.
+    - Franja horaria: «de» ... «a» .... Si «de» es mayor que «a», cruza
+      la medianoche (de 22 a 6 = noche).
+    - Mes: pulsa los meses para activarlos o quitarlos.
+
+
+---------------------------------------------------------------------
+9. SECCIÓN 4 · REPRESENTACIÓN
+---------------------------------------------------------------------
+  Capas (se pueden combinar)
+    - Mapa de calor: rojo donde más se concentran los hechos, en
+      comparación con el resto del municipio.
+    - Puntos (color por tipo): cada hecho como un punto.
+    - Cuadrícula de recuento: celdas de 50, 100 o 200 m con el nº de
+      hechos de cada una (con leyenda).
+    - Límite municipal: muestra u oculta la línea del término.
+
+  Ajustes del mapa de calor
+    - Radio: tamaño de la mancha de cada hecho.
+    - Difuminado: suavidad del borde.
+    - Saturación: cuántos hechos hacen falta para llegar al rojo (más
+      bajo = más zonas rojas).
+    - Saturación automática: la calcula según los datos filtrados
+      (recomendado). Se desactiva al mover la saturación a mano.
+    - Ver zonas con pocos hechos: hace visibles los lugares con pocos
+      hechos, sin convertirlos en zonas calientes.
+    El rojo es relativo: con pocos hechos o muy repartidos puede no
+    haber zonas rojas. Baja la saturación o usa la cuadrícula.
+
+  Mapa base: IGN gris (recomendado), IGN callejero, Ortofoto PNOA,
+  OpenStreetMap o sin mapa.
+
+
+---------------------------------------------------------------------
+10. SECCIÓN 5 · RESUMEN
+---------------------------------------------------------------------
+  - Nº de hechos que cumplen los filtros.
+  - Gráficos por hora del día y por día de la semana.
+  - Celdas con más hechos y su delito más frecuente. Clic en una fila
+    para ir a esa zona del mapa.
+  - «Descargar CSV filtrado»: solo los hechos que cumplen los filtros.
+
+
+---------------------------------------------------------------------
+11. SECCIÓN 6 · EXPORTAR INFORME
+---------------------------------------------------------------------
+  - Título: el del informe (vacío = «Informe de hechos · municipio»).
+  - Zona:
+      «Vista actual del mapa»: sale lo que se ve en pantalla. Para una
+      parte del término, acerca y mueve el mapa antes de exportar.
+      «Todo el término municipal»: se encuadra el municipio completo.
+  - Notas: texto libre opcional que va al principio del informe.
+  - «Informe Word»: descarga un .docx con
+      · la foto del mapa con las capas activas, escala y leyenda;
+      · los filtros aplicados, el periodo y el archivo de datos;
+      · hechos por delito / intervención (nº y %);
+      · gráficos por día de la semana y por hora, y tabla por franjas
+        (madrugada, mañana, tarde, noche);
+      · las 10 zonas con más hechos, con la calle más próxima.
+  - «Imagen del mapa»: descarga solo la foto (.png).
+  El documento se abre y se edita en Word o LibreOffice. Si el mapa de
+  fondo no se puede copiar, el informe sale igual sin él y lo indica.
+
+
+---------------------------------------------------------------------
+12. CONSULTAR LOS HECHOS EN EL MAPA
+---------------------------------------------------------------------
+  Clic sobre un punto o una zona del mapa: se abre una ficha con los
+  hechos de ese lugar (los más recientes primero): delito /
+  intervención y artículo, fecha, día y hora, nº de atestado (o fila
+  del archivo), dirección tal y como venía escrita y cómo se localizó.
+  Si hay más de 15, se indica cuántos faltan: filtra para verlos.
+
+
+---------------------------------------------------------------------
+13. QUÉ SE GUARDA EN EL NAVEGADOR
+---------------------------------------------------------------------
+  Para no repetir pasos, el navegador recuerda: el último municipio y
+  su callejero, los últimos datos cargados, las columnas elegidas para
+  cada formato de archivo y qué secciones estaban abiertas.
+    - «✕ Quitar datos» (sección 2) borra los datos guardados.
+    - Al cambiar de municipio se borran los datos y el callejero del
+      anterior.
+  En ordenadores compartidos, quita los datos al terminar.
+
+
+---------------------------------------------------------------------
+14. PRIVACIDAD
+---------------------------------------------------------------------
+  Los archivos de datos se leen y se procesan solo en este equipo: no
+  se envían a ningún servidor ni a ninguna IA. Lo único que sale a
+  internet es:
+    - el nombre del municipio, para buscar su límite (IGN);
+    - el código del municipio, para descargar su callejero
+      (CartoCiudad);
+    - las peticiones de las imágenes del mapa de fondo.
+  Con datos reales, este tratamiento local es obligatorio (LO 7/2021,
+  de protección de datos tratados con fines policiales).
+
+
+---------------------------------------------------------------------
+15. PROBLEMAS FRECUENTES
+---------------------------------------------------------------------
+  - No se ve el mapa de fondo: revisa la conexión o elige otro mapa
+    base.
+  - El municipio no aparece: prueba el nombre en la otra lengua o sin
+    tildes.
+  - «Carga primero el municipio»: los datos traen direcciones y hace
+    falta el municipio (sección 1) para localizarlas.
+  - Muchos «fuera del término»: el municipio cargado no es el de los
+    datos, o latitud y longitud están en columnas cambiadas.
+  - Muchas «fecha no válida»: revisa en la ventana de columnas que la
+    columna sea la correcta y el orden de la fecha (día/mes o mes/día).
+  - Tasa de localización baja: descarga las no localizadas y revisa
+    cómo están escritas las calles.
+  - Excel antiguo (.xls): guárdalo como .xlsx o como CSV.
+  - Las secciones 3 a 6 están grises: aún no hay datos cargados o
+    falta asignar alguna columna obligatoria.

@@ -1,0 +1,601 @@
+﻿id,fecha,hora,dia_semana,franja_horaria,tipo_hecho,articulo_cp,via,numero
+BUR-2025-00001,2025-01-02,00:50,jueves,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,calle Arbrets,s/n
+BUR-2025-00002,2025-01-03,22:50,viernes,noche,Contra la salud pública (tráfico de drogas),368,Camino ECCE HOMO,3
+BUR-2025-00003,2025-01-03,23:45,viernes,noche,Lesiones,147,Ronda Poeta Calzada C,384
+BUR-2025-00004,2025-01-04,03:25,sábado,madrugada,Hurto o robo de uso de vehículo a motor,244,Calle San Juan Cruz,23
+BUR-2025-00005,2025-01-04,18:30,sábado,tarde,Daños,263,Calle Joan D'austria,s/n
+BUR-2025-00006,2025-01-07,03:40,martes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Partida Calatrava,18A
+BUR-2025-00007,2025-01-07,05:05,martes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Calle L'esport,18
+BUR-2025-00008,2025-01-07,08:45,martes,mañana,Hurto,234,Calle Encarnacion,56
+BUR-2025-00009,2025-01-08,02:20,miércoles,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,c/ Mare de Deu Dels Angels,30
+BUR-2025-00010,2025-01-09,17:15,jueves,tarde,Contra la salud pública (tráfico de drogas),368,Calle Sin Nombre,22
+BUR-2025-00011,2025-01-10,01:20,viernes,noche,Desórdenes públicos,557,Pl. FIRA,9
+BUR-2025-00012,2025-01-10,03:10,viernes,madrugada,Amenazas,169,CL del Coure,
+BUR-2025-00013,2025-01-10,19:25,viernes,tarde,Contra la salud pública (tráfico de drogas),368,CL Eres,380
+BUR-2025-00014,2025-01-11,07:35,sábado,mañana,Robo con fuerza en las cosas en establecimiento abierto al público,241,Camino Hondo,46
+BUR-2025-00015,2025-01-11,13:40,sábado,mañana,Hurto,234,C/ Mare de Deu de la Cabeza,5
+BUR-2025-00016,2025-01-11,18:15,sábado,tarde,Hurto,234,CL SAN VICTORIANO,187
+BUR-2025-00017,2025-01-11,23:25,sábado,noche,Robo con violencia o intimidación en las personas,242,Zona de ocio,
+BUR-2025-00018,2025-01-15,00:25,miércoles,noche,Hurto o robo de uso de vehículo a motor,244,C/ San Miguel,S/N
+BUR-2025-00019,2025-01-15,15:40,miércoles,tarde,Hurto,234,Gran Vía Marqués del Turia,
+BUR-2025-00020,2025-01-16,04:15,jueves,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Parque municipal,
+BUR-2025-00021,2025-01-16,18:55,jueves,tarde,Robo con fuerza en las cosas en casa habitada,241,calle el Raval,62
+BUR-2025-00022,2025-01-16,20:35,jueves,tarde,Hurto,234,Calle BURGA,260
+BUR-2025-00023,2025-01-17,00:45,viernes,noche,Daños,263,Calle Sang de la,221
+BUR-2025-00024,2025-01-17,11:10,viernes,mañana,Hurto,234,Calle Francisco Fuentes,
+BUR-2025-00025,2025-01-18,01:15,sábado,noche,Daños,263,CL PILAR,8
+BUR-2025-00026,2025-01-18,13:00,sábado,mañana,Robo con fuerza en las cosas en casa habitada,241,c/ de la Bosca,2
+BUR-2025-00027,2025-01-18,13:10,sábado,mañana,Hurto,234,C/ Zorrilla,nº 1
+BUR-2025-00028,2025-01-18,22:10,sábado,noche,Robo con violencia o intimidación en las personas,242,c/ TORTOSA,2B
+BUR-2025-00029,2025-01-19,15:45,domingo,tarde,Robo con violencia o intimidación en las personas,242,Ronda Poeta Calzada C,1
+BUR-2025-00030,2025-01-19,21:50,domingo,tarde,Hurto,234,CL San Victoriano,nº 7
+BUR-2025-00031,2025-01-20,02:50,lunes,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ Tarancon,34
+BUR-2025-00032,2025-01-20,05:20,lunes,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Calle MONCOFAR,339
+BUR-2025-00033,2025-01-21,23:35,martes,noche,Hurto,234,CL jardi,73
+BUR-2025-00034,2025-01-22,03:00,miércoles,madrugada,Robo con violencia o intimidación en las personas,242,plaza Jardi del Bes,S/N
+BUR-2025-00035,2025-01-22,20:10,miércoles,tarde,Daños,263,C/ Juan Pablo Ii,5
+BUR-2025-00036,2025-01-23,03:25,jueves,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Mercado municipal,
+BUR-2025-00037,2025-01-25,01:50,sábado,noche,Daños,263,Partida Poligono 45,494
+BUR-2025-00038,2025-01-25,04:25,sábado,madrugada,Lesiones,147,avda. juan bautista sanmartin,6
+BUR-2025-00039,2025-01-25,20:55,sábado,tarde,Robo con fuerza en las cosas en casa habitada,241,Calle Pp S Gregori Cl V7,
+BUR-2025-00040,2025-01-26,02:00,domingo,madrugada,Robo con violencia o intimidación en las personas,242,CL Pp S Gregori Cl H4,6
+BUR-2025-00041,2025-01-26,09:20,domingo,mañana,Hurto,234,C/ JOAN XXIII,13
+BUR-2025-00042,2025-01-26,11:05,domingo,mañana,Hurto,234,C/ MARE DE DEU DELS ANGOLS,38
+BUR-2025-00043,2025-01-28,10:35,martes,mañana,Robo con fuerza en las cosas en casa habitada,241,Trav. XIPRE,1
+BUR-2025-00044,2025-01-28,18:25,martes,tarde,Hurto,234,c/ MARE DE DEU DE LOURDES,31
+BUR-2025-00045,2025-01-29,01:20,miércoles,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,CL Vinaralls,22
+BUR-2025-00046,2025-01-31,18:55,viernes,tarde,Daños,263,Pl. Fira,S/N
+BUR-2025-00047,2025-01-31,19:40,viernes,tarde,Contra la salud pública (tráfico de drogas),368,Partida vitens,15
+BUR-2025-00048,2025-02-01,00:25,sábado,noche,Desórdenes públicos,557,Partida Poligono 45,502
+BUR-2025-00049,2025-02-01,19:45,sábado,tarde,Daños,263,CL MAJOR,34
+BUR-2025-00050,2025-02-01,22:30,sábado,noche,Daños,263,C/ Caolin,3
+BUR-2025-00051,2025-02-03,16:30,lunes,tarde,Hurto,234,Calle Santa Baruara,38
+BUR-2025-00052,2025-02-05,17:35,miércoles,tarde,Hurto,234,Calle L'ESCORREDOR,64
+BUR-2025-00053,2025-02-05,21:55,miércoles,tarde,Hurto,234,Calle Industria,11
+BUR-2025-00054,2025-02-05,21:55,miércoles,tarde,Daños,263,Ctra. Serratella,496
+BUR-2025-00055,2025-02-06,01:35,jueves,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ Gallera,5
+BUR-2025-00056,2025-02-06,04:45,jueves,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,c/ PESCADORS,172
+BUR-2025-00057,2025-02-06,14:20,jueves,tarde,Amenazas,169,Partida CALAMO,421
+BUR-2025-00058,2025-02-07,04:55,viernes,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Carretera Nules,32
+BUR-2025-00059,2025-02-08,01:35,sábado,noche,Hurto o robo de uso de vehículo a motor,244,plaza Poligono 25,729
+BUR-2025-00060,2025-02-08,22:35,sábado,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Cno. Artana,297
+BUR-2025-00061,2025-02-10,19:35,lunes,tarde,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ Xàtiva,
+BUR-2025-00062,2025-02-11,05:25,martes,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,AVDA Cardnnal Enrique Tarancon,6
+BUR-2025-00063,2025-02-13,22:00,jueves,noche,Robo con violencia o intimidación en las personas,242,C/ ARTUR PEURCHO I BADIA,20
+BUR-2025-00064,2025-02-14,00:50,viernes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,c/ lleida,nº 53
+BUR-2025-00065,2025-02-14,04:35,viernes,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Calle Jardi,396
+BUR-2025-00066,2025-02-14,18:10,viernes,tarde,Hurto,234,avda. CAMI D'ONDA,29
+BUR-2025-00067,2025-02-14,19:35,viernes,tarde,Hurto,234,calle Valencia,398
+BUR-2025-00068,2025-02-16,02:20,domingo,madrugada,Desórdenes públicos,557,Calle MAJOR,233
+BUR-2025-00069,2025-02-16,02:45,domingo,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,calle San Juan Cruz,23
+BUR-2025-00070,2025-02-17,03:30,lunes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ Joaquin Peris Fuentes,3
+BUR-2025-00071,2025-02-17,19:00,lunes,tarde,Daños,263,CL Bechi,457
+BUR-2025-00072,2025-02-17,20:00,lunes,tarde,Hurto,234,Calle JARDI,29
+BUR-2025-00073,2025-02-18,12:45,martes,mañana,Hurto,234,calle Mare de Deu Dels Dolors,16
+BUR-2025-00074,2025-02-19,14:25,miércoles,tarde,Robo con fuerza en las cosas en casa habitada,241,CL Sant Gregtri,8
+BUR-2025-00075,2025-02-21,17:55,viernes,tarde,Hurto,234,Calle Ave María,18
+BUR-2025-00076,2025-02-22,01:05,sábado,noche,Contra la salud pública (tráfico de drogas),368,Mercado municipal,
+BUR-2025-00077,2025-02-22,18:10,sábado,tarde,Hurto,234,C/ Sant Pere Pascual,337
+BUR-2025-00078,2025-02-22,21:00,sábado,tarde,Hurto,234,calle SANT LLUIS,19
+BUR-2025-00079,2025-02-23,00:05,domingo,noche,Daños,263,C/ Eres,19
+BUR-2025-00080,2025-02-25,19:20,martes,tarde,Robo con fuerza en las cosas en casa habitada,241,C/ Xàtiva,
+BUR-2025-00081,2025-02-28,19:15,viernes,tarde,Hurto,234,C/ Sang de la,19
+BUR-2025-00082,2025-02-28,21:45,viernes,tarde,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ L'esport,18
+BUR-2025-00083,2025-03-01,01:20,sábado,noche,Amenazas,169,Partida CAMPA,53
+BUR-2025-00084,2025-03-01,11:10,sábado,mañana,Hurto,234,Parque de la Canaleta,
+BUR-2025-00085,2025-03-01,19:45,sábado,tarde,Daños,263,Mercado municipal,28
+BUR-2025-00086,2025-03-01,22:55,sábado,noche,Hurto,234,Partida Poligono 42,121
+BUR-2025-00087,2025-03-02,02:45,domingo,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ Santa Ana,nº 4
+BUR-2025-00088,2025-03-02,21:20,domingo,tarde,Robo con fuerza en las cosas (interior de vehículo),237-238,Calle Corazon Jesus,20
+BUR-2025-00089,2025-03-02,23:15,domingo,noche,Robo con violencia o intimidación en las personas,242,C/ SAN JAIME,11
+BUR-2025-00090,2025-03-03,22:10,lunes,noche,Hurto,234,C/ Mare de Deu de la Cabeza,217
+BUR-2025-00091,2025-03-04,23:25,martes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,c/ Almesias,S/N
+BUR-2025-00092,2025-03-05,04:35,miércoles,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Calle gallera,21
+BUR-2025-00093,2025-03-05,12:15,miércoles,mañana,Hurto,234,CL san roque,46
+BUR-2025-00094,2025-03-06,00:00,jueves,noche,Desórdenes públicos,557,Calle Jardi,62
+BUR-2025-00095,2025-03-06,00:35,jueves,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,AVDA SETSE DE JULIOL,37
+BUR-2025-00096,2025-03-09,03:30,domingo,madrugada,Robo con violencia o intimidación en las personas,242,Av. Mediterrania,
+BUR-2025-00097,2025-03-09,10:55,domingo,mañana,Robo con fuerza en las cosas en casa habitada,241,ronda panderola,17
+BUR-2025-00098,2025-03-09,12:55,domingo,mañana,Hurto,234,Calle mare de deu dels angels,3
+BUR-2025-00099,2025-03-09,22:30,domingo,noche,Daños,263,Ronda Poeta Calzada C,10
+BUR-2025-00100,2025-03-10,20:05,lunes,tarde,Hurto,234,C/ COLON,68
+BUR-2025-00101,2025-03-11,12:20,martes,mañana,Hurto,234,C/ VEINTICINCO ABRIL,1
+BUR-2025-00102,2025-03-11,22:10,martes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,RONDA PANDEROLA,37
+BUR-2025-00103,2025-03-12,00:50,miércoles,noche,Hurto o robo de uso de vehículo a motor,244,Calle SANT ANDREU,45-D
+BUR-2025-00104,2025-03-13,15:30,jueves,tarde,Hurto,234,c/ NOU,s/n
+BUR-2025-00105,2025-03-13,17:40,jueves,tarde,Contra la salud pública (tráfico de drogas),368,C/ Xàtiva,
+BUR-2025-00106,2025-03-15,01:10,sábado,noche,Daños,263,C/ Virgen Nieves,20
+BUR-2025-00107,2025-03-15,08:35,sábado,mañana,Hurto,234,Avenida Jaime Chicharro,46
+BUR-2025-00108,2025-03-15,13:00,sábado,mañana,Robo con fuerza en las cosas en casa habitada,241,CL salvador del,2
+BUR-2025-00109,2025-03-15,18:30,sábado,tarde,Hurto,234,CL Jardi,29
+BUR-2025-00110,2025-03-16,02:05,domingo,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,CL Angel de la Guarda,321
+BUR-2025-00111,2025-03-17,02:15,lunes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Partida Poligono 37,261
+BUR-2025-00112,2025-03-17,19:20,lunes,tarde,Contra la salud pública (tráfico de drogas),368,C/ Luis Vives,S/N
+BUR-2025-00113,2025-03-19,15:30,miércoles,tarde,Hurto,234,Av. Constituicón,69-D
+BUR-2025-00114,2025-03-20,02:25,jueves,madrugada,Robo con violencia o intimidación en las personas,242,calle Ausias March,386
+BUR-2025-00115,2025-03-20,03:35,jueves,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ San Miguel,355
+BUR-2025-00116,2025-03-20,11:25,jueves,mañana,Hurto,234,CL JAIME CHICHARRO,60
+BUR-2025-00117,2025-03-20,21:15,jueves,tarde,Daños,263,c/ Esperança,322
+BUR-2025-00118,2025-03-21,18:35,viernes,tarde,Hurto,234,Calle MARE DE DEU DE LORDES,31
+BUR-2025-00119,2025-03-21,19:10,viernes,tarde,Hurto,234,Partida Vitens,nº 6
+BUR-2025-00120,2025-03-22,03:10,sábado,madrugada,Desórdenes públicos,557,plaza Palau,264
+BUR-2025-00121,2025-03-22,18:40,sábado,tarde,Hurto,234,c/ Juan Bta Tejedo Beltran,365
+BUR-2025-00122,2025-03-22,23:35,sábado,noche,Lesiones,147,C/ MAJOR,34
+BUR-2025-00123,2025-03-23,03:50,domingo,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ Finello,39
+BUR-2025-00124,2025-03-23,12:00,domingo,mañana,Hurto,234,CL ARTUR PERUCHO I BADIA,3
+BUR-2025-00125,2025-03-24,00:30,lunes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,c/ PEU DE LA CREU,12
+BUR-2025-00126,2025-03-24,12:30,lunes,mañana,Hurto,234,C/ COLON,40
+BUR-2025-00127,2025-03-25,00:40,martes,noche,Daños,263,Pl. Fira,9
+BUR-2025-00128,2025-03-27,23:25,jueves,noche,Desórdenes públicos,557,CL Mare de Deu de la Mercè,nº 1
+BUR-2025-00129,2025-03-28,01:00,viernes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Carretera SERRATELLA,280
+BUR-2025-00130,2025-03-28,03:25,viernes,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ Mare de Deu Dels Angels,20
+BUR-2025-00131,2025-03-28,04:00,viernes,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,CL SANT LLUIS,9
+BUR-2025-00132,2025-03-29,02:15,sábado,madrugada,Daños,263,Ronda Poeta Calzada C,1
+BUR-2025-00133,2025-03-29,18:20,sábado,tarde,Robo con violencia o intimidación en las personas,242,plaza Palau,8
+BUR-2025-00134,2025-03-29,23:40,sábado,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,CL mare de deu misericordia,s/n
+BUR-2025-00135,2025-03-30,04:15,domingo,madrugada,Amenazas,169,c/ Vtllarreal,45
+BUR-2025-00136,2025-03-31,17:30,lunes,tarde,Hurto,234,C/ pp s gregori cl h3,10
+BUR-2025-00137,2025-03-31,18:35,lunes,tarde,Robo con fuerza en las cosas en casa habitada,241,CL SANT ANDREU,23
+BUR-2025-00138,2025-03-31,20:15,lunes,tarde,Contra la salud pública (tráfico de drogas),368,Calle Almesias,30
+BUR-2025-00139,2025-04-02,04:50,miércoles,madrugada,Lesiones,147,RONDA POETA CALZADA C,nº 1
+BUR-2025-00140,2025-04-02,05:05,miércoles,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ Mariano Benlliure,s/n
+BUR-2025-00141,2025-04-03,02:10,jueves,madrugada,Lesiones,147,Estación de metro,25
+BUR-2025-00142,2025-04-03,10:35,jueves,mañana,Robo con fuerza en las cosas en casa habitada,241,CL Ponent,11
+BUR-2025-00143,2025-04-04,13:05,viernes,mañana,Hurto,234,CL divina pastra,nº 11
+BUR-2025-00144,2025-04-05,22:05,sábado,noche,Daños,263,C/ Sant Pere Pascual,
+BUR-2025-00145,2025-04-06,03:30,domingo,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ Luis Vives,1
+BUR-2025-00146,2025-04-06,09:20,domingo,mañana,Hurto,234,C/ Vicente Forner,275
+BUR-2025-00147,2025-04-07,00:25,lunes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ CORAZON JESUS,20
+BUR-2025-00148,2025-04-07,01:05,lunes,noche,Daños,263,C/ Almesias,s/n
+BUR-2025-00149,2025-04-07,11:25,lunes,mañana,Hurto,234,CL TARANCON,34
+BUR-2025-00150,2025-04-07,16:10,lunes,tarde,Hurto,234,calle Antonio Gaudi,12
+BUR-2025-00151,2025-04-08,09:00,martes,mañana,Robo con fuerza en las cosas en casa habitada,241,Parque de la Canaleta,
+BUR-2025-00152,2025-04-09,16:40,miércoles,tarde,Daños,263,Calle Virgen Nieves,nº 41
+BUR-2025-00153,2025-04-09,18:00,miércoles,tarde,Robo con fuerza en las cosas en casa habitada,241,Gran Vía Marqués del Turia,16
+BUR-2025-00154,2025-04-11,12:35,viernes,mañana,Hurto,234,CL Artur Peucho i Badia,nº 11
+BUR-2025-00155,2025-04-11,23:10,viernes,noche,Desórdenes públicos,557,Pl. Fira,
+BUR-2025-00156,2025-04-12,02:15,sábado,madrugada,Lesiones,147,calle Ausias March,nº 41
+BUR-2025-00157,2025-04-12,22:55,sábado,noche,Daños,263,Calle L'amistat,4
+BUR-2025-00158,2025-04-13,05:05,domingo,madrugada,Lesiones,147,Calle Ribesalbes,396
+BUR-2025-00159,2025-04-13,09:45,domingo,mañana,Hurto,234,C/ Manuel Peris Fuentes,7
+BUR-2025-00160,2025-04-13,11:00,domingo,mañana,Hurto,234,CL Santa Filomena,nº 25
+BUR-2025-00161,2025-04-13,13:35,domingo,mañana,Hurto,234,c/ PINTOR SOROLLA,6
+BUR-2025-00162,2025-04-13,21:40,domingo,tarde,Hurto,234,c/ Sant Felip,198
+BUR-2025-00163,2025-04-15,07:15,martes,mañana,Hurto,234,calle SAN PASCUAL,293
+BUR-2025-00164,2025-04-15,11:35,martes,mañana,Hurto,234,Calle ARTUR PERUCHO I BADIA,336
+BUR-2025-00165,2025-04-15,23:50,martes,noche,Lesiones,147,Zona de ocio,
+BUR-2025-00166,2025-04-17,08:05,jueves,mañana,Hurto,234,CL Angel de la Guara,nº 20
+BUR-2025-00167,2025-04-17,18:10,jueves,tarde,Hurto,234,Plaza Jardi del Bes,203
+BUR-2025-00168,2025-04-18,14:45,viernes,tarde,Hurto,234,C/ Mare de Deu de Lourdes,6
+BUR-2025-00169,2025-04-19,01:15,sábado,noche,Daños,263,Calle Pilar,
+BUR-2025-00170,2025-04-20,01:15,domingo,noche,Lesiones,147,Partida Poligono 37,171
+BUR-2025-00171,2025-04-20,01:20,domingo,noche,Lesiones,147,Ronda Poeta Calzada C,1
+BUR-2025-00172,2025-04-20,20:35,domingo,tarde,Daños,263,Calle Madrid,43-A
+BUR-2025-00173,2025-04-23,18:50,miércoles,tarde,Hurto,234,C/ Ruzafa,
+BUR-2025-00174,2025-04-23,23:25,miércoles,noche,Hurto,234,Calle Jules Verne,nº 12 A
+BUR-2025-00175,2025-04-24,02:20,jueves,madrugada,Hurto o robo de uso de vehículo a motor,244,c/ Rosario,nº 13
+BUR-2025-00176,2025-04-25,02:45,viernes,madrugada,Daños,263,CL Almesias,291
+BUR-2025-00177,2025-04-25,17:50,viernes,tarde,Robo con fuerza en las cosas en casa habitada,241,calle Xilxes,4-A
+BUR-2025-00178,2025-04-25,19:40,viernes,tarde,Amenazas,169,Estación de metro,
+BUR-2025-00179,2025-04-26,08:20,sábado,mañana,Hurto,234,calle mare de deu dels dlors,16
+BUR-2025-00180,2025-04-26,11:40,sábado,mañana,Robo con fuerza en las cosas en casa habitada,241,CL SANTA ELENA,235
+BUR-2025-00181,2025-04-26,12:15,sábado,mañana,Hurto,234,c/ Sant Felip,255
+BUR-2025-00182,2025-04-26,13:25,sábado,mañana,Hurto,234,calle Mare de Deu Dels Angels,20
+BUR-2025-00183,2025-04-26,19:05,sábado,tarde,Hurto,234,Partida Poligono 43,393
+BUR-2025-00184,2025-04-26,21:30,sábado,tarde,Hurto,234,calle Sant Felip,39
+BUR-2025-00185,2025-04-27,00:20,domingo,noche,Lesiones,147,Ronda Poeta Calzada C,nº 1
+BUR-2025-00186,2025-04-27,18:10,domingo,tarde,Contra la salud pública (tráfico de drogas),368,C/ Ausias March,77
+BUR-2025-00187,2025-04-29,11:05,martes,mañana,Hurto,234,Av. Londres,nº 14
+BUR-2025-00188,2025-04-30,08:00,miércoles,mañana,Robo con fuerza en las cosas (interior de vehículo),237-238,Partida Poligono 45,510
+BUR-2025-00189,2025-05-01,04:40,jueves,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Centro comercial,27
+BUR-2025-00190,2025-05-01,06:40,jueves,mañana,Hurto o robo de uso de vehículo a motor,244,Cno. Artana,4
+BUR-2025-00191,2025-05-01,21:10,jueves,tarde,Contra la salud pública (tráfico de drogas),368,C/ Calderon Barca,4
+BUR-2025-00192,2025-05-01,23:25,jueves,noche,Hurto,234,calle ALCALDE ESCOBAR,375
+BUR-2025-00193,2025-05-02,03:50,viernes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,calle L'esport,308
+BUR-2025-00194,2025-05-02,19:50,viernes,tarde,Hurto,234,CL DEL BRONZE,2-A
+BUR-2025-00195,2025-05-02,22:10,viernes,noche,Hurto,234,Travesía Sueras,10
+BUR-2025-00196,2025-05-05,01:35,lunes,noche,Daños,263,Cno. Racholi,302
+BUR-2025-00197,2025-05-06,01:35,martes,noche,Robo con violencia o intimidación en las personas,242,Calle Major,nº 34
+BUR-2025-00198,2025-05-06,10:50,martes,mañana,Hurto,234,c/ Maestro Serrano,7
+BUR-2025-00199,2025-05-06,20:45,martes,tarde,Robo con violencia o intimidación en las personas,242,C/ la Mota,6
+BUR-2025-00200,2025-05-08,00:25,jueves,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ Gallera,13
+BUR-2025-00201,2025-05-08,02:50,jueves,madrugada,Daños,263,Av. JAIME I,14
+BUR-2025-00202,2025-05-09,00:05,viernes,noche,Daños,263,calle Bisbe Lluis Perez,1
+BUR-2025-00203,2025-05-09,04:50,viernes,madrugada,Lesiones,147,Ronda Poeta Calzada C,402
+BUR-2025-00204,2025-05-10,01:55,sábado,noche,Desórdenes públicos,557,Pza. Fira,372
+BUR-2025-00205,2025-05-10,19:50,sábado,tarde,Hurto,234,C/ Ausias March,61
+BUR-2025-00206,2025-05-11,02:15,domingo,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,c/ MARE DE DEU DE LOURDES,
+BUR-2025-00207,2025-05-13,02:35,martes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Calle Pintor Sorolla,14
+BUR-2025-00208,2025-05-14,19:30,miércoles,tarde,Hurto,234,Partida Jova la,S/N
+BUR-2025-00209,2025-05-15,00:30,jueves,noche,Daños,263,c/ el barraquet,48
+BUR-2025-00210,2025-05-15,10:45,jueves,mañana,Hurto,234,Estación de metro,
+BUR-2025-00211,2025-05-16,10:45,viernes,mañana,Hurto,234,Partida HORTOLANS,3
+BUR-2025-00212,2025-05-16,19:20,viernes,tarde,Hurto,234,Polígono industrial,
+BUR-2025-00213,2025-05-18,02:35,domingo,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,c/ Oviedo,S/N
+BUR-2025-00214,2025-05-18,04:10,domingo,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ Illes Columbretes,13
+BUR-2025-00215,2025-05-18,04:45,domingo,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,calle Sant Vicent,S/N
+BUR-2025-00216,2025-05-18,13:40,domingo,mañana,Hurto,234,SENDA ULLAL GUTIEREZ,nº 64
+BUR-2025-00217,2025-05-18,20:15,domingo,tarde,Hurto,234,c/ CARLOS ROMERO,S/N
+BUR-2025-00218,2025-05-19,00:55,lunes,noche,Daños,263,C/ Pp S Gregori Cl H6,S/N
+BUR-2025-00219,2025-05-20,01:00,martes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,c/ FRARES DELS,202
+BUR-2025-00220,2025-05-21,05:00,miércoles,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Carretera NULES,13
+BUR-2025-00221,2025-05-21,15:15,miércoles,tarde,Amenazas,169,c/ Luis Vives,13
+BUR-2025-00222,2025-05-22,14:45,jueves,tarde,Hurto,234,calle MITJA GALTA,239
+BUR-2025-00223,2025-05-23,09:45,viernes,mañana,Robo con fuerza en las cosas en casa habitada,241,Avda. Transport del,26
+BUR-2025-00224,2025-05-24,16:35,sábado,tarde,Hurto,234,calle Zorrilla,1
+BUR-2025-00225,2025-05-24,18:25,sábado,tarde,Hurto,234,c/ GALLERA,13
+BUR-2025-00226,2025-05-25,02:35,domingo,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ Encarnacion,14
+BUR-2025-00227,2025-05-25,02:55,domingo,madrugada,Desórdenes públicos,557,Avda. JUAN BAUTISTA SANMARTIN,262
+BUR-2025-00228,2025-05-25,03:20,domingo,madrugada,Hurto o robo de uso de vehículo a motor,244,C/ Cid,34
+BUR-2025-00229,2025-05-27,01:00,martes,noche,Hurto o robo de uso de vehículo a motor,244,C/ pedro cornell,
+BUR-2025-00230,2025-05-27,14:40,martes,tarde,Robo con fuerza en las cosas en casa habitada,241,C/ SANTA ELENA,23
+BUR-2025-00231,2025-05-27,19:25,martes,tarde,Hurto,234,Descampado junto a la carretera,39
+BUR-2025-00232,2025-05-27,19:45,martes,tarde,Hurto,234,Estación de tren,
+BUR-2025-00233,2025-05-29,17:40,jueves,tarde,Contra la salud pública (tráfico de drogas),368,c/ LUIS VIVES,13
+BUR-2025-00234,2025-05-29,23:00,jueves,noche,Desórdenes públicos,557,Pza. FIRA,9
+BUR-2025-00235,2025-05-30,02:30,viernes,madrugada,Daños,263,Partida Poligono 40,206
+BUR-2025-00236,2025-05-31,15:55,sábado,tarde,Hurto,234,c/ TANDA (LA),24
+BUR-2025-00237,2025-05-31,18:00,sábado,tarde,Hurto,234,C/ Mare de Deu de la Cabeza,nº 5
+BUR-2025-00238,2025-06-01,23:20,domingo,noche,Robo con violencia o intimidación en las personas,242,CL del Zinc,32
+BUR-2025-00239,2025-06-02,11:05,lunes,mañana,Hurto,234,c/ Santa Ana,38
+BUR-2025-00240,2025-06-02,19:35,lunes,tarde,Daños,263,C/ Alqueries de Les,370
+BUR-2025-00241,2025-06-03,09:00,martes,mañana,Hurto,234,calle San Blas,50
+BUR-2025-00242,2025-06-03,22:55,martes,noche,Desórdenes públicos,557,Av. Cami D'onda,56
+BUR-2025-00243,2025-06-04,09:55,miércoles,mañana,Hurto,234,C/ JUAN BTA TEJEDO BELTRAN,6 A
+BUR-2025-00244,2025-06-04,16:35,miércoles,tarde,Amenazas,169,c/ Veinnicinco Abril,1
+BUR-2025-00245,2025-06-04,17:45,miércoles,tarde,Hurto,234,Gran Vía Marqués del Turia,4
+BUR-2025-00246,2025-06-04,20:30,miércoles,tarde,Contra la salud pública (tráfico de drogas),368,Calle Eres,377
+BUR-2025-00247,2025-06-05,04:10,jueves,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Calle Mare de Deu Dels Angels,30
+BUR-2025-00248,2025-06-05,11:15,jueves,mañana,Hurto,234,CL Federico García Lorca,3
+BUR-2025-00249,2025-06-05,11:30,jueves,mañana,Hurto,234,C/ PINTOR SOROLLA,S/N
+BUR-2025-00250,2025-06-05,19:15,jueves,tarde,Robo con fuerza en las cosas en casa habitada,241,Descampado junto a la carretera,11
+BUR-2025-00251,2025-06-06,00:20,viernes,noche,Robo con violencia o intimidación en las personas,242,Calle MARE DE DEU DELS DOLORS,171
+BUR-2025-00252,2025-06-06,00:55,viernes,noche,Lesiones,147,Pza. PALAU,8
+BUR-2025-00253,2025-06-06,00:55,viernes,noche,Desórdenes públicos,557,c/ Pintor Sorolla,382
+BUR-2025-00254,2025-06-06,04:35,viernes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,calle Enacrnacion,32
+BUR-2025-00255,2025-06-07,19:40,sábado,tarde,Hurto,234,CL SANT ERNEST,33
+BUR-2025-00256,2025-06-07,21:55,sábado,tarde,Robo con fuerza en las cosas en casa habitada,241,CL ANTONIO GAUDI,189
+BUR-2025-00257,2025-06-07,23:25,sábado,noche,Robo con violencia o intimidación en las personas,242,Gran Vía Marqués del Turia,
+BUR-2025-00258,2025-06-07,23:25,sábado,noche,Robo con violencia o intimidación en las personas,242,Calle MAJOR,34
+BUR-2025-00259,2025-06-09,23:40,lunes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,calle VINARALLS,358
+BUR-2025-00260,2025-06-11,12:40,miércoles,mañana,Robo con fuerza en las cosas en casa habitada,241,Camino Llombay,225
+BUR-2025-00261,2025-06-11,16:35,miércoles,tarde,Hurto,234,Calle Industria,11
+BUR-2025-00262,2025-06-12,01:25,jueves,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ Vicente Moliner,10
+BUR-2025-00263,2025-06-12,04:05,jueves,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ ARBRETS,4
+BUR-2025-00264,2025-06-12,11:30,jueves,mañana,Hurto,234,C/ Ruzafa,55
+BUR-2025-00265,2025-06-12,19:45,jueves,tarde,Daños,263,C/ CAPITAN CORTÉS,18
+BUR-2025-00266,2025-06-12,22:55,jueves,noche,Robo con violencia o intimidación en las personas,242,Ronda Poeta Calzada C,1
+BUR-2025-00267,2025-06-14,02:20,sábado,madrugada,Lesiones,147,CL MARE DE DEU DE MONTSERRAT,1
+BUR-2025-00268,2025-06-14,11:00,sábado,mañana,Hurto,234,Calle MARE DE DEU DELS ANGELS,236
+BUR-2025-00269,2025-06-15,02:55,domingo,madrugada,Lesiones,147,Pl. Fira,303
+BUR-2025-00270,2025-06-15,10:05,domingo,mañana,Hurto,234,C/ Joan D'austria,
+BUR-2025-00271,2025-06-15,15:50,domingo,tarde,Amenazas,169,Calle Vinaralls,3
+BUR-2025-00272,2025-06-16,11:25,lunes,mañana,Amenazas,169,C/ Mestre Rodrigo,16-A
+BUR-2025-00273,2025-06-16,16:15,lunes,tarde,Hurto,234,C/ Saleta,4
+BUR-2025-00274,2025-06-18,01:15,miércoles,noche,Daños,263,calle Esperança,16
+BUR-2025-00275,2025-06-19,05:30,jueves,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,c/ SANT ANDREU,260
+BUR-2025-00276,2025-06-19,08:10,jueves,mañana,Robo con fuerza en las cosas (interior de vehículo),237-238,CL VICENTE MOLINER,10
+BUR-2025-00277,2025-06-20,09:45,viernes,mañana,Hurto,234,C/ mare de deu de la cabeza,336
+BUR-2025-00278,2025-06-20,16:55,viernes,tarde,Hurto,234,C/ TRINIDAD,
+BUR-2025-00279,2025-06-20,23:10,viernes,noche,Desórdenes públicos,557,calle Major,356
+BUR-2025-00280,2025-06-21,00:55,sábado,noche,Desórdenes públicos,557,Calle Costur,8
+BUR-2025-00281,2025-06-21,04:35,sábado,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ Baro,19
+BUR-2025-00282,2025-06-21,16:00,sábado,tarde,Hurto,234,Cno. Hondo,349
+BUR-2025-00283,2025-06-21,22:20,sábado,noche,Lesiones,147,Avenida Setse de Juliol,270
+BUR-2025-00284,2025-06-24,11:40,martes,mañana,Hurto,234,C/ MITJA GALTA,12
+BUR-2025-00285,2025-06-24,12:05,martes,mañana,Robo con fuerza en las cosas en casa habitada,241,Partida Vinarragrell,294
+BUR-2025-00286,2025-06-25,07:00,miércoles,mañana,Amenazas,169,calle Peñiscola,280
+BUR-2025-00287,2025-06-26,03:30,jueves,madrugada,Hurto o robo de uso de vehículo a motor,244,Pl. Jardi del Bes,27
+BUR-2025-00288,2025-06-27,04:20,viernes,madrugada,Lesiones,147,Centro comercial,
+BUR-2025-00289,2025-06-28,03:00,sábado,madrugada,Daños,263,calle Manuel Cubedo i Giner,nº 23
+BUR-2025-00290,2025-06-30,02:10,lunes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,CL ENCARNACION,nº 56
+BUR-2025-00291,2025-06-30,04:25,lunes,madrugada,Hurto o robo de uso de vehículo a motor,244,C/ Cardenal Cisneros,8
+BUR-2025-00292,2025-07-01,07:00,martes,mañana,Robo con fuerza en las cosas en casa habitada,241,c/ SAN RUBERTO,nº 2
+BUR-2025-00293,2025-07-01,22:50,martes,noche,Contra la salud pública (tráfico de drogas),368,Partida POLIGONO 37,91
+BUR-2025-00294,2025-07-02,09:20,miércoles,mañana,Hurto,234,c/ COLON,31
+BUR-2025-00295,2025-07-02,14:20,miércoles,tarde,Hurto,234,C/ mare de deu de lourdes,S/N
+BUR-2025-00296,2025-07-02,18:55,miércoles,tarde,Hurto,234,c/ Bisbe Lluis Perez,11A
+BUR-2025-00297,2025-07-03,01:00,jueves,noche,Daños,263,c/ LUIS VIVES,334
+BUR-2025-00298,2025-07-03,22:20,jueves,noche,Daños,263,C/ ERES,8-A
+BUR-2025-00299,2025-07-04,11:35,viernes,mañana,Amenazas,169,calle FRAY TERENCIO HUGUET,nº 44-A
+BUR-2025-00300,2025-07-04,16:15,viernes,tarde,Hurto,234,avda. Transport del,
+BUR-2025-00301,2025-07-05,02:35,sábado,madrugada,Lesiones,147,CL Raval (el),77
+BUR-2025-00302,2025-07-05,13:00,sábado,mañana,Robo con fuerza en las cosas en casa habitada,241,C/ Peu de la Creu,30
+BUR-2025-00303,2025-07-05,18:10,sábado,tarde,Amenazas,169,Camino de la Coixa,7
+BUR-2025-00304,2025-07-05,20:55,sábado,tarde,Hurto,234,c/ Colon,s/n
+BUR-2025-00305,2025-07-05,21:30,sábado,tarde,Robo con fuerza en las cosas (interior de vehículo),237-238,Calle Cid,319
+BUR-2025-00306,2025-07-05,21:55,sábado,tarde,Hurto,234,Calle Sant Bru,362
+BUR-2025-00307,2025-07-06,00:50,domingo,noche,Robo con violencia o intimidación en las personas,242,calle VICTOR MARIN PUIG,160
+BUR-2025-00308,2025-07-06,02:05,domingo,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Paseo San Juan Bosco,199
+BUR-2025-00309,2025-07-06,23:10,domingo,noche,Lesiones,147,Partida Regenta,320
+BUR-2025-00310,2025-07-08,14:25,martes,tarde,Hurto,234,c/ Jardi,4
+BUR-2025-00311,2025-07-09,02:45,miércoles,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Calle Cardenal Cisneros,42
+BUR-2025-00312,2025-07-11,01:15,viernes,noche,Daños,263,C/ Almesias,s/n
+BUR-2025-00313,2025-07-11,18:10,viernes,tarde,Hurto,234,C/ Tarancon,346
+BUR-2025-00314,2025-07-11,23:25,viernes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Camino Artana,4
+BUR-2025-00315,2025-07-12,03:40,sábado,madrugada,Daños,263,Avda. JUAN BAUTISTA SANMATIN,6
+BUR-2025-00316,2025-07-14,18:35,lunes,tarde,Hurto,234,Calle Pp S Gregori Cl H6,1
+BUR-2025-00317,2025-07-15,10:45,martes,mañana,Robo con fuerza en las cosas en casa habitada,241,CL Teodor Llorente,219
+BUR-2025-00318,2025-07-15,17:35,martes,tarde,Hurto,234,C/ Mare de Deu de Lourdes,386
+BUR-2025-00319,2025-07-16,08:15,miércoles,mañana,Hurto,234,Avenida Corts Valecianes,nº 13
+BUR-2025-00320,2025-07-18,12:20,viernes,mañana,Amenazas,169,CL Cardenal Cisneros,320
+BUR-2025-00321,2025-07-18,16:40,viernes,tarde,Robo con fuerza en las cosas en casa habitada,241,C/ Vciente Moliner,10
+BUR-2025-00322,2025-07-18,19:05,viernes,tarde,Hurto,234,calle Sant Bru,264
+BUR-2025-00323,2025-07-19,16:15,sábado,tarde,Robo con fuerza en las cosas en casa habitada,241,calle MARI,6
+BUR-2025-00324,2025-07-20,00:55,domingo,noche,Hurto o robo de uso de vehículo a motor,244,CL Gallera,s/n
+BUR-2025-00325,2025-07-20,01:00,domingo,noche,Daños,263,calle el Barranquet,448
+BUR-2025-00326,2025-07-21,02:35,lunes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ Vinaralls,343
+BUR-2025-00327,2025-07-23,03:35,miércoles,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,c/ el Raval,347
+BUR-2025-00328,2025-07-23,11:45,miércoles,mañana,Hurto,234,C/ Jardi,12
+BUR-2025-00329,2025-07-23,13:35,miércoles,mañana,Hurto,234,C/ ILLES BALEARS,28
+BUR-2025-00330,2025-07-24,00:55,jueves,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Calle Xilxes,4-A
+BUR-2025-00331,2025-07-24,09:50,jueves,mañana,Hurto,234,avda. Cami D'onda,11
+BUR-2025-00332,2025-07-24,22:40,jueves,noche,Lesiones,147,Ronda Poeta Calzada C,1
+BUR-2025-00333,2025-07-25,00:55,viernes,noche,Daños,263,avda. Jaime i,7A
+BUR-2025-00334,2025-07-25,04:25,viernes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Calle Capitan Cortés,9
+BUR-2025-00335,2025-07-26,05:00,sábado,madrugada,Lesiones,147,avda. de L Argent,52
+BUR-2025-00336,2025-07-27,03:00,domingo,madrugada,Robo con violencia o intimidación en las personas,242,RONDA POETA CALZADA C,10
+BUR-2025-00337,2025-07-27,18:20,domingo,tarde,Robo con fuerza en las cosas en casa habitada,241,Ctra. Cami del Grau,580
+BUR-2025-00338,2025-07-27,23:40,domingo,noche,Daños,263,Plaza Poligono Rustica 40,514
+BUR-2025-00339,2025-07-28,04:45,lunes,madrugada,Hurto o robo de uso de vehículo a motor,244,Calle Amado Granell Mesado,8
+BUR-2025-00340,2025-07-29,12:55,martes,mañana,Hurto,234,Calle Zorrilla,S/N
+BUR-2025-00341,2025-07-29,19:55,martes,tarde,Hurto,234,C/ Ecce Homo,238
+BUR-2025-00342,2025-07-30,01:55,miércoles,noche,Robo con fuerza en las cosas en establecimiento abierto al público,241,Carretera CARRERA LA,25
+BUR-2025-00343,2025-07-30,02:50,miércoles,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ Salvador Giner,383
+BUR-2025-00344,2025-07-30,09:35,miércoles,mañana,Robo con fuerza en las cosas en casa habitada,241,Calle Sant Marc,19
+BUR-2025-00345,2025-07-30,11:25,miércoles,mañana,Hurto,234,C/ Sant Felip,422
+BUR-2025-00346,2025-07-31,04:55,jueves,madrugada,Lesiones,147,Avda. Juan Bautista Sanmartin,6
+BUR-2025-00347,2025-07-31,17:35,jueves,tarde,Hurto,234,CL Artur Perucho i Badia,331
+BUR-2025-00348,2025-07-31,22:15,jueves,noche,Robo con violencia o intimidación en las personas,242,CL Ausias March,61
+BUR-2025-00349,2025-08-01,01:15,viernes,noche,Lesiones,147,CL Vinaralls,278
+BUR-2025-00350,2025-08-01,06:50,viernes,mañana,Amenazas,169,C/ Arcilla,2
+BUR-2025-00351,2025-08-01,09:55,viernes,mañana,Hurto,234,C/ SAN VICTORIANO,nº 7
+BUR-2025-00352,2025-08-02,00:10,sábado,noche,Desórdenes públicos,557,C/ SAN BLAS,3
+BUR-2025-00353,2025-08-03,00:20,domingo,noche,Robo con violencia o intimidación en las personas,242,C/ Auias March,61
+BUR-2025-00354,2025-08-03,10:20,domingo,mañana,Robo con fuerza en las cosas en casa habitada,241,c/ Purisima,s/n
+BUR-2025-00355,2025-08-03,18:45,domingo,tarde,Amenazas,169,Partida Poligono 40,198
+BUR-2025-00356,2025-08-03,18:55,domingo,tarde,Hurto,234,C/ Mare de Deu de Lourdes,383
+BUR-2025-00357,2025-08-04,01:50,lunes,noche,Robo con fuerza en las cosas en establecimiento abierto al público,241,c/ Teodor Llorente,26
+BUR-2025-00358,2025-08-05,01:45,martes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ Frares Dels,
+BUR-2025-00359,2025-08-05,14:50,martes,tarde,Robo con fuerza en las cosas en casa habitada,241,Avenida Vicente Cañada Blanch,155
+BUR-2025-00360,2025-08-06,02:20,miércoles,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,c/ Encarnacion,
+BUR-2025-00361,2025-08-07,23:25,jueves,noche,Desórdenes públicos,557,CL Sant Bru,42
+BUR-2025-00362,2025-08-08,18:30,viernes,tarde,Robo con fuerza en las cosas en casa habitada,241,Calle Sin Nombre,14
+BUR-2025-00363,2025-08-09,01:40,sábado,noche,Lesiones,147,Ronda Poeta Calzada C,1
+BUR-2025-00364,2025-08-09,17:15,sábado,tarde,Hurto,234,Plaza TREMEDAL,4
+BUR-2025-00365,2025-08-10,02:50,domingo,madrugada,Hurto o robo de uso de vehículo a motor,244,Trav. Ralla Nules 1,4
+BUR-2025-00366,2025-08-10,23:50,domingo,noche,Desórdenes públicos,557,Partida Poligono 37,223
+BUR-2025-00367,2025-08-12,00:25,martes,noche,Desórdenes públicos,557,Plaza Palau,nº 8
+BUR-2025-00368,2025-08-13,03:50,miércoles,madrugada,Daños,263,Partida Poligono 45,807
+BUR-2025-00369,2025-08-13,11:40,miércoles,mañana,Hurto,234,C/ Marnners Dels,nº 5
+BUR-2025-00370,2025-08-13,20:50,miércoles,tarde,Hurto,234,Calle SANTA FILOMENA,25
+BUR-2025-00371,2025-08-14,15:40,jueves,tarde,Hurto,234,calle Jardi,418
+BUR-2025-00372,2025-08-15,01:00,viernes,noche,Daños,263,Calle Sin Nombre,7
+BUR-2025-00373,2025-08-15,04:15,viernes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,CL Virgen Nieves,S/N
+BUR-2025-00374,2025-08-15,17:05,viernes,tarde,Robo con fuerza en las cosas en casa habitada,241,CL Soledat,S/N
+BUR-2025-00375,2025-08-15,23:05,viernes,noche,Daños,263,Calle Ample,210
+BUR-2025-00376,2025-08-16,10:40,sábado,mañana,Hurto,234,C/ Pintor Sorolla,349
+BUR-2025-00377,2025-08-18,14:30,lunes,tarde,Hurto,234,Calle Angel de la Guarda,12
+BUR-2025-00378,2025-08-19,17:00,martes,tarde,Hurto,234,c/ Froncisco Fuentes,11
+BUR-2025-00379,2025-08-20,10:15,miércoles,mañana,Hurto,234,Calle Valencia,
+BUR-2025-00380,2025-08-21,02:50,jueves,madrugada,Daños,263,Plaza PALAU,nº 8
+BUR-2025-00381,2025-08-22,03:25,viernes,madrugada,Daños,263,C/ San Javier,15
+BUR-2025-00382,2025-08-22,16:30,viernes,tarde,Robo con fuerza en las cosas en casa habitada,241,c/ Soledat,235
+BUR-2025-00383,2025-08-23,02:50,sábado,madrugada,Daños,263,c/ Eres,19
+BUR-2025-00384,2025-08-23,03:10,sábado,madrugada,Lesiones,147,ronda poeta cazlada c,1
+BUR-2025-00385,2025-08-23,23:35,sábado,noche,Lesiones,147,Estación de tren,42
+BUR-2025-00386,2025-08-26,10:25,martes,mañana,Robo con fuerza en las cosas en casa habitada,241,C/ Xilxes,12
+BUR-2025-00387,2025-08-27,03:35,miércoles,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,c/ Illa de Tabarca,294
+BUR-2025-00388,2025-08-28,04:20,jueves,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Partida Poligono 42,502
+BUR-2025-00389,2025-08-28,19:40,jueves,tarde,Hurto,234,Estación de metro,
+BUR-2025-00390,2025-08-30,00:15,sábado,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ Vicente Moliner,10
+BUR-2025-00391,2025-08-30,01:55,sábado,noche,Daños,263,C/ Sant Bru,17
+BUR-2025-00392,2025-08-30,09:20,sábado,mañana,Hurto,234,Parque de la Canaleta,
+BUR-2025-00393,2025-08-31,02:30,domingo,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ ecce homo,21
+BUR-2025-00394,2025-08-31,20:35,domingo,tarde,Daños,263,Pl. Fira,9
+BUR-2025-00395,2025-09-01,07:40,lunes,mañana,Amenazas,169,C/ MARE DE DEU DELS AGELS,64
+BUR-2025-00396,2025-09-01,16:30,lunes,tarde,Contra la salud pública (tráfico de drogas),368,CL Eres,19
+BUR-2025-00397,2025-09-01,19:10,lunes,tarde,Hurto,234,Plaza Jardi del Bes,27
+BUR-2025-00398,2025-09-02,05:35,martes,madrugada,Daños,263,Pl. POLIGONO RUSTICA 40,237
+BUR-2025-00399,2025-09-05,00:50,viernes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Gran Vía Marqués del Turia,
+BUR-2025-00400,2025-09-06,22:00,sábado,noche,Daños,263,CL Luz,321
+BUR-2025-00401,2025-09-06,22:15,sábado,noche,Robo con violencia o intimidación en las personas,242,Partida Poligono 37,248
+BUR-2025-00402,2025-09-07,03:15,domingo,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,calle Capitan Cortes,18
+BUR-2025-00403,2025-09-07,12:20,domingo,mañana,Hurto,234,C/ Artur Eprucho i Badia,3
+BUR-2025-00404,2025-09-07,19:45,domingo,tarde,Daños,263,calle GALLERA,352
+BUR-2025-00405,2025-09-08,09:55,lunes,mañana,Hurto,234,C/ Mare de Deu de la Cabeza,187
+BUR-2025-00406,2025-09-08,23:55,lunes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Mercado municipal,
+BUR-2025-00407,2025-09-10,02:00,miércoles,madrugada,Robo con violencia o intimidación en las personas,242,Gran Vía Marqués del Turia,
+BUR-2025-00408,2025-09-12,01:30,viernes,noche,Hurto o robo de uso de vehículo a motor,244,C/ pintor sorolla,6
+BUR-2025-00409,2025-09-12,13:55,viernes,mañana,Hurto,234,C/ Mare de Deu de la Cabeza,5
+BUR-2025-00410,2025-09-12,16:30,viernes,tarde,Robo con fuerza en las cosas en casa habitada,241,C/ Ruzafa,14
+BUR-2025-00411,2025-09-14,19:05,domingo,tarde,Daños,263,Partida REGENTA,10-A
+BUR-2025-00412,2025-09-16,14:10,martes,tarde,Hurto,234,C/ Mare de Deu de Lourdes,39
+BUR-2025-00413,2025-09-17,12:05,miércoles,mañana,Hurto,234,Partida JOVA LA,1
+BUR-2025-00414,2025-09-18,02:50,jueves,madrugada,Robo con violencia o intimidación en las personas,242,CL Maetsro Serrano,7
+BUR-2025-00415,2025-09-18,18:40,jueves,tarde,Contra la salud pública (tráfico de drogas),368,Calle Ample,236
+BUR-2025-00416,2025-09-18,19:55,jueves,tarde,Daños,263,Ronda Pedro Iv,8
+BUR-2025-00417,2025-09-19,09:45,viernes,mañana,Hurto,234,CL Colon,68
+BUR-2025-00418,2025-09-20,11:40,sábado,mañana,Hurto,234,Calle Mare de Deu Dels Angels,64
+BUR-2025-00419,2025-09-20,13:35,sábado,mañana,Hurto,234,C/ la Tanda,35
+BUR-2025-00420,2025-09-20,21:55,sábado,tarde,Daños,263,avda. Cami D'onda,73
+BUR-2025-00421,2025-09-21,01:10,domingo,noche,Daños,263,c/ Juan Lugo,18
+BUR-2025-00422,2025-09-21,04:20,domingo,madrugada,Daños,263,C/ AMPLE,45
+BUR-2025-00423,2025-09-21,10:00,domingo,mañana,Hurto,234,Calle JARDI,37
+BUR-2025-00424,2025-09-22,17:00,lunes,tarde,Hurto,234,C/ L'ESCORREDOR,64
+BUR-2025-00425,2025-09-24,11:40,miércoles,mañana,Hurto,234,Calle Pablo Iglesias,5
+BUR-2025-00426,2025-09-24,11:45,miércoles,mañana,Hurto,234,Gran Vía Marqués del Turia,16
+BUR-2025-00427,2025-09-24,21:15,miércoles,tarde,Hurto,234,C/ SANT BRU,9
+BUR-2025-00428,2025-09-25,08:15,jueves,mañana,Hurto,234,Ctra. NULES,102
+BUR-2025-00429,2025-09-26,02:40,viernes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,calle Rosario,nº 2
+BUR-2025-00430,2025-09-26,14:30,viernes,tarde,Hurto,234,c/ Mariano Benlluire,24
+BUR-2025-00431,2025-09-27,04:10,sábado,madrugada,Hurto o robo de uso de vehículo a motor,244,Calle Frares Dels,10
+BUR-2025-00432,2025-09-27,11:45,sábado,mañana,Hurto,234,CL Mare de Deu Dels Angels,20
+BUR-2025-00433,2025-09-27,20:05,sábado,tarde,Contra la salud pública (tráfico de drogas),368,Senda Ullal Gutierrez,nº 64
+BUR-2025-00434,2025-09-28,01:50,domingo,noche,Robo con violencia o intimidación en las personas,242,Pza. Adolfo Suarez Gonzalez,8
+BUR-2025-00435,2025-09-28,03:50,domingo,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,CL BISBE LLUIS PEREZ,S/N
+BUR-2025-00436,2025-09-30,20:45,martes,tarde,Hurto,234,Carretera Nules,55A
+BUR-2025-00437,2025-10-01,00:55,miércoles,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Calle Caruenal Cisneros,42
+BUR-2025-00438,2025-10-01,04:10,miércoles,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Cno. CAMINO 04,175
+BUR-2025-00439,2025-10-01,10:50,miércoles,mañana,Robo con fuerza en las cosas en casa habitada,241,Camino Pedrera Vrla-vella,24
+BUR-2025-00440,2025-10-01,14:40,miércoles,tarde,Hurto,234,AVDA Corts Valencianes,21
+BUR-2025-00441,2025-10-02,10:50,jueves,mañana,Hurto,234,CL Mare de Deu Dels Angels,20
+BUR-2025-00442,2025-10-02,20:40,jueves,tarde,Hurto,234,Avnida CAMI D'ONDA,nº 19
+BUR-2025-00443,2025-10-02,23:00,jueves,noche,Hurto,234,Parque municipal,
+BUR-2025-00444,2025-10-04,00:20,sábado,noche,Daños,263,C/ Finello,nº 39
+BUR-2025-00445,2025-10-04,04:35,sábado,madrugada,Lesiones,147,c/ santa barbara,21
+BUR-2025-00446,2025-10-05,01:50,domingo,noche,Desórdenes públicos,557,plaza Palau,nº 8
+BUR-2025-00447,2025-10-06,02:55,lunes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ Vicente Cantos Figuerola,247
+BUR-2025-00448,2025-10-06,19:55,lunes,tarde,Hurto,234,C/ Industria,23
+BUR-2025-00449,2025-10-06,23:00,lunes,noche,Hurto,234,CL Mare de Deu de Lourdes,278
+BUR-2025-00450,2025-10-06,23:10,lunes,noche,Contra la salud pública (tráfico de drogas),368,C/ Juan Carlos i,nº 11
+BUR-2025-00451,2025-10-08,16:40,miércoles,tarde,Hurto,234,CL DR FERRAND,13
+BUR-2025-00452,2025-10-08,19:15,miércoles,tarde,Hurto,234,C/ la Tanda,s/n
+BUR-2025-00453,2025-10-10,08:55,viernes,mañana,Hurto,234,Camino Racholi,93
+BUR-2025-00454,2025-10-10,13:05,viernes,mañana,Hurto,234,c/ Guillem de Vinatea,
+BUR-2025-00455,2025-10-11,00:05,sábado,noche,Lesiones,147,Av. SETSE DE JULIOL,1
+BUR-2025-00456,2025-10-11,10:50,sábado,mañana,Hurto,234,C/ BISBE LLUIS PEREZ,326
+BUR-2025-00457,2025-10-12,02:20,domingo,madrugada,Daños,263,calle Sant Guillem,320
+BUR-2025-00458,2025-10-12,04:30,domingo,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ Mare de Deu de la Cabeza,5
+BUR-2025-00459,2025-10-12,21:40,domingo,tarde,Desórdenes públicos,557,avda. Juan Bautista Sanmartin,6
+BUR-2025-00460,2025-10-14,11:25,martes,mañana,Robo con fuerza en las cosas en casa habitada,241,C/ AMPLE,20
+BUR-2025-00461,2025-10-16,04:05,jueves,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,CL L'esport,391
+BUR-2025-00462,2025-10-17,00:30,viernes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,CL teodor llrente,35
+BUR-2025-00463,2025-10-17,12:30,viernes,mañana,Robo con fuerza en las cosas en casa habitada,241,Calle nuñez de arce,306
+BUR-2025-00464,2025-10-18,21:55,sábado,tarde,Daños,263,plaza Palau,8
+BUR-2025-00465,2025-10-20,03:15,lunes,madrugada,Desórdenes públicos,557,CL Barranquet (el),82
+BUR-2025-00466,2025-10-20,20:10,lunes,tarde,Lesiones,147,Av. Setse de Jliol,1
+BUR-2025-00467,2025-10-20,22:15,lunes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ Peu de la Creu,269
+BUR-2025-00468,2025-10-21,21:10,martes,tarde,Contra la salud pública (tráfico de drogas),368,Calle VIRGEN NIEVES,nº 41
+BUR-2025-00469,2025-10-22,09:45,miércoles,mañana,Hurto,234,C/ Ausias March,nº 41
+BUR-2025-00470,2025-10-22,18:05,miércoles,tarde,Hurto,234,calle Vicente Rios Enrique,S/N
+BUR-2025-00471,2025-10-23,13:15,jueves,mañana,Hurto,234,c/ Industria,nº 11
+BUR-2025-00472,2025-10-24,03:25,viernes,madrugada,Lesiones,147,CL San Victoriano,S/N
+BUR-2025-00473,2025-10-25,17:55,sábado,tarde,Contra la salud pública (tráfico de drogas),368,calle LA TANDA,4
+BUR-2025-00474,2025-10-25,20:00,sábado,tarde,Amenazas,169,Cno. saurino,1
+BUR-2025-00475,2025-10-26,21:45,domingo,tarde,Daños,263,C/ LUIS VIVES,S/N
+BUR-2025-00476,2025-10-27,01:20,lunes,noche,Hurto o robo de uso de vehículo a motor,244,calle Vicente Cantos Figuerola,nº 13
+BUR-2025-00477,2025-10-29,19:15,miércoles,tarde,Robo con fuerza en las cosas en casa habitada,241,Avenada Cami D'onda,nº 96 B
+BUR-2025-00478,2025-10-29,19:15,miércoles,tarde,Contra la salud pública (tráfico de drogas),368,C/ LUIS VIVES,nº 13
+BUR-2025-00479,2025-10-29,22:00,miércoles,noche,Daños,263,Estación de tren,
+BUR-2025-00480,2025-11-01,03:25,sábado,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ Mare de Deu de Lourdes,31
+BUR-2025-00481,2025-11-01,17:20,sábado,tarde,Hurto,234,calle ARTUR PERUCHO I BADIA,20
+BUR-2025-00482,2025-11-01,18:05,sábado,tarde,Hurto,234,CL Corindon,nº 18
+BUR-2025-00483,2025-11-02,03:20,domingo,madrugada,Robo con violencia o intimidación en las personas,242,Partida Poligono 46,578
+BUR-2025-00484,2025-11-03,18:00,lunes,tarde,Robo con fuerza en las cosas en casa habitada,241,Polígono industrial,41
+BUR-2025-00485,2025-11-04,10:20,martes,mañana,Hurto,234,c/ Fray Terencio Huguet,40
+BUR-2025-00486,2025-11-05,15:10,miércoles,tarde,Robo con fuerza en las cosas en casa habitada,241,Trav. XIPRE,1
+BUR-2025-00487,2025-11-05,20:55,miércoles,tarde,Hurto,234,C/ MARE DE DEU DE LOURDNS,39
+BUR-2025-00488,2025-11-06,01:35,jueves,noche,Robo con violencia o intimidación en las personas,242,Partida VINARRAGRELL,83
+BUR-2025-00489,2025-11-06,19:20,jueves,tarde,Hurto,234,Camino Hondo,nº 42
+BUR-2025-00490,2025-11-07,23:00,viernes,noche,Daños,263,calle Almesias,nº 19
+BUR-2025-00491,2025-11-10,07:10,lunes,mañana,Robo con fuerza en las cosas en casa habitada,241,c/ Santa Rosa de Lima,266
+BUR-2025-00492,2025-11-10,12:30,lunes,mañana,Robo con fuerza en las cosas en casa habitada,241,Calle Burga,nº 24
+BUR-2025-00493,2025-11-11,20:20,martes,tarde,Hurto,234,plaza Merce de la,5
+BUR-2025-00494,2025-11-11,23:35,martes,noche,Robo con violencia o intimidación en las personas,242,Partida VINARRAGRELL,nº 48
+BUR-2025-00495,2025-11-13,05:05,jueves,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Parque de la Canaleta,
+BUR-2025-00496,2025-11-14,01:15,viernes,noche,Desórdenes públicos,557,Ronda Poeta Calzada C,373
+BUR-2025-00497,2025-11-14,03:30,viernes,madrugada,Hurto o robo de uso de vehículo a motor,244,C/ Xàtiva,
+BUR-2025-00498,2025-11-14,12:15,viernes,mañana,Hurto,234,Calle Sant Marc,9
+BUR-2025-00499,2025-11-15,02:40,sábado,madrugada,Lesiones,147,C/ Gallera,30
+BUR-2025-00500,2025-11-15,03:10,sábado,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,c/ san victoriano,7
+BUR-2025-00501,2025-11-15,23:30,sábado,noche,Desórdenes públicos,557,CL Ausias March,41
+BUR-2025-00502,2025-11-17,10:35,lunes,mañana,Hurto,234,c/ MARE DE DEU DE LA CABEZA,nº 5
+BUR-2025-00503,2025-11-17,21:05,lunes,tarde,Amenazas,169,plaza POLIGONO 13,480
+BUR-2025-00504,2025-11-18,05:40,martes,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,Partida Poligono 45,803
+BUR-2025-00505,2025-11-18,23:25,martes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,calle cardenal cisneros,205
+BUR-2025-00506,2025-11-20,08:50,jueves,mañana,Hurto,234,C/ JARDI,46
+BUR-2025-00507,2025-11-20,09:15,jueves,mañana,Hurto,234,C/ Pedro Salians,nº 13
+BUR-2025-00508,2025-11-20,15:55,jueves,tarde,Amenazas,169,Pl. Poligono 11,
+BUR-2025-00509,2025-11-20,17:50,jueves,tarde,Hurto,234,calle FEDERICO GARCIA LORCA,3
+BUR-2025-00510,2025-11-21,01:30,viernes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,c/ SAN LUCAS,4
+BUR-2025-00511,2025-11-21,02:00,viernes,madrugada,Daños,263,Partida poligono 46,892
+BUR-2025-00512,2025-11-21,04:05,viernes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,c/ SALVADOR GINER,3
+BUR-2025-00513,2025-11-21,21:05,viernes,tarde,Daños,263,Avda. Jaime i,
+BUR-2025-00514,2025-11-22,16:55,sábado,tarde,Hurto,234,C/ Jardi,nº 29
+BUR-2025-00515,2025-11-22,19:15,sábado,tarde,Daños,263,plaza el Pla,21
+BUR-2025-00516,2025-11-22,19:35,sábado,tarde,Hurto,234,c/ JUAN BTA ROCHERA MINGARRO,1
+BUR-2025-00517,2025-11-23,19:40,domingo,tarde,Hurto,234,C/ Mare de Deu de la Mercè,18
+BUR-2025-00518,2025-11-23,20:40,domingo,tarde,Robo con violencia o intimidación en las personas,242,c/ San Valeutin,7
+BUR-2025-00519,2025-11-24,16:15,lunes,tarde,Hurto,234,c/ Sant Lluis,1
+BUR-2025-00520,2025-11-24,19:10,lunes,tarde,Hurto,234,CL Rosa Dels Vents,16
+BUR-2025-00521,2025-11-25,03:30,martes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,CL Alqueries de Les,457
+BUR-2025-00522,2025-11-25,11:35,martes,mañana,Hurto,234,CL Mare de Deu de Lourdes,31
+BUR-2025-00523,2025-11-27,12:10,jueves,mañana,Hurto,234,C/ Jardi,73
+BUR-2025-00524,2025-11-27,18:40,jueves,tarde,Hurto,234,C/ santa elvira,10
+BUR-2025-00525,2025-11-28,01:40,viernes,noche,Lesiones,147,Plaza Palau,8
+BUR-2025-00526,2025-11-28,08:20,viernes,mañana,Robo con fuerza en las cosas en casa habitada,241,Calle NUÑEZ DE ARCE,3
+BUR-2025-00527,2025-11-28,21:00,viernes,tarde,Hurto,234,C/ Jardi,73
+BUR-2025-00528,2025-11-28,22:40,viernes,noche,Lesiones,147,Pl. fira,nº 18
+BUR-2025-00529,2025-11-29,02:45,sábado,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,C/ Mare de Deu Dels Angels,38
+BUR-2025-00530,2025-11-30,19:50,domingo,tarde,Contra la salud pública (tráfico de drogas),368,c/ Ample,20
+BUR-2025-00531,2025-12-01,19:00,lunes,tarde,Hurto,234,C/ la Tanda,404
+BUR-2025-00532,2025-12-02,05:40,martes,madrugada,Robo con fuerza en las cosas (interior de vehículo),237-238,Ronda Panderola,
+BUR-2025-00533,2025-12-02,15:05,martes,tarde,Hurto,234,C/ Ruzafa,34
+BUR-2025-00534,2025-12-02,21:00,martes,tarde,Hurto,234,C/ LSESCORREDOR,nº 64
+BUR-2025-00535,2025-12-03,00:55,miércoles,noche,Desórdenes públicos,557,calle del Bronze,261
+BUR-2025-00536,2025-12-03,17:10,miércoles,tarde,Hurto,234,C/ Labranza,s/n
+BUR-2025-00537,2025-12-04,01:20,jueves,noche,Daños,263,CL Cantabrico del,388
+BUR-2025-00538,2025-12-04,17:50,jueves,tarde,Hurto,234,calle Maestrat,5
+BUR-2025-00539,2025-12-04,19:05,jueves,tarde,Robo con fuerza en las cosas en casa habitada,241,C/ Vicente Cantos Figuerola,23
+BUR-2025-00540,2025-12-04,21:35,jueves,tarde,Contra la salud pública (tráfico de drogas),368,Gran Vía Marqués del Turia,
+BUR-2025-00541,2025-12-05,16:55,viernes,tarde,Robo con fuerza en las cosas en casa habitada,241,C/ Ruzafa,
+BUR-2025-00542,2025-12-05,19:05,viernes,tarde,Hurto,234,calle ECCE HOMO,256
+BUR-2025-00543,2025-12-05,23:00,viernes,noche,Lesiones,147,RONDA POETA CALZADA C,1
+BUR-2025-00544,2025-12-06,04:35,sábado,madrugada,Daños,263,Partida POLIGONO 46,469
+BUR-2025-00545,2025-12-06,09:40,sábado,mañana,Hurto,234,calle Artur Pirucho i Badia,11
+BUR-2025-00546,2025-12-06,23:10,sábado,noche,Daños,263,Ronda Musico Ibáñez,s/n
+BUR-2025-00547,2025-12-07,17:35,domingo,tarde,Robo con fuerza en las cosas en casa habitada,241,Parque municipal,
+BUR-2025-00548,2025-12-08,10:45,lunes,mañana,Hurto,234,C/ SANT TEODOR,s/n
+BUR-2025-00549,2025-12-08,11:50,lunes,mañana,Hurto,234,C/ Maestro Serrano,7
+BUR-2025-00550,2025-12-08,14:50,lunes,tarde,Robo con fuerza en las cosas en casa habitada,241,Partida POLIGONO 45,723
+BUR-2025-00551,2025-12-08,23:00,lunes,noche,Hurto o robo de uso de vehículo a motor,244,CL San Juan Cruz,nº 4
+BUR-2025-00552,2025-12-09,21:35,martes,tarde,Daños,263,Calle Pedro Corenll,46
+BUR-2025-00553,2025-12-10,06:20,miércoles,mañana,Robo con fuerza en las cosas en establecimiento abierto al público,241,Partida Alcries de Fer,60
+BUR-2025-00554,2025-12-10,17:05,miércoles,tarde,Hurto,234,Calle serves de jesus,6
+BUR-2025-00555,2025-12-11,00:15,jueves,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Parque municipal,
+BUR-2025-00556,2025-12-11,01:05,jueves,noche,Robo con violencia o intimidación en las personas,242,C/ Santa Teresa,317
+BUR-2025-00557,2025-12-11,09:40,jueves,mañana,Hurto,234,AVDA Juan Bautista Sanmartin,
+BUR-2025-00558,2025-12-11,10:35,jueves,mañana,Robo con fuerza en las cosas en casa habitada,241,CL Peu de la Creu,30
+BUR-2025-00559,2025-12-11,12:55,jueves,mañana,Amenazas,169,Ronda Musico Ibáñez,
+BUR-2025-00560,2025-12-11,17:00,jueves,tarde,Hurto,234,Partida Poligono 37,
+BUR-2025-00561,2025-12-11,19:50,jueves,tarde,Hurto,234,C/ TEODOR LLORENTE,nº 18
+BUR-2025-00562,2025-12-12,10:25,viernes,mañana,Amenazas,169,Partida Ecce Homo,447
+BUR-2025-00563,2025-12-12,22:25,viernes,noche,Daños,263,CL Almesias,19
+BUR-2025-00564,2025-12-12,22:35,viernes,noche,Lesiones,147,C/ Progres,nº 11
+BUR-2025-00565,2025-12-14,04:55,domingo,madrugada,Lesiones,147,Ronda Poeta Calzada C,10
+BUR-2025-00566,2025-12-14,18:40,domingo,tarde,Hurto,234,C/ mare de deu dels angels,389
+BUR-2025-00567,2025-12-14,20:00,domingo,tarde,Hurto,234,C/ Santa Ana,S/N
+BUR-2025-00568,2025-12-15,01:05,lunes,noche,Daños,263,C/ ARTUR PERUCHO I BADIA,267
+BUR-2025-00569,2025-12-15,20:00,lunes,tarde,Hurto,234,CL Industria,11
+BUR-2025-00570,2025-12-15,23:35,lunes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,Cno. Pedrera Vila-vella,48
+BUR-2025-00571,2025-12-16,09:15,martes,mañana,Robo con fuerza en las cosas en casa habitada,241,Partida Campa,651
+BUR-2025-00572,2025-12-16,20:10,martes,tarde,Hurto,234,calle ZORRILLA,S/N
+BUR-2025-00573,2025-12-18,02:00,jueves,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,c/ Jardi,294
+BUR-2025-00574,2025-12-18,03:10,jueves,madrugada,Lesiones,147,Calle EL RAVAL,68-F
+BUR-2025-00575,2025-12-18,21:45,jueves,tarde,Contra la salud pública (tráfico de drogas),368,RONDA PEDRO IV,27
+BUR-2025-00576,2025-12-19,15:30,viernes,tarde,Robo con fuerza en las cosas en casa habitada,241,Calle EUROPA,
+BUR-2025-00577,2025-12-19,18:50,viernes,tarde,Hurto,234,Calle Tarancon,23
+BUR-2025-00578,2025-12-19,23:50,viernes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,CL Pintor Sorolla,6
+BUR-2025-00579,2025-12-20,00:15,sábado,noche,Daños,263,Centro comercial,39
+BUR-2025-00580,2025-12-20,00:45,sábado,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,CL Pintor Sorolta,22
+BUR-2025-00581,2025-12-20,03:25,sábado,madrugada,Daños,263,Ronda Poeta Calzada C,nº 10
+BUR-2025-00582,2025-12-20,10:45,sábado,mañana,Hurto,234,calle Jardi,54
+BUR-2025-00583,2025-12-23,04:15,martes,madrugada,Robo con fuerza en las cosas en establecimiento abierto al público,241,CL AUSIAS MARCH,313
+BUR-2025-00584,2025-12-23,09:45,martes,mañana,Robo con fuerza en las cosas en casa habitada,241,C/ Sant Ernest,17
+BUR-2025-00585,2025-12-23,12:05,martes,mañana,Robo con fuerza en las cosas en casa habitada,241,C/ Sant Andreu,33
+BUR-2025-00586,2025-12-24,01:25,miércoles,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,C/ Sant Leandre,314
+BUR-2025-00587,2025-12-24,16:40,miércoles,tarde,Hurto,234,C/ SANT FELIP,211
+BUR-2025-00588,2025-12-26,03:45,viernes,madrugada,Hurto o robo de uso de vehículo a motor,244,Ctra. Serratlela,75
+BUR-2025-00589,2025-12-26,18:25,viernes,tarde,Hurto,234,calle Mare de Deu de Lourdes,235
+BUR-2025-00590,2025-12-26,19:40,viernes,tarde,Hurto,234,calle Santa Elvira,nº 2
+BUR-2025-00591,2025-12-27,00:25,sábado,noche,Robo con violencia o intimidación en las personas,242,CL Alqueries de Les,466
+BUR-2025-00592,2025-12-27,15:40,sábado,tarde,Hurto,234,C/ Xàtiva,
+BUR-2025-00593,2025-12-27,16:40,sábado,tarde,Hurto,234,Calle Industria,11
+BUR-2025-00594,2025-12-28,13:45,domingo,mañana,Hurto,234,Descampado junto a la carretera,
+BUR-2025-00595,2025-12-28,14:50,domingo,tarde,Hurto,234,CL Angel de la Guarda,
+BUR-2025-00596,2025-12-29,04:10,lunes,madrugada,Lesiones,147,Pl. POLIGONO 27,489
+BUR-2025-00597,2025-12-29,09:40,lunes,mañana,Hurto,234,C/ MARE DE DEU DE LA CABEZA,15
+BUR-2025-00598,2025-12-29,09:55,lunes,mañana,Robo con fuerza en las cosas en casa habitada,241,CL Santa Elvira,346
+BUR-2025-00599,2025-12-29,23:55,lunes,noche,Robo con fuerza en las cosas (interior de vehículo),237-238,CL Cardenal Cisneros,16
+BUR-2025-00600,2025-12-31,03:45,miércoles,madrugada,Daños,263,calle Almesias,

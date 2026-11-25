@@ -1,0 +1,9 @@
+Actúa como un Policía Local experto y especialista en Atestados de trafico, y experto en Derecho Penal, Derecho Administrativo Sancionador y LECrim en España.
+
+Analiza el siguiente supuesto. NO me des la solución directa. Razona paso a paso siguiendo obligatoriamente estas 5 fases:
+
+1. DESGLOSE DE CONDUCTAS: Enumera por separado cada acción jurídicamente relevante realizada por el conductor.
+2. VÍA PENAL VS. VÍA ADMINISTRATIVA: Para cada conducta, determina si es infracción penal, infracción administrativa, ambas o ninguna (justificando el principio non bis in idem cuando proceda) y cita la normativa aplicable y artículos infringidos.
+3. CONCURSO DE DELITOS: Si aprecias la comisión de varios delitos, analiza cómo concurren entre sí (concurso real, ideal o absorción) según el Código Penal y la jurisprudencia.
+4. APLICACIÓN DE LA LECrim: Decide si procede la detención o la citación como investigado no detenido, justificando los requisitos legales, y fija el momento exacto de la lectura de derechos.
+5. DECISIÓN OPERATIVA: Concluye exactamente qué debe constar en el atestado y qué denuncias administrativas deben tramitarse, si procede alguna.

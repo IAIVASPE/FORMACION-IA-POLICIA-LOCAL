@@ -1,0 +1,367 @@
+=====================================================================
+  TOKENIZADOR IA — MANUAL DE USO
+  Archivo: TokenizadorIA_CSV.html
+=====================================================================
+
+ÍNDICE
+  1. Qué es y para qué sirve
+  2. Privacidad: lo que debes saber antes de empezar
+  3. Cómo abrirlo
+  4. La pantalla
+  5. Pestaña «📝 Texto»: tokenizar un documento
+  6. Pestaña «📊 CSV por columnas»: tokenizar una tabla (CSV o Excel)
+  7. Enviar a la IA: plantillas de prompt y botones de copia
+  8. Destokenizar la respuesta de la IA
+  9. Exportar
+ 10. Mapa de equivalencias y agrupaciones de vías
+ 11. Gestor de plantillas de prompt
+ 12. Formatos de archivo admitidos
+ 13. Qué detecta (tipologías)
+ 14. Límites y buenas prácticas
+ 15. Problemas frecuentes
+
+
+---------------------------------------------------------------------
+1. QUÉ ES Y PARA QUÉ SIRVE
+---------------------------------------------------------------------
+Sirve para usar una IA (ChatGPT, Claude, Gemini, Copilot…) con documentos
+policiales o tablas de hechos SIN entregarle los datos personales.
+
+El proceso tiene tres pasos:
+
+  1) TOKENIZAR. El programa sustituye nombres, DNI, teléfonos, domicilios,
+     matrículas, cuentas, delitos, etc. por marcas («tokens») como
+     [[PERSONA_01]], [[DOC_ID_01]] o [[DOMICILIO_03]].
+  2) PREGUNTAR A LA IA. Copias el texto tokenizado, junto con un prompt,
+     y lo pegas en la IA. La IA trabaja con los tokens, sin ver los datos reales.
+  3) DESTOKENIZAR. Pegas la respuesta de la IA en el programa y los tokens
+     vuelven a ser los datos reales. Se conserva el formato: párrafos, listas,
+     tablas y negritas.
+
+La misma persona o el mismo dato recibe siempre el mismo token, aunque
+aparezca escrito de formas distintas. Por ejemplo, «C/ Mayor 12»,
+«Calle Mayor, 12» y «CARRER MAJOR 12» comparten token.
+
+
+---------------------------------------------------------------------
+2. PRIVACIDAD: LO QUE DEBES SABER ANTES DE EMPEZAR
+---------------------------------------------------------------------
+- Todo ocurre en tu navegador. El archivo no envía nada a internet,
+  tampoco los documentos que cargas: Word, PDF y Excel se leen en tu equipo.
+- La tabla de correspondencias token ↔ dato real (el «diccionario») solo
+  existe mientras la pestaña está abierta. Si recargas o cierras la página,
+  se pierde y ya no podrás destokenizar. DESTOKENIZA ANTES DE CERRAR.
+- Lo que exportas como «tokenizado» no contiene datos reales.
+  Lo que exportas como «destokenizado» SÍ contiene datos reales: trátalo
+  como documentación sensible.
+- El programa es un motor de reglas, no una IA. Puede dejarse algún dato
+  o marcar de más. REVISA SIEMPRE el texto tokenizado antes de enviarlo.
+- Lo único que el navegador guarda entre sesiones son tus plantillas de
+  prompt y el tamaño de los paneles. No guarda datos.
+
+
+---------------------------------------------------------------------
+3. CÓMO ABRIRLO
+---------------------------------------------------------------------
+- Doble clic en TokenizadorIA_CSV.html. Se abre en el navegador
+  (Chrome, Edge o Firefox recientes). No necesita instalación ni conexión.
+- Para cargar un documento, arrástralo al recuadro punteado del panel
+  izquierdo o haz clic en el recuadro para elegirlo.
+- Botón «❓ Ayuda» (arriba a la derecha): resumen rápido de uso.
+
+
+---------------------------------------------------------------------
+4. LA PANTALLA
+---------------------------------------------------------------------
+Arriba hay dos pestañas:
+  📝 Texto ............... documentos y textos libres
+  📊 CSV por columnas .... tablas (CSV, Excel)
+
+Cada pestaña tiene tres paneles:
+  Izquierda  → lo que cargas (documento o tabla)
+  Centro     → el resultado tokenizado, que es lo que se envía a la IA
+  Derecha    → la destokenización de la respuesta de la IA
+
+- Para cambiar el ancho de los paneles, arrastra la línea que los separa.
+  Doble clic en la línea: vuelve al ancho inicial. El tamaño se recuerda.
+- En pantallas estrechas los paneles se colocan uno debajo de otro.
+- En la barra inferior aparece en todo momento qué ha hecho el programa.
+
+
+---------------------------------------------------------------------
+5. PESTAÑA «📝 TEXTO»: TOKENIZAR UN DOCUMENTO
+---------------------------------------------------------------------
+5.1 Cargar el texto
+  - Arrastra un documento (Word, PDF, Excel, LibreOffice, .txt, .html,
+    .eml…) al recuadro, o pega el texto en el cuadro de abajo.
+    Puedes cargar varios documentos a la vez.
+  - «✨ Cargar ejemplo» carga un texto de prueba.
+  - «📋 Pegar» pega lo que tengas copiado.
+  - «Unir líneas cortadas (PDF)»: márcalo si has PEGADO texto copiado de un
+    PDF y las frases salen partidas. Si arrastras el PDF, no hace falta:
+    el programa ya recompone los párrafos.
+  - «🧹 Limpiar» borra el texto y empieza de cero con un diccionario nuevo.
+  - Si arrastras un Excel o un CSV, te pregunta si quieres abrirlo en la
+    pestaña de tablas.
+
+5.2 Revisar el resultado (panel central)
+  La tokenización es automática mientras escribes o cargas.
+  - VERDE = dato protegido.
+      · Clic izquierdo: lo revierte (vuelve a verse el dato real).
+      · Clic derecho: menú para corregir la tipología.
+  - AMARILLO = posible dato sensible no tokenizado.
+      · Clic izquierdo: menú para elegir con qué tipología tokenizarlo
+        o para ignorarlo («no es dato sensible»).
+  - Si falta algo por tokenizar: selecciónalo con el ratón (en el panel
+    central o en el izquierdo) y pulsa «🖍 Tokenizar selección», o usa el
+    clic derecho sobre la selección. Elige la tipología.
+  - Si seleccionas un nombre que ya está dentro de otro token de persona,
+    el programa pregunta si es la misma persona, para usar el mismo token.
+  - Los contadores de arriba (🔒 Protegidos / ⚠️ Dudosos) indican cuántos hay.
+
+
+---------------------------------------------------------------------
+6. PESTAÑA «📊 CSV POR COLUMNAS»: TOKENIZAR UNA TABLA
+---------------------------------------------------------------------
+Pensada para tablas de hechos: fecha, hora, calle, número, delito,
+denunciante, observaciones…
+
+6.1 Cargar
+  - Arrastra un CSV, un Excel (.xlsx/.xlsm), un LibreOffice Calc (.ods) o
+    un Word que contenga una tabla.
+  - Se detectan solos el separador del CSV, las fechas y horas del Excel,
+    y si hay una fila de título encima de la cabecera.
+
+6.2 Ventana «Columnas de …» (se abre sola al cargar)
+  Muestra el propio archivo:
+  - Encima de cada columna hay un desplegable para indicar QUÉ CONTIENE.
+    Viene ya rellenado con lo que el programa ha detectado; revísalo.
+  - Los colores ayudan a ver lo elegido:
+      verde    = direcciones
+      rojo     = delitos
+      rosa     = artículos del Código Penal
+      amarillo = texto libre
+      naranja  = coordenadas
+      azul     = datos personales
+      gris     = no se toca
+  - «Hoja»: si el Excel tiene varias, elige cuál (por defecto, la de más filas).
+  - «Fila de títulos»: cámbiala si la cabecera no está en la fila detectada.
+  - «Así quedará»: las primeras filas ya tokenizadas con tu elección.
+  - Pulsa «🛡️ Aplicar y tokenizar». Con «Cancelar» la tabla queda cargada
+    sin tokenizar.
+  - «⚙ Columnas» (panel izquierdo) vuelve a abrir esta ventana.
+
+  Qué puede contener una columna:
+    No tocar ............................ se deja tal cual (fechas, horas, ids…)
+    📍 Dirección: nombre de la vía ...... «C/ Mayor», «Carrer Major»…
+    📍 Dirección: número / portal ....... el número de la columna anterior
+    📍 Dirección completa ............... «Calle Mayor 12, 3º B, Moncada»
+    ⚖️ Delito / tipo de hecho ........... «Hurto», «Furt», «Robo con violencia»…
+    ⚖️ Artículo del Código Penal ........ «234», «art. 248 CP»
+    🔎 Texto libre ...................... observaciones o relatos: se buscan
+                                          dentro nombres, teléfonos, DNI,
+                                          direcciones, delitos…
+    🌐 Coordenada ....................... se redondea (unos 100 m)
+    🔒 Persona / Documento / Teléfono /
+       Email / Matrícula / Localidad… ... toda la celda pasa a ser un token
+
+6.3 Opciones del panel izquierdo
+  - «Direcciones»:
+      · Un token por dirección (vía + número). Es la opción por defecto.
+        El número desaparece de su columna y va dentro del token.
+      · Un token por vía. El número queda visible; útil para estadística
+        por calle.
+  - «Agrupar variantes de la misma vía». Une como una sola vía:
+      · C/ = Calle = Carrer
+      · las erratas
+      · los títulos omitidos: «Empar Ferrer» = «Actriu Empar Ferrer»
+  - «Detectar delitos también dentro de las columnas de texto libre».
+
+6.4 Revisar y corregir (panel central)
+  - La vista previa muestra las primeras 300 filas. Al exportar van todas.
+  - Si queda un dato sin tokenizar, selecciónalo DENTRO DE UNA CELDA y pulsa
+    «🖍 Tokenizar selección» (o clic derecho). Se tokeniza en TODAS las
+    celdas en las que aparezca, también en columnas «No tocar».
+  - Si seleccionas un token, puedes cambiar su tipología o revertirlo en
+    toda la tabla.
+  - El aviso «⚠️ agrupaciones por revisar» abre la revisión de las vías que
+    se han unido por parecido (ver apartado 10).
+  - «🧹 Nuevo» borra la tabla y el diccionario.
+
+
+---------------------------------------------------------------------
+7. ENVIAR A LA IA: PLANTILLAS Y BOTONES DE COPIA
+---------------------------------------------------------------------
+1) Elige la plantilla de prompt en el desplegable de abajo del panel central.
+2) Pulsa «📑 Copiar prompt + texto» (o «Copiar prompt + CSV»). Se copian
+   juntos el prompt, la regla de protección de tokens y el texto tokenizado.
+3) Pégalo en la IA.
+
+El botón con el triángulo ▲ a la derecha abre más opciones:
+   - Copiar solo el texto tokenizado (o solo el CSV)
+   - Copiar solo el prompt
+
+Todas las plantillas llevan una regla que obliga a la IA a mantener los
+tokens tal cual, sin cambiarlos ni inventar otros.
+
+Plantillas incluidas:
+  🏦 Análisis de movimientos bancarios y trazabilidad
+  📑 Propuesta de oficios y mandamientos
+  👮 Redacción técnico-policial (estilo atestado)
+  📋 Resumen ejecutivo y cronológico
+  📊 Estadística del periodo: informe ejecutivo (por defecto en tablas):
+     datos → análisis → conclusiones → propuesta de actuación
+  📝 Informe o atestado de Policía Local (desde notas)
+  🗣️ Borrador de comparecencia (relato del denunciante)
+  ⚖️ El día del juicio: preparación de la declaración en sala
+  🏛️ Antecedentes de informe desde una instancia ciudadana
+  🛡️ Estándar de blindaje
+
+
+---------------------------------------------------------------------
+8. DESTOKENIZAR LA RESPUESTA DE LA IA (panel derecho)
+---------------------------------------------------------------------
+El panel derecho tiene dos cajones plegables. El botón redondo con la
+flecha, a la derecha de cada título (o un clic en el título), los pliega
+y despliega.
+
+  ♻️ Destokenización · respuesta de la IA (arriba, abierto al empezar)
+     - «📋 Pegar» o Ctrl+V: pega la respuesta de la IA. Se conservan
+       párrafos, sangrías, listas, tablas y negritas.
+     - En la pestaña de tablas también puedes ARRASTRAR aquí el CSV o el
+       Excel tokenizado que te devuelva la IA. Se recompone la tabla
+       original, con la vía y el número en sus columnas.
+     - «🧹 Limpiar» vacía el cajón y vuelve al estado inicial.
+
+  📤 Texto final destokenizado (abajo, plegado al empezar)
+     Al pegar, el cajón de arriba se pliega solo y el resultado se abre
+     ocupando todo el panel:
+     - Los datos restaurados aparecen resaltados en verde.
+     - Si la IA ha inventado o estropeado un token, aparece en rojo y
+       arriba sale el aviso «❌ No reconocidos».
+     - El texto es editable: puedes corregirlo antes de guardarlo.
+     - Botones: 📋 Copiar (con formato, para pegar en Word) · 💾 .docx ·
+       💾 .txt. En la pestaña de tablas, además 💾 .csv y 💾 .xlsx.
+
+
+---------------------------------------------------------------------
+9. EXPORTAR
+---------------------------------------------------------------------
+Botón «⬇ Exportar ▾» del panel central: guarda lo TOKENIZADO, sin datos
+reales.
+  Pestaña Texto: .txt · Word (.docx) · Tabla (.csv) · Excel (.xlsx)
+  Pestaña CSV:   .csv · Excel (.xlsx) · .txt · Word (.docx)
+
+Botones del cajón «Texto final destokenizado»: guardan lo DESTOKENIZADO,
+CON DATOS REALES.
+
+Los archivos se guardan en tu carpeta de Descargas.
+
+
+---------------------------------------------------------------------
+10. MAPA DE EQUIVALENCIAS Y AGRUPACIONES DE VÍAS
+---------------------------------------------------------------------
+«🗝 Mapa de equivalencias» muestra el diccionario token ↔ dato real.
+  - Pestaña Texto:
+      · activar o desactivar un token
+      · corregir el valor real
+      · cambiar la tipología
+      · borrar
+      · añadir un término a mano
+  - Pestaña CSV:
+      · buscador y filtro por categoría
+      · activar o desactivar
+      · corregir el valor
+      · ver las variantes agrupadas
+    Al cerrar, los cambios se aplican a la tabla.
+  - Pestaña «🔎 Agrupaciones de vías» (solo en tablas): lista las formas
+    de escribir una calle que se han unido por parecido, con el motivo.
+      · «✂ Separar»: si no son la misma vía, tendrán token propio.
+      · «↩ Volver a unir»: deshace la separación.
+
+
+---------------------------------------------------------------------
+11. GESTOR DE PLANTILLAS DE PROMPT («⚙ Prompts», arriba a la derecha)
+---------------------------------------------------------------------
+  - Nuevo / Guardar / Eliminar: crea, edita o borra plantillas.
+  - «📌 Fijar como predeterminadas»: las plantillas actuales pasan a ser
+    las que se recuperan al restablecer.
+  - «Restablecer predeterminadas»: vuelve a las plantillas fijadas. La
+    primera vez, son las que tenías al instalar esta versión.
+  - Las plantillas se guardan en el navegador. En otro navegador u otro
+    equipo verás las de allí.
+
+
+---------------------------------------------------------------------
+12. FORMATOS DE ARCHIVO ADMITIDOS
+---------------------------------------------------------------------
+  Word ........ .docx .docm. Conserva títulos, listas numeradas,
+                tabulaciones y tablas.
+  LibreOffice . .odt (texto) y .ods (hoja de cálculo)
+  PDF ......... con texto seleccionable. Recompone párrafos y palabras
+                partidas con guion. Abre también los PDF protegidos solo
+                contra copia o impresión, y lee los campos de los
+                formularios rellenables.
+  Excel ....... .xlsx .xlsm (con varias hojas, fechas y horas) y los
+                «.xls» exportados como HTML o texto
+  Texto ....... .txt .md .csv .tsv .html .eml .json .xml .log
+
+  NO admitidos (el programa avisa):
+  - Word/Excel antiguos (.doc, .xls de 1997-2003): ábrelos y guárdalos
+    como .docx/.xlsx.
+  - PDF escaneados (solo imagen): necesitan OCR antes.
+  - PDF o documentos con contraseña de apertura: guárdalos sin contraseña.
+
+
+---------------------------------------------------------------------
+13. QUÉ DETECTA (TIPOLOGÍAS)
+---------------------------------------------------------------------
+  Personas (con D., Dña., denunciante, investigado, víctima, testigo…),
+  DNI/NIE/pasaporte (con letra de control), teléfonos, emails, IBAN y
+  cuentas, tarjetas (comprobando el número), matrículas, IP, perfiles @,
+  fechas de nacimiento, TIP de agentes, números de diligencias,
+  domicilios y vías (en castellano y valenciano), localidades,
+  delitos (catálogo del Código Penal en castellano y valenciano:
+  «furt» = «hurto») y artículos del CP.
+
+  Domicilios:
+  - Tras una coma solo se considera parte del domicilio lo que es piso,
+    puerta, bajo, código postal o un municipio del listado (unos 900:
+    los de la Comunitat Valenciana en las dos lenguas, y las capitales y
+    ciudades grandes de España).
+  - Por ejemplo, en «Camino Viejo 9, ha caído al suelo…» el token llega
+    solo hasta el 9.
+
+
+---------------------------------------------------------------------
+14. LÍMITES Y BUENAS PRÁCTICAS
+---------------------------------------------------------------------
+  - Revisa siempre el panel central antes de copiar. Lo amarillo es dudoso.
+  - Los apodos, los nombres sin mayúscula o los datos muy raros pueden no
+    detectarse. Usa «Tokenizar selección».
+  - Los alias de persona («el Sr. Pérez») se agrupan con la persona
+    completa, pero comprueba que sea la misma.
+  - En tablas, las variantes de una calle se restauran con la forma más
+    frecuente: «Carrer Major» puede volver como «C/ Mayor».
+  - No cierres ni recargues la pestaña hasta haber destokenizado y
+    guardado el resultado.
+  - Para datos reales, utiliza solo IA autorizadas por tu organización.
+
+
+---------------------------------------------------------------------
+15. PROBLEMAS FRECUENTES
+---------------------------------------------------------------------
+  «No reconocidos» en rojo al destokenizar
+     La IA ha cambiado un token, por ejemplo [[PERSONA_1]] o PERSONA_01
+     sin corchetes, o se lo ha inventado. Corrígelo en el texto o pide a
+     la IA que respete los tokens.
+  Las viñetas salen desplazadas al exportar
+     Ya está resuelto en esta versión. Si vuelve a pasar, copia con
+     «📋 Copiar» y pega en Word.
+  Un PDF sale vacío o «parece escaneado»
+     No tiene capa de texto: pásalo por OCR.
+  El Excel no coge la cabecera buena
+     Cambia la «Fila de títulos» en la ventana de columnas.
+  He recargado la página y no puedo destokenizar
+     El diccionario se ha perdido. Hay que volver a tokenizar el original
+     y repetir la consulta a la IA.
