@@ -1,0 +1,7 @@
+﻿En un control preventivo de alcoholemia en casco urbano, la Policía Local da el alto a un turismo. El conductor manifiesta no llevar el DNI encima, pero facilita verbalmente el nombre, apellidos y número de DNI de su hermano (quien tiene el permiso de conducir en vigor).
+
+Al presentar síntomas leves de ingesta alcohólica, se le somete a la primera prueba en el etilómetro evidencial, arrojando 0,72 mg/l. Acto seguido, el conductor se niega rotundamente a realizar la segunda prueba de verificación ("ya he soplado una vez y no voy a soplar más"), y firma la diligencia de negativa con el nombre de su hermano.
+
+Al trasladarlo a dependencias policiales (o comprobar su fotografía en las bases de datos policiales/DGT para verificar su identidad), los agentes descubren que no es quien dice ser: es D. Carlos R., quien tiene una suspensión judicial vigente del permiso de conducir por sentencia firme.
+
+La duda: ¿Qué delitos concurren exactamente y cómo se relacionan entre sí (concurso real, ideal o delito absorbido)? ¿Es delito dar los datos del hermano y firmar por él? ¿Cómo debe aplicarse la LECrim respecto a la detención y el momento de la lectura de derechos?
